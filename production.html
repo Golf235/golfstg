@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production - Golfyr</title>
+    
+    <!-- Brand Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="./favicon.ico">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Custom Vanilla Stylesheet -->
+    <link rel="stylesheet" href="./rebuilt-style.min.css">
+    
+    <style>
+        /* Bottom alignment for Hero container to align text and buttons to bottom on all screen sizes */
+        .hero-video-home-p1 .container {
+            justify-content: flex-end !important;
+        }
+        @media (max-width: 767px) {
+            .hero-video-home-p1 .cta-wrapper {
+                margin-bottom: 15px !important;
+            }
+        }
+        .hero-video-home-p1 .background picture,
+        .hero-video-home-p1 .background picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --------------------------------------------------
+         Header & Navigation Area
+    -------------------------------------------------- -->
+    <header>
+        <div class="container nav-container">
+            <a href="./index.html" class="logo">
+                <img src="./golfyr-logo-dark.png" alt="Golfyr Logo">
+            </a>
+            
+            <nav class="nav-links-wrapper">
+                <ul class="nav-links">
+                    <li class="nav-dropdown">
+                        <a href="javascript:void(0)"><span data-translate="nav-our-clubs">Our Clubs</span> <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 6px; transition: transform var(--transition-smooth);"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./sevenclubgame.html" data-translate="nav-sevenclub" class="dropdown-category">#sevenclubgame</a></li>
+                            <li><a href="./opener.html" data-translate="club-opener-title" class="dropdown-sub-item">The Opener</a></li>
+                            <li><a href="./mover.html" data-translate="club-mover-title" class="dropdown-sub-item">The Mover</a></li>
+                            <li><a href="./riser.html" data-translate="club-riser-title" class="dropdown-sub-item">The Riser</a></li>
+                            <li><a href="./pitcher.html" data-translate="club-pitcher-title" class="dropdown-sub-item">The Pitcher</a></li>
+                            <li><a href="./maker.html" data-translate="club-maker-title" class="dropdown-sub-item">The Maker</a></li>
+                            <li><a href="./maker-tour.html" data-translate="club-makertour-title" class="dropdown-sub-item">The Maker Tour</a></li>
+                            <li><a href="./saver.html" data-translate="club-saver-title" class="dropdown-sub-item">The Saver</a></li>
+                            <li><a href="./butler.html" data-translate="club-butler-title" class="dropdown-sub-item">The Butler</a></li>
+                        </ul>
+                    </li>
+                                        <li class="nav-dropdown">
+                        <a href="javascript:void(0)" class="active"><span data-translate="nav-tech">Technology</span> <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 6px; transition: transform var(--transition-smooth);"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./technology.html" data-translate="nav-tech-all" class="dropdown-category">Carbonics</a></li>
+                            <li><a href="./innovation.html" data-translate="nav-innovation" class="dropdown-sub-item">Innovation</a></li>
+                            <li><a href="./material.html" data-translate="nav-material" class="dropdown-sub-item">Material</a></li>
+                            <li><a href="./production.html" data-translate="nav-production" class="dropdown-sub-item">Production</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./experience.html" data-translate="nav-experience">Experience</a></li>
+                    <li><a href="./shop.html" data-translate="nav-shop">Shop</a></li>
+                    <li><a href="./magazine.html" data-translate="nav-magazine">Magazine</a></li>
+                    <li><a href="./about.html" data-translate="nav-about">About</a></li>
+                    
+                </ul>
+            </nav>
+            
+            <div class="header-right">
+                <!-- Cart Widget -->
+                <button class="cart-widget">
+                    <div class="cart-icon-wrapper">
+                        <img src="./icon-cart-dark.png" alt="Cart Icon" style="height: 18px; width: auto;">
+                        <span class="cart-badge">1</span>
+                    </div>
+                    <span>CHF 890<span data-translate="nav-cart-suffix"> (incl. tax)</span></span>
+                </button>
+                
+                <!-- Language Toggler -->
+                <div class="lang-selector">
+                    <button class="lang-switch active" data-lang="en">En</button>
+                    <span style="color: rgba(255,255,255,0.4)">/</span>
+                    <button class="lang-switch" data-lang="de">De</button>
+                </div>
+                
+                <!-- Mobile Nav Trigger -->
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+        <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="#13221e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <ul class="mobile-menu-links">
+            <li class="mobile-nav-dropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-trigger"><span data-translate="nav-our-clubs">Our Clubs</span> <svg class="arrow-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px; transition: transform var(--transition-smooth);"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <ul class="mobile-sub-menu">
+                    <li><a href="./sevenclubgame.html" data-translate="nav-sevenclub" class="dropdown-category">#sevenclubgame</a></li>
+                    <li><a href="./opener.html" data-translate="club-opener-title" class="dropdown-sub-item">The Opener</a></li>
+                    <li><a href="./mover.html" data-translate="club-mover-title" class="dropdown-sub-item">The Mover</a></li>
+                    <li><a href="./riser.html" data-translate="club-riser-title" class="dropdown-sub-item">The Riser</a></li>
+                    <li><a href="./pitcher.html" data-translate="club-pitcher-title" class="dropdown-sub-item">The Pitcher</a></li>
+                    <li><a href="./maker.html" data-translate="club-maker-title" class="dropdown-sub-item">The Maker</a></li>
+                    <li><a href="./maker-tour.html" data-translate="club-makertour-title" class="dropdown-sub-item">The Maker Tour</a></li>
+                    <li><a href="./saver.html" data-translate="club-saver-title" class="dropdown-sub-item">The Saver</a></li>
+                    <li><a href="./butler.html" data-translate="club-butler-title" class="dropdown-sub-item">The Butler</a></li>
+                </ul>
+            </li>
+                                <li class="mobile-nav-dropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-trigger active"><span data-translate="nav-tech">Technology</span> <svg class="arrow-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px; transition: transform var(--transition-smooth);"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <ul class="mobile-sub-menu">
+                    <li><a href="./technology.html" data-translate="nav-tech-all" class="dropdown-category">Carbonics</a></li>
+                    <li><a href="./innovation.html" data-translate="nav-innovation" class="dropdown-sub-item">Innovation</a></li>
+                    <li><a href="./material.html" data-translate="nav-material" class="dropdown-sub-item">Material</a></li>
+                    <li><a href="./production.html" data-translate="nav-production" class="dropdown-sub-item">Production</a></li>
+                </ul>
+            </li>
+            <li><a href="./experience.html" data-translate="nav-experience">Experience</a></li>
+            <li><a href="./shop.html" data-translate="nav-shop">Shop</a></li>
+            <li><a href="./magazine.html" data-translate="nav-magazine">Magazine</a></li>
+            <li><a href="./about.html" data-translate="nav-about">About</a></li>
+            
+            <li style="margin-top: 24px;">
+                <div class="lang-selector">
+                    <button class="lang-switch active mobile-hide" data-lang="en">En</button>
+                    <span style="color: rgba(255,255,255,0.4)">/</span>
+                    <button class="lang-switch mobile-hide" data-lang="de">De</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- --------------------------------------------------
+             Hero Banner Section
+        -------------------------------------------------- -->
+        <section class="hero-video-home-p1 d-flex flex-column justify-content-end">
+            <div class="background">
+                <picture>
+                    <source media="(max-width: 576px)" srcset="./Production - Golfyr_files/3_Gossau_Adultimum_1_Bild_JM5R2670-6-1024x683.png">
+                    <source media="(max-width: 992px)" srcset="./Production - Golfyr_files/3_Gossau_Adultimum_1_Bild_JM5R2670-4-1024x683.png">
+                    <img src="./Production - Golfyr_files/3_Gossau_Adultimum_1_Bild_JM5R2670-5-1024x683.png" alt="Innovation engineered with Swiss Precision" loading="lazy">
+                </picture>
+            </div>
+            <div class="overlay-shadow"></div>
+            
+            <div class="scroll-cta">
+                <div class="cta" data-translate="production-discover">Discover more</div>
+                <div class="chevron">
+                    <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9.5L9.99997 18.5L18.9999 9.5" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="container h-100 d-flex flex-column align-items-start">
+                <div class="row w-100 flex-grow-1">
+                    <div class="col-12 d-flex flex-column justify-content-start"></div>
+                </div>
+                <div class="row w-100">
+                    <div class="col-12 col-md-10">
+                        <span class="pre-headline" data-translate="nav-tech">Technology</span>
+                        <h1>
+                            <span><span data-translate="production-hero-title">Engineered with <br>Swiss Precision</span></span>
+                        </h1>
+                    </div>
+                </div>
+                <div class="row w-100">
+                    <div class="col-12">
+                        <div class="cta-wrapper d-flex">
+                            <div class="cta">
+                                <a class="btn btn-light" href="#production" data-translate="production-hero-btn">Explore Production</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Intro Section
+        -------------------------------------------------- -->
+        <section class="large-text-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-10">
+                        <p class="lead-text" data-translate="production-intro">
+                            At Golfyr, the development of our clubs represents an unmatched synergy of innovation and craftsmanship. Through our partnership with renowned Carbon Technology specialist Daniel Hüsler and his company adultimum, we are committed to creating golf clubs that stand out with maximum precision and premium material quality.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Article List Section
+        -------------------------------------------------- -->
+        <section class="content-article-list">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <hr class="article-list-divider">
+                    </div>
+                </div>
+                
+                <!-- Article 1: Swiss Made -->
+                <article>
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-6">
+                            <div class="index">01 / 05</div>
+                            <h3 class="title" data-translate="production-art1-title">Swiss Made – Quality that makes the difference</h3>
+                            <div class="content">
+                                <p data-translate="production-art1-body">Our golf clubs are 100% Swiss Made. From the initial concept and design to the final production, everything takes place in Switzerland — specifically in St. Gallen. The official Swiss Made label stands for unmatched precision and craftsmanship, a promise recognized and valued worldwide.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 order-first order-lg-last">
+                            <div class="image-wrapper x-center y-center">
+                                <img src="./Production - Golfyr_files/golfyr-production-swiss-made.webp" alt="Swiss Made Production Animation" class="img-fluid" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="row"><div class="col-12"><hr class="article-list-divider"></div></div>
+
+                <!-- Article 2: Carbonics Technology -->
+                <article>
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-6">
+                            <div class="index">02 / 05</div>
+                            <h3 class="title" data-translate="production-art2-title">Groundbreaking <br>Carbonics Technology</h3>
+                            <div class="content">
+                                <p data-translate="production-art2-body">Golfyr is the only manufacturer in the world that has mastered the process of crafting a complete golf club set from 100% carbon. This innovative technology, protected by patents on both manufacturing and product design, delivers exceptional performance and durability — setting a new standard in the industry.</p>
+                            </div>
+                            <div class="cta-wrapper">
+                                <a class="btn btn-ghost" href="./material.html" data-translate="production-art2-cta">Why Carbon</a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 order-first order-lg-last">
+                            <div class="image-wrapper x-center y-center">
+                                <img src="./Production - Golfyr_files/production-carbon-02-1920-1024x590.jpg" alt="Carbonics Technology" class="img-fluid" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="row"><div class="col-12"><hr class="article-list-divider"></div></div>
+
+                <!-- Article 3: High-tech manufacturing -->
+                <article>
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-6">
+                            <div class="index">03 / 05</div>
+                            <h3 class="title" data-translate="production-art3-title">High-tech manufacturing at its finest</h3>
+                            <div class="content">
+                                <p data-translate="production-art3-body">Our state-of-the-art production facility utilizes advanced robotics and cutting-edge processes. Every detail is crafted with absolute precision to create clubs that meet the highest performance standards.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 order-first order-lg-last">
+                            <div class="image-wrapper x-center y-center">
+                                <img src="./Production - Golfyr_files/production-high-tech.webp" alt="High-tech manufacturing" class="img-fluid" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="row"><div class="col-12"><hr class="article-list-divider"></div></div>
+
+                <!-- Article 4: Daniel Hüsler -->
+                <article>
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-6">
+                            <div class="index">04 / 05</div>
+                            <h3 class="title" data-translate="production-art4-title">Daniel Hüsler: <br>The carbon innovator</h3>
+                            <div class="content">
+                                <p data-translate="production-art4-body">With Daniel Hüsler and his team at adultimum, we are setting new standards in golf club design. His expertise in Carbon Technology and close involvement in the production process ensure efficiency and perfection at every step.</p>
+                            </div>
+                            <div class="cta-wrapper">
+                                <a class="btn btn-ghost" href="https://golfyr.com/about-us/daniel-huesler/" target="_blank" data-translate="production-art4-cta">Meet Daniel Hüsler</a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 order-first order-lg-last">
+                            <div class="image-wrapper x-right y-top">
+                                <img src="./Production - Golfyr_files/production-daniel-huesler-04-1920-1024x590.jpg" alt="Daniel Hüsler Carbon Innovator" class="img-fluid" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="row"><div class="col-12"><hr class="article-list-divider"></div></div>
+
+                <!-- Article 5: A promise you can feel -->
+                <article>
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-6">
+                            <div class="index">05 / 05</div>
+                            <h3 class="title" data-translate="production-art5-title">A promise <br>you can feel</h3>
+                            <div class="content">
+                                <p data-translate="production-art5-body">Every Golfyr club that leaves our production facility embodies uncompromising quality, Swiss precision, and state-of-the-art technology. You’ll feel these values with every shot —from your first swing on the driving range to the final putt on the green.</p>
+                            </div>
+                            <div class="cta-wrapper">
+                                <a class="btn btn-ghost" href="./innovation.html" data-translate="production-art5-cta">Learn more</a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 order-first order-lg-last">
+                            <div class="image-wrapper x-center y-center">
+                                <img src="./Production - Golfyr_files/production-promise-05-1920-1024x590.jpg" alt="A promise you can feel" class="img-fluid" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        <!-- Next Read Section -->
+        <section id="next-read" class="mag-more-section next-read-section" style="padding-top: 80px; padding-bottom: 80px; background-color: #ffffff;">
+            <div class="container">
+                <div class="mag-section-header">
+                    <h2 data-translate="next-read-title">Next Read</h2>
+                    <hr class="mag-divider">
+                </div>
+                
+                <div class="mag-more-list">
+                    <div class="mag-more-grid">
+                        <div class="mag-more-image">
+                            <a href="./technology.html">
+                                <img src="./Innovation - Golfyr_files/our-innovation-desktop-1024x576.jpg" alt="Carbonics" loading="lazy">
+                            </a>
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="next-read-category">Next Read</span>
+                            <h3 class="mag-more-title">
+                                <a href="./technology.html" data-translate="next-read-tech-title" style="color: #1a1a1a; text-decoration: none;">Carbonics: Rethink Golf with Carbon Clubs</a>
+                            </h3>
+                            <p class="mag-more-text" data-translate="next-read-tech-desc">
+                                Learn how Carbonics Technology liberates weight and enhances performance. Discover our patented hollow-body design, optimized weight distribution, and why carbon clubs represent the biggest leap in golf club engineering in a generation.
+                            </p>
+                            <a href="./technology.html" class="btn-mag-dark" data-translate="next-read-btn" style="margin-bottom: 24px;">Discover</a>
+                            <span class="mag-read-time" data-translate="next-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- --------------------------------------------------
+         Footer Area
+    -------------------------------------------------- -->
+    <footer>
+        <div class="container">
+            <!-- Top Brand Row -->
+            <div class="footer-top-row">
+                <h2 class="footer-logo-text">Golfyr</h2>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <!-- Main Content Layout -->
+            <div class="footer-main-content">
+                <!-- Rethink Column -->
+                <div class="footer-rethink-col">
+                    <div class="footer-rethink-text">Rethink <br>Golf</div>
+                </div>
+                
+                <!-- Navigation Columns Grid -->
+                <div class="footer-nav-grid">
+                    <!-- Column 1: Help -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col1-title">Help</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./index.html#support" data-translate="footer-support">Support</a></li>
+                            <li><a href="./index.html#faq" data-translate="footer-faq">FAQ</a></li>
+                            <li><a href="./index.html#shop-directory" data-translate="footer-shop-directory">Shop Directory</a></li>
+                            <li><a href="./index.html#shop-login" data-translate="footer-shop-login">Shop Login</a></li>
+                            <li><a href="./index.html#expert-login" data-translate="footer-expert-login">Expert Login</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 2: Company -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col2-title">Company</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./sevenclubgame.html">#sevenclubgame</a></li>
+                            <li><a href="./index.html#swissness" data-translate="footer-swissness">Swissness</a></li>
+                            <li><a href="./index.html#community" data-translate="footer-community">Community</a></li>
+                            <li><a href="./index.html#press" data-translate="footer-press">Press</a></li>
+                            <li><a href="./index.html#contact" data-translate="footer-contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 3: The Golfyr Mag -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col3-title">The Golfyr Mag</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./magazine.html" data-translate="footer-latest-news">Latest News</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-inside">Inside Golfyr</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-clubhouse">Clubhouse</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-reviews">Reviews</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Info Column (Socials, CP, Contact) -->
+                <div class="footer-info-col">
+                    <!-- Social icons row -->
+                    <div class="footer-socials-row">
+                        <a href="https://linkedin.com/company/golfyr" target="_blank" class="social-icon" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://facebook.com/golfyr.golf" target="_blank" class="social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://instagram.com/golfyr" target="_blank" class="social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 0-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://twitter.com/golfyr" target="_blank" class="social-icon" aria-label="X (Twitter)">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://youtube.com/@golfyr" target="_blank" class="social-icon" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.524 3.545 12 3.545 12 3.545s-7.525 0-9.388.51C1.048 4.561.524 5.569.502 6.563c-.502 1.86-.502 5.437-.502 5.437s0 3.582.502 5.437c.022.994.546 2.002 1.41 2.51 1.863.51 9.388.51 9.388.51s7.524 0 9.388-.51a3.003 3.003 0 0 0 2.11-2.108c.502-1.855.502-5.437.502-5.437s0-3.577-.502-5.437zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="currentColor"/></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- CP certified seal -->
+                    <div class="footer-certification-row">
+                        <img src="./climatepartner.png" alt="ClimatePartner certified company Logo" class="footer-cp-logo">
+                        <div class="footer-cp-text">
+                            <strong>ClimatePartner</strong><br>
+                            <span>certified company</span><br>
+                            <small>climate-id.com/MNR38X</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Details -->
+                    <div class="footer-contact-details">
+                        <a href="tel:+410712223131">+41 (0)71 222 31 31</a><br>
+                        <a href="mailto:hello@golfyr.com">hello@golfyr.com</a><br>
+                        <span>Bahnhofstrasse 2, 9000 St. Gallen</span><br>
+                        <span>Switzerland</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <!-- Bottom Legal Row -->
+            <div class="footer-bottom-row">
+                <div class="footer-copyright">
+                    &copy; Golfyr AG 2026
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#imprint" data-translate="footer-imprint">Imprint</a>
+                    <a href="#data-protection" data-translate="footer-privacy">Data protection</a>
+                    <a href="#terms-and-conditions" data-translate="footer-terms">Terms & Conditions</a>
+                    <a href="#care-instructions" data-translate="footer-care">Care and use instructions</a>
+                    <a href="#money-back-guarantee" data-translate="footer-guarantee">Money-back guarantee</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Library Dependencies CDNs (GSAP, Swiper) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Rebuilt JavaScript controller -->
+    <script src="./rebuilt-app.min.js"></script>
+</body>
+</html>

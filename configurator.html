@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurator - Golfyr</title>
+    <meta name="description" content="Configure and order your custom Golfyr carbon club set. Tailored to your game.">
+    
+    <!-- Brand Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="./favicon.ico">
+    
+    <!-- Injected CSS from Configurator V2 files -->
+    <link rel="stylesheet" href="./Golfyr Configurator V2_files/css2">
+    <link rel="stylesheet" href="./Golfyr Configurator V2_files/index-4zl4_18K.css">
+
+    <!-- Align font style and local brand loading -->
+    <style>
+        @font-face {
+            font-family: 'AeonikPro';
+            src: url('./fonts/AeonikPro-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'AeonikPro';
+            src: url('./fonts/AeonikPro-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'AeonikPro';
+            src: url('./fonts/AeonikPro-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body, button, input, select, textarea, #root, #root * {
+            font-family: 'AeonikPro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+        }
+
+        .configurator-title {
+            font-family: 'AeonikPro', var(--font-primary), -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-size: 36px !important;
+            line-height: 1.0 !important;
+            font-weight: 500 !important;
+            color: var(--brand-dark, #191919) !important;
+            margin-top: 0 !important;
+            margin-bottom: 16px !important;
+        }
+        @media (min-width: 1920px) {
+            .configurator-title {
+                font-size: 48px !important;
+            }
+        }
+        @media (max-width: 992px) {
+            .configurator-title {
+                font-size: 36px !important;
+                margin-bottom: 12px !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .configurator-title {
+                font-size: 28px !important;
+            }
+        }
+
+        .configurator-desc {
+            font-family: 'AeonikPro', var(--font-primary), -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-size: 16px !important;
+            line-height: 1.45 !important;
+            font-weight: 400 !important;
+            color: var(--brand-dark, #191919) !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Accordion Header Buttons (Model, Shaft, Grip, Putter, Bag) styled as Lead text */
+        #root main button.font-bold {
+            font-family: 'AeonikPro', var(--font-primary), -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-size: 18px !important;
+            line-height: 1.2 !important;
+            font-weight: 500 !important;
+        }
+        @media (min-width: 992px) {
+            #root main button.font-bold {
+                font-size: 20px !important;
+            }
+        }
+        /* Accordion Trigger Buttons: Hide text '+' and '-' characters and draw custom thin vector lines */
+        #root main button.font-bold span {
+            font-size: 0px !important;
+            color: transparent !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            position: relative !important;
+            width: 22px !important;
+            height: 22px !important;
+            margin-right: -2px !important;
+        }
+
+        /* Draw horizontal line */
+        #root main button.font-bold span::after {
+            content: '' !important;
+            position: absolute !important;
+            width: 14px !important;
+            height: 1.25px !important; /* matches chevron stroke width */
+            background-color: #9CA3AF !important;
+            transition: transform 0.25s ease-in-out !important;
+        }
+
+        /* Draw vertical line */
+        #root main button.font-bold span::before {
+            content: '' !important;
+            position: absolute !important;
+            width: 1.25px !important;
+            height: 14px !important;
+            background-color: #9CA3AF !important;
+            transition: transform 0.25s ease-in-out, opacity 0.2s ease-in-out !important;
+        }
+
+        /* When the accordion is open, hide the vertical line with a smooth rotation/fade */
+        #root main button.font-bold.is-open span::before {
+            transform: rotate(90deg) !important;
+            opacity: 0 !important;
+        }
+
+        /* Option select buttons: unselected options have Regular weight (400) */
+        #root main button.border-gray-200 span,
+        #root main button:not(.border-black) span {
+            font-weight: 400 !important;
+            font-size: 14px !important;
+        }
+
+        /* Option select buttons: selected options have Medium weight (500) */
+        #root main button.border-black span {
+            font-weight: 500 !important;
+            font-size: 14px !important;
+        }
+
+        /* Option section sub-headers (Choose your model, Offset, etc.) not bold */
+        #root main h3 {
+            font-weight: 400 !important;
+        }
+
+        /* Configurator Policy and Shipping buttons: Lead size but not bold (Regular 400 weight) */
+        #root main button.font-medium {
+            font-family: 'AeonikPro', var(--font-primary), -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-size: 18px !important;
+            line-height: 1.2 !important;
+            font-weight: 400 !important;
+        }
+        @media (min-width: 992px) {
+            #root main button.font-medium {
+                font-size: 20px !important;
+            }
+        }
+        #root main button.font-medium svg {
+            width: 22px !important;
+            height: 22px !important;
+            color: #9CA3AF !important;
+        }
+        #root main button.font-medium svg path {
+            stroke-width: 1.25px !important;
+        }
+
+        .description-container-collapsed {
+            max-height: 44px !important;
+        }
+        .description-container-expanded {
+            max-height: 500px !important;
+        }
+        .help-mobile-wrapper {
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            position: relative !important;
+        }
+        @media (min-width: 768px) {
+            .help-desktop-wrapper {
+                display: flex !important;
+                align-items: center !important;
+                gap: 12px !important;
+                position: relative !important;
+            }
+        }
+        .help-popover-container {
+            position: absolute !important;
+            z-index: 999 !important;
+            width: 320px !important;
+            border-radius: 0px !important;
+            border: 1px solid rgba(0, 0, 0, 0.1) !important;
+            background-color: #ffffff !important;
+            padding: 24px !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+            transition: all 0.2s ease-in-out !important;
+        }
+        .help-desktop-wrapper .help-popover-container {
+            top: 48px !important;
+            right: 0 !important;
+        }
+        .help-mobile-wrapper .help-popover-container {
+            bottom: 56px !important;
+            right: 0 !important;
+        }
+        
+        
+        /* Use #EAF5F1 as image background in the configurator */
+        #root main > div:first-child,
+        .bg-\[\#c5d5d6\] {
+            background-color: #EAF5F1 !important;
+        }
+
+        /* Force main configurator image container to be square on mobile and tablet viewports */
+        @media (max-width: 1023px) {
+            #root main > div:first-child > div:first-child {
+                height: auto !important;
+                aspect-ratio: 1 / 1 !important;
+            }
+        }
+
+        /* Remove all rounded corners in the configurator */
+        *, *::before, *::after {
+            border-radius: 0px !important;
+        }
+
+        /* Use a thinner line for borders in the configurator */
+        .border-2 {
+            border-width: 1px !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- React App Mount Point -->
+    <div id="root"></div>
+
+    <!-- Injected JS Bundle from Configurator V2 files -->
+    <script src="./Golfyr Configurator V2_files/index-CpiWRb-T.js?v=2"></script>
+
+    <!-- MutationObserver to track active accordion status and toggle custom CSS +/- drawing classes, and bilingual translation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const updateAccordionStates = () => {
+                document.querySelectorAll("button.font-bold").forEach(button => {
+                    const span = button.querySelector("span");
+                    if (span) {
+                        const text = span.textContent.trim();
+                        if (text === "-") {
+                            button.classList.add("is-open");
+                        } else {
+                            button.classList.remove("is-open");
+                        }
+                    }
+                });
+            };
+
+            // --- Bilingual Toggling Logic ---
+            let currentLanguage = 'en';
+            try {
+                const savedLang = localStorage.getItem('golfyr_lang');
+                if (savedLang === 'en' || savedLang === 'de') {
+                    currentLanguage = savedLang;
+                }
+            } catch (e) {}
+
+            const configTranslations = {
+                de: {
+                    "Change product": "Produkt ändern",
+                    "Save": "Speichern",
+                    "Share": "Teilen",
+                    "PRICE INCL. VAT": "PREIS INKL. MWST.",
+                    "Need Assistance?": "Benötigen Sie Hilfe?",
+                    "Chat on WhatsApp": "Auf WhatsApp chatten",
+                    "or": "oder",
+                    "Request a callback:": "Rückruf anfordern:",
+                    "Call": "Anrufen",
+                    "Thank you! We will call you back shortly.": "Vielen Dank! Wir rufen Sie in Kürze zurück.",
+                    "Model": "Modell",
+                    "Shaft": "Schaft",
+                    "Grip": "Griff",
+                    "Putter": "Putter",
+                    "Bag": "Tasche",
+                    "Choose your model": "Modell wählen",
+                    "Choose your shaft flex": "Schaft-Flex wählen",
+                    "Size": "Größe",
+                    "Length": "Länge",
+                    "Offset": "Offset",
+                    "Type & Color": "Typ & Farbe",
+                    "Bag Tag": "Taschen-Anhänger",
+                    "90 day money back policy": "90-Tage Geld-zurück-Garantie",
+                    "Shipping": "Versand",
+                    "Add to cart": "In den Warenkorb",
+                    "Read more": "Mehr lesen",
+                    "Show less": "Weniger anzeigen",
+                    "The Premier Set": "Das Premier Set",
+                    "The Maker Premier": "Der Maker Premier",
+                    "The Maker Tour": "Die Maker Tour",
+                    "Zero": "Kein",
+                    "Full": "Voll",
+                    "Half": "Halb",
+                    "Leather Tag": "Leder-Anhänger",
+                    "Metal Tag": "Metall-Anhänger",
+                    "No Tag": "Kein Anhänger",
+                    "Standard": "Standard",
+                    "Regular": "Regular",
+                    "Stiff": "Stiff",
+                    "Ladies": "Ladies",
+                    "Stand Bag White": "Stand Bag Weiß",
+                    "Stand Bag Grey": "Stand Bag Grau",
+                    "Cart Bag White": "Cart Bag Weiß",
+                    "Cart Bag Grey": "Cart Bag Grau",
+                    "Need help?": "Hilfe benötigt?",
+                    "Our revolutionary carbon putter, delivering outstanding performance and a unique design. Features carbon composite construction for exceptional feel, roll consistency, and control on the green.": "Unser revolutionärer Carbon-Putter liefert herausragende Leistung und ein einzigartiges Design. Bietet eine Carbon-Verbundkonstruktion für ein außergewöhnliches Gefühl, gleichmäßiges Rollverhalten und präzise Kontrolle auf dem Grün.",
+                    "The tour-approved premium carbon putter co-designed with Sergio Garcia. Engineered for champions, it offers ultimate precision, stability, and feedback for professional-level performance.": "Der tourerprobte Premium-Carbon-Putter, der gemeinsam mit Sergio Garcia entwickelt wurde. Konstruiert für Champions, bietet er ultimative Präzision, Stabilität und Rückmeldung für Leistung auf professionellem Niveau.",
+                    "Lightweight, perfectly balanced golf clubs, ideal for players seeking effortless control and accuracy. Designed for smooth swings, maximum comfort, and consistently outstanding performance on every shot.": "Leichte, perfekt ausbalancierte Golfschläger, ideal für Spieler, die mühelose Kontrolle und Genauigkeit suchen. Entwickelt für geschmeidige Schwünge, maximalen Komfort und konstant hervorragende Leistung bei jedem Schlag."
+                }
+            };
+
+            const reverseDict = {};
+            for (const [key, value] of Object.entries(configTranslations.de)) {
+                reverseDict[value] = key;
+            }
+
+            let isTranslating = false;
+            const translateNode = (node, lang) => {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    const text = node.nodeValue.trim();
+                    if (!text) return;
+                    
+                    if (lang === 'de') {
+                        if (configTranslations.de[text]) {
+                            const leading = node.nodeValue.match(/^\s*/)[0];
+                            const trailing = node.nodeValue.match(/\s*$/)[0];
+                            const newValue = leading + configTranslations.de[text] + trailing;
+                            if (node.nodeValue !== newValue) {
+                                node.nodeValue = newValue;
+                            }
+                        }
+                    } else {
+                        if (reverseDict[text]) {
+                            const leading = node.nodeValue.match(/^\s*/)[0];
+                            const trailing = node.nodeValue.match(/\s*$/)[0];
+                            const newValue = leading + reverseDict[text] + trailing;
+                            if (node.nodeValue !== newValue) {
+                                node.nodeValue = newValue;
+                            }
+                        }
+                    }
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    if (node.tagName === "SCRIPT" || node.tagName === "STYLE") return;
+
+                    const placeholder = node.getAttribute("placeholder");
+                    if (placeholder) {
+                        const trimmed = placeholder.trim();
+                        if (lang === 'de' && configTranslations.de[trimmed]) {
+                            const newVal = configTranslations.de[trimmed];
+                            if (placeholder !== newVal) {
+                                node.setAttribute("placeholder", newVal);
+                            }
+                        } else if (lang === 'en' && reverseDict[trimmed]) {
+                            const newVal = reverseDict[trimmed];
+                            if (placeholder !== newVal) {
+                                node.setAttribute("placeholder", newVal);
+                            }
+                        }
+                    }
+
+                    const title = node.getAttribute("title");
+                    if (title) {
+                        const trimmed = title.trim();
+                        if (lang === 'de' && configTranslations.de[trimmed]) {
+                            const newVal = configTranslations.de[trimmed];
+                            if (title !== newVal) {
+                                node.setAttribute("title", newVal);
+                            }
+                        } else if (lang === 'en' && reverseDict[trimmed]) {
+                            const newVal = reverseDict[trimmed];
+                            if (title !== newVal) {
+                                node.setAttribute("title", newVal);
+                            }
+                        }
+                    }
+
+                    node.childNodes.forEach(child => translateNode(child, lang));
+                }
+            };
+
+            const translateDOM = (lang) => {
+                if (isTranslating) return;
+                isTranslating = true;
+                translateNode(document.body, lang);
+                isTranslating = false;
+            };
+
+            const tryInjectSelector = () => {
+                const headerRight = document.querySelector("header > div > div:last-child");
+                if (headerRight && !document.querySelector(".lang-selector-configurator")) {
+                    const selector = document.createElement("div");
+                    selector.className = "lang-selector lang-selector-configurator";
+                    selector.style.marginRight = "24px";
+                    selector.style.display = "flex";
+                    selector.style.alignItems = "center";
+                    selector.style.gap = "8px";
+                    selector.style.fontSize = "14px";
+                    selector.style.fontWeight = "500";
+                    selector.style.userSelect = "none";
+                    selector.innerHTML = `
+                        <button class="lang-switch ${currentLanguage === 'en' ? 'active' : ''}" data-lang="en" style="background: none; border: none; padding: 0; color: ${currentLanguage === 'en' ? '#191919' : 'rgba(25, 25, 25, 0.4)'}; cursor: pointer; font-weight: 500; transition: color 0.2s;">En</button>
+                        <span style="color: rgba(25,25,25,0.2)">/</span>
+                        <button class="lang-switch ${currentLanguage === 'de' ? 'active' : ''}" data-lang="de" style="background: none; border: none; padding: 0; color: ${currentLanguage === 'de' ? '#191919' : 'rgba(25, 25, 25, 0.4)'}; cursor: pointer; font-weight: 500; transition: color 0.2s;">De</button>
+                    `;
+                    
+                    selector.querySelectorAll(".lang-switch").forEach(btn => {
+                        btn.addEventListener("click", (e) => {
+                            e.stopPropagation();
+                            const lang = btn.getAttribute("data-lang");
+                            if (lang && lang !== currentLanguage) {
+                                currentLanguage = lang;
+                                try {
+                                    localStorage.setItem('golfyr_lang', lang);
+                                } catch (err) {}
+                                
+                                selector.querySelectorAll(".lang-switch").forEach(b => {
+                                    const isCurrent = b.getAttribute("data-lang") === currentLanguage;
+                                    b.style.color = isCurrent ? '#191919' : 'rgba(25, 25, 25, 0.4)';
+                                });
+                                
+                                translateDOM(currentLanguage);
+                            }
+                        });
+                    });
+                    
+                    headerRight.insertBefore(selector, headerRight.firstChild);
+                    
+                    if (currentLanguage === 'de') {
+                        translateDOM('de');
+                    }
+                }
+            };
+
+            // Run initial check
+            updateAccordionStates();
+            tryInjectSelector();
+
+            // Observe all changes to keep states and translation perfectly in sync
+            const observer = new MutationObserver((mutations) => {
+                updateAccordionStates();
+                tryInjectSelector();
+
+                let shouldTranslate = false;
+                for (const mutation of mutations) {
+                    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                        let addedSelector = false;
+                        mutation.addedNodes.forEach(node => {
+                            if (node.classList && (node.classList.contains('lang-selector') || node.classList.contains('lang-switch'))) {
+                                addedSelector = true;
+                            }
+                        });
+                        if (!addedSelector) {
+                            shouldTranslate = true;
+                        }
+                    } else if (mutation.type === 'characterData') {
+                        shouldTranslate = true;
+                    }
+                }
+                if (shouldTranslate) {
+                    translateDOM(currentLanguage);
+                }
+            });
+
+            const root = document.getElementById("root");
+            if (root) {
+                observer.observe(root, {
+                    childList: true,
+                    subtree: true,
+                    characterData: true
+                });
+            }
+        });
+    </script>
+</body>
+</html>

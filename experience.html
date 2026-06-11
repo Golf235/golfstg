@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Golfyr</title>
+    
+    <!-- Brand Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="./favicon.ico">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Custom Vanilla Stylesheet -->
+    <link rel="stylesheet" href="./rebuilt-style.min.css">
+    
+    <style>
+        /* Bottom alignment for Hero container to align text and buttons to bottom on all screen sizes */
+        .hero-video-home-p1 .container {
+            justify-content: flex-end !important;
+        }
+        @media (max-width: 767px) {
+            .hero-video-home-p1 .cta-wrapper {
+                margin-bottom: 15px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --------------------------------------------------
+         Header & Navigation Area
+     -------------------------------------------------- -->
+    <header>
+        <div class="container nav-container">
+            <a href="./index.html" class="logo">
+                <img src="./golfyr-logo-dark.png" alt="Golfyr Logo">
+            </a>
+            
+            <nav class="nav-links-wrapper">
+                <ul class="nav-links">
+                    <li class="nav-dropdown">
+                        <a href="javascript:void(0)"><span data-translate="nav-our-clubs">Our Clubs</span> <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 6px; transition: transform var(--transition-smooth);"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./sevenclubgame.html" data-translate="nav-sevenclub" class="dropdown-category">#sevenclubgame</a></li>
+                            <li><a href="./opener.html" data-translate="club-opener-title" class="dropdown-sub-item">The Opener</a></li>
+                            <li><a href="./mover.html" data-translate="club-mover-title" class="dropdown-sub-item">The Mover</a></li>
+                            <li><a href="./riser.html" data-translate="club-riser-title" class="dropdown-sub-item">The Riser</a></li>
+                            <li><a href="./pitcher.html" data-translate="club-pitcher-title" class="dropdown-sub-item">The Pitcher</a></li>
+                            <li><a href="./maker.html" data-translate="club-maker-title" class="dropdown-sub-item">The Maker</a></li>
+                            <li><a href="./maker-tour.html" data-translate="club-makertour-title" class="dropdown-sub-item">The Maker Tour</a></li>
+                            <li><a href="./saver.html" data-translate="club-saver-title" class="dropdown-sub-item">The Saver</a></li>
+                            <li><a href="./butler.html" data-translate="club-butler-title" class="dropdown-sub-item">The Butler</a></li>
+                        </ul>
+                    </li>
+                                        <li class="nav-dropdown">
+                        <a href="javascript:void(0)"><span data-translate="nav-tech">Technology</span> <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 6px; transition: transform var(--transition-smooth);"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./technology.html" data-translate="nav-tech-all" class="dropdown-category">Carbonics</a></li>
+                            <li><a href="./innovation.html" data-translate="nav-innovation" class="dropdown-sub-item">Innovation</a></li>
+                            <li><a href="./material.html" data-translate="nav-material" class="dropdown-sub-item">Material</a></li>
+                            <li><a href="./production.html" data-translate="nav-production" class="dropdown-sub-item">Production</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./experience.html" data-translate="nav-experience">Experience</a></li>
+                    <li><a href="./shop.html" data-translate="nav-shop">Shop</a></li>
+                    <li><a href="./magazine.html" data-translate="nav-magazine">Magazine</a></li>
+                    <li><a href="./about.html" data-translate="nav-about">About</a></li>
+                    
+                </ul>
+            </nav>
+            
+            <div class="header-right">
+                <!-- Cart Widget -->
+                <button class="cart-widget">
+                    <div class="cart-icon-wrapper">
+                        <img src="./icon-cart-dark.png" alt="Cart Icon" style="height: 18px; width: auto;">
+                        <span class="cart-badge">1</span>
+                    </div>
+                    <span>CHF 890<span data-translate="nav-cart-suffix"> (incl. tax)</span></span>
+                </button>
+                
+                <!-- Language Toggler -->
+                <div class="lang-selector">
+                    <button class="lang-switch active" data-lang="en">En</button>
+                    <span style="color: rgba(255,255,255,0.4)">/</span>
+                    <button class="lang-switch" data-lang="de">De</button>
+                </div>
+                
+                <!-- Mobile Nav Trigger -->
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+        <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="#13221e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <ul class="mobile-menu-links">
+            <li class="mobile-nav-dropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-trigger"><span data-translate="nav-our-clubs">Our Clubs</span> <svg class="arrow-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px; transition: transform var(--transition-smooth);"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <ul class="mobile-sub-menu">
+                    <li><a href="./sevenclubgame.html" data-translate="nav-sevenclub" class="dropdown-category">#sevenclubgame</a></li>
+                    <li><a href="./opener.html" data-translate="club-opener-title" class="dropdown-sub-item">The Opener</a></li>
+                    <li><a href="./mover.html" data-translate="club-mover-title" class="dropdown-sub-item">The Mover</a></li>
+                    <li><a href="./riser.html" data-translate="club-riser-title" class="dropdown-sub-item">The Riser</a></li>
+                    <li><a href="./pitcher.html" data-translate="club-pitcher-title" class="dropdown-sub-item">The Pitcher</a></li>
+                    <li><a href="./maker.html" data-translate="club-maker-title" class="dropdown-sub-item">The Maker</a></li>
+                    <li><a href="./maker-tour.html" data-translate="club-makertour-title" class="dropdown-sub-item">The Maker Tour</a></li>
+                    <li><a href="./saver.html" data-translate="club-saver-title" class="dropdown-sub-item">The Saver</a></li>
+                    <li><a href="./butler.html" data-translate="club-butler-title" class="dropdown-sub-item">The Butler</a></li>
+                </ul>
+            </li>
+                                <li class="mobile-nav-dropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-trigger"><span data-translate="nav-tech">Technology</span> <svg class="arrow-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px; transition: transform var(--transition-smooth);"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <ul class="mobile-sub-menu">
+                    <li><a href="./technology.html" data-translate="nav-tech-all" class="dropdown-category">Carbonics</a></li>
+                    <li><a href="./innovation.html" data-translate="nav-innovation" class="dropdown-sub-item">Innovation</a></li>
+                    <li><a href="./material.html" data-translate="nav-material" class="dropdown-sub-item">Material</a></li>
+                    <li><a href="./production.html" data-translate="nav-production" class="dropdown-sub-item">Production</a></li>
+                </ul>
+            </li>
+            <li><a href="./experience.html" data-translate="nav-experience">Experience</a></li>
+            <li><a href="./shop.html" data-translate="nav-shop">Shop</a></li>
+            <li><a href="./magazine.html" data-translate="nav-magazine">Magazine</a></li>
+            <li><a href="./about.html" data-translate="nav-about">About</a></li>
+            
+            <li style="margin-top: 24px;">
+                <div class="lang-selector">
+                    <button class="lang-switch active mobile-hide" data-lang="en">En</button>
+                    <span style="color: rgba(255,255,255,0.4)">/</span>
+                    <button class="lang-switch mobile-hide" data-lang="de">De</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- --------------------------------------------------
+             Hero Section (Experience the #sevenclubgame)
+        -------------------------------------------------- -->
+        <section class="hero-video-home-p1 d-flex flex-column justify-content-end">
+            <div class="background">
+                <div class="image-wrapper d-md-none">
+                    <img src="./Experience - Golfyr_files/17_2-1024x1024.jpg" alt="Experience Seven Club Game Mobile" class="img-fluid" fetchpriority="high" loading="lazy">
+                </div>
+                <div class="image-wrapper d-none d-md-block">
+                    <img src="./Experience - Golfyr_files/17-3-1024x576.jpg" alt="Experience Seven Club Game Desktop" class="img-fluid" fetchpriority="high" loading="lazy">
+                </div>
+            </div>
+            
+            <div class="overlay-shadow"></div>
+            
+            <div class="scroll-cta">
+                <div class="cta" data-translate="hero-discover">Discover more</div>
+                <div class="chevron">
+                    <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9.5L9.99997 18.5L18.9999 9.5" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="container h-100 d-flex flex-column align-items-start">
+                <div class="row w-100 flex-grow-1">
+                    <div class="col-12 d-flex flex-column justify-content-start"></div>
+                </div>
+                <div class="row w-100">
+                    <div class="col-12 col-md-10">
+                        <h1>
+                            <span data-translate="experience-hero-title">Experience the <br>#sevenclubgame</span>
+                        </h1>
+                    </div>
+                </div>
+                <div class="row w-100">
+                    <div class="col-12">
+                        <div class="cta-wrapper d-flex">
+                            <div class="cta">
+                                <a class="btn btn-light" href="./configurator.html" data-translate="experience-hero-btn-build">Build your Set</a>
+                            </div>
+                            <div class="cta">
+                                <a class="btn btn-light" href="https://golfyr.com/contact/" data-translate="experience-hero-btn-consult">Schedule a private consultation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Why Test Intro Block
+        -------------------------------------------------- -->
+        <section class="large-text-block experience-why-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <p class="lead-text" data-translate="experience-why-body">Fewer clubs, more focus, maximum joy. It’s a different concept by design. That’s why we believe: to truly understand our set, you have to play it. Only then will you feel how seven carbon clubs can completely shift the way the game is played. Some things can’t be explained – they must be experienced. That’s why we offer different ways for you to discover Golfyr at your own pace, in whatever way feels right for you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Our Formats Sections (Magazine Style Layout)
+        -------------------------------------------------- -->
+        <section class="mag-more-section experience-formats-section" id="test-formats">
+            <div class="container">
+                <div class="mag-section-header">
+                    <h2 data-translate="experience-formats-title">Our Formats</h2>
+                    <hr class="mag-divider">
+                </div>
+                
+                <div class="mag-more-list">
+                    <!-- Format 1: Private in-person sessions -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./Experience - Golfyr_files/GFY-Pictures-Events-708x565-Desktop-sRGB_Bild3.jpg" alt="Golfyr Private In-person sessions" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="experience-format1-sub">Private in-person sessions</span>
+                            <h3 class="mag-more-title" data-translate="experience-format1-title">The Golfyr Carbon Experience: Coming to Your City</h3>
+                            <div class="mag-more-text">
+                                <p data-translate="experience-format1-body">The #sevenclubgame is coming to you. We are hosting one-on-one sessions across the US and Europe —bringing the revolution directly to your city.</p>
+                                <ul class="format-card-list">
+                                    <li data-translate="experience-format1-li1">Direct Comparison: Bring your current set to test against the #sevenclubgame.</li>
+                                    <li data-translate="experience-format1-li2">Carbonics Insight: Discover the unique benefits of our signature carbon construction.</li>
+                                    <li data-translate="experience-format1-li3">Guided Session: Feel the contrast in your own hands during a personalized evaluation.</li>
+                                </ul>
+                            </div>
+                            <a href="https://golfyr.com/contact/" class="btn-mag-dark" data-translate="experience-format1-btn" style="margin-top: 10px;">Request a session</a>
+                        </div>
+                    </div>
+                    
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+                    
+                    <!-- Format 2: 90-day money-back guarantee -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./Experience - Golfyr_files/21_2.jpg" alt="Golfyr 90-day trial guarantee" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="experience-format2-sub">90-day money-back guarantee</span>
+                            <h3 class="mag-more-title" data-translate="experience-format2-title">Experience the Set and decide at your own pace.</h3>
+                            <div class="mag-more-text">
+                                <p class="bold-p" data-translate="experience-format2-body-p1" style="font-weight: 600; margin-bottom: 15px;">Play First. Decide Later. We build clubs we believe in completely. And we think you should feel the same way before you commit to them.</p>
+                                <p data-translate="experience-format2-body-p2">That’s why every Golfyr purchase comes with a 90-day trial period — no pressure, no fine print. Take the set out. Play with it. Let the course tell you what you think.</p>
+                            </div>
+                            <a href="https://golfyr.com/contact" target="_blank" rel="noopener" class="btn-mag-dark" data-translate="experience-format2-btn" style="margin-top: 10px;">Learn more</a>
+                        </div>
+                    </div>
+                    
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+                    
+                    <!-- Format 3: Private digital consultation -->
+                    <div class="mag-more-grid" style="margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./Experience - Golfyr_files/19.webp" alt="Golfyr Digital Consultation" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="experience-format3-sub">Private digital consultation</span>
+                            <h3 class="mag-more-title" data-translate="experience-format3-title">Talk to an Expert</h3>
+                            <div class="mag-more-text">
+                                <p data-translate="experience-format3-body-p1">In a one-on-one digital session, we’ll show you:</p>
+                                <ul class="format-card-list">
+                                    <li data-translate="experience-format3-li1">who we are</li>
+                                    <li data-translate="experience-format3-li2">how the set works</li>
+                                    <li data-translate="experience-format3-li3">how it fits your game</li>
+                                </ul>
+                                <p class="mt-3" data-translate="experience-format3-body-p2" style="margin-top: 15px;">All from the comfort of your home via video — incl. a virtual fitting</p>
+                            </div>
+                            <a href="https://golfyr.com/contact/" class="btn-mag-dark" data-translate="experience-format3-btn" style="margin-top: 10px;">Schedule a private consultation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Community Section
+        -------------------------------------------------- -->
+        <section class="responsive-image-content full-width">
+            <div class="background sticky-bg">
+                <div class="container-fluid h-100">
+                    <div class="row p-0 h-100">
+                        <div class="col-12 p-0 h-100">
+                            <div class="image-wrapper x-center y-center">
+                                <img src="./Experience - Golfyr_files/community_22-1.jpg" class="img-fluid" alt="Golfyr Community background" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <div class="container h-100">
+                    <div class="row h-100">
+                        <div class="col-12 col-md-8 col-lg-6 offset-lg-6 d-flex flex-column justify-content-end h-100">
+                            <div class="content d-flex flex-column">
+                                <div class="head" data-translate="experience-community-head">Shared moments, <br />twice the joy</div>
+                                <div class="additional-content">
+                                    <p data-translate="experience-community-body">Want to see others in action or share your own highlights? Then visit our community page and discover the most memorable golf moments from our members.</p>
+                                </div>
+                                <div class="cta has-mrgn-tp">
+                                    <a class="btn btn-light" href="https://golfyr.com/community/" data-translate="experience-community-btn">Visit Community Page</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Shop Directory Accordion
+        -------------------------------------------------- -->
+        <section class="shop-directory" id="shop-directory">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="title">
+                            <h2 data-translate="experience-shop-title">Shop Directory</h2>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="content">
+                            <p data-translate="experience-shop-body">Here you can find our products.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="button-wrapper">
+                            <a class="btn btn-filter active" href="#" data-slug="all" data-translate="experience-shop-filter-all">All</a>
+                            <a class="btn btn-filter" href="#" data-slug="off-course" data-translate="experience-shop-filter-off">Off-Course</a>
+                            <a class="btn btn-filter" href="#" data-slug="on-course" data-translate="experience-shop-filter-on">On-Course</a>
+                            <a class="btn btn-filter" href="#" data-slug="teaching-pros" data-translate="experience-shop-filter-pros">Pros/Teachers</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="accordion" id="accordionShopDirectory">
+                            
+                            <!-- Shop 1: InGolf -->
+                            <div class="accordion-item off-course">
+                                <div class="accordion-header" id="heading1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">InGolf</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Stelzenstrasse 6</p>
+                                                        <p>8152 Opfikon</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://www.ingolf.ch/de" rel="nofollow noopener" target="_blank" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 2: Golf Fitting & Fashion -->
+                            <div class="accordion-item off-course">
+                                <div class="accordion-header" id="heading2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Fitting &amp; Fashion</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Stationsstrasse 32</p>
+                                                        <p>8833 Samstagern</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://www.golf-fitting.ch/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 3: Golf Shop Bad Ragaz -->
+                            <div class="accordion-item on-course">
+                                <div class="accordion-header" id="heading3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Shop Bad Ragaz</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-none d-lg-block">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Hans Albrecht-Strasse 1</p>
+                                                        <p>7310 Bad Ragaz</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://www.golfclubragaz.ch/golf-shop/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-block d-lg-none">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p>Mario Caligari, Head Pro</p>
+                                                        <p>+41 (0)79 420 96 64</p>
+                                                        <p><a href="mailto:mario.caligari@gmail.com">mario.caligari@gmail.com</a></p>
+                                                        <p><a href="https://www.golfclubragaz.ch/golf-club/team.html" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 4: Golf Club Erlen -->
+                            <div class="accordion-item trainer-only">
+                                <div class="accordion-header" id="heading4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Club Erlen</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-none d-lg-block">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address"></div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-block d-lg-none">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p>Andrea Mantoan</p>
+                                                        <p><a href="tel:+41763450343" target="_blank" rel="nofollow noopener">+41 76 345 03 43</a></p>
+                                                        <p><a href="mailto:golf.ac@bluewin.ch">golf.ac@bluewin.ch</a></p>
+                                                        <p><a href="https://www.pccaddie.net/clubs/0410014/app.php?cat=tt_timetable_trainer_daylist&amp;alias=ALIAS%7CPRO2" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 5: Golf Center Zürich -->
+                            <div class="accordion-item off-course">
+                                <div class="accordion-header" id="heading5">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Center Zürich</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Neue Winterthurstrasse 36</p>
+                                                        <p>8304 Wallisellen</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://golfcenter.ch/de/zurich/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 6: Golf Center Lausanne -->
+                            <div class="accordion-item off-course">
+                                <div class="accordion-header" id="heading6">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Center Lausanne</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Chemin de Closalet 4</p>
+                                                        <p>1023 Crissier</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://golfcenter.ch/de/lausanne/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 7: Golfworld -->
+                            <div class="accordion-item off-course">
+                                <div class="accordion-header" id="heading7">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golfworld</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Faden 2</p>
+                                                        <p>6374 Buochs</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="http://golfworld.ch/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 8: Golf Center Mendrisio -->
+                            <div class="accordion-item off-course">
+                                <div class="accordion-header" id="heading8">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Center Mendrisio</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Via Angelo Maspoli</p>
+                                                        <p>6850 Mendrisio</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://golfcenter.ch/de/mendrisio/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 9: Albis-Golf School -->
+                            <div class="accordion-item off-course">
+                                <div class="accordion-header" id="heading9">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Albis-Golf School</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-none d-lg-block">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Moosstrasse 7</p>
+                                                        <p>8907 Wettswil</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://albis-golf.ch/angebot/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-block d-lg-none">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p><strong>Ole Pedersen</strong></p>
+                                                        <p>+41 (0)79 198 98 88</p>
+                                                        <p><a href="mailto:info@albis-golf.ch">info@albis-golf.ch</a></p>
+                                                        <p><a href="https://albis-golf.ch/golfpros/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 10: Golf Gonten -->
+                            <div class="accordion-item on-course">
+                                <div class="accordion-header" id="heading10">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Gonten</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-none d-lg-block">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Kaustrasse 1</p>
+                                                        <p>9108 Gonten</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://www.golfplatz.ch/pro-reservation.html" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-block d-lg-none">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p><strong>Rolf Bagge</strong></p>
+                                                        <p><a href="tel:+41%20(0)71%20795%2040%2060">+41 (0)71 795 40 60</a></p>
+                                                        <p><a href="mailto:pro@golfplatz.ch">pro@golfplatz.ch</a></p>
+                                                        <p><a href="https://www.golfplatz.ch/pro-reservation.html" rel="nofollow noopener" target="_blank" data-translate="experience-shop-website">Website</a></p>
+                                                        <p>&nbsp;</p>
+                                                        <p><strong>John Paul Noonan</strong></p>
+                                                        <p><a href="tel:%20+41%20(0)71%20795%2040%2060">+41 (0)71 795 40 60</a></p>
+                                                        <p><a href="mailto:pro@golfplatz.ch">pro@golfplatz.ch</a></p>
+                                                        <p><a href="https://www.golfplatz.ch/pro-reservation.html" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 11: Ostschweizerischer Golf Club Niederbüren -->
+                            <div class="accordion-item on-course">
+                                <div class="accordion-header" id="heading11">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Ostschweizerischer Golf Club Niederbüren</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-none d-lg-block">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Golfstrasse 106</p>
+                                                        <p>9246 Niederbüren</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://www.osgc.ch/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-block d-lg-none">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p><strong>Stephen Woods</strong>, Head Pro</p>
+                                                        <p><a href="tel:+41%20079%20772%2058%2057">+41 079 772 58 57</a></p>
+                                                        <p><a href="mailto:info@woodsgolf.ch">info@woodsgolf.ch</a></p>
+                                                        <p><a href="https://www.osgc.ch/club-platz/golfclub" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 12: Golf Limpachtal -->
+                            <div class="accordion-item on-course">
+                                <div class="accordion-header" id="heading12">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Limpachtal</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="heading12" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Unterdorf 8</p>
+                                                        <p>4587 Aetingen</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://www.golf-limpachtal.ch/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 13: Golfclub Engelberg -->
+                            <div class="accordion-item on-course">
+                                <div class="accordion-header" id="heading13">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golfclub Engelberg</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse13" class="accordion-collapse collapse" aria-labelledby="heading13" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Wasserfallstrasse 114</p>
+                                                        <p>6390 Engelberg</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://www.golfclub-engelberg.ch/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 14: Golf & Country Club Schönenberg -->
+                            <div class="accordion-item on-course">
+                                <div class="accordion-header" id="heading14">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14" aria-expanded="false" aria-controls="collapse14">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf &amp; Country Club Schönenberg</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse14" class="accordion-collapse collapse" aria-labelledby="heading14" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Müsli 6</p>
+                                                        <p>8824 Schönenberg ZH</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://www.golf-schoenenberg.ch/leistungen/proshop.html" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 15: Golf Klosters -->
+                            <div class="accordion-item on-course">
+                                <div class="accordion-header" id="heading15">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse15" aria-expanded="false" aria-controls="collapse15">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Klosters</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse15" class="accordion-collapse collapse" aria-labelledby="heading15" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Selfrangstrasse 44</p>
+                                                        <p>7250 Klosters</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://golf-klosters.ch/golfplatz/proshop/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 16: Golf Lipperswil -->
+                            <div class="accordion-item on-course">
+                                <div class="accordion-header" id="heading16">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse16" aria-expanded="false" aria-controls="collapse16">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Lipperswil</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse16" class="accordion-collapse collapse" aria-labelledby="heading16" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Golfpark 1</p>
+                                                        <p>8564 Lipperswil</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://golfswitzerland.ch/golfshop/sortiment/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 17: Golf Shop Ascona -->
+                            <div class="accordion-item on-course">
+                                <div class="accordion-header" id="heading17">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse17" aria-expanded="false" aria-controls="collapse17">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Shop Ascona</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse17" class="accordion-collapse collapse" aria-labelledby="heading17" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Via Lido 81</p>
+                                                        <p>6612 Ascona</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://golfshop-ascona.com/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 18: Golf Parc Signal de Bougy -->
+                            <div class="accordion-item on-course">
+                                <div class="accordion-header" id="heading18">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse18" aria-expanded="false" aria-controls="collapse18">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Parc Signal de Bougy</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse18" class="accordion-collapse collapse" aria-labelledby="heading18" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Route du Signal</p>
+                                                        <p>1172 Bougy-Villars</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://www.golfparks.ch/de/Golfparks/Golfpark/Signal-de-Bougy" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 19: Golf Club Ragaz (Trainer Only) -->
+                            <div class="accordion-item trainer-only">
+                                <div class="accordion-header" id="heading19">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse19" aria-expanded="false" aria-controls="collapse19">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Club Ragaz</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-none d-lg-block">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse19" class="accordion-collapse collapse" aria-labelledby="heading19" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address"></div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-block d-lg-none">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p><a href="https://www.golfclubragaz.ch/golf-club/team.html" rel="nofollow noopener" target="_blank">Mario Caligari</a></p>
+                                                        <p><a href="tel:+41%20(0)79%20420%2096%2064">+41 (0)79 420 96 64</a></p>
+                                                        <p><a href="mailto:mario.caligari@gmail.com">mario.caligari@gmail.com</a></p>
+                                                        <p><a href="https://www.golfclubragaz.ch/golf-club/team.html" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 20: Golf Gonten Rolf Bagge (Trainer Only) -->
+                            <div class="accordion-item trainer-only">
+                                <div class="accordion-header" id="heading20">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse20" aria-expanded="false" aria-controls="collapse20">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Gonten</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-none d-lg-block">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse20" class="accordion-collapse collapse" aria-labelledby="heading20" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address"></div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-block d-lg-none">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p><a href="https://www.golfplatz.ch/pro-reservation.html" rel="nofollow noopener" target="_blank">Rolf Bagge</a></p>
+                                                        <p><a href="tel:+41%20(0)71%20795%2040%2060">+41 (0)71 795 40 60</a></p>
+                                                        <p><a href="mailto:pro@golfplatz.ch">pro@golfplatz.ch</a></p>
+                                                        <p><a href="https://www.golfplatz.ch/pro-reservation.html" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 21: Golf Gonten John Paul Noonan (Trainer Only) -->
+                            <div class="accordion-item trainer-only">
+                                <div class="accordion-header" id="heading21">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse21" aria-expanded="false" aria-controls="collapse21">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Gonten</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-none d-lg-block">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse21" class="accordion-collapse collapse" aria-labelledby="heading21" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address"></div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-block d-lg-none">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p><a href="https://www.golfplatz.ch/pro-reservation.html" rel="nofollow noopener" target="_blank">John Paul Noonan</a></p>
+                                                        <p><a href="tel:+41%20(0)71%20795%2040%2060">+41 (0)71 795 40 60</a></p>
+                                                        <p><a href="mailto:pro@golfplatz.ch">pro@golfplatz.ch</a></p>
+                                                        <p><a href="https://www.golfplatz.ch/pro-reservation.html" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 22: Golf Club Niederbüren Stephen Woods (Trainer Only) -->
+                            <div class="accordion-item trainer-only">
+                                <div class="accordion-header" id="heading22">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse22" aria-expanded="false" aria-controls="collapse22">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Club Niederbüren</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-none d-lg-block">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse22" class="accordion-collapse collapse" aria-labelledby="heading22" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address"></div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-block d-lg-none">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p><a href="https://www.osgc.ch/club-platz/golfclub" rel="nofollow noopener" target="_blank">Stephen Woods</a></p>
+                                                        <p><a href="tel:+41%20079%20772%2058%2057">+41 079 772 58 57</a></p>
+                                                        <p><a href="mailto:info@woodsgolf.ch">info@woodsgolf.ch</a></p>
+                                                        <p><a href="https://www.osgc.ch/club-platz/golfclub" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 23: Golf Club Erlen Roger Fisher (Trainer Only) -->
+                            <div class="accordion-item trainer-only">
+                                <div class="accordion-header" id="heading23">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse23" aria-expanded="false" aria-controls="collapse23">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Club Erlen</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-none d-lg-block">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse23" class="accordion-collapse collapse" aria-labelledby="heading23" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address"></div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-block d-lg-none">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p><a href="https://www.pccaddie.net/clubs/0410014/app.php?cat=tt_timetable_trainer_daylist&amp;alias=ALIAS%7CPRO2" rel="nofollow noopener" target="_blank">Roger Fisher</a></p>
+                                                        <p><a href="tel:+41%2076%20345%2003%2043">+41 76 345 03 43</a></p>
+                                                        <p><a href="mailto:golf.ac@bluewin.ch">golf.ac@bluewin.ch</a></p>
+                                                        <p><a href="https://www.pccaddie.net/clubs/0410014/app.php?cat=tt_timetable_trainer_daylist&amp;alias=ALIAS%7CPRO2" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 24: Birs Golf -->
+                            <div class="accordion-item trainer-only">
+                                <div class="accordion-header" id="heading24">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse24" aria-expanded="false" aria-controls="collapse24">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Birs Golf</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-none d-lg-block">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse24" class="accordion-collapse collapse" aria-labelledby="heading24" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address"></div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-block d-lg-none">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p><a href="https://www.birs-golf.ch/pro-frederic-schmitt/" rel="nofollow noopener" target="_blank">Frédéric Schmitt</a></p>
+                                                        <p><a href="tel:+41%2061%20761%2064%2064">+41 61 761 64 64</a></p>
+                                                        <p><a href="mailto:info@birs-golf.ch">info@birs-golf.ch</a></p>
+                                                        <p><a href="https://www.birs-golf.ch/pro-frederic-schmitt/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 25: Hilton Golf -->
+                            <div class="accordion-item trainer-only">
+                                <div class="accordion-header" id="heading25">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse25" aria-expanded="false" aria-controls="collapse25">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Hilton Golf</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-none d-lg-block">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse25" class="accordion-collapse collapse" aria-labelledby="heading25" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address"></div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-block d-lg-none">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p><a href="https://hiltongolf.ch/de/" rel="nofollow noopener" target="_blank">Simon Hilton</a></p>
+                                                        <p><a href="tel:+41%2079%20238%208778">+41 79 238 8778</a></p>
+                                                        <p><a href="mailto:simon@hiltongolf.ch">simon@hiltongolf.ch</a></p>
+                                                        <p><a href="https://hiltongolf.ch/de/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 26: Golf Club Klosters (Simon Hilton) -->
+                            <div class="accordion-item trainer-only">
+                                <div class="accordion-header" id="heading26">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse26" aria-expanded="false" aria-controls="collapse26">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Golf Club Klosters</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-none d-lg-block">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse26" class="accordion-collapse collapse" aria-labelledby="heading26" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address"></div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 d-block d-lg-none">
+                                                    <div class="teaching-pros" data-translate="experience-shop-pros-label">Teaching Pros</div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p><a href="https://golf-klosters.ch/golf-academy/golf-professional/" rel="nofollow noopener" target="_blank">Simon Hilton</a></p>
+                                                        <p><a href="tel:+41%2079%20238%208778">+41 79 238 8778</a></p>
+                                                        <p><a href="mailto:simon@hiltongolf.ch">simon@hiltongolf.ch</a></p>
+                                                        <p><a href="https://golf-klosters.ch/golf-academy/golf-professional/" target="_blank" rel="nofollow noopener" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shop 27: Aficionados Golf Zürich -->
+                            <div class="accordion-item off-course">
+                                <div class="accordion-header" id="heading27">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse27" aria-expanded="false" aria-controls="collapse27">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="icon-wrapper">
+                                                        <img width="60" height="88" src="./Experience - Golfyr_files/shop-directory-icon.png" alt="Shop directory icon">
+                                                    </div>
+                                                    <div class="shop-name">Aficionados Golf Zürich</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="collapse27" class="accordion-collapse collapse" aria-labelledby="heading27" data-bs-parent="#accordionShopDirectory">
+                                    <div class="accordion-body">
+                                        <div class="container p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="shop-address">
+                                                        <p>Töpferstrasse 28</p>
+                                                        <p>8045 Zürich</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><a href="https://www.aficionados.golf/" rel="nofollow noopener" target="_blank" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="teaching-pros-content">
+                                                        <p data-translate="experience-shop-pros-label">Teaching Pros</p>
+                                                        <p>&nbsp;</p>
+                                                        <p><strong>Markus Rath</strong></p>
+                                                        <p>+41 79 525 05 66</p>
+                                                        <p><a href="mailto:info@golfrath.com">info@golfrath.com</a></p>
+                                                        <p><a href="https://www.golfrath.com/" rel="nofollow noopener" target="_blank" data-translate="experience-shop-website">Website</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12 d-flex flex-row justify-content-center">
+                        <a class="btn load-more-shops" id="load-more-shops" href="#/" data-translate="experience-shop-load-more">Load more</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spacer -->
+        <section class="content-spacer height-md"></section>
+        
+        <!-- --------------------------------------------------
+             Newsletter & Contact Form Section
+        -------------------------------------------------- -->
+        <section class="newsletter-section" id="about">
+            <div class="newsletter-bg">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="./newsletter-430.jpg">
+                    <img src="./newsletter-1920-min-1024x466.jpg" alt="Alfredo Häberli" loading="lazy">
+                </picture>
+            </div>
+            
+            <div class="newsletter-overlay"></div>
+            
+            <div class="container newsletter-container">
+                <div class="newsletter-left">
+                    <h2 data-translate="form-title">Make sure you don’t miss a Hit</h2>
+                    <p data-translate="form-desc">Always stay on the fairway and subscribe to our newsletter.</p>
+                </div>
+                
+                <div class="newsletter-right">
+                    <form class="newsletter-form" action="#" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                        <div class="newsletter-form-row">
+                            <input type="text" data-translate-placeholder="form-fn" placeholder="First name*" required>
+                            <input type="text" data-translate-placeholder="form-ln" placeholder="Last name*" required>
+                        </div>
+                        <input type="email" data-translate-placeholder="form-em" placeholder="Email*" required>
+                        
+                        <label class="newsletter-consent">
+                            <input type="checkbox" required>
+                            <span data-translate="form-consent">I hereby agree that Golfyr is allowed to inform me about current offers, product news and new articles by newsletter. I can revoke this consent at any time. <a href="#">Data protection</a>.</span>
+                        </label>
+                        
+                        <button type="submit" class="btn btn-light" data-translate="form-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- --------------------------------------------------
+         Footer Area (Inherited from Index/Home Page)
+    -------------------------------------------------- -->
+    <footer>
+        <div class="container">
+            <!-- Top Brand Row -->
+            <div class="footer-top-row">
+                <h2 class="footer-logo-text">Golfyr</h2>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <!-- Main Content Layout -->
+            <div class="footer-main-content">
+                <!-- Rethink Column -->
+                <div class="footer-rethink-col">
+                    <div class="footer-rethink-text">Rethink <br>Golf</div>
+                </div>
+                
+                <!-- Navigation Columns Grid -->
+                <div class="footer-nav-grid">
+                    <!-- Column 1: Help -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col1-title">Help</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="#support" data-translate="footer-support">Support</a></li>
+                            <li><a href="#faq" data-translate="footer-faq">FAQ</a></li>
+                            <li><a href="#shop-directory" data-translate="footer-shop-directory">Shop Directory</a></li>
+                            <li><a href="#shop-login" data-translate="footer-shop-login">Shop Login</a></li>
+                            <li><a href="#expert-login" data-translate="footer-expert-login">Expert Login</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 2: Company -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col2-title">Company</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./sevenclubgame.html">#sevenclubgame</a></li>
+                            <li><a href="./index.html#swissness" data-translate="footer-swissness">Swissness</a></li>
+                            <li><a href="./index.html#community" data-translate="footer-community">Community</a></li>
+                            <li><a href="./index.html#press" data-translate="footer-press">Press</a></li>
+                            <li><a href="./index.html#contact" data-translate="footer-contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 3: The Golfyr Mag -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col3-title">The Golfyr Mag</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./magazine.html" data-translate="footer-latest-news">Latest News</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-inside">Inside Golfyr</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-clubhouse">Clubhouse</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-reviews">Reviews</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Info Column (Socials, CP, Contact) -->
+                <div class="footer-info-col">
+                    <!-- Social icons row -->
+                    <div class="footer-socials-row">
+                        <a href="https://linkedin.com/company/golfyr" target="_blank" class="social-icon" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://facebook.com/golfyr.golf" target="_blank" class="social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://instagram.com/golfyr" target="_blank" class="social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://twitter.com/golfyr" target="_blank" class="social-icon" aria-label="X (Twitter)">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://youtube.com/@golfyr" target="_blank" class="social-icon" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.524 3.545 12 3.545 12 3.545s-7.525 0-9.388.51C1.048 4.561.524 5.569.502 6.563c-.502 1.86-.502 5.437-.502 5.437s0 3.582.502 5.437c.022.994.546 2.002 1.41 2.51 1.863.51 9.388.51 9.388.51s7.524 0 9.388-.51a3.003 3.003 0 0 0 2.11-2.108c.502-1.855.502-5.437.502-5.437s0-3.577-.502-5.437zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="currentColor"/></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- CP certified seal -->
+                    <div class="footer-certification-row">
+                        <img src="./climatepartner.png" alt="ClimatePartner certified company Logo" class="footer-cp-logo">
+                        <div class="footer-cp-text">
+                            <strong>ClimatePartner</strong><br>
+                            <span>certified company</span><br>
+                            <small>climate-id.com/MNR38X</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Details -->
+                    <div class="footer-contact-details">
+                        <a href="tel:+410712223131">+41 (0)71 222 31 31</a><br>
+                        <a href="mailto:hello@golfyr.com">hello@golfyr.com</a><br>
+                        <span>Bahnhofstrasse 2, 9000 St. Gallen</span><br>
+                        <span>Switzerland</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <!-- Bottom Legal Row -->
+            <div class="footer-bottom-row">
+                <div class="footer-copyright">
+                    &copy; Golfyr AG 2026
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#imprint" data-translate="footer-imprint">Imprint</a>
+                    <a href="#data-protection" data-translate="footer-privacy">Data protection</a>
+                    <a href="#terms-and-conditions" data-translate="footer-terms">Terms & Conditions</a>
+                    <a href="#care-instructions" data-translate="footer-care">Care and use instructions</a>
+                    <a href="#money-back-guarantee" data-translate="footer-guarantee">Money-back guarantee</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Library Dependencies CDNs (GSAP, ScrollTrigger, Swiper) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Rebuilt JavaScript controller -->
+    <script src="./rebuilt-app.min.js"></script>
+</body>
+</html>

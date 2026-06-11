@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Golfyr</title>
+    
+    <!-- Brand Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="./favicon.ico">
+    
+    <!-- Swiper CSS & GSAP dependencies -->
+    <link rel="stylesheet" href="./swiper-bundle.min.css" />
+    
+    <!-- Custom Vanilla Stylesheet -->
+    <link rel="stylesheet" href="./rebuilt-style.min.css">
+    
+    <!-- Homepage specific style overrides to set card and newsletter image overlays to 0% -->
+    <style>
+        .rethink-card-overlay,
+        .newsletter-overlay {
+            background: transparent !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --------------------------------------------------
+         Header & Navigation Area
+    -------------------------------------------------- -->
+    <header>
+        <div class="container nav-container">
+            <a href="./index.html" class="logo">
+                <img src="./golfyr-logo-dark.png" alt="Golfyr Logo">
+            </a>
+            
+            <nav class="nav-links-wrapper">
+                <ul class="nav-links">
+                    <li class="nav-dropdown">
+                        <a href="javascript:void(0)"><span data-translate="nav-our-clubs">Our Clubs</span> <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 6px; transition: transform var(--transition-smooth);"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./sevenclubgame.html" data-translate="nav-sevenclub" class="dropdown-category">#sevenclubgame</a></li>
+                            <li><a href="./opener.html" data-translate="club-opener-title" class="dropdown-sub-item">The Opener</a></li>
+                            <li><a href="./mover.html" data-translate="club-mover-title" class="dropdown-sub-item">The Mover</a></li>
+                            <li><a href="./riser.html" data-translate="club-riser-title" class="dropdown-sub-item">The Riser</a></li>
+                            <li><a href="./pitcher.html" data-translate="club-pitcher-title" class="dropdown-sub-item">The Pitcher</a></li>
+                            <li><a href="./maker.html" data-translate="club-maker-title" class="dropdown-sub-item">The Maker</a></li>
+                            <li><a href="./maker-tour.html" data-translate="club-makertour-title" class="dropdown-sub-item">The Maker Tour</a></li>
+                            <li><a href="./saver.html" data-translate="club-saver-title" class="dropdown-sub-item">The Saver</a></li>
+                            <li><a href="./butler.html" data-translate="club-butler-title" class="dropdown-sub-item">The Butler</a></li>
+                        </ul>
+                    </li>
+                                        <li class="nav-dropdown">
+                        <a href="javascript:void(0)"><span data-translate="nav-tech">Technology</span> <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 6px; transition: transform var(--transition-smooth);"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./technology.html" data-translate="nav-tech-all" class="dropdown-category">Carbonics</a></li>
+                            <li><a href="./innovation.html" data-translate="nav-innovation" class="dropdown-sub-item">Innovation</a></li>
+                            <li><a href="./material.html" data-translate="nav-material" class="dropdown-sub-item">Material</a></li>
+                            <li><a href="./production.html" data-translate="nav-production" class="dropdown-sub-item">Production</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./experience.html" data-translate="nav-experience">Experience</a></li>
+                    <li><a href="./shop.html" data-translate="nav-shop">Shop</a></li>
+                    <li><a href="./magazine.html" data-translate="nav-magazine">Magazine</a></li>
+                    <li><a href="./about.html" data-translate="nav-about">About</a></li>
+                    
+                </ul>
+            </nav>
+            
+            <div class="header-right">
+                <!-- Cart Widget -->
+                <button class="cart-widget">
+                    <div class="cart-icon-wrapper">
+                        <img src="./icon-cart-dark.png" alt="Cart Icon" style="height: 18px; width: auto;">
+                        <span class="cart-badge">1</span>
+                    </div>
+                    <span>CHF 890<span data-translate="nav-cart-suffix"> (incl. tax)</span></span>
+                </button>
+                
+                <!-- Language Toggler -->
+                <div class="lang-selector">
+                    <button class="lang-switch active" data-lang="en">En</button>
+                    <span style="color: rgba(255,255,255,0.4)">/</span>
+                    <button class="lang-switch" data-lang="de">De</button>
+                </div>
+                
+                <!-- Mobile Nav Trigger -->
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+        <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="#13221e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <ul class="mobile-menu-links">
+            <li class="mobile-nav-dropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-trigger"><span data-translate="nav-our-clubs">Our Clubs</span> <svg class="arrow-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px; transition: transform var(--transition-smooth);"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <ul class="mobile-sub-menu">
+                    <li><a href="./sevenclubgame.html" data-translate="nav-sevenclub" class="dropdown-category">#sevenclubgame</a></li>
+                    <li><a href="./opener.html" data-translate="club-opener-title" class="dropdown-sub-item">The Opener</a></li>
+                    <li><a href="./mover.html" data-translate="club-mover-title" class="dropdown-sub-item">The Mover</a></li>
+                    <li><a href="./riser.html" data-translate="club-riser-title" class="dropdown-sub-item">The Riser</a></li>
+                    <li><a href="./pitcher.html" data-translate="club-pitcher-title" class="dropdown-sub-item">The Pitcher</a></li>
+                    <li><a href="./maker.html" data-translate="club-maker-title" class="dropdown-sub-item">The Maker</a></li>
+                    <li><a href="./maker-tour.html" data-translate="club-makertour-title" class="dropdown-sub-item">The Maker Tour</a></li>
+                    <li><a href="./saver.html" data-translate="club-saver-title" class="dropdown-sub-item">The Saver</a></li>
+                    <li><a href="./butler.html" data-translate="club-butler-title" class="dropdown-sub-item">The Butler</a></li>
+                </ul>
+            </li>
+                                <li class="mobile-nav-dropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-trigger"><span data-translate="nav-tech">Technology</span> <svg class="arrow-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px; transition: transform var(--transition-smooth);"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <ul class="mobile-sub-menu">
+                    <li><a href="./technology.html" data-translate="nav-tech-all" class="dropdown-category">Carbonics</a></li>
+                    <li><a href="./innovation.html" data-translate="nav-innovation" class="dropdown-sub-item">Innovation</a></li>
+                    <li><a href="./material.html" data-translate="nav-material" class="dropdown-sub-item">Material</a></li>
+                    <li><a href="./production.html" data-translate="nav-production" class="dropdown-sub-item">Production</a></li>
+                </ul>
+            </li>
+            <li><a href="./experience.html" data-translate="nav-experience">Experience</a></li>
+            <li><a href="./shop.html" data-translate="nav-shop">Shop</a></li>
+            <li><a href="./magazine.html" data-translate="nav-magazine">Magazine</a></li>
+            <li><a href="./about.html" data-translate="nav-about">About</a></li>
+            
+            <li style="margin-top: 24px;">
+                <div class="lang-selector">
+                    <button class="lang-switch active mobile-hide" data-lang="en">En</button>
+                    <span style="color: rgba(255,255,255,0.4)">/</span>
+                    <button class="lang-switch mobile-hide" data-lang="de">De</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- --------------------------------------------------
+             Hero Banner Section
+        -------------------------------------------------- -->
+        <section class="hero">
+            <div class="hero-bg">
+                <picture>
+                    <!-- Mobile view background -->
+                    <source media="(max-width: 768px)" srcset="./GFY_Maker_25_12-24_Golfyr_SanDiego_020_410_sRGB-1-scaled-e1778573567117-1024x983.jpg">
+                    <!-- Desktop background -->
+                    <img src="./Header_Image_Idea_V1-1024x576.jpg" alt="Rethink Golf Banner">
+                </picture>
+            </div>
+            
+            <div class="hero-overlay"></div>
+            
+            <div class="container hero-content">
+                <h1 class="hero-rotating-headline">
+                    <span class="hero-static-part" data-translate="hero-static-title">Rethink</span>
+                    <span class="hero-rotating-part">
+                        <span class="active" data-translate="hero-h1-1">Golf</span>
+                        <span data-translate="hero-h1-2">your Hardware</span>
+                        <span data-translate="hero-h1-3">your Mindset</span>
+                        <span data-translate="hero-h1-4">your Game</span>
+                    </span>
+                </h1>
+                
+                <div class="hero-buttons">
+                    <a href="#sevenclubgame" class="btn btn-light" data-translate="hero-btn-clubs">Our Clubs</a>
+                    <a href="./configurator.html" class="btn btn-ghost" data-translate="hero-btn-build">Build your Set</a>
+                </div>
+            </div>
+            
+            <div class="hero-scroll-down">
+                <span data-translate="hero-discover">Discover more</span>
+                <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1.5L10 10.5L19 1.5" stroke="white" stroke-width="2"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Brand Mission Statement Section
+        -------------------------------------------------- -->
+        <section class="brand-statement">
+            <div class="container brand-statement-container">
+                <h2 data-translate="rethink-sticky-title">It is time, <br>to rethink golf</h2>
+                <p class="lead-text" data-translate="brand-text">Golfyr’s purpose is to bring golf back to what made it great in the first place – community and fun. We simplify the game through innovative technology and a revolutionary approach.</p>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             "Rethink Golf" Cards (GSAP Sticky Section)
+        -------------------------------------------------- -->
+        <section class="rethink-section" id="technology">
+            <div class="container rethink-grid">
+                
+                <!-- Scrolling cards on right -->
+                <div class="rethink-right">
+                    <!-- Card 1 -->
+                    <div class="rethink-card">
+                        <div class="rethink-card-bg">
+                            <img src="./21-11-1024x614.jpg" alt="Carbon Golf Clubs" loading="lazy">
+                        </div>
+                        <div class="rethink-card-overlay">
+                            <div class="rethink-card-content">
+                                <h2 data-translate="rethink-card1-title">Worlds first <br>Full-carbon Clubs</h2>
+                                <p class="card-desc" data-translate="rethink-card1-body">Golfyr challenges one of golf’s biggest assumptions with carbon</p>
+                            </div>
+                            <a href="#sevenclubgame" class="btn btn-ghost" data-translate="clubs-discover">Discover more</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="rethink-card">
+                        <div class="rethink-card-bg">
+                            <img src="./15-8.jpg" alt="Sergio Garcia Maker Tour" loading="lazy">
+                        </div>
+                        <div class="rethink-card-overlay">
+                            <div class="rethink-card-content">
+                                <h2 data-translate="rethink-card2-title">Tour-Approved <br>Innovation</h2>
+                                <p class="card-desc" data-translate="rethink-card2-body">Discover the Maker Tour. Co-Designed with Sergio Garcia.</p>
+                            </div>
+                            <a href="./maker-tour.html" class="btn btn-ghost" data-translate="clubs-discover">Discover more</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="rethink-card">
+                        <div class="rethink-card-bg">
+                            <img src="./3_Gossau_Adultimum_1_Bild_JM5R2670-7-1024x653.png" alt="Switzerland Engineered" loading="lazy">
+                        </div>
+                        <div class="rethink-card-overlay">
+                            <div class="rethink-card-content">
+                                <h2 data-translate="rethink-card3-title">Engineered in <br>Switzerland</h2>
+                                <p class="card-desc" data-translate="rethink-card3-body">Our clubs are all 100% SWISS MADE at our production site in St. Gallen.</p>
+                            </div>
+                            <a href="./about.html" class="btn btn-ghost" data-translate="clubs-discover">Discover more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Interactive Synced Swiper Golf Map
+        -------------------------------------------------- -->
+        <section class="golf-map-section" id="sevenclubgame" style="display: none;">
+            <div class="container">
+                <div class="golf-map-header">
+                    <h2 data-translate="map-title">We call it <br>#sevenclubgame</h2>
+                    <p class="golf-map-desc-mobile" data-translate="map-text">Each of the seven clubs is expertly tailored to master one specific moment on the course – from powerful drives and pinpoint approaches to perfectly controlled putts.</p>
+                </div>
+                
+                <!-- Synced Map & Info (Desktop View) -->
+                <div class="golf-map-interactive desktop-only-slider">
+                    <div class="map-slider-container">
+                        <div class="swiper swiper-map-desktop-images">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img class="map-slide-img" src="./opener-1.png" alt="Opener Map" loading="lazy"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./mover-1.png" alt="Mover Map" loading="lazy"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./riser-1-768x725-1.png" alt="Riser Map" loading="lazy"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./pitcher-1.png" alt="Pitcher Map" loading="lazy"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./maker-1.png" alt="Maker Map" loading="lazy"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./saver-1.png" alt="Saver Map" loading="lazy"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./Butler_V5.png" alt="Butler Map" loading="lazy"></div>
+                            </div>
+                        </div>
+
+                        <!-- Alert notice banner -->
+                        <div class="map-alert-banner">
+                            <img src="./info-icon-neg.png" alt="Info Icon" style="height: 18px; width: auto;">
+                            <div>
+                                <p style="font-size: 13px; margin: 0;" data-translate="map-info-msg">Each club is engineered for a different situation on the course. <br>Swipe to discover all seven clubs on the map.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Swiper (Details Card of Swiped Club) -->
+                    <div class="info-slider-container">
+                        <p class="golf-map-desc-desktop" data-translate="map-text">Each of the seven clubs is expertly tailored to master one specific moment on the course – from powerful drives and pinpoint approaches to perfectly controlled putts.</p>
+                        
+                        <div class="swiper swiper-map-desktop-info">
+                            <div class="swiper-wrapper">
+                                <!-- Slide 1: Opener -->
+                                <div class="swiper-slide">
+                                    <div class="info-card">
+                                        <div class="info-card-header">
+                                            <div class="info-card-title" data-translate="club-opener-title">The Opener</div>
+                                            <div class="info-card-icon"><img src="./Opener.png" alt="Opener Silhouette" loading="lazy"></div>
+                                        </div>
+                                        <p class="info-card-desc" data-translate="club-opener-desc">The Opener is designed for all golfers to open the game and to keep them on the fairway.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 2: Mover -->
+                                <div class="swiper-slide">
+                                    <div class="info-card">
+                                        <div class="info-card-header">
+                                            <div class="info-card-title" data-translate="club-mover-title">The Mover</div>
+                                            <div class="info-card-icon"><img src="./Mover.png" alt="Mover Silhouette" loading="lazy"></div>
+                                        </div>
+                                        <p class="info-card-desc" data-translate="club-mover-desc">As the name suggests, the Mover helps you to move forward in the game. <br class="tablet-desktop-br"> Also perfect for great tee shots.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 3: Riser -->
+                                <div class="swiper-slide">
+                                    <div class="info-card">
+                                        <div class="info-card-header">
+                                            <div class="info-card-title" data-translate="club-riser-title">The Riser</div>
+                                            <div class="info-card-icon"><img src="./Riser.png" alt="Riser Silhouette" loading="lazy"></div>
+                                        </div>
+                                        <p class="info-card-desc" data-translate="club-riser-desc">When you’re in a position to attack the green, the focus shifts to the short game <br class="tablet-desktop-br"> and distance gives way to precision.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 4: Pitcher -->
+                                <div class="swiper-slide">
+                                    <div class="info-card">
+                                        <div class="info-card-header">
+                                            <div class="info-card-title" data-translate="club-pitcher-title">The Pitcher</div>
+                                            <div class="info-card-icon"><img src="./Pitcher.png" alt="Pitcher Silhouette" loading="lazy"></div>
+                                        </div>
+                                        <p class="info-card-desc" data-translate="club-pitcher-desc">Spin is crucial in short game. Now you’re targeting the pin, <br class="tablet-desktop-br"> the Pitcher helps you to land the ball close to the flag.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 5: Maker -->
+                                <div class="swiper-slide">
+                                    <div class="info-card">
+                                        <div class="info-card-header">
+                                            <div class="info-card-title" data-translate="club-maker-title">The Maker</div>
+                                            <div class="info-card-icon"><img src="./Maker.png" alt="Maker Silhouette" loading="lazy"></div>
+                                        </div>
+                                        <p class="info-card-desc" data-translate="club-maker-desc">The Maker helps you keep your cool during the difficult final stage <br class="tablet-desktop-br"> so you can head to the next hole full of confidence.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 6: Saver -->
+                                <div class="swiper-slide">
+                                    <div class="info-card">
+                                        <div class="info-card-header">
+                                            <div class="info-card-title" data-translate="club-saver-title">The Saver</div>
+                                            <div class="info-card-icon"><img src="./Saver.png" alt="Saver Silhouette" loading="lazy"></div>
+                                        </div>
+                                        <p class="info-card-desc" data-translate="club-saver-desc">It’s all in the name: the Saver is there to get you <br class="tablet-desktop-br"> out of trouble in the short game.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 7: Butler -->
+                                <div class="swiper-slide">
+                                    <div class="info-card">
+                                        <div class="info-card-header">
+                                            <div class="info-card-title" data-translate="club-butler-title">The Butler</div>
+                                            <div class="info-card-icon"><img src="./Butler.png" alt="Butler Silhouette" loading="lazy"></div>
+                                        </div>
+                                        <p class="info-card-desc" data-translate="club-butler-desc">The Butler is the most versatile companion. <br class="tablet-desktop-br"> The wide sole helps to glide through any ground conditions.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sliders Nav Controls -->
+                        <div class="info-slider-controls">
+                            <button class="map-arrow map-arrow-prev">
+                                <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+                                    <path d="M8.5 15L1.5 8L8.5 1" stroke="currentColor" stroke-width="2"></path>
+                                </svg>
+                            </button>
+                            <span class="info-slider-pagination"></span>
+                            <button class="map-arrow map-arrow-next">
+                                <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+                                    <path d="M1.5 1L8.5 8L1.5 15" stroke="currentColor" stroke-width="2"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Explore More Button Row -->
+                        <div class="map-explore-row">
+                            <a href="#sevenclubgame" class="btn btn-ghost" data-translate="map-explore">Explore more</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Swiper Integrated Slider (Mobile View - custom vertical imagery) -->
+                <div class="mobile-only-slider">
+                    <div class="map-alert-banner" style="margin-bottom: 24px; padding: 16px;">
+                        <img src="./info-icon-neg.png" alt="Info Icon" style="height: 16px; width: auto;">
+                        <div>
+                            <p style="font-size: 12px; margin: 0;" data-translate="map-info-msg">Each club is engineered for a different situation on the course. <br>Swipe to discover all seven clubs on the map.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper swiper-map-mobile">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_opener_eng.png" alt="Opener Mobile Map" loading="lazy"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_mover_eng.png" alt="Mover Mobile Map" loading="lazy"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_riser_eng.png" alt="Riser Mobile Map" loading="lazy"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_pitcher_eng.png" alt="Pitcher Mobile Map" loading="lazy"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_maker_eng.png" alt="Maker Mobile Map" loading="lazy"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_saver_eng.png" alt="Saver Mobile Map" loading="lazy"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map_Mobile_Butler_EN.png" alt="Butler Mobile Map" loading="lazy"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: center; gap: 24px; margin-top:24px;">
+                        <button class="map-arrow map-arrow-prev-mobile">
+                            <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+                                <path d="M8.5 15L1.5 8L8.5 1" stroke="currentColor" stroke-width="2"></path>
+                            </svg>
+                        </button>
+                        <button class="map-arrow map-arrow-next-mobile">
+                            <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+                                <path d="M1.5 1L8.5 8L1.5 15" stroke="currentColor" stroke-width="2"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <a href="#sevenclubgame" class="btn btn-ghost" style="width:100%; margin-top: 32px;" data-translate="map-explore">Explore more</a>
+                </div>
+            </div>
+        </section>
+          <!-- --------------------------------------------------
+             Volvo-Style Clubs Slider Section
+        -------------------------------------------------- -->
+        <section class="volvo-clubs-section" id="shop">
+            <div class="container volvo-slider-container">
+                <!-- Top Row: Active Club Info (Left) and Navigation Controls (Right) -->
+                <div class="volvo-slider-top">
+                    <div class="volvo-active-info">
+                        <div class="volvo-set-badge" data-translate="volvo-set-badge">The Premier Set</div>
+                        <h2 id="volvo-active-title" class="volvo-title" data-translate="club-opener-title">The Opener</h2>
+                        <div id="volvo-active-subtitle" class="volvo-subtitle" data-translate="volvo-opener-sub">Driver | 100% Carbon Hollow-Body</div>
+                        <div id="volvo-active-price" class="volvo-price" data-translate="volvo-opener-price">Complete Set from CHF 6,444</div>
+                    </div>
+                    
+                    <div class="volvo-slider-controls">
+                        <button class="volvo-arrow volvo-arrow-prev" aria-label="Previous Club">
+                            <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+                                <path d="M8.5 15L1.5 8L8.5 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                        <button class="volvo-arrow volvo-arrow-next" aria-label="Next Club">
+                            <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+                                <path d="M1.5 1L8.5 8L1.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="swiper swiper-volvo-clubs">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1: Opener -->
+                        <div class="swiper-slide swiper-slide-active">
+                            <div class="volvo-slide-inner">
+                                <img src="./Map-mobile_opener_eng.png" alt="The Opener Map" class="volvo-club-map-bg" loading="lazy">
+                                <img src="./The Opener - Golfyr_files/techspecs-opener-loft.png" alt="The Opener" class="volvo-club-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 2: Mover -->
+                        <div class="swiper-slide">
+                            <div class="volvo-slide-inner">
+                                <img src="./Map-mobile_mover_eng.png" alt="The Mover Map" class="volvo-club-map-bg" loading="lazy">
+                                <img src="./The Mover - Golfyr_files/techspecs-mover-loft.png" alt="The Mover" class="volvo-club-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 3: Riser -->
+                        <div class="swiper-slide">
+                            <div class="volvo-slide-inner">
+                                <img src="./Map-mobile_riser_eng.png" alt="The Riser Map" class="volvo-club-map-bg" loading="lazy">
+                                <img src="./The Riser - Golfyr_files/techspecs-riser-loft.png" alt="The Riser" class="volvo-club-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 4: Pitcher -->
+                        <div class="swiper-slide">
+                            <div class="volvo-slide-inner">
+                                <img src="./Map-mobile_pitcher_eng.png" alt="The Pitcher Map" class="volvo-club-map-bg" loading="lazy">
+                                <img src="./The Pitcher - Golfyr_files/techspecs-pitcher-loft.png" alt="The Pitcher" class="volvo-club-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 5: Maker -->
+                        <div class="swiper-slide">
+                            <div class="volvo-slide-inner">
+                                <img src="./Map-mobile_maker_eng.png" alt="The Maker Map" class="volvo-club-map-bg" loading="lazy">
+                                <img src="./The Maker - Golfyr_files/techspecs-maker-loft.png" alt="The Maker" class="volvo-club-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 6: Maker Tour -->
+                        <div class="swiper-slide">
+                            <div class="volvo-slide-inner">
+                                <img src="./Map-mobile_maker_eng.png" alt="The Maker Tour Map" class="volvo-club-map-bg" loading="lazy">
+                                <img src="./Maker Tour - Golfyr_files/39_Golfyr_Maker3_Tour_16457_V1_sRGB_300dpi-3.png" alt="The Maker Tour" class="volvo-club-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 7: Saver -->
+                        <div class="swiper-slide">
+                            <div class="volvo-slide-inner">
+                                <img src="./Map-mobile_saver_eng.png" alt="The Saver Map" class="volvo-club-map-bg" loading="lazy">
+                                <img src="./The Saver - Golfyr_files/techspecs-saver-loft.png" alt="The Saver" class="volvo-club-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 8: Butler -->
+                        <div class="swiper-slide">
+                            <div class="volvo-slide-inner">
+                                <img src="./Map_Mobile_Butler_EN.png" alt="The Butler Map" class="volvo-club-map-bg" loading="lazy">
+                                <img src="./The Butler - Golfyr_files/techspecs-butler-loft.png" alt="The Butler" class="volvo-club-image" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Progress Indicator Track -->
+                <div class="volvo-scrollbar-track">
+                    <div id="volvo-scrollbar-fill" class="volvo-scrollbar-fill"></div>
+                </div>
+
+                <div class="volvo-slider-actions">
+                    <a id="volvo-active-discover-btn" href="./opener.html" class="btn btn-dark" data-translate="volvo-btn-discover">Discover</a>
+                    <a href="./configurator.html" class="btn btn-ghost" data-translate="volvo-btn-configure">Configure your Set</a>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Volvo-Style Maps Slider Section
+        -------------------------------------------------- -->
+        <section class="volvo-maps-section" id="volvo-maps">
+            <div class="container volvo-slider-container">
+                <!-- Top Row: Active Map Info (Left) and Navigation Controls (Right) -->
+                <div class="volvo-slider-top">
+                    <div class="volvo-active-info">
+                        <h2 class="volvo-maps-section-title" data-translate="map-title">We call it <br>#sevenclubgame</h2>
+                        <h3 id="volvo-map-active-title" class="volvo-title volvo-maps-active-title" data-translate="club-opener-title">The Opener</h3>
+                        <p id="volvo-map-active-desc" class="volvo-map-desc" data-translate="club-opener-desc">The Opener is designed for all golfers to open the game and to keep them on the fairway.</p>
+                    </div>
+                    
+                    <div class="volvo-slider-controls">
+                        <button class="volvo-map-arrow volvo-map-arrow-prev" aria-label="Previous Map">
+                            <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+                                <path d="M8.5 15L1.5 8L8.5 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                        <button class="volvo-map-arrow volvo-map-arrow-next" aria-label="Next Map">
+                            <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+                                <path d="M1.5 1L8.5 8L1.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Middle Row: Swiper Slider showing PNG maps -->
+                <div class="swiper swiper-volvo-maps">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1: Opener Map -->
+                        <div class="swiper-slide swiper-slide-active">
+                            <div class="volvo-map-slide-inner">
+                                <img src="./opener-1.png" alt="The Opener Map" class="volvo-map-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 2: Mover Map -->
+                        <div class="swiper-slide">
+                            <div class="volvo-map-slide-inner">
+                                <img src="./mover-1.png" alt="The Mover Map" class="volvo-map-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 3: Riser Map -->
+                        <div class="swiper-slide">
+                            <div class="volvo-map-slide-inner">
+                                <img src="./riser-1-768x725-1.png" alt="The Riser Map" class="volvo-map-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 4: Pitcher Map -->
+                        <div class="swiper-slide">
+                            <div class="volvo-map-slide-inner">
+                                <img src="./pitcher-1.png" alt="The Pitcher Map" class="volvo-map-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 5: Maker Map -->
+                        <div class="swiper-slide">
+                            <div class="volvo-map-slide-inner">
+                                <img src="./maker-1.png" alt="The Maker Map" class="volvo-map-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 6: Maker Tour Map -->
+                        <div class="swiper-slide">
+                            <div class="volvo-map-slide-inner">
+                                <img src="./maker-1.png" alt="The Maker Tour Map" class="volvo-map-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 7: Saver Map -->
+                        <div class="swiper-slide">
+                            <div class="volvo-map-slide-inner">
+                                <img src="./saver-1.png" alt="The Saver Map" class="volvo-map-image" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 8: Butler Map -->
+                        <div class="swiper-slide">
+                            <div class="volvo-map-slide-inner">
+                                <img src="./Butler_V5.png" alt="The Butler Map" class="volvo-map-image" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Progress Indicator Track for Maps -->
+                <div class="volvo-map-scrollbar-track">
+                    <div id="volvo-map-scrollbar-fill" class="volvo-map-scrollbar-fill"></div>
+                </div>
+
+                <div class="volvo-slider-actions">
+                    <a id="volvo-map-active-readmore-btn" href="./opener.html" class="btn btn-ghost" data-translate="volvo-btn-readmore">Read more</a>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- --------------------------------------------------
+             The Magazine Section
+        -------------------------------------------------- -->
+        <section class="mag-section" id="magazine">
+            <div class="container">
+                <div class="mag-header">
+                    <h2 data-translate="mag-title">Golfyr Mag</h2>
+                    <div class="mag-slider-controls">
+                        <button class="map-arrow mag-arrow-prev">
+                            <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+                                <path d="M8.5 15L1.5 8L8.5 1" stroke="currentColor" stroke-width="2"></path>
+                            </svg>
+                        </button>
+                        <button class="map-arrow mag-arrow-next">
+                            <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+                                <path d="M1.5 1L8.5 8L1.5 15" stroke="currentColor" stroke-width="2"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="swiper swiper-blog-list">
+                    <div class="swiper-wrapper">
+                        <!-- Post 1 -->
+                        <div class="swiper-slide">
+                            <article class="mag-card">
+                                <div class="mag-card-image">
+                                    <img src="./05_25_GFY_300_201-scaled-e1772016798735.jpg" alt="We Proved 7 loading="lazy">14">
+                                </div>
+                                <h3>We Proved 7>14. Here’s the Data.</h3>
+                            </article>
+                        </div>
+                        
+                        <!-- Post 2 -->
+                        <div class="swiper-slide">
+                            <article class="mag-card">
+                                <div class="mag-card-image">
+                                    <img src="./GFY_Maker_25_12-24_Golfyr_SanDiego_030_637_sRGB-scaled.jpg" alt="Form Follows Function" loading="lazy">
+                                </div>
+                                <h3>Form Follows Function: The Journey to the #sevenclubgame</h3>
+                            </article>
+                        </div>
+                        
+                        <!-- Post 3 -->
+                        <div class="swiper-slide">
+                            <article class="mag-card">
+                                <div class="mag-card-image">
+                                    <img src="./15_3.jpg" alt="R&A Approval" loading="lazy">
+                                </div>
+                                <h3>A Certified Step Forward: Golfyr Clubs Receive R&A Approval</h3>
+                            </article>
+                        </div>
+                        
+                        <!-- Post 4 -->
+                        <div class="swiper-slide">
+                            <article class="mag-card">
+                                <div class="mag-card-image">
+                                    <img src="./sergio-garcia-header-1920.jpg" alt="Sergio Garcia joins" loading="lazy">
+                                </div>
+                                <h3>A moment to remember: Sergio Garcia joins our journey</h3>
+                            </article>
+                        </div>
+                    </div>
+                    
+                    <!-- Scrollbar -->
+                    <div class="swiper-scrollbar swiper-scrollbar-blog" style="margin-top: 40px; height: 2px !important;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Newsletter & Contact Form Section
+        -------------------------------------------------- -->
+        <section class="newsletter-section" id="about">
+            <div class="newsletter-bg">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="./newsletter-430.jpg">
+                    <img src="./newsletter-1920-min-1024x466.jpg" alt="Alfredo Häberli" loading="lazy">
+                </picture>
+            </div>
+            
+            <div class="newsletter-overlay"></div>
+            
+            <div class="container newsletter-container">
+                <div class="newsletter-left">
+                    <h2 data-translate="form-title">Make sure you don’t miss a Hit</h2>
+                    <p data-translate="form-desc">Always stay on the fairway and subscribe to our newsletter.</p>
+                </div>
+                
+                <div class="newsletter-right">
+                    <form class="newsletter-form" action="#" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                        <div class="newsletter-form-row">
+                            <input type="text" data-translate-placeholder="form-fn" placeholder="First name*" required>
+                            <input type="text" data-translate-placeholder="form-ln" placeholder="Last name*" required>
+                        </div>
+                        <input type="email" data-translate-placeholder="form-em" placeholder="Email*" required>
+                        
+                        <label class="newsletter-consent">
+                            <input type="checkbox" required>
+                            <span data-translate="form-consent">I hereby agree that Golfyr is allowed to inform me about current offers, product news and new articles by newsletter. I can revoke this consent at any time. <a href="#">Data protection</a>.</span>
+                        </label>
+                        
+                        <button type="submit" class="btn btn-light" data-translate="form-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- --------------------------------------------------
+         Footer Area
+    -------------------------------------------------- -->
+    <footer>
+        <div class="container">
+            <!-- Top Brand Row -->
+            <div class="footer-top-row">
+                <h2 class="footer-logo-text">Golfyr</h2>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <!-- Main Content Layout -->
+            <div class="footer-main-content">
+                <!-- Rethink Column -->
+                <div class="footer-rethink-col">
+                    <div class="footer-rethink-text">Rethink <br>Golf</div>
+                </div>
+                
+                <!-- Navigation Columns Grid -->
+                <div class="footer-nav-grid">
+                    <!-- Column 1: Help -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col1-title">Help</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="#support" data-translate="footer-support">Support</a></li>
+                            <li><a href="#faq" data-translate="footer-faq">FAQ</a></li>
+                            <li><a href="#shop-directory" data-translate="footer-shop-directory">Shop Directory</a></li>
+                            <li><a href="#shop-login" data-translate="footer-shop-login">Shop Login</a></li>
+                            <li><a href="#expert-login" data-translate="footer-expert-login">Expert Login</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 2: Company -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col2-title">Company</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./sevenclubgame.html">#sevenclubgame</a></li>
+                            <li><a href="#swissness" data-translate="footer-swissness">Swissness</a></li>
+                            <li><a href="#community" data-translate="footer-community">Community</a></li>
+                            <li><a href="#press" data-translate="footer-press">Press</a></li>
+                            <li><a href="#contact" data-translate="footer-contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 3: The Golfyr Mag -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col3-title">The Golfyr Mag</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./magazine.html" data-translate="footer-latest-news">Latest News</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-inside">Inside Golfyr</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-clubhouse">Clubhouse</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-reviews">Reviews</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Info Column (Socials, CP, Contact) -->
+                <div class="footer-info-col">
+                    <!-- Social icons row -->
+                    <div class="footer-socials-row">
+                        <a href="https://linkedin.com/company/golfyr" target="_blank" class="social-icon" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://facebook.com/golfyr.golf" target="_blank" class="social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://instagram.com/golfyr" target="_blank" class="social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://twitter.com/golfyr" target="_blank" class="social-icon" aria-label="X (Twitter)">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://youtube.com/@golfyr" target="_blank" class="social-icon" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.524 3.545 12 3.545 12 3.545s-7.525 0-9.388.51C1.048 4.561.524 5.569.502 6.563c-.502 1.86-.502 5.437-.502 5.437s0 3.582.502 5.437c.022.994.546 2.002 1.41 2.51 1.863.51 9.388.51 9.388.51s7.524 0 9.388-.51a3.003 3.003 0 0 0 2.11-2.108c.502-1.855.502-5.437.502-5.437s0-3.577-.502-5.437zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="currentColor"/></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- CP certified seal -->
+                    <div class="footer-certification-row">
+                        <img src="./climatepartner.png" alt="ClimatePartner certified company Logo" class="footer-cp-logo">
+                        <div class="footer-cp-text">
+                            <strong>ClimatePartner</strong><br>
+                            <span>certified company</span><br>
+                            <small>climate-id.com/MNR38X</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Details -->
+                    <div class="footer-contact-details">
+                        <a href="tel:+410712223131">+41 (0)71 222 31 31</a><br>
+                        <a href="mailto:hello@golfyr.com">hello@golfyr.com</a><br>
+                        <span>Bahnhofstrasse 2, 9000 St. Gallen</span><br>
+                        <span>Switzerland</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <!-- Bottom Legal Row -->
+            <div class="footer-bottom-row">
+                <div class="footer-copyright">
+                    &copy; Golfyr AG 2026
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#imprint" data-translate="footer-imprint">Imprint</a>
+                    <a href="#data-protection" data-translate="footer-privacy">Data protection</a>
+                    <a href="#terms-and-conditions" data-translate="footer-terms">Terms & Conditions</a>
+                    <a href="#care-instructions" data-translate="footer-care">Care and use instructions</a>
+                    <a href="#money-back-guarantee" data-translate="footer-guarantee">Money-back guarantee</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Library Dependecies (GSAP, ScrollTrigger, Swiper) -->
+    <script src="./gsap.min.js"></script>
+    <script src="./ScrollTrigger.min.js"></script>
+    <script src="./swiper-bundle.min.js"></script>
+    
+    <!-- Rebuilt JavaScript controller -->
+    <script src="./rebuilt-app.min.js"></script>
+</body>
+</html>

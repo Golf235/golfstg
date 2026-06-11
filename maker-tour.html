@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Maker Tour - Golfyr</title>
+    
+    <!-- Brand Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="./favicon.ico">
+    
+    <!-- Swiper CSS & GSAP dependencies -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Custom Vanilla Stylesheet -->
+    <link rel="stylesheet" href="./rebuilt-style.min.css">
+
+    <!-- Isolated Page Styling Overrides -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Adjustments */
+        .hero h1 {
+            height: auto !important;
+            text-transform: none !important;
+        }
+
+        /* Intro styling - Left-aligned, bold title, clean spacing */
+        .makertour-intro {
+            padding: 100px 0 !important;
+            background-color: #ffffff;
+        }
+        .makertour-intro .intro-headline {
+            font-family: var(--font-primary), sans-serif;
+            font-size: 44px;
+            font-weight: 500;
+            line-height: 120%;
+            letter-spacing: -0.01em;
+            color: #191919;
+            margin-bottom: 28px;
+        }
+        .makertour-intro .intro-body {
+            font-family: var(--font-primary), sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 120%;
+            color: #191919;
+            max-width: 900px;
+            margin: 0;
+        }
+        @media (max-width: 991px) {
+            .makertour-intro .intro-headline {
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+            .makertour-intro .intro-body {
+                font-size: 18px;
+            }
+        }
+
+        /* Why the Mover custom alignments */
+        .makertour-why-section {
+            background-color: #ffffff;
+            padding-bottom: 80px;
+        }
+        .makertour-why-section .title-underline-wrapper {
+            position: relative;
+            border-bottom: 2px solid #e5e5e5;
+            padding-bottom: 0;
+            margin-bottom: 32px;
+        }
+        .makertour-why-section .tech-section-title {
+            display: inline-block;
+            font-family: var(--font-primary), sans-serif;
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: -2px; /* overlap the border-bottom */
+            padding-bottom: 16px;
+            border-bottom: 4px solid #000;
+            color: #000000;
+        }
+        @media (min-width: 992px) {
+            .makertour-why-section .tech-section-title {
+                font-size: 48px;
+                padding-bottom: 24px;
+            }
+        }
+        .makertour-why-section .top-border-hr {
+            display: none !important;
+        }
+        .makertour-why-section .menu-tab {
+            font-family: var(--font-primary), sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            text-transform: none !important;
+            letter-spacing: 0;
+            color: rgba(25, 25, 25, 0.4);
+            padding: 16px 0 !important;
+            border-top: none !important;
+            border-bottom: none !important;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .makertour-why-section .swiper-slide-thumb-active .menu-tab {
+            color: #191919;
+            font-weight: 500;
+            border-top: none !important;
+            border-bottom: none !important;
+        }
+        @media (min-width: 992px) {
+            .makertour-why-section .menu-tab {
+                font-size: 18px;
+                padding: 24px 0 !important;
+            }
+        }
+        .makertour-why-section .tab-content-container {
+            margin-top: 48px;
+        }
+        .makertour-why-section .makertour-why-content-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .makertour-why-section .makertour-why-text-swiper {
+            order: 2; /* mobile: below buttons */
+            width: 100%;
+        }
+        .makertour-why-section .makertour-why-buttons {
+            order: 1; /* mobile: above text */
+            display: flex;
+            gap: 24px;
+            justify-content: flex-start;
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+        @media (min-width: 992px) {
+            .makertour-why-section .makertour-why-content-col {
+                padding-left: 48px;
+            }
+            .makertour-why-section .makertour-why-text-swiper {
+                order: 1; /* desktop: above buttons */
+            }
+            .makertour-why-section .makertour-why-buttons {
+                order: 2; /* desktop: below text */
+                justify-content: flex-end;
+                margin-top: 48px;
+                margin-bottom: 0;
+            }
+        }
+        .makertour-why-section .makertour-why-buttons button {
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
+            width: auto !important;
+            height: auto !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #191919 !important;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        .makertour-why-section .makertour-why-buttons button.swiper-button-disabled {
+            color: rgba(25, 25, 25, 0.25) !important;
+            cursor: default !important;
+            opacity: 1 !important;
+        }
+        .makertour-why-section .makertour-why-buttons button:hover:not(.swiper-button-disabled) {
+            color: #000000 !important;
+        }
+        .makertour-why-section .simpleSliderTabNavContent .swiper-wrapper .swiper-slide .content-wrapper .title {
+            font-family: var(--font-primary), sans-serif;
+            font-size: 36px;
+            font-weight: 500;
+            line-height: 120%;
+            margin-bottom: 20px !important;
+            margin-top: 0;
+            color: #000000;
+        }
+        .makertour-why-section .simpleSliderTabNavContent .swiper-wrapper .swiper-slide .content-wrapper .content {
+            font-family: var(--font-primary), sans-serif;
+            font-size: 16px;
+            line-height: 140%;
+            color: #191919;
+        }
+        @media (min-width: 992px) {
+            .makertour-why-section .simpleSliderTabNavContent .swiper-wrapper .swiper-slide .content-wrapper .title {
+                font-size: 48px;
+                margin-bottom: 32px !important;
+            }
+            .makertour-why-section .simpleSliderTabNavContent .swiper-wrapper .swiper-slide .content-wrapper .content {
+                font-size: 18px;
+            }
+        }
+        .makertour-why-section .image-wrapper {
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: #f8f9fa;
+        }
+        .makertour-why-section .image-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Where do you play section styling */
+        .makertour-where-section {
+            padding: 100px 0;
+        }
+        .makertour-where-section .subtitle {
+            font-family: var(--font-primary), sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 140%;
+            margin-top: 24px;
+            margin-bottom: 32px;
+            color: #191919;
+        }
+        .makertour-where-section .where-points {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+        .makertour-where-section .where-points li {
+            position: relative;
+            padding-left: 28px;
+            font-family: var(--font-primary), sans-serif;
+            font-size: 16px;
+            line-height: 150%;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+        .makertour-where-section .where-points li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #163730;
+            font-weight: bold;
+        }
+        .makertour-where-section .club-graphic {
+            max-width: 80%;
+            height: auto;
+        }
+        @media (max-width: 991px) {
+            .makertour-where-section .club-graphic {
+                width: 100%;
+                max-width: 480px;
+                margin-top: 32px;
+            }
+        }
+
+        /* --------------------------------------------------
+           Extracted from main-phase-3.css for Tech Specs
+           -------------------------------------------------- */
+        .club-tech-specs {
+            background-color: #ffffff;
+            padding: 86px 0;
+            position: relative;
+        }
+        @media (min-width: 1200px) {
+            .club-tech-specs {
+                padding: 100px 0 120px 0;
+            }
+        }
+        .club-tech-specs h2 {
+            color: #000;
+            font-family: var(--font-primary), sans-serif;
+            font-size: 40px;
+            font-weight: 500;
+            line-height: 100%;
+            margin: 0;
+        }
+        @media (min-width: 768px) {
+            .club-tech-specs h2 {
+                font-size: 48px;
+            }
+        }
+        .club-tech-specs .subtitle {
+            font-family: var(--font-primary), sans-serif;
+            font-size: 15px;
+            line-height: 120%;
+            margin: 12px 0 0 0;
+            color: #333333;
+        }
+        .club-tech-specs .specs-hr {
+            background-color: #000;
+            border: none;
+            height: 2px !important;
+            margin: 16px 0;
+            opacity: 1;
+            width: 100%;
+        }
+        .club-tech-specs .swiper {
+            margin: 28px 0 0 0;
+            padding: 0 0 40px 0;
+        }
+        .club-tech-specs .swiper .swiper-slide .image-wrapper {
+            height: 320px;
+            width: auto;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .club-tech-specs .swiper .swiper-slide .image-wrapper .img-fluid {
+            height: 100%;
+            object-fit: contain;
+            width: 100%;
+        }
+        .club-tech-specs .swiper .swiper-slide .techspec-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: baseline;
+            margin-top: 20px;
+        }
+        .club-tech-specs .swiper .swiper-slide .techspec-wrapper .techspec-name {
+            font-family: var(--font-primary), sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            margin-right: 12px;
+            color: #191919;
+        }
+        .club-tech-specs .swiper .swiper-slide .techspec-wrapper .techspec-value {
+            font-family: var(--font-primary), sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: rgba(25, 25, 25, 0.4);
+        }
+        .club-tech-specs .swiper .swiper-slide .description {
+            font-family: var(--font-primary), sans-serif;
+            font-size: 15px;
+            line-height: 120%;
+            margin-top: 12px;
+            color: #333333;
+        }
+        .club-tech-specs .swiper-buttons {
+            display: flex;
+            gap: 48px;
+        }
+        .club-tech-specs .swiper-buttons button svg path {
+            stroke-width: 3.5px !important;
+        }
+        .club-tech-specs .swiper-buttons button {
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
+            width: auto !important;
+            height: auto !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #191919 !important;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+            position: static !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+        }
+        .club-tech-specs .swiper-buttons button::after {
+            display: none !important;
+        }
+        .club-tech-specs .swiper-buttons button:hover:not(.swiper-button-disabled) {
+            opacity: 1 !important;
+            color: #000000 !important;
+        }
+        .club-tech-specs .swiper-buttons button.swiper-button-disabled {
+            opacity: 0.25 !important;
+            cursor: default !important;
+            pointer-events: none !important;
+        }
+        .club-tech-specs .swiper-scrollbar {
+            background: rgba(0, 0, 0, 0.1);
+            height: 4px;
+            margin-top: 32px;
+        }
+        .club-tech-specs .swiper-scrollbar .swiper-scrollbar-drag {
+            background: #163730;
+        }
+
+        /* Headings Consistency Override */
+        .makertour-intro .intro-headline,
+        .makertour-why-section .tech-section-title,
+        .makertour-where-section .tech-section-title,
+        .club-tech-specs .tech-section-title,
+        .makertour-for-who .content-wrapper .content .head,
+        .makertour-why-section .content-wrapper .title {
+            font-family: var(--font-primary), sans-serif !important;
+            font-size: 32px !important;
+            font-weight: 500 !important;
+            line-height: 120% !important;
+            letter-spacing: -0.01em !important;
+            text-transform: none !important;
+            margin-top: 0;
+        }
+        .makertour-intro .intro-headline,
+        .makertour-why-section .tech-section-title,
+        .makertour-where-section .tech-section-title,
+        .club-tech-specs .tech-section-title,
+        .makertour-why-section .content-wrapper .title {
+            color: #191919 !important;
+        }
+        @media (min-width: 992px) {
+            .makertour-intro .intro-headline,
+            .makertour-why-section .tech-section-title,
+            .makertour-where-section .tech-section-title,
+            .club-tech-specs .tech-section-title,
+            .makertour-for-who .content-wrapper .content .head,
+            .makertour-why-section .content-wrapper .title {
+                font-size: 48px !important;
+            }
+        }
+
+        /* Grid System support for col-8 and col-4 */
+        .col-8 {
+            flex: 0 0 66.666667% !important;
+            max-width: 66.666667% !important;
+        }
+        .col-4 {
+            flex: 0 0 33.333333% !important;
+            max-width: 33.333333% !important;
+        }
+
+        /* Ensure the Who is the Mover for background image covers the area on mobile */
+        .makertour-for-who .background {
+            z-index: 1;
+            top: 0 !important;
+            left: 0 !important;
+        }
+        .makertour-for-who .background picture,
+        .makertour-for-who .background picture img {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+        /* Style the overlay shadow gradient */
+        .makertour-for-who .overlay-shadow {
+            left: 0;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.75) 100%) !important;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .makertour-for-who .content-wrapper {
+            z-index: 3;
+        }
+        @media (max-width: 991px) {
+            .makertour-intro {
+                padding: 48px 0 !important;
+            }
+            .makertour-why-section {
+                padding-bottom: 32px !important;
+            }
+            .makertour-where-section {
+                padding: 48px 0 !important;
+            }
+            .club-tech-specs {
+                padding: 48px 0 !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .makertour-for-who {
+                height: 500px !important;
+                min-height: 500px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --------------------------------------------------
+         Header & Navigation Area
+    -------------------------------------------------- -->
+    <header>
+        <div class="container nav-container">
+            <a href="./index.html" class="logo">
+                <img src="./golfyr-logo-dark.png" alt="Golfyr Logo">
+            </a>
+            
+            <nav class="nav-links-wrapper">
+                <ul class="nav-links">
+                    <li class="nav-dropdown">
+                        <a href="javascript:void(0)"><span data-translate="nav-our-clubs">Our Clubs</span> <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 6px; transition: transform var(--transition-smooth);"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./sevenclubgame.html" data-translate="nav-sevenclub" class="dropdown-category">#sevenclubgame</a></li>
+                            <li><a href="./opener.html" data-translate="club-opener-title" class="dropdown-sub-item">The Opener</a></li>
+                            <li><a href="./mover.html" data-translate="club-mover-title" class="dropdown-sub-item">The Mover</a></li>
+                            <li><a href="./riser.html" data-translate="club-riser-title" class="dropdown-sub-item">The Riser</a></li>
+                            <li><a href="./pitcher.html" data-translate="club-pitcher-title" class="dropdown-sub-item">The Pitcher</a></li>
+                            <li><a href="./maker.html" data-translate="club-maker-title" class="dropdown-sub-item">The Maker</a></li>
+                            <li><a href="./maker-tour.html" data-translate="club-makertour-title" class="dropdown-sub-item">The Maker Tour</a></li>
+                            <li><a href="./saver.html" data-translate="club-saver-title" class="dropdown-sub-item">The Saver</a></li>
+                            <li><a href="./butler.html" data-translate="club-butler-title" class="dropdown-sub-item">The Butler</a></li>
+                        </ul>
+                    </li>
+                                        <li class="nav-dropdown">
+                        <a href="javascript:void(0)"><span data-translate="nav-tech">Technology</span> <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 6px; transition: transform var(--transition-smooth);"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./technology.html" data-translate="nav-tech-all" class="dropdown-category">Carbonics</a></li>
+                            <li><a href="./innovation.html" data-translate="nav-innovation" class="dropdown-sub-item">Innovation</a></li>
+                            <li><a href="./material.html" data-translate="nav-material" class="dropdown-sub-item">Material</a></li>
+                            <li><a href="./production.html" data-translate="nav-production" class="dropdown-sub-item">Production</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./experience.html" data-translate="nav-experience">Experience</a></li>
+                    <li><a href="./shop.html" data-translate="nav-shop">Shop</a></li>
+                    <li><a href="./magazine.html" data-translate="nav-magazine">Magazine</a></li>
+                    <li><a href="./about.html" data-translate="nav-about">About</a></li>
+                    
+                </ul>
+            </nav>
+            
+            <div class="header-right">
+                <!-- Cart Widget -->
+                <button class="cart-widget">
+                    <div class="cart-icon-wrapper">
+                        <img src="./icon-cart-dark.png" alt="Cart Icon" style="height: 18px; width: auto;">
+                        <span class="cart-badge">1</span>
+                    </div>
+                    <span>CHF 890<span data-translate="nav-cart-suffix"> (incl. tax)</span></span>
+                </button>
+                
+                <!-- Language Toggler -->
+                <div class="lang-selector">
+                    <button class="lang-switch active" data-lang="en">En</button>
+                    <span style="color: rgba(255,255,255,0.4)">/</span>
+                    <button class="lang-switch" data-lang="de">De</button>
+                </div>
+                
+                <!-- Mobile Nav Trigger -->
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+        <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="#13221e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <ul class="mobile-menu-links">
+            <li class="mobile-nav-dropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-trigger"><span data-translate="nav-our-clubs">Our Clubs</span> <svg class="arrow-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px; transition: transform var(--transition-smooth);"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <ul class="mobile-sub-menu">
+                    <li><a href="./sevenclubgame.html" data-translate="nav-sevenclub" class="dropdown-category">#sevenclubgame</a></li>
+                    <li><a href="./opener.html" data-translate="club-opener-title" class="dropdown-sub-item">The Opener</a></li>
+                    <li><a href="./mover.html" data-translate="club-mover-title" class="dropdown-sub-item">The Mover</a></li>
+                    <li><a href="./riser.html" data-translate="club-riser-title" class="dropdown-sub-item">The Riser</a></li>
+                    <li><a href="./pitcher.html" data-translate="club-pitcher-title" class="dropdown-sub-item">The Pitcher</a></li>
+                    <li><a href="./maker.html" data-translate="club-maker-title" class="dropdown-sub-item">The Maker</a></li>
+                    <li><a href="./maker-tour.html" data-translate="club-makertour-title" class="dropdown-sub-item">The Maker Tour</a></li>
+                    <li><a href="./saver.html" data-translate="club-saver-title" class="dropdown-sub-item">The Saver</a></li>
+                    <li><a href="./butler.html" data-translate="club-butler-title" class="dropdown-sub-item">The Butler</a></li>
+                </ul>
+            </li>
+                                <li class="mobile-nav-dropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-trigger"><span data-translate="nav-tech">Technology</span> <svg class="arrow-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px; transition: transform var(--transition-smooth);"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <ul class="mobile-sub-menu">
+                    <li><a href="./technology.html" data-translate="nav-tech-all" class="dropdown-category">Carbonics</a></li>
+                    <li><a href="./innovation.html" data-translate="nav-innovation" class="dropdown-sub-item">Innovation</a></li>
+                    <li><a href="./material.html" data-translate="nav-material" class="dropdown-sub-item">Material</a></li>
+                    <li><a href="./production.html" data-translate="nav-production" class="dropdown-sub-item">Production</a></li>
+                </ul>
+            </li>
+            <li><a href="./experience.html" data-translate="nav-experience">Experience</a></li>
+            <li><a href="./shop.html" data-translate="nav-shop">Shop</a></li>
+            <li><a href="./magazine.html" data-translate="nav-magazine">Magazine</a></li>
+            <li><a href="./about.html" data-translate="nav-about">About</a></li>
+            
+            <li style="margin-top: 24px;">
+                <div class="lang-selector">
+                    <button class="lang-switch active mobile-hide" data-lang="en">En</button>
+                    <span style="color: rgba(255,255,255,0.4)">/</span>
+                    <button class="lang-switch mobile-hide" data-lang="de">De</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- --------------------------------------------------
+             Hero Section
+        -------------------------------------------------- -->
+        <section class="hero">
+            <div class="hero-bg">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="./Maker Tour - Golfyr_files/sergio-garcia_portrait_mobile.jpg">
+                    <img src="./Maker Tour - Golfyr_files/sergio-garcia_portrait.webp" alt="The Maker Tour Hero" loading="lazy">
+                </picture>
+            </div>
+            
+            <div class="hero-overlay"></div>
+            
+            <div class="container hero-content">
+                <h1 data-translate="makertour-hero-title">The Maker Tour</h1>
+                
+                <div class="hero-buttons">
+                    <a href="./shop.html" class="btn btn-light" data-translate="makertour-hero-buy-btn">Buy the Set</a>
+                    <a href="./configurator.html" class="btn btn-ghost" data-translate="makertour-hero-config-btn">Configure your Set here</a>
+                </div>
+            </div>
+            
+            <div class="hero-scroll-down">
+                <span data-translate="hero-discover">Discover more</span>
+                <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1.5L10 10.5L19 1.5" stroke="white" stroke-width="2"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Intro Section
+        -------------------------------------------------- -->
+        <section class="large-text-block makertour-intro">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-10">
+                        <h2 class="intro-headline" data-translate="makertour-intro-title">Developed for Champions.</h2>
+                        <p class="intro-body" data-translate="makertour-intro-body">
+                            The evolution of the Maker: Co-Designed with Sergio Garcia. Sergio Garcia doesn't compromise. He came to us with clear demands: what a putter must deliver under pressure, how it should feel in decisive moments. His standards didn't just shape the design — they defined it. The Maker Tour is engineered to those expectations — exceptional stability and high energy transfer through impact, so your putts start on your intended line and travel the right distance, consistently.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Why The Maker Tour Section (Tab Swiper Component)
+        -------------------------------------------------- -->
+        <section class="slider-tabs-nav makertour-why-section" id="why-maker">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="title-underline-wrapper">
+                            <h2 class="tech-section-title" data-translate="makertour-why-title">Why the Maker Tour?</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Swiper for Tab Navigation -->
+                        <div class="swiper simpleSliderTabNav">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="menu-tab" data-translate="makertour-why-tab1">Co-Designed with Sergio Garcia</div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="menu-tab" data-translate="makertour-why-tab2">Exceptional Stability</div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="menu-tab" data-translate="makertour-why-tab3">High Energy Transfer</div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="menu-tab" data-translate="makertour-why-tab4">Swiss Made & R&A Approved</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="container p-0 tab-content-container">
+                            <div class="row align-items-center">
+                                <!-- Left side: Swiper Images -->
+                                <div class="col-12 col-lg-7 col-xxl-6">
+                                    <div class="swiper simpleSliderTabNavContentImages">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="image-wrapper">
+                                                    <img src="./Maker Tour - Golfyr_files/sergio-garcia_person-845x1024.webp" class="img-fluid" alt="Co-Designed with Sergio Garcia" loading="lazy">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="image-wrapper">
+                                                    <img src="./Maker Tour - Golfyr_files/maker-3-tour_side-view.webp" class="img-fluid" alt="Exceptional Stability" loading="lazy">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="image-wrapper">
+                                                    <img src="./Maker Tour - Golfyr_files/maker-3-tour_bird-view.webp" class="img-fluid" alt="High Energy Transfer" loading="lazy">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="image-wrapper">
+                                                    <img src="./Maker Tour - Golfyr_files/kachel_3-1.png" class="img-fluid" alt="Swiss Made & R&A Approved" loading="lazy">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right side: Swiper Descriptions & Navigation Buttons -->
+                                <div class="col-12 col-lg-4 offset-lg-1 col-xxl-5 offset-xxl-1 makertour-why-content-col">
+                                    <div class="swiper simpleSliderTabNavContent makertour-why-text-swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="content-wrapper">
+                                                    <div class="title" data-translate="makertour-why-tab1">
+                                                        Co-Designed with Sergio Garcia
+                                                    </div>
+                                                    <div class="content" data-translate="makertour-why-desc1">
+                                                        Developed in collaboration with professional golfer Sergio Garcia to deliver confidence when the putt matters most.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="content-wrapper">
+                                                    <div class="title" data-translate="makertour-why-tab2">
+                                                        Exceptional Stability
+                                                    </div>
+                                                    <div class="content" data-translate="makertour-why-desc2">
+                                                        The hollow mallet design and high MOI of 7'100 maximize forgiveness and keep the face stable at impact.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="content-wrapper">
+                                                    <div class="title" data-translate="makertour-why-tab3">
+                                                        High Energy Transfer
+                                                    </div>
+                                                    <div class="content" data-translate="makertour-why-desc3">
+                                                        Tungsten weighting provides clean energy transfer through impact, helping putts consistently travel the correct distance.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="content-wrapper">
+                                                    <div class="title" data-translate="makertour-why-tab4">
+                                                        Swiss Made & R&A Approved
+                                                    </div>
+                                                    <div class="content" data-translate="makertour-why-desc4">
+                                                        Engineered with Swiss precision and approved by the R&A for competitive tournament play.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="swiper-buttons makertour-why-buttons">
+                                        <button class="swiper-button-prev swiper-tabnavcontent-button-prev" aria-label="Previous Slide">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        </button>
+                                        <button class="swiper-button-next swiper-tabnavcontent-button-next" aria-label="Next Slide">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Where Do You Play Section
+        -------------------------------------------------- -->
+        <section class="makertour-where-section bg-light" id="where-play">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-6">
+                        <div class="content-wrapper">
+                            <h2 class="tech-section-title" data-translate="makertour-where-title">Where do you play the Maker Tour?</h2>
+                            <div class="subtitle" data-translate="makertour-where-subtitle">You use the Maker Tour on the green whenever precision, touch, and stability under pressure decide the outcome.</div>
+                            <ul class="where-points">
+                                <li data-translate="makertour-where-point1">Perfect for fast, undulating greens requiring precise distance control</li>
+                                <li data-translate="makertour-where-point2">Provides maximum alignment confidence for crucial short-distance putts</li>
+                                <li data-translate="makertour-where-point3">Delivers stable roll and forgiveness on off-center hits</li>
+                                <li data-translate="makertour-where-point4">The ultimate companion to secure your score and finish the hole with confidence</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 text-center">
+                        <img src="./Maker Tour - Golfyr_files/maker-tour-product.webp" class="img-fluid club-graphic" alt="The Maker Tour Graphic" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Tech Specs Section
+        -------------------------------------------------- -->
+        <section class="club-tech-specs" id="tech-specs">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h2 class="tech-section-title" data-translate="makertour-specs-title">Tech Specs</h2>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end">
+                        <div class="swiper-buttons d-flex">
+                            <button class="swiper-button-prev swiper-club-tech-specs-button-prev" aria-label="Previous Spec">
+                                <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M8.5 15L1.5 8L8.5 1" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                            <button class="swiper-button-next swiper-club-tech-specs-button-next" aria-label="Next Spec">
+                                <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M1.5 1L8.5 8L1.5 15" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <div class="subtitle" data-translate="makertour-specs-subtitle">Note: These values are standard specifications and can be adjusted through custom fitting.</div>
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col-12"><hr class="specs-hr"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <div class="swiper swiper-club-tech-specs-slider">
+                            <div class="swiper-wrapper">
+                                <!-- Spec 1: Loft -->
+                                <div class="swiper-slide spec-slide">
+                                    <div class="image-wrapper">
+                                        <img src="./Maker Tour - Golfyr_files/39_Golfyr_Maker3_Tour_16457_V1_sRGB_300dpi-3.png" class="img-fluid spec-img" alt="Loft Spec" loading="lazy">
+                                    </div>
+                                    <div class="techspec-wrapper">
+                                        <div class="techspec-name" data-translate="makertour-specs-loft-name">Loft</div>
+                                        <div class="techspec-value">3°</div>
+                                    </div>
+                                    <div class="description" data-translate="makertour-specs-loft-desc">
+                                        The static loft describes the angle of the clubface when at rest.
+                                    </div>
+                                </div>
+                                
+                                <!-- Spec 2: MOI -->
+                                <div class="swiper-slide spec-slide">
+                                    <div class="image-wrapper">
+                                        <img src="./Maker Tour - Golfyr_files/kachel_3.png" class="img-fluid spec-img" alt="MOI Spec" loading="lazy">
+                                    </div>
+                                    <div class="techspec-wrapper">
+                                        <div class="techspec-name" data-translate="makertour-specs-moi-name">MOI</div>
+                                        <div class="techspec-value">7’100</div>
+                                    </div>
+                                    <div class="description" data-translate="makertour-specs-moi-desc">
+                                        The higher the MOI (Moment of Inertia), the more stable the club, resulting in maximum forgiveness.
+                                    </div>
+                                </div>
+                                
+                                <!-- Spec 3: Head Type -->
+                                <div class="swiper-slide spec-slide">
+                                    <div class="image-wrapper">
+                                        <img src="./Maker Tour - Golfyr_files/39_Golfyr_Maker3_Tour_16513_V1_sRGB_300dpi-1.png" class="img-fluid spec-img" alt="Head Type Spec" loading="lazy">
+                                    </div>
+                                    <div class="techspec-wrapper">
+                                        <div class="techspec-name" data-translate="makertour-specs-headtype-name">Head Type</div>
+                                        <div class="techspec-value">Mallet</div>
+                                    </div>
+                                    <div class="description" data-translate="makertour-specs-headtype-desc">
+                                        Maximizes forgiveness and allows for easy, intuitive alignment.
+                                    </div>
+                                </div>
+
+                                <!-- Spec 4: Head Weight -->
+                                <div class="swiper-slide spec-slide">
+                                    <div class="image-wrapper">
+                                        <img src="./Maker Tour - Golfyr_files/kachel_3.png" class="img-fluid spec-img" alt="Head Weight Spec" loading="lazy">
+                                    </div>
+                                    <div class="techspec-wrapper">
+                                        <div class="techspec-name" data-translate="makertour-specs-weight-name">Head Weight</div>
+                                        <div class="techspec-value">350g</div>
+                                    </div>
+                                    <div class="description" data-translate="makertour-specs-weight-desc">
+                                        An increased head weight improves stability during impact.
+                                    </div>
+                                </div>
+
+                                <!-- Spec 5: Hosel -->
+                                <div class="swiper-slide spec-slide">
+                                    <div class="image-wrapper">
+                                        <img src="./Maker Tour - Golfyr_files/39_Golfyr_Maker3_Tour_16504_V1_sRGB_300dpi-1.png" class="img-fluid spec-img" alt="Hosel Spec" loading="lazy">
+                                    </div>
+                                    <div class="techspec-wrapper">
+                                        <div class="techspec-name" data-translate="makertour-specs-hosel-name">Hosel</div>
+                                        <div class="techspec-value">Long Plumber</div>
+                                    </div>
+                                    <div class="description" data-translate="makertour-specs-hosel-desc">
+                                        The hosel is the connection between the shaft and the club head.
+                                    </div>
+                                </div>
+
+                                <!-- Spec 6: Lie -->
+                                <div class="swiper-slide spec-slide">
+                                    <div class="image-wrapper">
+                                        <img src="./Maker Tour - Golfyr_files/39_Golfyr_Maker3_Tour_16504_V1_sRGB_300dpi-1.png" class="img-fluid spec-img" alt="Lie Spec" loading="lazy">
+                                    </div>
+                                    <div class="techspec-wrapper">
+                                        <div class="techspec-name" data-translate="makertour-specs-lie-name">Lie</div>
+                                        <div class="techspec-value">71°</div>
+                                    </div>
+                                    <div class="description" data-translate="makertour-specs-lie-desc">
+                                        Lie describes the angle between the clubhead, parallel to the ground, and the tilt of the shaft towards the hands.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Scrollbar -->
+                            <div class="swiper-scrollbar swiper-club-tech-specs-scrollbar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Who is the Maker Tour for Section
+        -------------------------------------------------- -->
+        <section class="responsive-image-content full-width makertour-for-who" id="for-who">
+            <div class="background sticky-bg">
+                <picture>
+                    <source media="(max-width: 480px)" srcset="./Maker Tour - Golfyr_files/sergio-garcia_quote_mobile.webp">
+                    <source media="(max-width: 768px)" srcset="./Maker Tour - Golfyr_files/sergio-garcia_quote_tablet.webp">
+                    <img src="./Maker Tour - Golfyr_files/sergio-garcia_quote-1-scaled-1.webp" alt="For Who The Maker Tour" class="img-fluid" loading="lazy">
+                </picture>
+            </div>
+            <div class="overlay-shadow"></div>
+            
+            <div class="content-wrapper">
+                <div class="container h-100">
+                    <div class="row h-100">
+                        <div class="col-12 col-md-8 col-lg-6 d-flex flex-column justify-content-end h-100 pb-5">
+                            <div class="content d-flex flex-column">
+                                <div class="head" data-translate="makertour-who-title">Who is the <br>Maker Tour for?</div>
+                                <div class="additional-content" data-translate="makertour-who-body">
+                                    The Maker Tour is made for players who demand professional-level performance and stability on the green. Whether you are battling for a championship or aiming to shave strokes off your game, it delivers the consistent roll and touch needed under pressure.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             "All Our Clubs" Slider Section (Global Section)
+        -------------------------------------------------- -->
+        <section class="clubs-section" id="shop">
+            <div class="container">
+                <div class="clubs-header">
+                    <h2 data-translate="clubs-title">Our Clubs</h2>
+                    <div class="clubs-slider-controls">
+                        <button class="map-arrow clubs-arrow-prev" aria-label="Previous Club">
+                            <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+                                <path d="M8.5 15L1.5 8L8.5 1" stroke="currentColor" stroke-width="2"></path>
+                            </svg>
+                        </button>
+                        <button class="map-arrow clubs-arrow-next" aria-label="Next Club">
+                            <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+                                <path d="M1.5 1L8.5 8L1.5 15" stroke="currentColor" stroke-width="2"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="clubs-slider-wrapper">
+                    <div class="swiper swiper-clubs-list">
+                        <div class="swiper-wrapper">
+                            <!-- Card 1: Opener -->
+                            <div class="swiper-slide">
+                                <div class="club-card">
+                                    <img src="./The Opener - Golfyr_files/techspecs-opener-lie.png" alt="The Opener" class="club-card-image" loading="lazy">
+                                    <div class="club-card-overlay">
+                                        <p data-translate="club-opener-desc">The Opener is designed for all golfers to open the game and to keep them on the fairway.</p>
+                                        <a href="./opener.html" class="btn btn-light btn-sm" data-translate="clubs-discover">Discover more</a>
+                                    </div>
+                                </div>
+                                <a href="./opener.html" class="club-card-footer" data-translate="club-opener-title">The Opener</a>
+                            </div>
+                            
+                            <!-- Card 2: Mover -->
+                            <div class="swiper-slide">
+                                <div class="club-card">
+                                    <img src="./The Mover - Golfyr_files/techspecs-mover-lie.png" alt="The Mover" class="club-card-image" loading="lazy">
+                                    <div class="club-card-overlay">
+                                        <p data-translate="club-mover-desc">As the name suggests, the Mover helps you to move forward in the game. <br class="tablet-desktop-br"> Also perfect for great tee shots.</p>
+                                        <a href="./mover.html" class="btn btn-light btn-sm" data-translate="clubs-discover">Discover more</a>
+                                    </div>
+                                </div>
+                                <a href="./mover.html" class="club-card-footer" data-translate="club-mover-title">The Mover</a>
+                            </div>
+                            
+                            <!-- Card 3: Riser -->
+                            <div class="swiper-slide">
+                                <div class="club-card">
+                                    <img src="./The Riser - Golfyr_files/techspecs-riser-lie.png" alt="The Riser" class="club-card-image" loading="lazy">
+                                    <div class="club-card-overlay">
+                                        <p data-translate="club-riser-desc">When you’re in a position to attack the green, the focus shifts to the short game <br class="tablet-desktop-br"> and distance gives way to precision.</p>
+                                        <a href="./riser.html" class="btn btn-light btn-sm" data-translate="clubs-discover">Discover more</a>
+                                    </div>
+                                </div>
+                                <a href="./riser.html" class="club-card-footer" data-translate="club-riser-title">The Riser</a>
+                            </div>
+                            
+                            <!-- Card 4: Pitcher -->
+                            <div class="swiper-slide">
+                                <div class="club-card">
+                                    <img src="./The Pitcher - Golfyr_files/techspecs-pitcher-lie.png" alt="The Pitcher" class="club-card-image" loading="lazy">
+                                    <div class="club-card-overlay">
+                                        <p data-translate="club-pitcher-desc">Spin is crucial in short game. Now you’re targeting the pin, <br class="tablet-desktop-br"> the Pitcher helps you to land the ball close to the flag.</p>
+                                        <a href="./pitcher.html" class="btn btn-light btn-sm" data-translate="clubs-discover">Discover more</a>
+                                    </div>
+                                </div>
+                                <a href="./pitcher.html" class="club-card-footer" data-translate="club-pitcher-title">The Pitcher</a>
+                            </div>
+                            
+                            <!-- Card 5: Maker -->
+                            <div class="swiper-slide">
+                                <div class="club-card">
+                                    <img src="./The Maker - Golfyr_files/techspecs-maker-lie.png" alt="The Maker" class="club-card-image" loading="lazy">
+                                    <div class="club-card-overlay">
+                                        <p data-translate="club-maker-desc">The Maker helps you keep your cool during the difficult final stage <br class="tablet-desktop-br"> so you can head to the next hole full of confidence.</p>
+                                        <a href="./maker.html" class="btn btn-light btn-sm" data-translate="clubs-discover">Discover more</a>
+                                    </div>
+                                </div>
+                                <a href="./maker.html" class="club-card-footer" data-translate="club-maker-title">The Maker</a>
+                            </div>
+                            
+                                                        <!-- Card 6: Maker Tour -->
+                            <div class="swiper-slide">
+                                <div class="club-card">
+                                    <img src="./Maker Tour - Golfyr_files/39_Golfyr_Maker3_Tour_16504_V1_sRGB_300dpi-1.png" alt="The Maker Tour" class="club-card-image" loading="lazy">
+                                    <div class="club-card-overlay">
+                                        <p data-translate="club-makertour-desc">The Maker Tour is co-designed with Sergio Garcia, offering exceptional stability and high energy transfer under pressure.</p>
+                                    </div>
+                                </div>
+                                <a href="./maker-tour.html" class="club-card-footer" data-translate="club-makertour-title">The Maker Tour</a>
+                            </div>
+                            
+                            <!-- Card 7: Saver -->
+                            <div class="swiper-slide">
+                                <div class="club-card">
+                                    <img src="./The Saver - Golfyr_files/techspecs-saver-lie.png" alt="The Saver" class="club-card-image" loading="lazy">
+                                    <div class="club-card-overlay">
+                                        <p data-translate="club-saver-desc">It’s all in the name: the Saver is there to get you <br class="tablet-desktop-br"> out of trouble in the short game.</p>
+                                        <a href="./saver.html" class="btn btn-light btn-sm" data-translate="clubs-discover">Discover more</a>
+                                    </div>
+                                </div>
+                                <a href="./saver.html" class="club-card-footer" data-translate="club-saver-title">The Saver</a>
+                            </div>
+                            
+                            <!-- Card 8: Butler -->
+                            <div class="swiper-slide">
+                                <div class="club-card">
+                                    <img src="./The Butler - Golfyr_files/techspecs-butler-lie.png" alt="The Butler" class="club-card-image" loading="lazy">
+                                    <div class="club-card-overlay">
+                                        <p data-translate="club-butler-desc">The Butler is the most versatile companion. <br class="tablet-desktop-br"> The wide sole helps to glide through any ground conditions.</p>
+                                        <a href="./butler.html" class="btn btn-light btn-sm" data-translate="clubs-discover">Discover more</a>
+                                    </div>
+                                </div>
+                                <a href="./butler.html" class="club-card-footer" data-translate="club-butler-title">The Butler</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Swiper Scrollbar -->
+                        <div class="swiper-scrollbar swiper-scrollbar-clubs"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- --------------------------------------------------
+         Footer Area
+    -------------------------------------------------- -->
+    <footer>
+        <div class="container">
+            <!-- Top Brand Row -->
+            <div class="footer-top-row">
+                <h2 class="footer-logo-text">Golfyr.</h2>
+            </div>
+            
+            <!-- Main Content Area (3 Cols) -->
+            <div class="footer-main-content">
+                <!-- Col 1: Rethink Quote -->
+                <div class="footer-rethink-col">
+                    <div class="footer-rethink-text" data-translate="rethink-sticky-title">
+                        It is time, <br>to rethink golf
+                    </div>
+                </div>
+                
+                <!-- Col 2: Navigation Links Grid -->
+                <div class="footer-nav-grid">
+                    <!-- Column 1: Help -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col1-title">Help</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./index.html#support" data-translate="footer-support">Support</a></li>
+                            <li><a href="./index.html#faq" data-translate="footer-faq">FAQ</a></li>
+                            <li><a href="./experience.html" data-translate="footer-shop-directory">Shop Directory</a></li>
+                            <li><a href="#shop-login" data-translate="footer-shop-login">Shop Login</a></li>
+                            <li><a href="#expert-login" data-translate="footer-expert-login">Expert Login</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 2: Company -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col2-title">Company</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./sevenclubgame.html">#sevenclubgame</a></li>
+                            <li><a href="./index.html#swissness" data-translate="footer-swissness">Swissness</a></li>
+                            <li><a href="./index.html#community" data-translate="footer-community">Community</a></li>
+                            <li><a href="./index.html#press" data-translate="footer-press">Press</a></li>
+                            <li><a href="./index.html#contact" data-translate="footer-contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 3: The Golfyr Mag -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col3-title">The Golfyr Mag</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./magazine.html" data-translate="footer-latest-news">Latest News</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-inside">Inside Golfyr</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-clubhouse">Clubhouse</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-reviews">Reviews</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Info Column (Socials, CP, Contact) -->
+                <div class="footer-info-col">
+                    <!-- Social icons row -->
+                    <div class="footer-socials-row">
+                        <a href="https://linkedin.com/company/golfyr" target="_blank" class="social-icon" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://facebook.com/golfyr.golf" target="_blank" class="social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://instagram.com/golfyr" target="_blank" class="social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 0.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://twitter.com/golfyr" target="_blank" class="social-icon" aria-label="X (Twitter)">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://youtube.com/@golfyr" target="_blank" class="social-icon" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.524 3.545 12 3.545 12 3.545s-7.525 0-9.388.51C1.048 4.561.524 5.569.502 6.563c-.502 1.86-.502 5.437-.502 5.437s0 3.582.502 5.437c.022.994.546 2.002 1.41 2.51 1.863.51 9.388.51 9.388.51s7.524 0 9.388-.51a3.003 3.003 0 0 0 2.11-2.108c.502-1.855.502-5.437.502-5.437s0-3.577-.502-5.437zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="currentColor"/></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- CP certified seal -->
+                    <div class="footer-certification-row">
+                        <img src="./climatepartner.png" alt="ClimatePartner certified company Logo" class="footer-cp-logo">
+                        <div class="footer-cp-text">
+                            <strong>ClimatePartner</strong><br>
+                            <span>certified company</span><br>
+                            <small>climate-id.com/MNR38X</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Details -->
+                    <div class="footer-contact-details">
+                        <a href="tel:+410712223131">+41 (0)71 222 31 31</a><br>
+                        <a href="mailto:hello@golfyr.com">hello@golfyr.com</a><br>
+                        <span>Bahnhofstrasse 2, 9000 St. Gallen</span><br>
+                        <span>Switzerland</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <!-- Bottom Legal Row -->
+            <div class="footer-bottom-row">
+                <div class="footer-copyright">
+                    &copy; Golfyr AG 2026
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#imprint" data-translate="footer-imprint">Imprint</a>
+                    <a href="#data-protection" data-translate="footer-privacy">Data protection</a>
+                    <a href="#terms-and-conditions" data-translate="footer-terms">Terms & Conditions</a>
+                    <a href="#care-instructions" data-translate="footer-care">Care and use instructions</a>
+                    <a href="#money-back-guarantee" data-translate="footer-guarantee">Money-back guarantee</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Library Dependencies CDNs (GSAP, Swiper) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Rebuilt JavaScript controller -->
+    <script src="./rebuilt-app.min.js"></script>
+
+    <!-- Page Specific Swiper Initializations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Initialize Tech Specs Swiper
+            new Swiper(".swiper-club-tech-specs-slider", {
+                direction: "horizontal",
+                loop: false,
+                slidesPerView: 1,
+                spaceBetween: 16,
+                navigation: {
+                    nextEl: ".swiper-club-tech-specs-button-next",
+                    prevEl: ".swiper-club-tech-specs-button-prev",
+                },
+                scrollbar: {
+                    el: ".swiper-club-tech-specs-scrollbar",
+                    draggable: true,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 24
+                    },
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 24
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

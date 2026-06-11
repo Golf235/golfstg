@@ -1,0 +1,361 @@
+{
+    "steps": [
+        {
+            "step": "initial",
+            "active_index": 0,
+            "slides": [
+                {
+                    "index": 0,
+                    "classes": "swiper-slide swiper-slide-active",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 40,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "1",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Opener",
+                    "title_visible": true,
+                    "desc_text": "The Opener is designed for all golfers to open the game\nand to keep them on the fairway."
+                },
+                {
+                    "index": 1,
+                    "classes": "swiper-slide swiper-slide-next",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 26843612,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Mover",
+                    "title_visible": true,
+                    "desc_text": "As the name suggests, the Mover helps you to move forward in the game.\nAlso perfect for great tee shots."
+                },
+                {
+                    "index": 2,
+                    "classes": "swiper-slide",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 33554432,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Riser",
+                    "title_visible": true,
+                    "desc_text": "When you\u2019re in a position to attack the green, the focus shifts to the short game\nand distance gives way to precision."
+                },
+                {
+                    "index": 3,
+                    "classes": "swiper-slide",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 33554432,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Pitcher",
+                    "title_visible": true,
+                    "desc_text": "Spin is crucial in short game. Now you\u2019re targeting the pin,\nthe Pitcher helps you to land the ball close to the flag."
+                },
+                {
+                    "index": 4,
+                    "classes": "swiper-slide",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 33554432,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Maker",
+                    "title_visible": true,
+                    "desc_text": "The Maker helps you keep your cool during the difficult final stage\nso you can head to the next hole full of confidence."
+                },
+                {
+                    "index": 5,
+                    "classes": "swiper-slide",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 33554432,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Saver",
+                    "title_visible": true,
+                    "desc_text": "It\u2019s all in the name: the Saver is there to get you\nout of trouble in the short game."
+                },
+                {
+                    "index": 6,
+                    "classes": "swiper-slide",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 33554432,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Butler",
+                    "title_visible": true,
+                    "desc_text": "The Butler is the most versatile companion.\nThe wide sole helps to glide through any ground conditions."
+                }
+            ]
+        },
+        {
+            "step": "slide_1",
+            "active_index": 1,
+            "slides": [
+                {
+                    "index": 0,
+                    "classes": "swiper-slide swiper-slide-prev",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": -1677707.25,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "1",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Opener",
+                    "title_visible": true,
+                    "desc_text": "The Opener is designed for all golfers to open the game\nand to keep them on the fairway."
+                },
+                {
+                    "index": 1,
+                    "classes": "swiper-slide swiper-slide-active",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 25165864,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Mover",
+                    "title_visible": true,
+                    "desc_text": "As the name suggests, the Mover helps you to move forward in the game.\nAlso perfect for great tee shots."
+                },
+                {
+                    "index": 2,
+                    "classes": "swiper-slide swiper-slide-next",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 31876724,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Riser",
+                    "title_visible": true,
+                    "desc_text": "When you\u2019re in a position to attack the green, the focus shifts to the short game\nand distance gives way to precision."
+                },
+                {
+                    "index": 3,
+                    "classes": "swiper-slide",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 31876724,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Pitcher",
+                    "title_visible": true,
+                    "desc_text": "Spin is crucial in short game. Now you\u2019re targeting the pin,\nthe Pitcher helps you to land the ball close to the flag."
+                },
+                {
+                    "index": 4,
+                    "classes": "swiper-slide",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 31876724,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Maker",
+                    "title_visible": true,
+                    "desc_text": "The Maker helps you keep your cool during the difficult final stage\nso you can head to the next hole full of confidence."
+                },
+                {
+                    "index": 5,
+                    "classes": "swiper-slide",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 31876724,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Saver",
+                    "title_visible": true,
+                    "desc_text": "It\u2019s all in the name: the Saver is there to get you\nout of trouble in the short game."
+                },
+                {
+                    "index": 6,
+                    "classes": "swiper-slide",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 31876724,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Butler",
+                    "title_visible": true,
+                    "desc_text": "The Butler is the most versatile companion.\nThe wide sole helps to glide through any ground conditions."
+                }
+            ]
+        },
+        {
+            "step": "slide_3",
+            "active_index": 3,
+            "slides": [
+                {
+                    "index": 0,
+                    "classes": "swiper-slide",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": -5033201.5,
+                        "width": 26843540,
+                        "height": 175.1875
+                    },
+                    "opacity": "1",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Opener",
+                    "title_visible": true,
+                    "desc_text": "The Opener is designed for all golfers to open the game\nand to keep them on the fairway."
+                },
+                {
+                    "index": 1,
+                    "classes": "swiper-slide",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 21810370,
+                        "width": 26843542,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Mover",
+                    "title_visible": true,
+                    "desc_text": "As the name suggests, the Mover helps you to move forward in the game.\nAlso perfect for great tee shots."
+                },
+                {
+                    "index": 2,
+                    "classes": "swiper-slide swiper-slide-prev",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 28521230,
+                        "width": 26843542,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Riser",
+                    "title_visible": true,
+                    "desc_text": "When you\u2019re in a position to attack the green, the focus shifts to the short game\nand distance gives way to precision."
+                },
+                {
+                    "index": 3,
+                    "classes": "swiper-slide swiper-slide-active",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 28521230,
+                        "width": 26843542,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Pitcher",
+                    "title_visible": true,
+                    "desc_text": "Spin is crucial in short game. Now you\u2019re targeting the pin,\nthe Pitcher helps you to land the ball close to the flag."
+                },
+                {
+                    "index": 4,
+                    "classes": "swiper-slide swiper-slide-next",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 28521230,
+                        "width": 26843542,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Maker",
+                    "title_visible": true,
+                    "desc_text": "The Maker helps you keep your cool during the difficult final stage\nso you can head to the next hole full of confidence."
+                },
+                {
+                    "index": 5,
+                    "classes": "swiper-slide",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 28521230,
+                        "width": 26843542,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Saver",
+                    "title_visible": true,
+                    "desc_text": "It\u2019s all in the name: the Saver is there to get you\nout of trouble in the short game."
+                },
+                {
+                    "index": 6,
+                    "classes": "swiper-slide",
+                    "rect": {
+                        "top": 2296.9375,
+                        "left": 28521230,
+                        "width": 26843542,
+                        "height": 175.1875
+                    },
+                    "opacity": "0.2",
+                    "display": "block",
+                    "visibility": "visible",
+                    "title_text": "The Butler",
+                    "title_visible": true,
+                    "desc_text": "The Butler is the most versatile companion.\nThe wide sole helps to glide through any ground conditions."
+                }
+            ]
+        }
+    ],
+    "swiper_exists": true,
+    "Swiper_global_exists": true,
+    "swiper_initialized": true
+}

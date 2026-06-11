@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us - Golfyr</title>
+    
+    <!-- Brand Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="./favicon.ico">
+    
+    <!-- Swiper CSS & GSAP dependencies -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Custom Vanilla Stylesheet -->
+    <link rel="stylesheet" href="./rebuilt-style.min.css">
+    
+    <style>
+        /* Bottom alignment for About Hero container to align text and buttons to bottom on all screen sizes */
+        .hero-video-home-p1 .container {
+            justify-content: flex-end !important;
+        }
+        @media (max-width: 767px) {
+            .hero-video-home-p1 .cta-wrapper {
+                margin-bottom: 15px !important;
+            }
+        }
+        /* Mobile timeline spacing fix */
+        .simpleSliderTimelineV2Thumbs .image-wrapper {
+            margin-bottom: 24px !important;
+        }
+        @media (min-width: 768px) {
+            .simpleSliderTimelineV2Thumbs .image-wrapper {
+                margin-bottom: 30px !important;
+            }
+        }
+        @media (min-width: 992px) {
+            .simpleSliderTimelineV2Thumbs .image-wrapper {
+                margin-bottom: 0 !important;
+            }
+        }
+        .simpleSliderTimelineV2Thumbs .year {
+            margin-top: 24px !important;
+        }
+        @media (min-width: 768px) {
+            .simpleSliderTimelineV2Thumbs .year {
+                margin-top: 30px !important;
+            }
+        }
+        @media (min-width: 992px) {
+            .simpleSliderTimelineV2Thumbs .year {
+                margin-top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --------------------------------------------------
+         Header & Navigation Area
+    -------------------------------------------------- -->
+    
+<header>
+        <div class="container nav-container">
+            <a href="./index.html" class="logo">
+                <img src="./golfyr-logo-dark.png" alt="Golfyr Logo">
+            </a>
+            
+            <nav class="nav-links-wrapper">
+                <ul class="nav-links">
+                    <li class="nav-dropdown">
+                        <a href="javascript:void(0)"><span data-translate="nav-our-clubs">Our Clubs</span> <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 6px; transition: transform var(--transition-smooth);"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./sevenclubgame.html" data-translate="nav-sevenclub" class="dropdown-category">#sevenclubgame</a></li>
+                            <li><a href="./opener.html" data-translate="club-opener-title" class="dropdown-sub-item">The Opener</a></li>
+                            <li><a href="./mover.html" data-translate="club-mover-title" class="dropdown-sub-item">The Mover</a></li>
+                            <li><a href="./riser.html" data-translate="club-riser-title" class="dropdown-sub-item">The Riser</a></li>
+                            <li><a href="./pitcher.html" data-translate="club-pitcher-title" class="dropdown-sub-item">The Pitcher</a></li>
+                            <li><a href="./maker.html" data-translate="club-maker-title" class="dropdown-sub-item">The Maker</a></li>
+                            <li><a href="./maker-tour.html" data-translate="club-makertour-title" class="dropdown-sub-item">The Maker Tour</a></li>
+                            <li><a href="./saver.html" data-translate="club-saver-title" class="dropdown-sub-item">The Saver</a></li>
+                            <li><a href="./butler.html" data-translate="club-butler-title" class="dropdown-sub-item">The Butler</a></li>
+                        </ul>
+                    </li>
+                                        <li class="nav-dropdown">
+                        <a href="javascript:void(0)"><span data-translate="nav-tech">Technology</span> <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 6px; transition: transform var(--transition-smooth);"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./technology.html" data-translate="nav-tech-all" class="dropdown-category">Carbonics</a></li>
+                            <li><a href="./innovation.html" data-translate="nav-innovation" class="dropdown-sub-item">Innovation</a></li>
+                            <li><a href="./material.html" data-translate="nav-material" class="dropdown-sub-item">Material</a></li>
+                            <li><a href="./production.html" data-translate="nav-production" class="dropdown-sub-item">Production</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./experience.html" data-translate="nav-experience">Experience</a></li>
+                    <li><a href="./shop.html" data-translate="nav-shop">Shop</a></li>
+                    <li><a href="./magazine.html" data-translate="nav-magazine">Magazine</a></li>
+                    <li><a href="./about.html" data-translate="nav-about" class="active">About</a></li>
+                    
+                </ul>
+            </nav>
+            
+            <div class="header-right">
+                <!-- Cart Widget -->
+                <button class="cart-widget">
+                    <div class="cart-icon-wrapper">
+                        <img src="./icon-cart-dark.png" alt="Cart Icon" style="height: 18px; width: auto;">
+                        <span class="cart-badge">1</span>
+                    </div>
+                    <span>CHF 890<span data-translate="nav-cart-suffix"> (incl. tax)</span></span>
+                </button>
+                
+                <!-- Language Toggler -->
+                <div class="lang-selector">
+                    <button class="lang-switch active" data-lang="en">En</button>
+                    <span style="color: rgba(255,255,255,0.4)">/</span>
+                    <button class="lang-switch" data-lang="de">De</button>
+                </div>
+                
+                <!-- Mobile Nav Trigger -->
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+<main>
+<section class="hero-video-home-p1 d-flex flex-column justify-content-end">
+  <div class="background">
+                  <div class="image-wrapper d-md-none">
+          <img src="./About us - Golfyr_files/welcome-totheworld-430-1-503x1024.png" class="img-fluid" alt="welcome totheworld 430 1" width="503" height="1024" srcset="./About us - Golfyr_files/welcome-totheworld-430-1-503x1024.png 503w, ./About us - Golfyr_files/welcome-totheworld-430-1-147x300.png 147w, ./About us - Golfyr_files/welcome-totheworld-430-1-755x1536.png 755w, ./About us - Golfyr_files/welcome-totheworld-430-1-600x1221.png 600w, ./About us - Golfyr_files/welcome-totheworld-430-1.png 756w" decoding="async" loading="lazy">        </div>
+                              <div class="image-wrapper d-none d-md-block d-xl-none">
+                    <img src="./About us - Golfyr_files/welcome-totheworld-768-min-1-768x1024.jpg" class="img-fluid" alt="welcome totheworld 768 min 1" width="768" height="1024" srcset="./About us - Golfyr_files/welcome-totheworld-768-min-1-768x1024.jpg 768w, ./About us - Golfyr_files/welcome-totheworld-768-min-1-225x300.jpg 225w, ./About us - Golfyr_files/welcome-totheworld-768-min-1-600x800.jpg 600w, ./About us - Golfyr_files/welcome-totheworld-768-min-1.jpg 1098w" decoding="async" loading="lazy">          </div>
+                              <div class="image-wrapper x-right y-top d-none d-xl-block">
+                    <img src="./About us - Golfyr_files/welcome-totheworld-1920-1024x576.jpg" class="img-fluid" alt="welcome totheworld 1920" width="1024" height="576" srcset="./About us - Golfyr_files/welcome-totheworld-1920-1024x576.jpg 1024w, ./About us - Golfyr_files/welcome-totheworld-1920-300x169.jpg 300w, ./About us - Golfyr_files/welcome-totheworld-1920-768x432.jpg 768w, ./About us - Golfyr_files/welcome-totheworld-1920-1536x863.jpg 1536w, ./About us - Golfyr_files/welcome-totheworld-1920-2048x1151.jpg 2048w, ./About us - Golfyr_files/welcome-totheworld-1920-600x337.jpg 600w" decoding="async" loading="lazy">          </div>
+                </div>
+   <div class="overlay-shadow"></div>
+    <div class="scroll-cta">
+    <div class="cta"><span data-translate="about-scroll-cta">Discover more</span></div>
+    <div class="chevron">
+      <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 9.5L9.99997 18.5L18.9999 9.5" stroke="white" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+    <div class="container h-100 d-flex flex-column align-items-start">
+    <div class="row w-100 flex-grow-1">
+      <div class="col-12 d-flex flex-column justify-content-start">
+        <!--<div class="logo d-flex flex-row justify-content-start justify-content-lg-center"><img src="./About us - Golfyr_files/golfyr-logo-dark.png" class="img-fluid" alt="golfyr logo white" width="325" height="111"  decoding="async"></div>-->
+      </div>
+    </div>
+              <div class="row w-100">
+        <div class="col-12 col-md-10">
+          <span class="pre-headline" data-translate="about-hero-pre">About us</span>
+          <h1>
+                                    <span class=""><span data-translate="about-hero-title">Welcome to <br>our World</span></span>
+                                    </h1>
+        </div>
+      </div>
+                  <div class="row w-100">
+        <div class="col-12">
+          <div class="cta-wrapper d-flex">
+                                        <div class="cta">
+                <a class="btn btn-light" href="#makers"><span data-translate="about-hero-btn">Get to know us</span></a>
+              </div>
+                      </div>
+        </div>
+      </div>
+      </div>
+</section>
+<section class="large-text-block about-intro" id="">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-10">
+        <p class="lead-text" data-translate="about-intro-body">Based in Switzerland, we are redefining the way golf is played. We call it 7&gt;14: an optimized golf experience using only seven essential SWISS MADE carbon clubs on the course.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slider-tabs-nav" id="">
+  <div class="container">
+          <div class="row">
+        <div class="col-12">
+          <h2 class="title"><p data-translate="about-values-title">Our Values</p></h2>
+        </div>
+      </div>
+              <div class="row">
+        <div class="col-12 col-lg-7">
+          <h2 class="content"><p data-translate="about-values-subtitle"><span dir="ltr" role="presentation">Our approach makes golf simpler, more accessible, and more enjoyable—</span><span dir="ltr" role="presentation">bringing back the pure joy of the game. It’s time to rethink golf.</span></p></h2>
+        </div>
+      </div>
+        <div class="row">
+      <div class="col-12"><hr class="top-border-hr"></div>
+      <div class="col-12">
+        
+        <div class="swiper simpleSliderTabNav">
+          <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                <div class="menu-tab" data-translate="about-value-joy-title">Joy</div>
+              </div>
+                          <div class="swiper-slide">
+                <div class="menu-tab" data-translate="about-value-simplicity-title">Simplicity</div>
+              </div>
+                          <div class="swiper-slide">
+                <div class="menu-tab" data-translate="about-value-quality-title">Quality</div>
+              </div>
+                          <div class="swiper-slide">
+                <div class="menu-tab" data-translate="about-value-technology-title">Technology</div>
+              </div>
+                          <div class="swiper-slide">
+                <div class="menu-tab" data-translate="about-value-performance-title">Performance</div>
+              </div>
+                      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+        
+  <div class="container slider-tabs-content-container">
+    <div class="row">
+            <div class="col-12 col-lg-7 col-xxl-6">
+              <div class="swiper simpleSliderTabNavContentImages">
+                <div class="swiper-wrapper">
+                                      <div class="swiper-slide">
+                      <div class="image-wrapper">
+                        <img src="./About us - Golfyr_files/Joy-Glove.jpg" class="img-fluid" alt="Joy Glove" width="867" height="500" srcset="./About us - Golfyr_files/Joy-Glove.jpg 867w, ./About us - Golfyr_files/Joy-Glove-300x173.jpg 300w, ./About us - Golfyr_files/Joy-Glove-768x443.jpg 768w, ./About us - Golfyr_files/Joy-Glove-600x346.jpg 600w" decoding="async" loading="lazy">                      </div>
+                    </div>
+                                      <div class="swiper-slide">
+                      <div class="image-wrapper">
+                        <img src="./About us - Golfyr_files/Woman-having-fun-playing-golf-1.jpg" class="img-fluid" alt="Woman having fun playing golf 1" width="867" height="500" srcset="./About us - Golfyr_files/Woman-having-fun-playing-golf-1.jpg 867w, ./About us - Golfyr_files/Woman-having-fun-playing-golf-1-300x173.jpg 300w, ./About us - Golfyr_files/Woman-having-fun-playing-golf-1-768x443.jpg 768w, ./About us - Golfyr_files/Woman-having-fun-playing-golf-1-600x346.jpg 600w" decoding="async" loading="lazy">                      </div>
+                    </div>
+                                      <div class="swiper-slide">
+                      <div class="image-wrapper">
+                        <img src="./About us - Golfyr_files/quality_1920-1024x591.jpg" class="img-fluid" alt="quality 1920" width="1024" height="591" srcset="./About us - Golfyr_files/quality_1920-1024x591.jpg 1024w, ./About us - Golfyr_files/quality_1920-300x173.jpg 300w, ./About us - Golfyr_files/quality_1920-768x443.jpg 768w, ./About us - Golfyr_files/quality_1920-1536x886.jpg 1536w, ./About us - Golfyr_files/quality_1920-600x346.jpg 600w, ./About us - Golfyr_files/quality_1920.jpg 1734w" decoding="async" loading="lazy">                      </div>
+                    </div>
+                                      <div class="swiper-slide">
+                      <div class="image-wrapper">
+                        <img src="./About us - Golfyr_files/Carbon-Clubs.jpg" class="img-fluid" alt="Carbon Clubs" width="867" height="500" srcset="./About us - Golfyr_files/Carbon-Clubs.jpg 867w, ./About us - Golfyr_files/Carbon-Clubs-300x173.jpg 300w, ./About us - Golfyr_files/Carbon-Clubs-768x443.jpg 768w, ./About us - Golfyr_files/Carbon-Clubs-600x346.jpg 600w" decoding="async" loading="lazy">                      </div>
+                    </div>
+                                      <div class="swiper-slide">
+                      <div class="image-wrapper">
+                        <img src="./About us - Golfyr_files/Rectangle-1909.jpg" class="img-fluid" alt="Rectangle 1909" width="867" height="500" srcset="./About us - Golfyr_files/Rectangle-1909.jpg 867w, ./About us - Golfyr_files/Rectangle-1909-300x173.jpg 300w, ./About us - Golfyr_files/Rectangle-1909-768x443.jpg 768w, ./About us - Golfyr_files/Rectangle-1909-600x346.jpg 600w" decoding="async" loading="lazy">                      </div>
+                    </div>
+                                  </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 offset-lg-8 col-xxl-5 offset-xxl-7 order-2 order-lg-3 position-relative">
+              <div class="swiper-buttons">
+                <!-- If we need navigation buttons -->
+                  <div class="swiper-button-prev swiper-tabnavcontent-button-prev">
+                    <picture decoding="async">
+<source type="image/webp" data-lazy-srcset="https://golfyr.com/wp-content/themes/golfyr/includes/img/slider-arrow-p1.png.webp"/>
+<img src="./About us - Golfyr_files/slider-arrow-p1.png" class="img-fluid" alt="Slider arrow previous slide"   decoding="async" loading="lazy">
+</picture>
+
+                  </div>
+                  <div class="swiper-button-next swiper-tabnavcontent-button-next">
+                    <picture decoding="async">
+<source type="image/webp" data-lazy-srcset="https://golfyr.com/wp-content/themes/golfyr/includes/img/slider-arrow-p1.png.webp"/>
+<img src="./About us - Golfyr_files/slider-arrow-p1.png" class="img-fluid" alt="Slider arrow next slide"   decoding="async" loading="lazy">
+</picture>
+
+                  </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 offset-lg-1 col-xxl-5 offset-xxl-1 order-3 order-lg-2">
+              <div class="swiper simpleSliderTabNavContent">
+                <div class="swiper-wrapper">
+                                      <div class="swiper-slide">
+                      <div class="content-wrapper">
+                        <div class="title">
+                          <p data-translate="about-value-joy-title">Joy</p>                        </div>
+                        <div class="content">
+                          <p data-translate="about-value-joy-desc">Golf is meant to be fun. We focus on effortless play and pure enjoyment.</p>                        </div>
+                                              </div>
+                    </div>
+                                                          <div class="swiper-slide">
+                      <div class="content-wrapper">
+                        <div class="title">
+                          <p data-translate="about-value-simplicity-title">Simplicity</p>                        </div>
+                        <div class="content">
+                          <p data-translate="about-value-simplicity-desc"><span dir="ltr" role="presentation">Less complexity, more game. Our clubs streamline the experience, </span><span dir="ltr" role="presentation">making golf easier and more intuitive.</span></p>                        </div>
+                                              </div>
+                    </div>
+                                                          <div class="swiper-slide">
+                      <div class="content-wrapper">
+                        <div class="title">
+                          <p data-translate="about-value-quality-title">Quality</p>                        </div>
+                        <div class="content">
+                          <p data-translate="about-value-quality-desc">Precision and reliability, perfected through Swiss Engineering.</p>                        </div>
+                                              </div>
+                    </div>
+                                                          <div class="swiper-slide">
+                      <div class="content-wrapper">
+                        <div class="title">
+                          <p data-translate="about-value-technology-title">Technology</p>                        </div>
+                        <div class="content">
+                          <p data-translate="about-value-technology-desc"><span dir="ltr" role="presentation">With Carbonics Technology, we’re redefining club design and </span><span dir="ltr" role="presentation">performance.</span></p>                        </div>
+                                              </div>
+                    </div>
+                                                          <div class="swiper-slide">
+                      <div class="content-wrapper">
+                        <div class="title">
+                          <p data-translate="about-value-performance-title">Performance</p>                        </div>
+                        <div class="content">
+                          <p data-translate="about-value-performance-desc">Maximum efficiency and better results for a sustainably optimized game.</p>                        </div>
+                                              </div>
+                    </div>
+                                                        <!--<div class="swiper-slide empty-slide swiper-no-swiping d-none d-lg-block"></div>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</section>
+
+<section class="content-spacer height-md" id="">
+  
+</section>
+
+<section class="simple-slider-timeline-v2" id="">
+    <div class="container">
+                    <div class="row">
+                <div class="col-8">
+                    <div class="title" data-translate="about-timeline-title">Explore our story</div>
+                </div>
+            </div>
+        
+        <div class="row">
+            <div class="col-12 col-lg-6 d-none d-lg-block">
+                <div class="swiper simpleSliderTimelineV2">
+                    <div class="swiper-wrapper">
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-right y-top">
+                                    <img src="./About us - Golfyr_files/one-golfer-one-vision-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Roger Stadler auf einem Sofa sitzend von hinten, er hat den Maker in der Hand." width="1024" height="910" srcset="./About us - Golfyr_files/one-golfer-one-vision-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/one-golfer-one-vision-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/one-golfer-one-vision-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/one-golfer-one-vision-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/one-golfer-one-vision-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                                                    <div class="year">2011</div>
+                                                                <div class="content-wrapper">
+                                                                            <div class="slide-title" data-translate="about-timeline-m1-title">An innovator with a vision</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m1-desc">The vision of &#8220;Rethink Golf&#8221; was born, and our founder, Roger Stadler, crafted his first carbon club by hand.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-top">
+                                    <img src="./About us - Golfyr_files/proof-of-idea-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Daniel Hüsler hält ein Prototyp von einem Schlägerkopf in der Hand." width="1024" height="910" srcset="./About us - Golfyr_files/proof-of-idea-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/proof-of-idea-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/proof-of-idea-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/proof-of-idea-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/proof-of-idea-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                                                    <div class="year">2015</div>
+                                                                <div class="content-wrapper">
+                                                                            <div class="slide-title" data-translate="about-timeline-m2-title">Proof of Idea</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m2-desc">We faced the first important question: Is the idea technologically feasible? Roger Stadler reached out to Daniel Hüsler, CEO of adultimum ag and our Head of Technology.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-center">
+                                    <img src="./About us - Golfyr_files/proof-of-concept-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Auslegeordnung von verschiedenen Prototypen der Golfyr Schlägerköpfe." width="1024" height="910" srcset="./About us - Golfyr_files/proof-of-concept-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/proof-of-concept-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/proof-of-concept-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/proof-of-concept-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/proof-of-concept-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                                                    <div class="year">2016</div>
+                                                                <div class="content-wrapper">
+                                                                            <div class="slide-title" data-translate="about-timeline-m3-title">Proof of Concept</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m3-desc">The first prototypes were developed under the leadership of Daniel Hüsler – and the vision was starting to take shape.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-center">
+                                    <img src="./About us - Golfyr_files/club-dev-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Alfredo Häberlis Hand hält ein en Prototypen der Schlägerkopfes." width="1024" height="910" srcset="./About us - Golfyr_files/club-dev-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/club-dev-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/club-dev-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/club-dev-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/club-dev-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                                                    <div class="year">2017</div>
+                                                                <div class="content-wrapper">
+                                                                            <div class="slide-title" data-translate="about-timeline-m4-title">Club development</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m4-desc">In close collaboration between Creative Director Alfredo Häberli and Head of Technology Daniel Hüsler, the club began to take shape.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-center">
+                                    <img src="./About us - Golfyr_files/proof-of-market-fit-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Ein Golfyr Schlägerkopf von vorne stehend auf einem kupferfarbenen glänzenden Un-tergrund." width="1024" height="910" srcset="./About us - Golfyr_files/proof-of-market-fit-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/proof-of-market-fit-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/proof-of-market-fit-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/proof-of-market-fit-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/proof-of-market-fit-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                                                    <div class="year">2019</div>
+                                                                <div class="content-wrapper">
+                                                                            <div class="slide-title" data-translate="about-timeline-m5-title">Proof of Market Fit</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m5-desc">We analyzed player habits and market trends, asking golfers: Do you really need 14 clubs, or could you play with fewer? This sparked the idea for the #sevenclubgame.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-center">
+                                    <img src="./About us - Golfyr_files/proof-of-concept-sevclubgame-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Auslegeordnung von verschiedenen Prototypen und einem Golfball mit Golfyr Logo." width="1024" height="910" srcset="./About us - Golfyr_files/proof-of-concept-sevclubgame-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/proof-of-concept-sevclubgame-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/proof-of-concept-sevclubgame-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/proof-of-concept-sevclubgame-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/proof-of-concept-sevclubgame-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                                                    <div class="year">2021</div>
+                                                                <div class="content-wrapper">
+                                                                            <div class="slide-title" data-translate="about-timeline-m6-title">Proof of Concept #sevenclubgame</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m6-desc">After extensive testing and countless challenges, we confirmed that seven clubs were all it takes. The #sevenclubgame was officially born, introducing a revolutionary way to play golf.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-right y-top">
+                                    <img src="./About us - Golfyr_files/groove-days-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Oliver Wiedrig macht einen Abschlag auf dem Green." width="1024" height="910" srcset="./About us - Golfyr_files/groove-days-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/groove-days-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/groove-days-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/groove-days-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/groove-days-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                                                    <div class="year">2022</div>
+                                                                <div class="content-wrapper">
+                                                                            <div class="slide-title" data-translate="about-timeline-m7-title">Groove Days &amp; Field Tests</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m7-desc">In Mallorca, our &#8220;Groove Days&#8221; confirmed that the engineering theory worked on the course. Afterward, golfers of all handicaps conducted extensive field tests to validate and refine the clubs.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-right y-top">
+                                    <img src="./About us - Golfyr_files/perfomance-and-durability-1920-1-1024x910.jpg" class="attachment-large size-large" alt="A net from a machine testing a golf club" width="1024" height="910" srcset="./About us - Golfyr_files/perfomance-and-durability-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/perfomance-and-durability-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/perfomance-and-durability-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/perfomance-and-durability-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/perfomance-and-durability-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                                                    <div class="year">2022</div>
+                                                                <div class="content-wrapper">
+                                                                            <div class="slide-title" data-translate="about-timeline-m8-title">Performance &amp; Durability Testing</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m8-desc">We conducted rigorous endurance tests with high-pressure cannons to ensure the durability of our clubs. In parallel, external performance tests confirmed that the Maker outperforms other top-tier putter.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-right y-top">
+                                    <img src="./About us - Golfyr_files/robot-1920-1024x910.jpg" class="attachment-large size-large" alt="A robot from Golf Laboratories in San Diego testing a Golfyr club" width="1024" height="910" srcset="./About us - Golfyr_files/robot-1920-1024x910.jpg 1024w, ./About us - Golfyr_files/robot-1920-300x267.jpg 300w, ./About us - Golfyr_files/robot-1920-768x683.jpg 768w, ./About us - Golfyr_files/robot-1920-600x533.jpg 600w, ./About us - Golfyr_files/robot-1920.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                                                    <div class="year">2022</div>
+                                                                <div class="content-wrapper">
+                                                                            <div class="slide-title" data-translate="about-timeline-m9-title">Robot Test in San Diego</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m9-desc">At San Diego&#8217;s &#8220;Golf Laboratories&#8221;, our clubs were tested against top competitors, confirming superior accuracy and forgiveness.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-top">
+                                    <img src="./About us - Golfyr_files/certified-for-tournament-1920-1024x910.jpg" class="attachment-large size-large" alt="Two golfers and Olivier Widrig putting on the green" width="1024" height="910" srcset="./About us - Golfyr_files/certified-for-tournament-1920-1024x910.jpg 1024w, ./About us - Golfyr_files/certified-for-tournament-1920-300x267.jpg 300w, ./About us - Golfyr_files/certified-for-tournament-1920-768x683.jpg 768w, ./About us - Golfyr_files/certified-for-tournament-1920-600x533.jpg 600w, ./About us - Golfyr_files/certified-for-tournament-1920.jpg 1520w" decoding="async" loading="lazy">                                </div>
+                                                                    <div class="year">2023</div>
+                                                                <div class="content-wrapper">
+                                                                            <div class="slide-title" data-translate="about-timeline-m10-title">Certified for Tournament Play</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m10-desc">Our carbon putter, the Maker, has been ruled as conforming to the official Rules of Golf, making it eligible for use in competitive play worldwide.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-top">
+                                    <img src="./About us - Golfyr_files/market-launch-maker-1920-1024x910.jpg" class="attachment-large size-large" alt="A close-up shot of The Maker from below" width="1024" height="910" srcset="./About us - Golfyr_files/market-launch-maker-1920-1024x910.jpg 1024w, ./About us - Golfyr_files/market-launch-maker-1920-300x267.jpg 300w, ./About us - Golfyr_files/market-launch-maker-1920-768x683.jpg 768w, ./About us - Golfyr_files/market-launch-maker-1920-600x533.jpg 600w, ./About us - Golfyr_files/market-launch-maker-1920.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                                                    <div class="year">2023</div>
+                                                                <div class="content-wrapper">
+                                                                            <div class="slide-title" data-translate="about-timeline-m11-title">Market Launch of the Maker</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m11-desc">The Maker was ready for launch. We unveiled our carbon putter to the public and press during our Ryder Cup public viewing event in Zürich.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-center">
+                                    <img src="./About us - Golfyr_files/the-maker-at-liv-golf-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Der Maker wird auf dem Green gespielt mit einem Golfball." width="1024" height="910" srcset="./About us - Golfyr_files/the-maker-at-liv-golf-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/the-maker-at-liv-golf-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/the-maker-at-liv-golf-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/the-maker-at-liv-golf-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/the-maker-at-liv-golf-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                                                    <div class="year">2024</div>
+                                                                <div class="content-wrapper">
+                                                                            <div class="slide-title" data-translate="about-timeline-m12-title">The Maker at LIV Golf</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m12-desc">Our 1of7 was seen at LIV Golf in the hands of an international Pro – the Maker is now officially tournament-approved.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-center">
+                                    <img src="./About us - Golfyr_files/timeline-2025-1024x910.jpg" class="attachment-large size-large" alt="timeline 2025" width="1024" height="910" srcset="./About us - Golfyr_files/timeline-2025-1024x910.jpg 1024w, ./About us - Golfyr_files/timeline-2025-300x267.jpg 300w, ./About us - Golfyr_files/timeline-2025-768x683.jpg 768w, ./About us - Golfyr_files/timeline-2025-600x533.jpg 600w, ./About us - Golfyr_files/timeline-2025.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                                                    <div class="year">2025</div>
+                                                                <div class="content-wrapper">
+                                                                            <div class="slide-title" data-translate="about-timeline-m13-title">Full Set Unveiled: Field Tests Begin</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m13-desc">In the scenic setting of Bad Ragaz, our Pre-Order Event brought early adopters together to test the complete Golfyr set on the course, marking a major step from innovation to performance.</p></div>
+                                                                    </div>
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thumbnail Section -->
+            <div class="col-12 col-lg-6 position-relative">
+                <div class="swiper simpleSliderTimelineV2Thumbs">
+                    <div class="swiper-wrapper">
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-right y-top order-2">
+                                    <img src="./About us - Golfyr_files/one-golfer-one-vision-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Roger Stadler auf einem Sofa sitzend von hinten, er hat den Maker in der Hand." width="1024" height="910" srcset="./About us - Golfyr_files/one-golfer-one-vision-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/one-golfer-one-vision-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/one-golfer-one-vision-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/one-golfer-one-vision-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/one-golfer-one-vision-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                <div class="content-wrapper order-1">
+                                                                            <div class="year order-1">2011</div>
+                                                                                                                <div class="slide-title order-2" data-translate="about-timeline-m1-title">An innovator with a vision</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m1-desc">The vision of &#8220;Rethink Golf&#8221; was born, and our founder, Roger Stadler, crafted his first carbon club by hand.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-top order-2">
+                                    <img src="./About us - Golfyr_files/proof-of-idea-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Daniel Hüsler hält ein Prototyp von einem Schlägerkopf in der Hand." width="1024" height="910" srcset="./About us - Golfyr_files/proof-of-idea-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/proof-of-idea-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/proof-of-idea-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/proof-of-idea-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/proof-of-idea-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                <div class="content-wrapper order-1">
+                                                                            <div class="year order-1">2015</div>
+                                                                                                                <div class="slide-title order-2" data-translate="about-timeline-m2-title">Proof of Idea</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m2-desc">We faced the first important question: Is the idea technologically feasible? Roger Stadler reached out to Daniel Hüsler, CEO of adultimum ag and our Head of Technology.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-center order-2">
+                                    <img src="./About us - Golfyr_files/proof-of-concept-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Auslegeordnung von verschiedenen Prototypen der Golfyr Schlägerköpfe." width="1024" height="910" srcset="./About us - Golfyr_files/proof-of-concept-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/proof-of-concept-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/proof-of-concept-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/proof-of-concept-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/proof-of-concept-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                <div class="content-wrapper order-1">
+                                                                            <div class="year order-1">2016</div>
+                                                                                                                <div class="slide-title order-2" data-translate="about-timeline-m3-title">Proof of Concept</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m3-desc">The first prototypes were developed under the leadership of Daniel Hüsler – and the vision was starting to take shape.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-center order-2">
+                                    <img src="./About us - Golfyr_files/club-dev-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Alfredo Häberlis Hand hält ein en Prototypen der Schlägerkopfes." width="1024" height="910" srcset="./About us - Golfyr_files/club-dev-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/club-dev-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/club-dev-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/club-dev-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/club-dev-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                <div class="content-wrapper order-1">
+                                                                            <div class="year order-1">2017</div>
+                                                                                                                <div class="slide-title order-2" data-translate="about-timeline-m4-title">Club development</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m4-desc">In close collaboration between Creative Director Alfredo Häberli and Head of Technology Daniel Hüsler, the club began to take shape.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-center order-2">
+                                    <img src="./About us - Golfyr_files/proof-of-market-fit-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Ein Golfyr Schlägerkopf von vorne stehend auf einem kupferfarbenen glänzenden Un-tergrund." width="1024" height="910" srcset="./About us - Golfyr_files/proof-of-market-fit-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/proof-of-market-fit-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/proof-of-market-fit-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/proof-of-market-fit-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/proof-of-market-fit-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                <div class="content-wrapper order-1">
+                                                                            <div class="year order-1">2019</div>
+                                                                                                                <div class="slide-title order-2" data-translate="about-timeline-m5-title">Proof of Market Fit</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m5-desc">We analyzed player habits and market trends, asking golfers: Do you really need 14 clubs, or could you play with fewer? This sparked the idea for the #sevenclubgame.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-center order-2">
+                                    <img src="./About us - Golfyr_files/proof-of-concept-sevclubgame-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Auslegeordnung von verschiedenen Prototypen und einem Golfball mit Golfyr Logo." width="1024" height="910" srcset="./About us - Golfyr_files/proof-of-concept-sevclubgame-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/proof-of-concept-sevclubgame-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/proof-of-concept-sevclubgame-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/proof-of-concept-sevclubgame-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/proof-of-concept-sevclubgame-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                <div class="content-wrapper order-1">
+                                                                            <div class="year order-1">2021</div>
+                                                                                                                <div class="slide-title order-2" data-translate="about-timeline-m6-title">Proof of Concept #sevenclubgame</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m6-desc">After extensive testing and countless challenges, we confirmed that seven clubs were all it takes. The #sevenclubgame was officially born, introducing a revolutionary way to play golf.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-right y-top order-2">
+                                    <img src="./About us - Golfyr_files/groove-days-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Oliver Wiedrig macht einen Abschlag auf dem Green." width="1024" height="910" srcset="./About us - Golfyr_files/groove-days-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/groove-days-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/groove-days-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/groove-days-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/groove-days-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                <div class="content-wrapper order-1">
+                                                                            <div class="year order-1">2022</div>
+                                                                                                                <div class="slide-title order-2" data-translate="about-timeline-m7-title">Groove Days &amp; Field Tests</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m7-desc">In Mallorca, our &#8220;Groove Days&#8221; confirmed that the engineering theory worked on the course. Afterward, golfers of all handicaps conducted extensive field tests to validate and refine the clubs.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-right y-top order-2">
+                                    <img src="./About us - Golfyr_files/perfomance-and-durability-1920-1-1024x910.jpg" class="attachment-large size-large" alt="A net from a machine testing a golf club" width="1024" height="910" srcset="./About us - Golfyr_files/perfomance-and-durability-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/perfomance-and-durability-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/perfomance-and-durability-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/perfomance-and-durability-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/perfomance-and-durability-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                <div class="content-wrapper order-1">
+                                                                            <div class="year order-1">2022</div>
+                                                                                                                <div class="slide-title order-2" data-translate="about-timeline-m8-title">Performance &amp; Durability Testing</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m8-desc">We conducted rigorous endurance tests with high-pressure cannons to ensure the durability of our clubs. In parallel, external performance tests confirmed that the Maker outperforms other top-tier putter.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-right y-top order-2">
+                                    <img src="./About us - Golfyr_files/robot-1920-1024x910.jpg" class="attachment-large size-large" alt="A robot from Golf Laboratories in San Diego testing a Golfyr club" width="1024" height="910" srcset="./About us - Golfyr_files/robot-1920-1024x910.jpg 1024w, ./About us - Golfyr_files/robot-1920-300x267.jpg 300w, ./About us - Golfyr_files/robot-1920-768x683.jpg 768w, ./About us - Golfyr_files/robot-1920-600x533.jpg 600w, ./About us - Golfyr_files/robot-1920.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                <div class="content-wrapper order-1">
+                                                                            <div class="year order-1">2022</div>
+                                                                                                                <div class="slide-title order-2" data-translate="about-timeline-m9-title">Robot Test in San Diego</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m9-desc">At San Diego&#8217;s &#8220;Golf Laboratories&#8221;, our clubs were tested against top competitors, confirming superior accuracy and forgiveness.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-top order-2">
+                                    <img src="./About us - Golfyr_files/certified-for-tournament-1920-1024x910.jpg" class="attachment-large size-large" alt="Two golfers and Olivier Widrig putting on the green" width="1024" height="910" srcset="./About us - Golfyr_files/certified-for-tournament-1920-1024x910.jpg 1024w, ./About us - Golfyr_files/certified-for-tournament-1920-300x267.jpg 300w, ./About us - Golfyr_files/certified-for-tournament-1920-768x683.jpg 768w, ./About us - Golfyr_files/certified-for-tournament-1920-600x533.jpg 600w, ./About us - Golfyr_files/certified-for-tournament-1920.jpg 1520w" decoding="async" loading="lazy">                                </div>
+                                <div class="content-wrapper order-1">
+                                                                            <div class="year order-1">2023</div>
+                                                                                                                <div class="slide-title order-2" data-translate="about-timeline-m10-title">Certified for Tournament Play</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m10-desc">Our carbon putter, the Maker, has been ruled as conforming to the official Rules of Golf, making it eligible for use in competitive play worldwide.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-top order-2">
+                                    <img src="./About us - Golfyr_files/market-launch-maker-1920-1024x910.jpg" class="attachment-large size-large" alt="A close-up shot of The Maker from below" width="1024" height="910" srcset="./About us - Golfyr_files/market-launch-maker-1920-1024x910.jpg 1024w, ./About us - Golfyr_files/market-launch-maker-1920-300x267.jpg 300w, ./About us - Golfyr_files/market-launch-maker-1920-768x683.jpg 768w, ./About us - Golfyr_files/market-launch-maker-1920-600x533.jpg 600w, ./About us - Golfyr_files/market-launch-maker-1920.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                <div class="content-wrapper order-1">
+                                                                            <div class="year order-1">2023</div>
+                                                                                                                <div class="slide-title order-2" data-translate="about-timeline-m11-title">Market Launch of the Maker</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m11-desc">The Maker was ready for launch. We unveiled our carbon putter to the public and press during our Ryder Cup public viewing event in Zürich.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-center order-2">
+                                    <img src="./About us - Golfyr_files/the-maker-at-liv-golf-1920-1-1024x910.jpg" class="attachment-large size-large" alt="Der Maker wird auf dem Green gespielt mit einem Golfball." width="1024" height="910" srcset="./About us - Golfyr_files/the-maker-at-liv-golf-1920-1-1024x910.jpg 1024w, ./About us - Golfyr_files/the-maker-at-liv-golf-1920-1-300x267.jpg 300w, ./About us - Golfyr_files/the-maker-at-liv-golf-1920-1-768x683.jpg 768w, ./About us - Golfyr_files/the-maker-at-liv-golf-1920-1-600x533.jpg 600w, ./About us - Golfyr_files/the-maker-at-liv-golf-1920-1.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                <div class="content-wrapper order-1">
+                                                                            <div class="year order-1">2024</div>
+                                                                                                                <div class="slide-title order-2" data-translate="about-timeline-m12-title">The Maker at LIV Golf</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m12-desc">Our 1of7 was seen at LIV Golf in the hands of an international Pro – the Maker is now officially tournament-approved.</p></div>
+                                                                    </div>
+                            </div>
+                                                                            <div class="swiper-slide">
+                                <div class="image-wrapper x-center y-center order-2">
+                                    <img src="./About us - Golfyr_files/timeline-2025-1024x910.jpg" class="attachment-large size-large" alt="timeline 2025" width="1024" height="910" srcset="./About us - Golfyr_files/timeline-2025-1024x910.jpg 1024w, ./About us - Golfyr_files/timeline-2025-300x267.jpg 300w, ./About us - Golfyr_files/timeline-2025-768x683.jpg 768w, ./About us - Golfyr_files/timeline-2025-600x533.jpg 600w, ./About us - Golfyr_files/timeline-2025.jpg 1522w" decoding="async" loading="lazy">                                </div>
+                                <div class="content-wrapper order-1">
+                                                                            <div class="year order-1">2025</div>
+                                                                                                                <div class="slide-title order-2" data-translate="about-timeline-m13-title">Full Set Unveiled: Field Tests Begin</div>
+                                                                                                                <div class="slide-content"><p data-translate="about-timeline-m13-desc">In the scenic setting of Bad Ragaz, our Pre-Order Event brought early adopters together to test the complete Golfyr set on the course, marking a major step from innovation to performance.</p></div>
+                                                                    </div>
+                            </div>
+                        
+                        <div class="swiper-slide last-swipe">
+                          <div class="content-wrapper order-1">
+                              <div class="year order-1" data-translate="about-timeline-continue">Our story continues&#8230;</div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide empty-slide-timeline"></div>
+                         <div class="swiper-slide empty-slide-timeline"></div>
+                    </div>
+                </div>
+                <div class="swiper-buttons d-flex d-lg-flex">
+                    <div class="swiper-button-prev swiper-timelinev2-button-prev">
+                        <picture decoding="async">
+<source type="image/webp" data-lazy-srcset="https://golfyr.com/wp-content/themes/golfyr/includes/img/slider-arrow-p1.png.webp"/>
+<img src="./About us - Golfyr_files/slider-arrow-p1.png" class="img-fluid" alt="Slider arrow previous slide"   decoding="async" loading="lazy">
+</picture>
+
+                    </div>
+                    <div class="swiper-button-next swiper-timelinev2-button-next">
+                        <picture decoding="async">
+<source type="image/webp" data-lazy-srcset="https://golfyr.com/wp-content/themes/golfyr/includes/img/slider-arrow-p1.png.webp"/>
+<img src="./About us - Golfyr_files/slider-arrow-p1.png" class="img-fluid" alt="Slider arrow next slide"   decoding="async" loading="lazy">
+</picture>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="scroll-wrapper">
+                    <div class="swiper-scrollbar swiper-scrollbar-main d-none d-lg-block"></div>
+                    <div class="swiper-scrollbar swiper-scrollbar-thumbs d-block d-lg-none"></div>
+                </div>
+            </div>
+        </div>
+
+            </div>
+</section>
+
+<section class="large-text-block top-lg bottom-lg" id="">
+  <div class="container">
+        <div class="row">
+      <div class="col-12 col-lg-12 ">
+        <div class="content">
+          <p class="lead-text" data-translate="about-visionaries-text">Seven clubs instead of 14 means more focus and clarity. Enjoy the course without the burden of excessive gear – and experience the game you truly love, developed by four visionary minds.</p>        </div>
+              </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-with-image quote-with-image-v4" id="">
+<div class="wrapper d-flex flex-column justify-content-end">
+      <div class="background">
+      <div class="container-fluid h-100">
+        <div class="row p-0 h-100">
+          <div class="col-12 h-100 p-0">
+                          <div class="image-wrapper x-center y-top d-md-none">
+                <img src="./About us - Golfyr_files/roger-stadler-holding-a-club-mobile.jpg" class="img-fluid" alt="roger stadler holding a club mobile" width="432" height="622" srcset="./About us - Golfyr_files/roger-stadler-holding-a-club-mobile.jpg 432w, ./About us - Golfyr_files/roger-stadler-holding-a-club-mobile-208x300.jpg 208w" decoding="async" loading="lazy">              </div>
+                                                      <div class="image-wrapper x-center y-top d-none d-md-block d-xl-none">
+                                <img src="./About us - Golfyr_files/roger-stadler-holding-a-club-tablet.jpg" class="img-fluid" alt="roger stadler holding a club tablet" width="728" height="1024" srcset="./About us - Golfyr_files/roger-stadler-holding-a-club-tablet.jpg 728w, ./About us - Golfyr_files/roger-stadler-holding-a-club-tablet-213x300.jpg 213w, ./About us - Golfyr_files/roger-stadler-holding-a-club-tablet-600x844.jpg 600w" decoding="async" loading="lazy">                </div>
+                                                      <div class="image-wrapper x-center y-top d-none d-xl-block">
+                                <img src="./About us - Golfyr_files/roger-stadler-holding-a-club-desktop-1024x465.jpg" class="img-fluid" alt="roger stadler holding a club desktop" width="1024" height="465" srcset="./About us - Golfyr_files/roger-stadler-holding-a-club-desktop-1024x465.jpg 1024w, ./About us - Golfyr_files/roger-stadler-holding-a-club-desktop-300x136.jpg 300w, ./About us - Golfyr_files/roger-stadler-holding-a-club-desktop-768x349.jpg 768w, ./About us - Golfyr_files/roger-stadler-holding-a-club-desktop-1536x698.jpg 1536w, ./About us - Golfyr_files/roger-stadler-holding-a-club-desktop-600x273.jpg 600w, ./About us - Golfyr_files/roger-stadler-holding-a-club-desktop.jpg 1760w" decoding="async" loading="lazy">                </div>
+                      </div>
+        </div>
+      </div>
+    </div>
+        <div class="container h-100">
+    <div class="row h-100 flex-row-reverse">
+      <div class="col-12 col-md-8 col-xl-6 d-flex flex-column justify-content-end">
+        <div class="content-all d-flex flex-column">
+          
+                      <div class="name">
+              <span data-translate="about-roger-name">Roger Stadler</span>            </div>
+                 
+                      <div class="additional-content">
+              <span data-translate="about-roger-role">FOUNDER/PRESIDENT OF THE BOARD</span>            </div>
+                    
+                      <div class="content"><p class="lead-text"><span data-translate="about-roger-quote">“Golf is a fascinating game which is best played with a light heart, good friends and continuous improvement.”</span></p></div>
+                    
+          
+                      <div class="cta">
+              <a class="btn btn-light" href="https://golfyr.com/about-us/roger-stadler/">Discover more</a>
+            </div>
+                    
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>  
+</section>
+
+<section class="content-spacer height-md" id="">
+  
+</section>
+
+<section class="simple-slider-makers" id="makers">
+  <div class="container-fluid">
+        <div class="row">
+      <div class="col-12 p-0">
+        <!-- Slider main container -->
+        <div class="swiper simpleSliderMakers">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+                                        <div class="swiper-slide">
+                                                  <div class="image-wrapper x-right y-top d-md-none">
+                    <img src="./About us - Golfyr_files/huesler-430-2-708x1024.jpg" class="img-fluid" alt="huesler 430 2" width="708" height="1024" srcset="./About us - Golfyr_files/huesler-430-2-708x1024.jpg 708w, ./About us - Golfyr_files/huesler-430-2-207x300.jpg 207w, ./About us - Golfyr_files/huesler-430-2-768x1111.jpg 768w, ./About us - Golfyr_files/huesler-430-2-600x868.jpg 600w, ./About us - Golfyr_files/huesler-430-2.jpg 885w" decoding="async" loading="lazy">                  </div>
+                                                                      <div class="image-wrapper x-right y-top d-none d-md-block d-xl-none">
+                                        <img src="./About us - Golfyr_files/huesler-768-1-769x1024.jpg" class="img-fluid" alt="huesler 768 1" width="769" height="1024" srcset="./About us - Golfyr_files/huesler-768-1-769x1024.jpg 769w, ./About us - Golfyr_files/huesler-768-1-225x300.jpg 225w, ./About us - Golfyr_files/huesler-768-1-768x1023.jpg 768w, ./About us - Golfyr_files/huesler-768-1-1153x1536.jpg 1153w, ./About us - Golfyr_files/huesler-768-1-1538x2048.jpg 1538w, ./About us - Golfyr_files/huesler-768-1-600x799.jpg 600w, ./About us - Golfyr_files/huesler-768-1.jpg 1579w" decoding="async" loading="lazy">                    </div>
+                                                                      <div class="image-wrapper x-right y-top d-none d-xl-block">
+                                        <img src="./About us - Golfyr_files/huesler-1920-scaled-1-1024x465.jpg" class="img-fluid" alt="<span data-translate="about-daniel-name" loading="lazy">Daniel Hüsler</span> sitting in his office" width="1024" height="465" srcset="./About us - Golfyr_files/huesler-1920-scaled-1-1024x465.jpg 1024w, ./About us - Golfyr_files/huesler-1920-scaled-1-300x136.jpg 300w, ./About us - Golfyr_files/huesler-1920-scaled-1-768x349.jpg 768w, ./About us - Golfyr_files/huesler-1920-scaled-1-1536x698.jpg 1536w, ./About us - Golfyr_files/huesler-1920-scaled-1-2048x930.jpg 2048w, ./About us - Golfyr_files/huesler-1920-scaled-1-600x273.jpg 600w" decoding="async">                    </div>
+                                <div class="container h-100 d-flex flex-column justify-content-center">
+                  <div class="row">
+                    <div class="col-12 col-lg-7 h-100">
+                      <div class="content-wrapper d-flex flex-column justify-content-end align-items-start">
+                                                   <div class="quote order-3 order-lg-1">
+                            <p class="lead-text" data-translate="about-daniel-quote">&#8220;Our hard work pays off and the statistics prove it: You will land on the fairway more often and with a lot more fun.&#8221;</p>                          </div>
+                                                                          <div class="name order-1 order-lg-2">
+                            <span data-translate="about-daniel-name">Daniel Hüsler</span>                          </div>
+                                                                          <div class="function order-2 order-lg-3">
+                            <span data-translate="about-daniel-role">HEAD OF TECHNOLOGY</span>                          </div>
+                                                                          <div class="cta order-4">
+                            <a class="btn btn-light swiper-no-swiping" href="https://golfyr.com/about-us/daniel-huesler/">Discover more</a>
+                          </div>
+                                              </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                                        <div class="swiper-slide">
+                                                  <div class="image-wrapper x-right y-top d-md-none">
+                    <img src="./About us - Golfyr_files/alfredo-430-708x1024.png" class="img-fluid" alt="<span data-translate="about-alfredo-name" loading="lazy">Alfredo Häberli</span> sitting sketching in his office" width="708" height="1024" srcset="./About us - Golfyr_files/alfredo-430-708x1024.png 708w, ./About us - Golfyr_files/alfredo-430-207x300.png 207w, ./About us - Golfyr_files/alfredo-430-768x1111.png 768w, ./About us - Golfyr_files/alfredo-430-600x868.png 600w, ./About us - Golfyr_files/alfredo-430.png 885w" decoding="async">                  </div>
+                                                                      <div class="image-wrapper x-right y-top d-none d-md-block d-xl-none">
+                                        <img src="./About us - Golfyr_files/alfredo-768-769x1024.jpg" class="img-fluid" alt="<span data-translate="about-alfredo-name" loading="lazy">Alfredo Häberli</span> sitting sketching in his office" width="769" height="1024" srcset="./About us - Golfyr_files/alfredo-768-769x1024.jpg 769w, ./About us - Golfyr_files/alfredo-768-225x300.jpg 225w, ./About us - Golfyr_files/alfredo-768-768x1023.jpg 768w, ./About us - Golfyr_files/alfredo-768-1153x1536.jpg 1153w, ./About us - Golfyr_files/alfredo-768-1538x2048.jpg 1538w, ./About us - Golfyr_files/alfredo-768-600x799.jpg 600w, ./About us - Golfyr_files/alfredo-768.jpg 1579w" decoding="async">                    </div>
+                                                                      <div class="image-wrapper x-right y-top d-none d-xl-block">
+                                        <img src="./About us - Golfyr_files/haeberli-1920-scaled-scaled-1-1024x466.jpg" class="img-fluid" alt="<span data-translate="about-alfredo-name" loading="lazy">Alfredo Häberli</span> sitting sketching in his office" width="1024" height="466" srcset="./About us - Golfyr_files/haeberli-1920-scaled-scaled-1-1024x466.jpg 1024w, ./About us - Golfyr_files/haeberli-1920-scaled-scaled-1-300x136.jpg 300w, ./About us - Golfyr_files/haeberli-1920-scaled-scaled-1-768x349.jpg 768w, ./About us - Golfyr_files/haeberli-1920-scaled-scaled-1-1536x698.jpg 1536w, ./About us - Golfyr_files/haeberli-1920-scaled-scaled-1-2048x931.jpg 2048w, ./About us - Golfyr_files/haeberli-1920-scaled-scaled-1-600x273.jpg 600w" decoding="async">                    </div>
+                                <div class="container h-100 d-flex flex-column justify-content-center">
+                  <div class="row">
+                    <div class="col-12 col-lg-7 h-100">
+                      <div class="content-wrapper d-flex flex-column justify-content-end align-items-start">
+                                                   <div class="quote order-3 order-lg-1">
+                            <p class="lead-text" data-translate="about-alfredo-quote">&#8220;You must ask the right questions to create something outstanding. This time it was: What needs to be reduced?&#8221;</p>                          </div>
+                                                                          <div class="name order-1 order-lg-2">
+                            <span data-translate="about-alfredo-name">Alfredo Häberli</span>                          </div>
+                                                                          <div class="function order-2 order-lg-3">
+                            <span data-translate="about-alfredo-role">CREATIVE DIRECTOR</span>                          </div>
+                                                                          <div class="cta order-4">
+                            <a class="btn btn-light swiper-no-swiping" href="https://golfyr.com/about-us/alfredo-haeberli/">Discover more</a>
+                          </div>
+                                              </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                                        <div class="swiper-slide">
+                                                  <div class="image-wrapper x-right y-top d-md-none">
+                    <img src="./About us - Golfyr_files/widrig-430-1-708x1024.jpg" class="img-fluid" alt="<span data-translate="about-olivier-name" loading="lazy">Olivier Widrig</span> leaning against a tree with the Golfyr golf bag on his shoulder" width="708" height="1024" srcset="./About us - Golfyr_files/widrig-430-1-708x1024.jpg 708w, ./About us - Golfyr_files/widrig-430-1-207x300.jpg 207w, ./About us - Golfyr_files/widrig-430-1-768x1111.jpg 768w, ./About us - Golfyr_files/widrig-430-1-600x868.jpg 600w, ./About us - Golfyr_files/widrig-430-1.jpg 885w" decoding="async">                  </div>
+                                                                      <div class="image-wrapper x-right y-top d-none d-md-block d-xl-none">
+                                        <img src="./About us - Golfyr_files/widrig-768-1-769x1024.jpg" class="img-fluid" alt="<span data-translate="about-olivier-name" loading="lazy">Olivier Widrig</span> leaning against a tree with the Golfyr golf bag on his shoulder" width="769" height="1024" srcset="./About us - Golfyr_files/widrig-768-1-769x1024.jpg 769w, ./About us - Golfyr_files/widrig-768-1-225x300.jpg 225w, ./About us - Golfyr_files/widrig-768-1-768x1023.jpg 768w, ./About us - Golfyr_files/widrig-768-1-1153x1536.jpg 1153w, ./About us - Golfyr_files/widrig-768-1-1538x2048.jpg 1538w, ./About us - Golfyr_files/widrig-768-1-600x799.jpg 600w, ./About us - Golfyr_files/widrig-768-1.jpg 1579w" decoding="async">                    </div>
+                                                                      <div class="image-wrapper x-right y-top d-none d-xl-block">
+                                        <img src="./About us - Golfyr_files/widrig-1920-scaled-scaled-1-1024x465.jpg" class="img-fluid" alt="widrig 1920 scaled scaled 1" width="1024" height="465" srcset="./About us - Golfyr_files/widrig-1920-scaled-scaled-1-1024x465.jpg 1024w, ./About us - Golfyr_files/widrig-1920-scaled-scaled-1-300x136.jpg 300w, ./About us - Golfyr_files/widrig-1920-scaled-scaled-1-768x349.jpg 768w, ./About us - Golfyr_files/widrig-1920-scaled-scaled-1-1536x698.jpg 1536w, ./About us - Golfyr_files/widrig-1920-scaled-scaled-1-2048x930.jpg 2048w, ./About us - Golfyr_files/widrig-1920-scaled-scaled-1-600x273.jpg 600w" decoding="async" loading="lazy">                    </div>
+                                <div class="container h-100 d-flex flex-column justify-content-center">
+                  <div class="row">
+                    <div class="col-12 col-lg-7 h-100">
+                      <div class="content-wrapper d-flex flex-column justify-content-end align-items-start">
+                                                   <div class="quote order-3 order-lg-1">
+                            <p class="lead-text" data-translate="about-olivier-quote">&#8220;It’s finally time to rethink golf and enabling a more playful approach to the game as originally intended. When you’re on the course with a Golfyr set the tale will tell itself.&#8221;</p>                          </div>
+                                                                          <div class="name order-1 order-lg-2">
+                            <span data-translate="about-olivier-name">Olivier Widrig</span>                          </div>
+                                                                          <div class="function order-2 order-lg-3">
+                            <span data-translate="about-olivier-role">HEAD OF GOLF</span>                          </div>
+                                                                          <div class="cta order-4">
+                            <a class="btn btn-light swiper-no-swiping" href="https://golfyr.com/about-us/olivier-widrig/">Discover more</a>
+                          </div>
+                                              </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                      </div>
+          <!--<div class="swiper-buttons">
+            <div class="swiper-button-prev swiper-makers-button-prev">
+              <picture decoding="async">
+<source type="image/webp" data-lazy-srcset="https://golfyr.com/wp-content/themes/golfyr/includes/img/slider-arrow-p1.png.webp"/>
+<img src="./About us - Golfyr_files/slider-arrow-p1.png" class="img-fluid" alt="Slider arrow previous slide"   decoding="async" loading="lazy">
+</picture>
+
+            </div>
+            <div class="swiper-button-next swiper-makers-button-next">
+              <img src="./About us - Golfyr_files/arrow-makers-desktop.png" class="img-fluid" alt="Slider arrow next slide" width="150" height="150"  decoding="async" loading="lazy">
+            </div>
+          </div>-->
+        </div>
+        <div class="swiper-buttons">
+            <div class="swiper-button-prev swiper-makers-button-prev">
+                <picture decoding="async">
+<source type="image/webp" data-lazy-srcset="https://golfyr.com/wp-content/themes/golfyr/includes/img/slider-arrow-p1.png.webp"/>
+<img src="./About us - Golfyr_files/slider-arrow-p1.png" class="img-fluid" alt="Slider arrow previous slide"   decoding="async" loading="lazy">
+</picture>
+
+            </div>
+            <div class="swiper-button-next swiper-makers-button-next">
+                <picture decoding="async">
+<source type="image/webp" data-lazy-srcset="https://golfyr.com/wp-content/themes/golfyr/includes/img/slider-arrow-p1.png.webp"/>
+<img src="./About us - Golfyr_files/slider-arrow-p1.png" class="img-fluid" alt="Slider arrow next slide"   decoding="async" loading="lazy">
+</picture>
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="responsive-image-content short-height-mobile" id="">
+      <div class="background sticky-bg">
+      <div class="container h-100">
+        <div class="row p-0 h-100">
+          <div class="col-12 p-0 h-100">
+                          <div class="image-wrapper x-center y-center d-md-none">
+                <img src="./About us - Golfyr_files/milestones-430-min-1.jpg" class="img-fluid" alt="milestones 430 min 1" width="754" height="621" srcset="./About us - Golfyr_files/milestones-430-min-1.jpg 754w, ./About us - Golfyr_files/milestones-430-min-1-300x247.jpg 300w, ./About us - Golfyr_files/milestones-430-min-1-600x494.jpg 600w" decoding="async" loading="lazy">              </div>
+                                                      <div class="image-wrapper x-center y-center d-none d-md-block d-lg-none">
+                                <img src="./About us - Golfyr_files/milestones-768-min-1-1024x843.jpg" class="img-fluid" alt="milestones 768 min 1" width="1024" height="843" srcset="./About us - Golfyr_files/milestones-768-min-1-1024x843.jpg 1024w, ./About us - Golfyr_files/milestones-768-min-1-300x247.jpg 300w, ./About us - Golfyr_files/milestones-768-min-1-768x632.jpg 768w, ./About us - Golfyr_files/milestones-768-min-1-600x494.jpg 600w, ./About us - Golfyr_files/milestones-768-min-1.jpg 1098w" decoding="async" loading="lazy">                </div>
+                                                                        <div class="image-wrapper x-center y-center d-none d-lg-block">
+                                <div class="image-wrapper x-center y-center">
+                                <img src="./About us - Golfyr_files/milestones-1920-1.jpg" class="img-fluid" alt="milestones 1920 1" width="2346" height="1439" srcset="./About us - Golfyr_files/milestones-1920-1.jpg 2346w, ./About us - Golfyr_files/milestones-1920-1-300x184.jpg 300w, ./About us - Golfyr_files/milestones-1920-1-1024x628.jpg 1024w, ./About us - Golfyr_files/milestones-1920-1-768x471.jpg 768w, ./About us - Golfyr_files/milestones-1920-1-1536x942.jpg 1536w, ./About us - Golfyr_files/milestones-1920-1-2048x1256.jpg 2048w, ./About us - Golfyr_files/milestones-1920-1-600x368.jpg 600w" decoding="async" loading="lazy">                </div>
+                      </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  <div class="content-wrapper">
+    <div class="container h-100">
+      <div class="row h-100">
+                  <div class="col-12 col-md-8 col-lg-6 offset-lg-6 d-flex flex-column justify-content-end h-100">
+                  <div class="content d-flex flex-column">
+                                              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="numbers-and-data-entry" id="">
+  <div class="container">
+    <div class="row">
+              <div class="col-12 col-lg-4">
+          <div class="card">
+                          <div class="number">
+                <div class="countup" data-value="300000">
+                  <span data-translate="about-stats-n1-val">300’000</span>                </div>
+                                  <div class="symbol">
+                                       </div>
+                              </div>
+                                      <div class="data">
+                 <p data-translate="about-stats-n1-text">shots on the golf club face at speeds of up to 195 km/h.</p>              </div>
+                      </div>
+        </div>
+              <div class="col-12 col-lg-4">
+          <div class="card">
+                          <div class="number">
+                <div class="countup" data-value="200">
+                  <span data-translate="about-stats-n2-val">200</span>                </div>
+                                  <div class="symbol">
+                    +                  </div>
+                              </div>
+                                      <div class="data">
+                 <p data-translate="about-stats-n2-text">manufacturing steps to produce the finished golf club.</p>              </div>
+                      </div>
+        </div>
+              <div class="col-12 col-lg-4">
+          <div class="card">
+                          <div class="number">
+                <div class="countup" data-value="7">
+                  <span data-translate="about-stats-n3-val">7</span>                </div>
+                                  <div class="symbol">
+                                       </div>
+                              </div>
+                                      <div class="data">
+                 <p data-translate="about-stats-n3-text">years to create the full carbon clubs with their unique performance profile.</p>              </div>
+                      </div>
+        </div>
+          </div>
+  </div>
+</section>
+</main>
+
+<footer>
+        <div class="container">
+            <!-- Top Brand Row -->
+            <div class="footer-top-row">
+                <h2 class="footer-logo-text">Golfyr</h2>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <!-- Main Content Layout -->
+            <div class="footer-main-content">
+                <!-- Rethink Column -->
+                <div class="footer-rethink-col">
+                    <div class="footer-rethink-text">Rethink <br>Golf</div>
+                </div>
+                
+                <!-- Navigation Columns Grid -->
+                <div class="footer-nav-grid">
+                    <!-- Column 1: Help -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col1-title">Help</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="#support" data-translate="footer-support">Support</a></li>
+                            <li><a href="#faq" data-translate="footer-faq">FAQ</a></li>
+                            <li><a href="#shop-directory" data-translate="footer-shop-directory">Shop Directory</a></li>
+                            <li><a href="#shop-login" data-translate="footer-shop-login">Shop Login</a></li>
+                            <li><a href="#expert-login" data-translate="footer-expert-login">Expert Login</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 2: Company -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col2-title">Company</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./sevenclubgame.html">#sevenclubgame</a></li>
+                            <li><a href="#swissness" data-translate="footer-swissness">Swissness</a></li>
+                            <li><a href="#community" data-translate="footer-community">Community</a></li>
+                            <li><a href="#press" data-translate="footer-press">Press</a></li>
+                            <li><a href="#contact" data-translate="footer-contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 3: The Golfyr Mag -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col3-title">The Golfyr Mag</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./magazine.html" data-translate="footer-latest-news">Latest News</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-inside">Inside Golfyr</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-clubhouse">Clubhouse</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-reviews">Reviews</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Info Column (Socials, CP, Contact) -->
+                <div class="footer-info-col">
+                    <!-- Social icons row -->
+                    <div class="footer-socials-row">
+                        <a href="https://linkedin.com/company/golfyr" target="_blank" class="social-icon" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://facebook.com/golfyr.golf" target="_blank" class="social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://instagram.com/golfyr" target="_blank" class="social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://twitter.com/golfyr" target="_blank" class="social-icon" aria-label="X (Twitter)">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://youtube.com/@golfyr" target="_blank" class="social-icon" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.524 3.545 12 3.545 12 3.545s-7.525 0-9.388.51C1.048 4.561.524 5.569.502 6.563c-.502 1.86-.502 5.437-.502 5.437s0 3.582.502 5.437c.022.994.546 2.002 1.41 2.51 1.863.51 9.388.51 9.388.51s7.524 0 9.388-.51a3.003 3.003 0 0 0 2.11-2.108c.502-1.855.502-5.437.502-5.437s0-3.577-.502-5.437zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="currentColor"/></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- CP certified seal -->
+                    <div class="footer-certification-row">
+                        <img src="./climatepartner.png" alt="ClimatePartner certified company Logo" class="footer-cp-logo">
+                        <div class="footer-cp-text">
+                            <strong>ClimatePartner</strong><br>
+                            <span>certified company</span><br>
+                            <small>climate-id.com/MNR38X</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Details -->
+                    <div class="footer-contact-details">
+                        <a href="tel:+410712223131">+41 (0)71 222 31 31</a><br>
+                        <a href="mailto:hello@golfyr.com">hello@golfyr.com</a><br>
+                        <span>Bahnhofstrasse 2, 9000 St. Gallen</span><br>
+                        <span>Switzerland</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <!-- Bottom Legal Row -->
+            <div class="footer-bottom-row">
+                <div class="footer-copyright">
+                    &copy; Golfyr AG 2026
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#imprint" data-translate="footer-imprint">Imprint</a>
+                    <a href="#data-protection" data-translate="footer-privacy">Data protection</a>
+                    <a href="#terms-and-conditions" data-translate="footer-terms">Terms & Conditions</a>
+                    <a href="#care-instructions" data-translate="footer-care">Care and use instructions</a>
+                    <a href="#money-back-guarantee" data-translate="footer-guarantee">Money-back guarantee</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="#13221e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <ul class="mobile-menu-links">
+            <li class="mobile-nav-dropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-trigger"><span data-translate="nav-our-clubs">Our Clubs</span> <svg class="arrow-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px; transition: transform var(--transition-smooth);"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <ul class="mobile-sub-menu">
+                    <li><a href="./sevenclubgame.html" data-translate="nav-sevenclub" class="dropdown-category">#sevenclubgame</a></li>
+                    <li><a href="./opener.html" data-translate="club-opener-title" class="dropdown-sub-item">The Opener</a></li>
+                    <li><a href="./mover.html" data-translate="club-mover-title" class="dropdown-sub-item">The Mover</a></li>
+                    <li><a href="./riser.html" data-translate="club-riser-title" class="dropdown-sub-item">The Riser</a></li>
+                    <li><a href="./pitcher.html" data-translate="club-pitcher-title" class="dropdown-sub-item">The Pitcher</a></li>
+                    <li><a href="./maker.html" data-translate="club-maker-title" class="dropdown-sub-item">The Maker</a></li>
+                    <li><a href="./maker-tour.html" data-translate="club-makertour-title" class="dropdown-sub-item">The Maker Tour</a></li>
+                    <li><a href="./saver.html" data-translate="club-saver-title" class="dropdown-sub-item">The Saver</a></li>
+                    <li><a href="./butler.html" data-translate="club-butler-title" class="dropdown-sub-item">The Butler</a></li>
+                </ul>
+            </li>
+                                <li class="mobile-nav-dropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-trigger"><span data-translate="nav-tech">Technology</span> <svg class="arrow-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px; transition: transform var(--transition-smooth);"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <ul class="mobile-sub-menu">
+                    <li><a href="./technology.html" data-translate="nav-tech-all" class="dropdown-category">Carbonics</a></li>
+                    <li><a href="./innovation.html" data-translate="nav-innovation" class="dropdown-sub-item">Innovation</a></li>
+                    <li><a href="./material.html" data-translate="nav-material" class="dropdown-sub-item">Material</a></li>
+                    <li><a href="./production.html" data-translate="nav-production" class="dropdown-sub-item">Production</a></li>
+                </ul>
+            </li>
+            <li><a href="./experience.html" data-translate="nav-experience">Experience</a></li>
+            <li><a href="./shop.html" data-translate="nav-shop">Shop</a></li>
+            <li><a href="./magazine.html" data-translate="nav-magazine">Magazine</a></li>
+            <li><a href="./about.html" data-translate="nav-about" class="active">About</a></li>
+            
+            <li style="margin-top: 24px;">
+                <div class="lang-selector">
+                    <button class="lang-switch active mobile-hide" data-lang="en">En</button>
+                    <span style="color: rgba(255,255,255,0.4)">/</span>
+                    <button class="lang-switch mobile-hide" data-lang="de">De</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <!-- Library Dependecies CDNs (GSAP, ScrollTrigger, Swiper) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Rebuilt JavaScript controller -->
+    <script src="./rebuilt-app.min.js"></script>
+</body>
+</html>
+

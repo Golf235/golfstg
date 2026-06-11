@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Golfyr Mag</title>
+    
+    <!-- Brand Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="./favicon.ico">
+    
+    <!-- Custom Vanilla Stylesheet -->
+    <link rel="stylesheet" href="./rebuilt-style.min.css">
+</head>
+<body>
+
+    <!-- --------------------------------------------------
+         Header & Navigation Area
+     -------------------------------------------------- -->
+    <header class="solid-header">
+        <div class="container nav-container">
+            <a href="./index.html" class="logo">
+                <img src="./golfyr-logo-dark.png" alt="Golfyr Logo">
+            </a>
+            
+            <nav class="nav-links-wrapper">
+                <ul class="nav-links">
+                    <li class="nav-dropdown">
+                        <a href="javascript:void(0)"><span data-translate="nav-our-clubs">Our Clubs</span> <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 6px; transition: transform var(--transition-smooth);"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./sevenclubgame.html" data-translate="nav-sevenclub" class="dropdown-category">#sevenclubgame</a></li>
+                            <li><a href="./opener.html" data-translate="club-opener-title" class="dropdown-sub-item">The Opener</a></li>
+                            <li><a href="./mover.html" data-translate="club-mover-title" class="dropdown-sub-item">The Mover</a></li>
+                            <li><a href="./riser.html" data-translate="club-riser-title" class="dropdown-sub-item">The Riser</a></li>
+                            <li><a href="./pitcher.html" data-translate="club-pitcher-title" class="dropdown-sub-item">The Pitcher</a></li>
+                            <li><a href="./maker.html" data-translate="club-maker-title" class="dropdown-sub-item">The Maker</a></li>
+                            <li><a href="./maker-tour.html" data-translate="club-makertour-title" class="dropdown-sub-item">The Maker Tour</a></li>
+                            <li><a href="./saver.html" data-translate="club-saver-title" class="dropdown-sub-item">The Saver</a></li>
+                            <li><a href="./butler.html" data-translate="club-butler-title" class="dropdown-sub-item">The Butler</a></li>
+                        </ul>
+                    </li>
+                                        <li class="nav-dropdown">
+                        <a href="javascript:void(0)"><span data-translate="nav-tech">Technology</span> <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 6px; transition: transform var(--transition-smooth);"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./technology.html" data-translate="nav-tech-all" class="dropdown-category">Carbonics</a></li>
+                            <li><a href="./innovation.html" data-translate="nav-innovation" class="dropdown-sub-item">Innovation</a></li>
+                            <li><a href="./material.html" data-translate="nav-material" class="dropdown-sub-item">Material</a></li>
+                            <li><a href="./production.html" data-translate="nav-production" class="dropdown-sub-item">Production</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./experience.html" data-translate="nav-experience">Experience</a></li>
+                    <li><a href="./shop.html" data-translate="nav-shop">Shop</a></li>
+                    <li><a href="./magazine.html" data-translate="nav-magazine" class="active">Magazine</a></li>
+                    <li><a href="./about.html" data-translate="nav-about">About</a></li>
+                    
+                </ul>
+            </nav>
+            
+            <div class="header-right">
+                <!-- Cart Widget -->
+                <button class="cart-widget">
+                    <div class="cart-icon-wrapper">
+                        <img src="./icon-cart-dark.png" alt="Cart Icon" style="height: 18px; width: auto;">
+                        <span class="cart-badge">1</span>
+                    </div>
+                    <span>CHF 890<span data-translate="nav-cart-suffix"> (incl. tax)</span></span>
+                </button>
+                
+                <!-- Language Toggler -->
+                <div class="lang-selector">
+                    <button class="lang-switch active" data-lang="en">En</button>
+                    <span style="color: rgba(255,255,255,0.4)">/</span>
+                    <button class="lang-switch" data-lang="de">De</button>
+                </div>
+                
+                <!-- Mobile Nav Trigger -->
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+        <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="#13221e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <ul class="mobile-menu-links">
+            <li class="mobile-nav-dropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-trigger"><span data-translate="nav-our-clubs">Our Clubs</span> <svg class="arrow-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px; transition: transform var(--transition-smooth);"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <ul class="mobile-sub-menu">
+                    <li><a href="./sevenclubgame.html" data-translate="nav-sevenclub" class="dropdown-category">#sevenclubgame</a></li>
+                    <li><a href="./opener.html" data-translate="club-opener-title" class="dropdown-sub-item">The Opener</a></li>
+                    <li><a href="./mover.html" data-translate="club-mover-title" class="dropdown-sub-item">The Mover</a></li>
+                    <li><a href="./riser.html" data-translate="club-riser-title" class="dropdown-sub-item">The Riser</a></li>
+                    <li><a href="./pitcher.html" data-translate="club-pitcher-title" class="dropdown-sub-item">The Pitcher</a></li>
+                    <li><a href="./maker.html" data-translate="club-maker-title" class="dropdown-sub-item">The Maker</a></li>
+                    <li><a href="./maker-tour.html" data-translate="club-makertour-title" class="dropdown-sub-item">The Maker Tour</a></li>
+                    <li><a href="./saver.html" data-translate="club-saver-title" class="dropdown-sub-item">The Saver</a></li>
+                    <li><a href="./butler.html" data-translate="club-butler-title" class="dropdown-sub-item">The Butler</a></li>
+                </ul>
+            </li>
+                                <li class="mobile-nav-dropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-trigger"><span data-translate="nav-tech">Technology</span> <svg class="arrow-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px; transition: transform var(--transition-smooth);"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <ul class="mobile-sub-menu">
+                    <li><a href="./technology.html" data-translate="nav-tech-all" class="dropdown-category">Carbonics</a></li>
+                    <li><a href="./innovation.html" data-translate="nav-innovation" class="dropdown-sub-item">Innovation</a></li>
+                    <li><a href="./material.html" data-translate="nav-material" class="dropdown-sub-item">Material</a></li>
+                    <li><a href="./production.html" data-translate="nav-production" class="dropdown-sub-item">Production</a></li>
+                </ul>
+            </li>
+            <li><a href="./experience.html" data-translate="nav-experience">Experience</a></li>
+            <li><a href="./shop.html" data-translate="nav-shop">Shop</a></li>
+            <li><a href="./magazine.html" data-translate="nav-magazine">Magazine</a></li>
+            <li><a href="./about.html" data-translate="nav-about">About</a></li>
+            
+            <li style="margin-top: 24px;">
+                <div class="lang-selector">
+                    <button class="lang-switch active mobile-hide" data-lang="en">En</button>
+                    <span style="color: rgba(255,255,255,0.4)">/</span>
+                    <button class="lang-switch mobile-hide" data-lang="de">De</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- --------------------------------------------------
+             Page Header & Title
+        -------------------------------------------------- -->
+        <section class="mag-page-hero">
+            <div class="container">
+                <h1 data-translate="footer-col3-title">The Golfyr Mag</h1>
+                
+                <ul class="mag-submenu">
+                    <li><a class="mag-submenu-link active" data-translate="mag-subtitle-latest">Latest News</a></li>
+                    <li><a class="mag-submenu-link" data-translate="mag-subtitle-clubhouse">Clubhouse</a></li>
+                    <li><a class="mag-submenu-link" data-translate="mag-subtitle-inside">Inside Golfyr</a></li>
+                    <li><a class="mag-submenu-link" data-translate="mag-subtitle-reviews">Reviews</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Featured Post (Hero Block)
+        -------------------------------------------------- -->
+        <section class="container" style="background: #ffffff; padding-bottom: 40px;">
+            <div class="mag-featured-card">
+                <img class="mag-featured-bg" src="./Magazine - Golfyr_files/05_25_GFY_300_201-scaled-e1772016798735-1024x865.jpg" alt="Featured Article" loading="lazy">
+                <div class="mag-featured-overlay"></div>
+                <div class="mag-featured-content">
+                    <span class="mag-category" data-translate="mag-featured-tag">Inside Golfyr</span>
+                    <h2 class="mag-title" data-translate="mag-featured-title">We Proved 7>14. Here’s the Data.</h2>
+                    <a href="#" class="btn-mag-ghost" data-translate="mag-read-more">Read more</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             More Articles Layout
+        -------------------------------------------------- -->
+        <!-- --------------------------------------------------
+             More Articles Layout
+        -------------------------------------------------- -->
+        <section class="mag-more-section">
+            <div class="container">
+                <div class="mag-section-header">
+                    <h2 data-translate="mag-more-articles">More articles</h2>
+                    <hr class="mag-divider">
+                </div>
+                
+                <div class="mag-more-list">
+                    <!-- Article 1 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./Magazine - Golfyr_files/GFY_Maker_25_12-24_Golfyr_SanDiego_030_637_sRGB-1024x683.jpg" alt="Form Follows Function" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-featured-tag">Inside Golfyr</span>
+                            <h3 class="mag-more-title" data-translate="mag-fff-title">Form Follows Function: The Journey to the #sevenclubgame</h3>
+                            <p class="mag-more-text" data-translate="mag-fff-text">For years, the Iron game it remained largely untouched by true innovation. At Golfyr, that became our starting point. What followed was nearly 15 years of development—driven by a belief in carbon not as a trend, but as a solution. A material chosen for its ability to absorb shock, redistribute weight with precision, and ultimately help golfers play better with less strain. The result is a set that balances innovation and tradition, reducing the game to what truly matters. Seven clubs, each designed with intention. A different way to think about performance. This is the philosophy behind the #sevenclubgame.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-1m">1 minute read</span>
+                        </div>
+                    </div>
+                    
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+                    
+                    <!-- Article 2 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./Magazine - Golfyr_files/15_3.jpg" alt="R&A Approval" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-featured-tag">Inside Golfyr</span>
+                            <h3 class="mag-more-title" data-translate="mag-ra-title">A Certified Step Forward: Golfyr Clubs Receive R&A Approval</h3>
+                            <p class="mag-more-text" data-translate="mag-ra-text">Golfyr takes the next step: our complete #sevenclubgame is now officially approved by The R&A. That means innovation, design, and lightness – all within the rules. With our 100% carbon clubs, you don’t just play differently, you play better. Welcome to the new standard in golf.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+                    
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+                    
+                    <!-- Article 3 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./Magazine - Golfyr_files/sergio-garcia-header-1920-1024x576.jpg" alt="Sergio Garcia joins our journey" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-featured-tag">Inside Golfyr</span>
+                            <h3 class="mag-more-title" data-translate="mag-sergio-title">A moment to remember: Sergio Garcia joins our journey</h3>
+                            <p class="mag-more-text" data-translate="mag-sergio-text">Sergio Garcia joins the Golfyr journey as co-developer of the new Maker “Tour” Edition. What started with a vision and carbon now grows through his experience and belief in our product. A milestone for us, a promise to you.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+                    
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+                    
+                    <!-- Article 4 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./Magazine - Golfyr_files/header_1920-1024x452.jpg" alt="Bad Ragaz" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-subtitle-clubhouse">Clubhouse</span>
+                            <h3 class="mag-more-title" data-translate="mag-ragaz-title">Seven clubs, one experience: the first #sevenclubgame in Bad Ragaz</h3>
+                            <p class="mag-more-text" data-translate="mag-ragaz-text">The first #sevenclubgame in Bad Ragaz introduced a new way to play. Just seven clubs, a clear concept, and unexpected fun on every hole. A day that redefined what golf can feel like.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+
+                    <!-- Article 5 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./Magazine - Golfyr_files/17_4.jpg" alt="Carbon: The high-tech material that’s redefining golf" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-featured-tag">Inside Golfyr</span>
+                            <h3 class="mag-more-title" data-translate="mag-carbon-title">Carbon: The high-tech material that’s redefining golf</h3>
+                            <p class="mag-more-text" data-translate="mag-carbon-text">Discover how high-tech carbon is setting new standards in performance, precision, and design — and why Golfyr is redefining the future of the game.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+
+                    <!-- Article 6 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./blog_article_header_1920-scaled.jpg" alt="Golf with 7 clubs? How 7 loading="lazy">14 is changing the game">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-featured-tag">Inside Golfyr</span>
+                            <h3 class="mag-more-title" data-translate="mag-seven-clubs-title">Golf with 7 clubs? How 7>14 is changing the game</h3>
+                            <p class="mag-more-text" data-translate="mag-seven-clubs-text">Fewer clubs, more golf: With our innovative 7>14 concept, we are revolutionizing the game. Seven specially designed clubs are all you need to master any situation on the course – making golf more intuitive, efficient, and fun.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+
+                    <!-- Article 7 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./Header_1920.jpg" alt="Maker amazes on the professional golf circuit" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-featured-tag">Inside Golfyr</span>
+                            <h3 class="mag-more-title" data-translate="mag-maker-amazes-title">Maker amazes on the professional golf circuit</h3>
+                            <p class="mag-more-text" data-translate="mag-maker-amazes-text">Golf pro Sergio García is making waves with our innovative carbon putter – securing a podium finish at the LIV tournament in Mayakoba. The Maker is now officially "Tour approved," proving how our revolutionary design is reshaping golf. Discover the future of putting!</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+
+                    <!-- Article 8 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./header-1920-23.jpg" alt="The magic of the Maker" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-subtitle-reviews">Reviews</span>
+                            <h3 class="mag-more-title" data-translate="mag-magic-maker-title">The magic of the Maker</h3>
+                            <p class="mag-more-text" data-translate="mag-magic-maker-text">The Maker is making a statement on the green: Experts and pros agree – our 1of7 carbon putter delivers outstanding performance and a unique design. The renowned magazine GolfMagic has even named it one of the best putters of 2024.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+
+                    <!-- Article 9 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./header-1920-2.jpg" alt="Super-Mountain-Putting in St. Moritz" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-subtitle-clubhouse">Clubhouse</span>
+                            <h3 class="mag-more-title" data-translate="mag-mountain-title">Super-Mountain-Putting in St. Moritz</h3>
+                            <p class="mag-more-text" data-translate="mag-mountain-text">From July 27 to September 9, 2024, we showcased our carbon putter at the exclusive Super Mountain Market concept store in St. Moritz. Among art, coffee, and BBQ, guests enjoyed a one-of-a-kind putting experience.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+
+                    <!-- Article 10 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./golfer-vision-header_1920-scaled-1.jpg" alt="Innovation meets vision" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-featured-tag">Inside Golfyr</span>
+                            <h3 class="mag-more-title" data-translate="mag-innovation-vision-title">Innovation meets vision</h3>
+                            <p class="mag-more-text" data-translate="mag-innovation-vision-text">Golfyr founder Roger Stadler is redefining traditional golf. With his 7>14 vision and a simplified set of seven clubs, he is revolutionizing the sport. Built on cutting-edge technology and innovative materials, golf becomes more efficient, accessible, and fun – with greater precision on the course.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+
+                    <!-- Article 11 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./header-1920-22.jpg" alt="Demo Days: Putt with the Maker" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-subtitle-clubhouse">Clubhouse</span>
+                            <h3 class="mag-more-title" data-translate="mag-demo-days-title">Demo Days: Putt with the Maker</h3>
+                            <p class="mag-more-text" data-translate="mag-demo-days-text">Our Maker is on tour! Join us at our Demo Days, test it on the greens, and experience the future of putting — no reservation needed.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+
+                    <!-- Article 12 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./ryders-cup-header-1920.jpg" alt="Public putting at the 2023 Ryder Cup" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-subtitle-clubhouse">Clubhouse</span>
+                            <h3 class="mag-more-title" data-translate="mag-ryder-cup-title">Public putting at the 2023 Ryder Cup</h3>
+                            <p class="mag-more-text" data-translate="mag-ryder-cup-text">During the legendary 2023 Ryder Cup in Rome, we introduced the Maker to the public for the first time. Golf fans in Zurich had the chance to test the carbon putter, take part in putting challenges, and experience the future of golf up close.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+
+                    <!-- Article 13 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./design-follows-header-1920.jpg" alt="Design follows Technology" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-featured-tag">Inside Golfyr</span>
+                            <h3 class="mag-more-title" data-translate="mag-design-tech-title">Design follows Technology</h3>
+                            <p class="mag-more-text" data-translate="mag-design-tech-text">Golfyr Creative Director Alfredo Häberli seamlessly blends functionality and aesthetics – shaping the 7>14 vision with his distinctive style. His design approach challenges conventions, giving our clubs a unique identity.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+
+                    <!-- Article 14 -->
+                    <div class="mag-more-grid" style="margin-bottom: 40px; margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./elliot-header-1920-1.jpg" alt="Alex Elliot becomes a real Maker" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-subtitle-reviews">Reviews</span>
+                            <h3 class="mag-more-title" data-translate="mag-elliot-title">Alex Elliot becomes a real Maker</h3>
+                            <p class="mag-more-text" data-translate="mag-elliot-text">PGA Top-50 coach and content creator Alex Elliot put the Maker to the test – and was impressed. In his review, he praises the SWISS MADE quality, precise craftsmanship, and outstanding performance on the green.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+
+                    <hr class="mag-divider" style="margin: 40px 0; background-color: rgba(26,26,26,0.1);">
+
+                    <!-- Article 15 -->
+                    <div class="mag-more-grid" style="margin-top: 40px;">
+                        <div class="mag-more-image">
+                            <img src="./seven-clubs-header-1920.jpg" alt="Seven clubs to Mallorca" loading="lazy">
+                        </div>
+                        <div class="mag-more-content">
+                            <span class="mag-category" data-translate="mag-featured-tag">Inside Golfyr</span>
+                            <h3 class="mag-more-title" data-translate="mag-mallorca-title">Seven clubs to Mallorca</h3>
+                            <p class="mag-more-text" data-translate="mag-mallorca-text">In the summer of 2022, we put our #sevenclubgame to the ultimate test — seven performance clubs, real course conditions, and one clear mission: proving that seven clubs are all you need to play your best. At Real Golf de Bendinat in Mallorca, our set demonstrated that less is more, making golf even more enjoyable.</p>
+                            <span class="mag-read-time" data-translate="mag-read-time-2m">2 minute read</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Press Articles Grid Section
+        -------------------------------------------------- -->
+        <section class="mag-articles-section" id="press-articles">
+            <div class="container">
+                <div class="mag-section-header">
+                    <h2 data-translate="mag-press-articles-heading">Press Articles</h2>
+                    <hr class="mag-divider">
+                </div>
+                
+                <div class="mag-articles-grid">
+                    <!-- Card 1 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/Sergio-1024x914.png" alt="Golf Monthly February 2026" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-card1-title">Golf Monthly February 2026</h3>
+                            <p data-translate="mag-card1-desc">The Equipment Debrief: Two New Putters Grab Our Attention As Sergio Garcia Talks Through His Bag Line-Up</p>
+                            <a target="_blank" href="https://www.golfmonthly.com/features/the-equipment-debrief-two-new-putters-grab-our-attention-as-sergio-garcia-talks-through-his-bag-line-up?utm_term=CAE95325-987D-485F-9A5C-04C26ABD4496&amp;lrh=10f33f207d2fb69e322a47bf9a50b82c41fcd1babc23f4f6908d8127050eda11&amp;utm_campaign=075440B8-601C-4440-A9B1-8A7444061AA8&amp;utm_medium=email&amp;utm_content=6354CE70-843F-45D8-9F3F-2EB6E190FE49&amp;utm_source=SmartBrief" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/Garcia-Golf-Monthly-1024x1024.jpg" alt="Golf Monthly October 2025" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-card2-title">Golf Monthly October 2025</h3>
+                            <p data-translate="mag-card2-desc">Sergio Garcia Spotted With Next Generation Of Unique Carbon Putter At Spanish Open</p>
+                            <a target="_blank" href="https://www.golfmonthly.com/news/sergio-garcia-spotted-with-next-generation-of-unique-carbon-putter-at-spanish-open" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/artikel-golfmagic-maker-putter-review-feb-1024x1024.jpg" alt="Best Golf Putters 2024" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-card3-title">Best Golf Putters 2024</h3>
+                            <p data-translate="mag-card3-desc">Best Golf Putters 2024 is here – and the Maker is convincing!</p>
+                            <a target="_blank" href="https://www.golfmagic.com/equipment-news/best-golf-putters" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/article-the-story-of-golfyr-600x600-1.jpg" alt="The Golfer Times" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-card4-title">The Golfer Times</h3>
+                            <p data-translate="mag-card4-desc">The Story of Golfyr: Reinventing Golf</p>
+                            <a target="_blank" href="https://thegolfertimes.com/the-story-of-golfyr-and-the-quest-to-reinvent-golf/" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/artikel-migroszeitschrift-mai-1024x1024.jpg" alt="Golfplus / Das Migros Golf Magazin" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-card5-title">Golfplus / Das Migros Golf Magazin</h3>
+                            <p data-translate="mag-card5-desc">The Migros Golf is pleased to welcome the start-up Golfyr as a new partner.</p>
+                            <a target="_blank" href="https://nlink.migrosgolf.ch/dispatcher/service?kh=240409103739580539&amp;l=de&amp;o=2&amp;a=12240419110018314497" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/swiss-golf-1024x1024.png" alt="Swiss Golf Magazin" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-card6-title">Swiss Golf Magazin</h3>
+                            <p data-translate="mag-card6-desc">Golfyr: Noble Swiss golf clubs – produced to forgive.</p>
+                            <div class="cta-buttons-row">
+                                <a target="_blank" href="https://issuu.com/swissgolf.ch/docs/sg-1-2024-de" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                                <a target="_blank" href="https://golfyr.com/wp-content/uploads/2024/03/SwissGolf-1-2024-DE.pdf" class="btn-mag-dark" data-translate="mag-download-de">Download DE</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/Golfyr-WRX-600x600-1.jpg" alt="Golf WRX" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-card7-title">Golf WRX</h3>
+                            <p data-translate="mag-card7-desc">Sergio Garcia uses putter that even most equipment junkies won’t have heard of before</p>
+                            <a target="_blank" href="https://www.golfwrx.com/732636/sergio-garcia-uses-putter-that-even-most-equipment-junkies-wont-have-heard-of-before/" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/Golfyr-Golf-Magic-600x600-1.jpg" alt="Golf Magic" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-card8-title">Golf Magic</h3>
+                            <p data-translate="mag-card8-desc">Sergio Garcia Using a Putter 0.01% of Golf fans have ever seen</p>
+                            <a target="_blank" href="https://www.golfmagic.com/equipment/news/sergio-garcia-using-putter-001-golf-fans-have-ever-seen" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Press Mentions Grid Section
+        -------------------------------------------------- -->
+        <section class="mag-articles-section" id="press-mentions" style="padding-top: 0;">
+            <div class="container">
+                <div class="mag-section-header">
+                    <h2 data-translate="mag-press-mentions-heading">Press Mentions</h2>
+                    <hr class="mag-divider">
+                </div>
+                
+                <div class="mag-articles-grid">
+                    <!-- Card 1 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/Golfyr-Golf-Monthly-600x600-1.jpg" alt="Golf Monthly" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-mention1-title">Golf Monthly</h3>
+                            <p data-translate="mag-mention1-desc">Sergio Garcia Seen Using Brand New Putter At LIV Golf Mayakoba</p>
+                            <a target="_blank" href="https://www.golfmonthly.com/news/sergio-garcia-seen-using-brand-new-putter-at-liv-golf-mayakoba" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/bonanza-news.png" alt="Bonanza" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-mention2-title">Bonanza</h3>
+                            <p data-translate="mag-mention2-desc">You need this!</p>
+                            <a target="_blank" href="https://golfyr.com/wp-content/uploads/2024/01/BONANZA-3-News-ES.pdf" class="btn-mag-dark" data-translate="mag-download">Download</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/600x600-engadin.png" alt="Transhelvetica Beilage ‘Engadin’" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-mention3-title">Transhelvetica Beilage ‘Engadin’</h3>
+                            <p data-translate="mag-mention3-desc">Advertisement</p>
+                            <div class="cta-buttons-row">
+                                <a target="_blank" href="https://www.engadin.ch/de/magazin/" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                                <a target="_blank" href="https://golfyr.com/wp-content/uploads/2024/01/Sommer_24_Transhelvetica_Beilage.pdf" class="btn-mag-dark" data-translate="mag-download">Download</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/NZZ-Magazin-600x543-1.png" alt="NZZ am Sonntag" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-mention4-title">NZZ am Sonntag</h3>
+                            <p data-translate="mag-mention4-desc">Golf: A club made to forgive</p>
+                            <div class="cta-buttons-row">
+                                <a target="_blank" href="https://magazin.nzz.ch/nzz-am-sonntag/wirtschaft/golf-ein-schlaeger-gemacht-um-zu-vergeben-ld.1760902?reduced=true" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                                <a target="_blank" href="https://golfyr.com/wp-content/uploads/2023/11/NZZ_am_Sonntag_20231015_Seite_35.pdf" class="btn-mag-dark" data-translate="mag-download">Download</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/NZZ-Bellevue-600x396-1.png" alt="NZZ Bellevue" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-mention5-title">NZZ Bellevue</h3>
+                            <p data-translate="mag-mention5-desc">Alfredo Häberli designed a golf club with Golfyr</p>
+                            <a target="_blank" href="https://bellevue.nzz.ch/design-wohnen/alfredo-haeberli-hat-mit-golfyr-einen-golfschlaeger-designt-ld.1758580" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+             Test Reviews Section
+        -------------------------------------------------- -->
+        <section class="mag-articles-section" id="test-reviews" style="padding-top: 0;">
+            <div class="container">
+                <div class="mag-section-header">
+                    <h2 data-translate="mag-test-reviews-heading">Test Reviews</h2>
+                    <hr class="mag-divider">
+                </div>
+                
+                <div class="mag-articles-grid">
+                    <!-- Card 1 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/article-the-hottest-putter-of-2024-600x600-1.jpg" alt="The Golfer Times" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-review1-title">The Golfer Times</h3>
+                            <p data-translate="mag-review1-desc">The Hottest Putter of 2024: the Maker 3</p>
+                            <a target="_blank" href="https://thegolfertimes.com/the-hottest-putter-of-2024-no-one-has-heard-of-the-golfyr-maker-3-putter-reviewed/" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/golfyr-premier-maker-3-putter-review-1024x1024.png" alt="Golfyr Premier Maker 3 Putter Review" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-review2-title">Golfyr Premier Maker 3 Putter Review</h3>
+                            <p data-translate="mag-review2-desc">GolfMagic tests out the Golfyr Premier Maker 3 putter</p>
+                            <a target="_blank" href="https://www.golfmagic.com/equipment/putters/golfyr-premier-maker-3-putter-review" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="mag-article-card">
+                        <div class="mag-article-image">
+                            <img src="./Magazine - Golfyr_files/Golfyr_Ipad_Thumbnail_01-1024x1024.jpg" alt="Test Review by Joel Tadman" loading="lazy">
+                        </div>
+                        <div class="mag-article-info">
+                            <h3 data-translate="mag-review3-title">Test Review by Joel Tadman</h3>
+                            <p data-translate="mag-review3-desc">I Tested Sergio Garcia’s Unusual New Putter And Now I Know Why He Chose It</p>
+                            <a target="_blank" href="https://www.golfmonthly.com/reviews/putters/golfyr-the-maker-putter-review" class="btn-mag-dark" data-translate="mag-learn-more">Read it</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- --------------------------------------------------
+         Footer Area (Light Themed)
+     -------------------------------------------------- -->
+    <footer>
+        <div class="container">
+            <!-- Top Brand Row -->
+            <div class="footer-top-row">
+                <h2 class="footer-logo-text">Golfyr</h2>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <!-- Main Content Layout -->
+            <div class="footer-main-content">
+                <!-- Rethink Column -->
+                <div class="footer-rethink-col">
+                    <div class="footer-rethink-text">Rethink <br>Golf</div>
+                </div>
+                
+                <!-- Navigation Columns Grid -->
+                <div class="footer-nav-grid">
+                    <!-- Column 1: Help -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col1-title">Help</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="#support" data-translate="footer-support">Support</a></li>
+                            <li><a href="#faq" data-translate="footer-faq">FAQ</a></li>
+                            <li><a href="./experience.html#shop-directory" data-translate="footer-shop-directory">Shop Directory</a></li>
+                            <li><a href="#shop-login" data-translate="footer-shop-login">Shop Login</a></li>
+                            <li><a href="#expert-login" data-translate="footer-expert-login">Expert Login</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 2: Company -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col2-title">Company</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./sevenclubgame.html">#sevenclubgame</a></li>
+                            <li><a href="./index.html#swissness" data-translate="footer-swissness">Swissness</a></li>
+                            <li><a href="./index.html#community" data-translate="footer-community">Community</a></li>
+                            <li><a href="./index.html#press" data-translate="footer-press">Press</a></li>
+                            <li><a href="./index.html#contact" data-translate="footer-contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 3: The Golfyr Mag -->
+                    <div class="footer-nav-col accordion-item">
+                        <h3 class="footer-col-title accordion-trigger">
+                            <span data-translate="footer-col3-title">The Golfyr Mag</span>
+                            <span class="accordion-arrow">↘</span>
+                        </h3>
+                        <ul class="footer-col-links accordion-content">
+                            <li><a href="./magazine.html" data-translate="footer-latest-news">Latest News</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-inside">Inside Golfyr</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-clubhouse">Clubhouse</a></li>
+                            <li><a href="./magazine.html" data-translate="footer-reviews">Reviews</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Info Column (Socials, CP, Contact) -->
+                <div class="footer-info-col">
+                    <!-- Social icons row -->
+                    <div class="footer-socials-row">
+                        <a href="https://linkedin.com/company/golfyr" target="_blank" class="social-icon" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://facebook.com/golfyr.golf" target="_blank" class="social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://instagram.com/golfyr" target="_blank" class="social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://twitter.com/golfyr" target="_blank" class="social-icon" aria-label="X (Twitter)">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://youtube.com/@golfyr" target="_blank" class="social-icon" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.524 3.545 12 3.545 12 3.545s-7.525 0-9.388.51C1.048 4.561.524 5.569.502 6.563c-.502 1.86-.502 5.437-.502 5.437s0 3.582.502 5.437c.022.994.546 2.002 1.41 2.51 1.863.51 9.388.51 9.388.51s7.524 0 9.388-.51a3.003 3.003 0 0 0 2.11-2.108c.502-1.855.502-5.437.502-5.437s0-3.577-.502-5.437zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="currentColor"/></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- CP certified seal -->
+                    <div class="footer-certification-row">
+                        <img src="./climatepartner.png" alt="ClimatePartner certified company Logo" class="footer-cp-logo">
+                        <div class="footer-cp-text">
+                            <strong>ClimatePartner</strong><br>
+                            <span>certified company</span><br>
+                            <small>climate-id.com/MNR38X</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Details -->
+                    <div class="footer-contact-details">
+                        <a href="tel:+410712223131">+41 (0)71 222 31 31</a><br>
+                        <a href="mailto:hello@golfyr.com">hello@golfyr.com</a><br>
+                        <span>Bahnhofstrasse 2, 9000 St. Gallen</span><br>
+                        <span>Switzerland</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <!-- Bottom Legal Row -->
+            <div class="footer-bottom-row">
+                <div class="footer-copyright">
+                    &copy; Golfyr AG 2026
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#imprint" data-translate="footer-imprint">Imprint</a>
+                    <a href="#data-protection" data-translate="footer-privacy">Data protection</a>
+                    <a href="#terms-and-conditions" data-translate="footer-terms">Terms & Conditions</a>
+                    <a href="#care-instructions" data-translate="footer-care">Care and use instructions</a>
+                    <a href="#money-back-guarantee" data-translate="footer-guarantee">Money-back guarantee</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vanilla Javascript Logic -->
+    <script src="./rebuilt-app.min.js"></script>
+</body>
+</html>
