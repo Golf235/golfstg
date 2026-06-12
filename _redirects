@@ -1,56 +1,44 @@
 # ==========================================
-# 301 Redirects: Legacy golfyr.com URLs -> New Structure
+# 301 Redirects: Legacy golfyr.com URLs -> New Pretty URLs
 # ==========================================
 
-# Language Root Redirects
-/de            /de/index.html   301
-/en            /en/index.html   301
+# Product Page Redirects (Mapping old slug variations to new clean paths)
+/product/maker          /maker      301
+/product/the-maker      /maker      301
+/products/maker         /maker      301
+/products/the-maker     /maker      301
+/product/maker-tour     /maker-tour 301
+/products/maker-tour    /maker-tour 301
+/product/the-maker-tour /maker-tour 301
 
-# Putter & Product Pages Mappings
-/product/maker          /maker.html      301
-/product/the-maker      /maker.html      301
-/products/maker         /maker.html      301
-/products/the-maker     /maker.html      301
-/product/maker-tour     /maker-tour.html 301
-/products/maker-tour    /maker-tour.html 301
-/product/the-maker-tour /maker-tour.html 301
+# Trailing Slash Mappings (Redirects trailing slashes to clean paths)
+/opener/                /opener     301
+/mover/                 /mover      301
+/saver/                 /saver      301
+/riser/                 /riser      301
+/pitcher/               /pitcher    301
+/butler/                /butler     301
+/about/                 /about      301
+/experience/            /experience 301
+/innovation/            /innovation 301
+/technology/            /technology 301
+/material/              /material   301
+/sevenclubgame/         /sevenclubgame 301
+/shop/                  /shop       301
+/configurator/          /configurator 301
+/maker/                 /maker      301
+/maker-tour/            /maker-tour 301
 
-# Club Pages Mappings
-/opener/                /opener.html     301
-/opener                 /opener.html     301
-/mover/                 /mover.html      301
-/mover                  /mover.html      301
-/saver/                 /saver.html      301
-/saver                  /saver.html      301
-/riser/                 /riser.html      301
-/riser                  /riser.html      301
-/pitcher/               /pitcher.html    301
-/pitcher                /pitcher.html    301
-/butler/                /butler.html     301
-/butler                 /butler.html     301
+# Shop & Collection Redirects
+/products               /shop       301
+/collections            /shop       301
+/collections/all        /shop       301
 
-# Shop & Collection Mappings
-/products               /shop.html       301
-/collections            /shop.html       301
-/collections/all        /shop.html       301
-
-# Editorial & Info Pages Mappings
-/about-us               /about.html      301
-/seven-club-game        /sevenclubgame.html 301
-/seven-clubs            /sevenclubgame.html 301
-/sevenclubs             /sevenclubgame.html 301
-/philosophy             /innovation.html 301
-/tech                   /technology.html 301
-/production-process     /production.html 301
-
-# Trailing Slash Mappings for Pretty URLs
-/about/                 /about.html      301
-/experience/            /experience.html 301
-/innovation/            /innovation.html 301
-/technology/            /technology.html 301
-/material/              /material.html   301
-/sevenclubgame/         /sevenclubgame.html 301
-/shop/                  /shop.html       301
-/configurator/          /configurator.html 301
-/maker/                 /maker.html      301
-/maker-tour/            /maker-tour.html 301
+# Legacy Info Page Redirects
+/about-us               /about      301
+/seven-club-game        /sevenclubgame 301
+/seven-clubs            /sevenclubgame 301
+/sevenclubs             /sevenclubgame 301
+/philosophy             /innovation 301
+/tech                   /technology 301
+/production-process     /production 301
