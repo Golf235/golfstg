@@ -103,7 +103,7 @@
             });
 
             // Update price display text (e.g. "CHF 890")
-            const priceWidgets = document.querySelectorAll(".cart-widget span");
+            const priceWidgets = document.querySelectorAll(".cart-widget > span");
             priceWidgets.forEach(widget => {
                 // Keep the suffix tag if present
                 const suffix = widget.querySelector("[data-translate='nav-cart-suffix']") || widget.querySelector("span");
