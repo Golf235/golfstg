@@ -1,0 +1,12 @@
+node_modules/
+.git/
+scratch/
+chrome_profile_coords_fixed/
+package-lock.json
+package.json
+_redirects
+.assetsignore
+.wranglerignore
+wrangler.jsonc
+middleware.js
+api/
