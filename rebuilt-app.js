@@ -2386,6 +2386,9 @@ function initVolvoMapsSlider() {
 
         if (readMoreBtn) {
             readMoreBtn.setAttribute('href', data.link);
+            const clubName = data.link.replace('./', '').replace('.html', '');
+            const formattedClubName = clubName.charAt(0).toUpperCase() + clubName.slice(1);
+            readMoreBtn.setAttribute('aria-label', `Read more about the ${formattedClubName}`);
         }
 
         if (typeof currentLanguage !== 'undefined' && typeof translations !== 'undefined') {
