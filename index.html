@@ -14,6 +14,11 @@
     <link rel="shortcut icon" href="./favicon.ico">
     
     <!-- Swiper CSS & GSAP dependencies -->
+        <!-- Preload Fonts to prevent layout shift (FOUT) -->
+    <link rel="preload" href="./fonts/AeonikPro-Regular.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="./fonts/AeonikPro-Medium.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="./fonts/AeonikPro-Bold.otf" as="font" type="font/otf" crossorigin>
+    
     <link rel="stylesheet" href="./swiper-bundle.min.css" />
     
     <!-- Custom Vanilla Stylesheet -->
@@ -152,9 +157,9 @@
             <div class="hero-bg">
                 <picture>
                     <!-- Mobile view background -->
-                    <source media="(max-width: 768px)" srcset="./GFY_Maker_25_12-24_Golfyr_SanDiego_020_410_sRGB-1-scaled-e1778573567117-1024x983.jpg">
+                    <source media="(max-width: 768px)" srcset="./GFY_Maker_25_12-24_Golfyr_SanDiego_020_410_sRGB-1-scaled-e1778573567117-1024x983.webp">
                     <!-- Desktop background -->
-                    <img src="./Header_Image_Idea_V1-1024x576.jpg" alt="Rethink Golf Banner">
+                    <img src="./Header_Image_Idea_V1-1024x576.webp" alt="Rethink Golf Banner">
                 </picture>
             </div>
             
@@ -858,11 +863,11 @@
     </footer>
 
     <!-- Library Dependecies (GSAP, ScrollTrigger, Swiper) -->
-    <script src="./gsap.min.js"></script>
-    <script src="./ScrollTrigger.min.js"></script>
-    <script src="./swiper-bundle.min.js"></script>
+    <script src="./gsap.min.js" defer></script>
+    <script src="./ScrollTrigger.min.js" defer></script>
+    <script src="./swiper-bundle.min.js" defer></script>
     
     <!-- Rebuilt JavaScript controller -->
-    <script src="./rebuilt-app.min.js"></script>
+    <script src="./rebuilt-app.min.js" defer></script>
 </body>
 </html>
