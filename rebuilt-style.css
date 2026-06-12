@@ -3,19 +3,19 @@
 -------------------------------------------------- */
 @font-face {
     font-family: 'AeonikPro';
-    src: url('./fonts/AeonikPro-Regular.otf') format('opentype');
+    src: url('/fonts/AeonikPro-Regular.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
 }
 @font-face {
     font-family: 'AeonikPro';
-    src: url('./fonts/AeonikPro-Medium.otf') format('opentype');
+    src: url('/fonts/AeonikPro-Medium.otf') format('opentype');
     font-weight: 500;
     font-style: normal;
 }
 @font-face {
     font-family: 'AeonikPro';
-    src: url('./fonts/AeonikPro-Bold.otf') format('opentype');
+    src: url('/fonts/AeonikPro-Bold.otf') format('opentype');
     font-weight: 700;
     font-style: normal;
 }
@@ -8723,7 +8723,7 @@ strong, b {
   font-size: 1.75rem;
 }
 .golf-map-v2 .mobile-map .swiper-map-button-next {
-  background-image: url(../img/arrow-map-mobile-right.png);
+  background-image: url(/img/arrow-map-mobile-right.png);
   background-size: contain;
   background-repeat: no-repeat;
   height: 35px;
@@ -8737,11 +8737,11 @@ strong, b {
   }
 }
 .golf-map-v2 .mobile-map .swiper-map-button-next.swiper-button-disabled {
-  background-image: url(../img/arrow-map-mobile-right-off.png);
+  background-image: url(/img/arrow-map-mobile-right-off.png);
   opacity: 1;
 }
 .golf-map-v2 .mobile-map .swiper-map-button-prev {
-  background-image: url(../img/arrow-map-mobile-left.png);
+  background-image: url(/img/arrow-map-mobile-left.png);
   background-size: contain;
   background-repeat: no-repeat;
   height: 35px;
@@ -8755,7 +8755,7 @@ strong, b {
   }
 }
 .golf-map-v2 .mobile-map .swiper-map-button-prev.swiper-button-disabled {
-  background-image: url(../img/arrow-map-mobile-left-off.png);
+  background-image: url(/img/arrow-map-mobile-left-off.png);
   opacity: 1;
 }
 .golf-map-v2 .mobile-map .swiper-map-button-prev img {
