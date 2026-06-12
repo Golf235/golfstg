@@ -14,8 +14,13 @@
     <link rel="shortcut icon" href="./favicon.ico">
     
     <!-- Swiper CSS & GSAP dependencies -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
     
+    
+    <!-- Preload Hero LCP Background Images -->
+    <link rel="preload" href="./About us - Golfyr_files/welcome-totheworld-430-1-503x1024.png" as="image" media="(max-width: 767px)" fetchpriority="high">
+    <link rel="preload" href="./About us - Golfyr_files/welcome-totheworld-768-min-1-768x1024.jpg" as="image" media="(min-width: 768px) and (max-width: 1199px)" fetchpriority="high">
+    <link rel="preload" href="./About us - Golfyr_files/welcome-totheworld-1920-1024x576.jpg" as="image" media="(min-width: 1200px)" fetchpriority="high">
     <!-- Custom Vanilla Stylesheet -->
     <link rel="stylesheet" href="./rebuilt-style.min.css">
     
@@ -57,7 +62,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="./cart.css">
+    <link rel="stylesheet" href="./cart.css" media="print" onload="this.media='all'">
 </head>
 <body>
 
@@ -135,11 +140,11 @@
 <section class="hero-video-home-p1 d-flex flex-column justify-content-end">
   <div class="background">
                   <div class="image-wrapper d-md-none">
-          <img src="./About us - Golfyr_files/welcome-totheworld-430-1-503x1024.png" class="img-fluid" alt="welcome totheworld 430 1" width="503" height="1024" srcset="./About us - Golfyr_files/welcome-totheworld-430-1-503x1024.png 503w, ./About us - Golfyr_files/welcome-totheworld-430-1-147x300.png 147w, ./About us - Golfyr_files/welcome-totheworld-430-1-755x1536.png 755w, ./About us - Golfyr_files/welcome-totheworld-430-1-600x1221.png 600w, ./About us - Golfyr_files/welcome-totheworld-430-1.png 756w" decoding="async" loading="lazy">        </div>
+          <img src="./About us - Golfyr_files/welcome-totheworld-430-1-503x1024.png" class="img-fluid" alt="welcome totheworld 430 1" width="503" height="1024" srcset="./About us - Golfyr_files/welcome-totheworld-430-1-503x1024.png 503w, ./About us - Golfyr_files/welcome-totheworld-430-1-147x300.png 147w, ./About us - Golfyr_files/welcome-totheworld-430-1-755x1536.png 755w, ./About us - Golfyr_files/welcome-totheworld-430-1-600x1221.png 600w, ./About us - Golfyr_files/welcome-totheworld-430-1.png 756w" decoding="async" fetchpriority="high">        </div>
                               <div class="image-wrapper d-none d-md-block d-xl-none">
-                    <img src="./About us - Golfyr_files/welcome-totheworld-768-min-1-768x1024.jpg" class="img-fluid" alt="welcome totheworld 768 min 1" width="768" height="1024" srcset="./About us - Golfyr_files/welcome-totheworld-768-min-1-768x1024.jpg 768w, ./About us - Golfyr_files/welcome-totheworld-768-min-1-225x300.jpg 225w, ./About us - Golfyr_files/welcome-totheworld-768-min-1-600x800.jpg 600w, ./About us - Golfyr_files/welcome-totheworld-768-min-1.jpg 1098w" decoding="async" loading="lazy">          </div>
+                    <img src="./About us - Golfyr_files/welcome-totheworld-768-min-1-768x1024.jpg" class="img-fluid" alt="welcome totheworld 768 min 1" width="768" height="1024" srcset="./About us - Golfyr_files/welcome-totheworld-768-min-1-768x1024.jpg 768w, ./About us - Golfyr_files/welcome-totheworld-768-min-1-225x300.jpg 225w, ./About us - Golfyr_files/welcome-totheworld-768-min-1-600x800.jpg 600w, ./About us - Golfyr_files/welcome-totheworld-768-min-1.jpg 1098w" decoding="async" fetchpriority="high">          </div>
                               <div class="image-wrapper x-right y-top d-none d-xl-block">
-                    <img src="./About us - Golfyr_files/welcome-totheworld-1920-1024x576.jpg" class="img-fluid" alt="welcome totheworld 1920" width="1024" height="576" srcset="./About us - Golfyr_files/welcome-totheworld-1920-1024x576.jpg 1024w, ./About us - Golfyr_files/welcome-totheworld-1920-300x169.jpg 300w, ./About us - Golfyr_files/welcome-totheworld-1920-768x432.jpg 768w, ./About us - Golfyr_files/welcome-totheworld-1920-1536x863.jpg 1536w, ./About us - Golfyr_files/welcome-totheworld-1920-2048x1151.jpg 2048w, ./About us - Golfyr_files/welcome-totheworld-1920-600x337.jpg 600w" decoding="async" loading="lazy">          </div>
+                    <img src="./About us - Golfyr_files/welcome-totheworld-1920-1024x576.jpg" class="img-fluid" alt="welcome totheworld 1920" width="1024" height="576" srcset="./About us - Golfyr_files/welcome-totheworld-1920-1024x576.jpg 1024w, ./About us - Golfyr_files/welcome-totheworld-1920-300x169.jpg 300w, ./About us - Golfyr_files/welcome-totheworld-1920-768x432.jpg 768w, ./About us - Golfyr_files/welcome-totheworld-1920-1536x863.jpg 1536w, ./About us - Golfyr_files/welcome-totheworld-1920-2048x1151.jpg 2048w, ./About us - Golfyr_files/welcome-totheworld-1920-600x337.jpg 600w" decoding="async" fetchpriority="high">          </div>
                 </div>
    <div class="overlay-shadow"></div>
     <div class="scroll-cta">
@@ -1043,11 +1048,11 @@
     <!-- Library Dependecies CDNs (GSAP, ScrollTrigger, Swiper) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     
     <!-- Rebuilt JavaScript controller -->
     <script src="./rebuilt-app.min.js"></script>
-    <script src="./cart.js" defer></script>
+    <script src="./cart.min.js" defer></script>
 </body>
 </html>
 

@@ -14,8 +14,13 @@
     <link rel="shortcut icon" href="./favicon.ico">
     
     <!-- Swiper CSS & GSAP dependencies -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
     
+    
+    <!-- Preload Hero LCP Background Images -->
+    <link rel="preload" href="./Innovation - Golfyr_files/our-innovation-mobile.jpg" as="image" media="(max-width: 576px)" fetchpriority="high">
+    <link rel="preload" href="./Innovation - Golfyr_files/our-innovation-tablet.jpg" as="image" media="(max-width: 992px)" fetchpriority="high">
+    <link rel="preload" href="./Innovation - Golfyr_files/our-innovation-desktop-1024x576.jpg" as="image" media="(min-width: 577px) and (min-width: 993px)" fetchpriority="high">
     <!-- Custom Vanilla Stylesheet -->
     <link rel="stylesheet" href="./rebuilt-style.min.css">
     
@@ -36,7 +41,7 @@
             object-fit: cover;
         }
     </style>
-    <link rel="stylesheet" href="./cart.css">
+    <link rel="stylesheet" href="./cart.css" media="print" onload="this.media='all'">
 </head>
 <body>
 
@@ -164,7 +169,7 @@
                 <picture>
                     <source media="(max-width: 576px)" srcset="./Innovation - Golfyr_files/our-innovation-mobile.jpg">
                     <source media="(max-width: 992px)" srcset="./Innovation - Golfyr_files/our-innovation-tablet.jpg">
-                    <img src="./Innovation - Golfyr_files/our-innovation-desktop-1024x576.jpg" alt="Our Innovation" loading="lazy" width="1024" height="576">
+                    <img src="./Innovation - Golfyr_files/our-innovation-desktop-1024x576.jpg" alt="Our Innovation" width="1024" height="576" fetchpriority="high">
                 </picture>
             </div>
             <div class="overlay-shadow"></div>
@@ -533,10 +538,10 @@
     <!-- Library Dependencies CDNs (GSAP, ScrollTrigger, Swiper) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     
     <!-- Rebuilt JavaScript controller -->
     <script src="./rebuilt-app.min.js"></script>
-    <script src="./cart.js" defer></script>
+    <script src="./cart.min.js" defer></script>
 </body>
 </html>

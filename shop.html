@@ -14,8 +14,11 @@
     <link rel="shortcut icon" href="./favicon.ico">
     
     <!-- Swiper CSS & GSAP dependencies -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
     
+    
+    <!-- Preload Hero LCP Background Images -->
+    <link rel="preload" href="./31-32-1024x697.jpg" as="image" fetchpriority="high">
     <!-- Custom Vanilla Stylesheet -->
     <link rel="stylesheet" href="./rebuilt-style.min.css">
     <link rel="stylesheet" href="./shop.css">
@@ -132,7 +135,7 @@
             margin-bottom: 5px !important;
         }
     </style>
-    <link rel="stylesheet" href="./cart.css">
+    <link rel="stylesheet" href="./cart.css" media="print" onload="this.media='all'">
 </head>
 <body>
 
@@ -258,7 +261,7 @@
         <section class="hero-video-home-p1">
             <div class="background">
                 <div class="image-wrapper">
-                    <img src="./31-32-1024x697.jpg" class="img-fluid" alt="Shop Hero Background" decoding="async" loading="lazy" width="1024" height="697">
+                    <img src="./31-32-1024x697.jpg" class="img-fluid" alt="Shop Hero Background" decoding="async" width="1024" height="697" fetchpriority="high">
                 </div>
             </div>
             <div class="overlay-shadow"></div>
@@ -317,7 +320,7 @@
                         <a href="./configurator.html?product=maker" style="text-decoration: none; display: block;">
                             <div class="shop-item-wrapper">
                                 <div class="shop-card">
-                                    <img src="./maker_premier.png" alt="The Maker Premier" loading="lazy" width="1024" height="1024">
+                                    <img src="./maker_premier.webp" alt="The Maker Premier" loading="lazy" width="1024" height="1024">
                                 </div>
                                 <div class="shop-card-title" data-translate="shop-prod-maker-premier">The Maker Premier</div>
                             </div>
@@ -328,7 +331,7 @@
                         <a href="./configurator.html?product=maker-tour" style="text-decoration: none; display: block;">
                             <div class="shop-item-wrapper">
                                 <div class="shop-card">
-                                    <img src="./maker_tour.png" alt="The Maker Tour" loading="lazy" width="1024" height="1024">
+                                    <img src="./maker_tour.webp" alt="The Maker Tour" loading="lazy" width="1024" height="1024">
                                 </div>
                                 <div class="shop-card-title" data-translate="shop-prod-maker-tour">The Maker Tour</div>
                             </div>
@@ -350,7 +353,7 @@
                         <a href="./tote-bag.html" style="text-decoration: none; display: block;">
                             <div class="shop-item-wrapper">
                                 <div class="shop-card">
-                                    <img src="./tote_bag.png" alt="The 7&gt;14 Tote Bag" loading="lazy" width="1024" height="1024">
+                                    <img src="./tote_bag.webp" alt="The 7&gt;14 Tote Bag" loading="lazy" width="1024" height="1024">
                                 </div>
                                 <div class="shop-card-title" data-translate="shop-prod-tote-bag">The 7&gt;14 Tote Bag</div>
                             </div>
@@ -594,8 +597,8 @@
     <!-- Vanilla Javascript Logic -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     <script src="./rebuilt-app.min.js"></script>
-    <script src="./cart.js" defer></script>
+    <script src="./cart.min.js" defer></script>
 </body>
 </html>

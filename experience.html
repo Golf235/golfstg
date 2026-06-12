@@ -14,8 +14,12 @@
     <link rel="shortcut icon" href="./favicon.ico">
     
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
     
+    
+    <!-- Preload Hero LCP Background Images -->
+    <link rel="preload" href="./Experience - Golfyr_files/17_2-1024x1024.jpg" as="image" media="(max-width: 767px)" fetchpriority="high">
+    <link rel="preload" href="./Experience - Golfyr_files/17-3-1024x576.jpg" as="image" media="(min-width: 768px)" fetchpriority="high">
     <!-- Custom Vanilla Stylesheet -->
     <link rel="stylesheet" href="./rebuilt-style.min.css">
     
@@ -30,7 +34,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="./cart.css">
+    <link rel="stylesheet" href="./cart.css" media="print" onload="this.media='all'">
 </head>
 <body>
 
@@ -156,10 +160,10 @@
         <section class="hero-video-home-p1 d-flex flex-column justify-content-end">
             <div class="background">
                 <div class="image-wrapper d-md-none">
-                    <img src="./Experience - Golfyr_files/17_2-1024x1024.jpg" alt="Experience Seven Club Game Mobile" class="img-fluid" fetchpriority="high" loading="lazy" width="1024" height="1024">
+                    <img src="./Experience - Golfyr_files/17_2-1024x1024.jpg" alt="Experience Seven Club Game Mobile" class="img-fluid" fetchpriority="high" width="1024" height="1024">
                 </div>
                 <div class="image-wrapper d-none d-md-block">
-                    <img src="./Experience - Golfyr_files/17-3-1024x576.jpg" alt="Experience Seven Club Game Desktop" class="img-fluid" fetchpriority="high" loading="lazy" width="1024" height="576">
+                    <img src="./Experience - Golfyr_files/17-3-1024x576.jpg" alt="Experience Seven Club Game Desktop" class="img-fluid" fetchpriority="high" width="1024" height="576">
                 </div>
             </div>
             
@@ -1643,10 +1647,10 @@
     <!-- Library Dependencies CDNs (GSAP, ScrollTrigger, Swiper) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     
     <!-- Rebuilt JavaScript controller -->
     <script src="./rebuilt-app.min.js"></script>
-    <script src="./cart.js" defer></script>
+    <script src="./cart.min.js" defer></script>
 </body>
 </html>

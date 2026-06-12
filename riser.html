@@ -14,8 +14,11 @@
     <link rel="shortcut icon" href="./favicon.ico">
     
     <!-- Swiper CSS & GSAP dependencies -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
     
+    
+    <!-- Preload Hero LCP Background Images -->
+    <link rel="preload" href="./The Riser - Golfyr_files/10-12-1024x576.jpg" as="image" fetchpriority="high">
     <!-- Custom Vanilla Stylesheet -->
     <link rel="stylesheet" href="./rebuilt-style.min.css">
 
@@ -479,7 +482,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="./cart.css">
+    <link rel="stylesheet" href="./cart.css" media="print" onload="this.media='all'">
 </head>
 <body>
 
@@ -605,7 +608,7 @@
         <section class="hero">
             <div class="hero-bg">
                 <picture>
-                    <img src="./The Riser - Golfyr_files/10-12-1024x576.jpg" alt="The Riser Hero" loading="lazy" width="1024" height="576">
+                    <img src="./The Riser - Golfyr_files/10-12-1024x576.jpg" alt="The Riser Hero" width="1024" height="576" fetchpriority="high">
                 </picture>
             </div>
             
@@ -1144,11 +1147,11 @@
     <!-- Library Dependencies CDNs (GSAP, Swiper) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     
     <!-- Rebuilt JavaScript controller -->
     <script src="./rebuilt-app.min.js"></script>
-    <script src="./cart.js" defer></script>
+    <script src="./cart.min.js" defer></script>
 
     <!-- Page Specific Swiper Initializations -->
     <script>

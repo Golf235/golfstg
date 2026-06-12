@@ -14,8 +14,11 @@
     <link rel="shortcut icon" href="./favicon.ico">
     
     <!-- Swiper CSS & GSAP dependencies -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
     
+    
+    <!-- Preload Hero LCP Background Images -->
+    <link rel="preload" href="./11.png" as="image" fetchpriority="high">
     <!-- Custom Vanilla Stylesheet -->
     <link rel="stylesheet" href="./rebuilt-style.min.css">
     
@@ -646,7 +649,7 @@
             margin-bottom: 0px !important;
         }
     </style>
-    <link rel="stylesheet" href="./cart.css">
+    <link rel="stylesheet" href="./cart.css" media="print" onload="this.media='all'">
 </head>
 <body>
 
@@ -784,7 +787,7 @@
 
             <div class="tote-main-image-wrapper">
                 <a id="tote-main-image-link" href="./11.png" target="_blank" style="display: block; width: 100%; height: 100%;">
-                    <img id="tote-main-image" src="./11.png" alt="The Shirt" loading="lazy" width="1010" height="1009">
+                    <img id="tote-main-image" src="./11.png" alt="The Shirt" width="1010" height="1009" fetchpriority="high">
                 </a>
             </div>
             <div class="tote-thumbnails-row">
@@ -898,9 +901,9 @@
     <!-- Vanilla Javascript Logic -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     <script src="./rebuilt-app.min.js"></script>
-    <script src="./cart.js" defer></script>
+    <script src="./cart.min.js" defer></script>
     
     <!-- Configurator Logic Script -->
     <script>

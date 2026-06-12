@@ -14,8 +14,12 @@
     <link rel="shortcut icon" href="./favicon.ico">
     
     <!-- Swiper CSS & GSAP dependencies -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
     
+    
+    <!-- Preload Hero LCP Background Images -->
+    <link rel="preload" href="./Sevenclubgame%20-%20Golfyr_files/hero_mobile.jpg" as="image" media="(max-width: 768px)" fetchpriority="high">
+    <link rel="preload" href="./Sevenclubgame%20-%20Golfyr_files/hero_desktop.jpg" as="image" media="(min-width: 769px)" fetchpriority="high">
     <!-- Custom Vanilla Stylesheet -->
     <link rel="stylesheet" href="./rebuilt-style.min.css">
 
@@ -357,7 +361,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="./cart.css">
+    <link rel="stylesheet" href="./cart.css" media="print" onload="this.media='all'">
 </head>
 <body>
 
@@ -484,7 +488,7 @@
             <div class="hero-bg">
                 <picture>
                     <source media="(max-width: 768px)" srcset="./Sevenclubgame%20-%20Golfyr_files/hero_mobile.jpg">
-                    <img src="./Sevenclubgame%20-%20Golfyr_files/hero_desktop.jpg" alt="Seven Clubs. Every Shot Covered." width="1024" height="512">
+                    <img src="./Sevenclubgame%20-%20Golfyr_files/hero_desktop.jpg" alt="Seven Clubs. Every Shot Covered." width="1024" height="512" fetchpriority="high">
                 </picture>
             </div>
             
@@ -538,13 +542,13 @@
                     <div class="map-slider-container">
                         <div class="swiper swiper-map-desktop-images">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img class="map-slide-img" src="./opener-1.png" alt="Opener Map" loading="lazy" width="1004" height="948"></div>
-                                <div class="swiper-slide"><img class="map-slide-img" src="./mover-1.png" alt="Mover Map" loading="lazy" width="1004" height="948"></div>
-                                <div class="swiper-slide"><img class="map-slide-img" src="./riser-1-768x725-1.png" alt="Riser Map" loading="lazy" width="768" height="725"></div>
-                                <div class="swiper-slide"><img class="map-slide-img" src="./pitcher-1.png" alt="Pitcher Map" loading="lazy" width="1004" height="948"></div>
-                                <div class="swiper-slide"><img class="map-slide-img" src="./maker-1.png" alt="Maker Map" loading="lazy" width="1004" height="948"></div>
-                                <div class="swiper-slide"><img class="map-slide-img" src="./saver-1.png" alt="Saver Map" loading="lazy" width="1004" height="948"></div>
-                                <div class="swiper-slide"><img class="map-slide-img" src="./Butler_V5.png" alt="Butler Map" loading="lazy" width="1004" height="948"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./opener-1.webp" alt="Opener Map" loading="lazy" width="1004" height="948"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./mover-1.webp" alt="Mover Map" loading="lazy" width="1004" height="948"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./riser-1-768x725-1.webp" alt="Riser Map" loading="lazy" width="768" height="725"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./pitcher-1.webp" alt="Pitcher Map" loading="lazy" width="1004" height="948"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./maker-1.webp" alt="Maker Map" loading="lazy" width="1004" height="948"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./saver-1.webp" alt="Saver Map" loading="lazy" width="1004" height="948"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./Butler_V5.webp" alt="Butler Map" loading="lazy" width="1004" height="948"></div>
                             </div>
                         </div>
 
@@ -675,13 +679,13 @@
                     
                     <div class="swiper swiper-map-mobile">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_opener_eng.png" alt="Opener Mobile Map" loading="lazy" width="978" height="1285"></div>
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_mover_eng.png" alt="Mover Mobile Map" loading="lazy" width="978" height="1271"></div>
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_riser_eng.png" alt="Riser Mobile Map" loading="lazy" width="1004" height="1274"></div>
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_pitcher_eng.png" alt="Pitcher Mobile Map" loading="lazy" width="978" height="1271"></div>
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_maker_eng.png" alt="Maker Mobile Map" loading="lazy" width="995" height="1282"></div>
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_saver_eng.png" alt="Saver Mobile Map" loading="lazy" width="978" height="1271"></div>
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map_Mobile_Butler_EN.png" alt="Butler Mobile Map" loading="lazy" width="768" height="992"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_opener_eng.webp" alt="Opener Mobile Map" loading="lazy" width="978" height="1285"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_mover_eng.webp" alt="Mover Mobile Map" loading="lazy" width="978" height="1271"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_riser_eng.webp" alt="Riser Mobile Map" loading="lazy" width="1004" height="1274"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_pitcher_eng.webp" alt="Pitcher Mobile Map" loading="lazy" width="978" height="1271"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_maker_eng.webp" alt="Maker Mobile Map" loading="lazy" width="995" height="1282"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_saver_eng.webp" alt="Saver Mobile Map" loading="lazy" width="978" height="1271"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map_Mobile_Butler_EN.webp" alt="Butler Mobile Map" loading="lazy" width="768" height="992"></div>
                         </div>
                     </div>
                     
@@ -1159,14 +1163,14 @@
     <!-- Library Dependencies CDNs (GSAP, Swiper) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     
     <!-- HubSpot Forms Script -->
     <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/embed/v2.js"></script>
 
     <!-- Rebuilt JavaScript controller -->
     <script src="./rebuilt-app.min.js"></script>
-    <script src="./cart.js" defer></script>
+    <script src="./cart.min.js" defer></script>
 
     <!-- Page Specific Swiper & HubSpot Initializations -->
     <script>

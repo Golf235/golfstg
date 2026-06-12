@@ -14,8 +14,12 @@
     <link rel="shortcut icon" href="./favicon.ico">
     
     <!-- Swiper CSS & GSAP dependencies -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
     
+    
+    <!-- Preload Hero LCP Background Images -->
+    <link rel="preload" href="./The Opener - Golfyr_files/260323_Marketing_Header_Images_02_768x1024-768x1024.jpg" as="image" media="(max-width: 768px)" fetchpriority="high">
+    <link rel="preload" href="./The Opener - Golfyr_files/260323_Marketing_Header_Images_0_1024x576-1024x576.jpg" as="image" media="(min-width: 769px)" fetchpriority="high">
     <!-- Custom Vanilla Stylesheet -->
     <link rel="stylesheet" href="./rebuilt-style.min.css">
 
@@ -479,7 +483,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="./cart.css">
+    <link rel="stylesheet" href="./cart.css" media="print" onload="this.media='all'">
 </head>
 <body>
 
@@ -606,7 +610,7 @@
             <div class="hero-bg">
                 <picture>
                     <source media="(max-width: 768px)" srcset="./The Opener - Golfyr_files/260323_Marketing_Header_Images_02_768x1024-768x1024.jpg">
-                    <img src="./The Opener - Golfyr_files/260323_Marketing_Header_Images_0_1024x576-1024x576.jpg" alt="The Opener Hero" width="1024" height="576">
+                    <img src="./The Opener - Golfyr_files/260323_Marketing_Header_Images_0_1024x576-1024x576.jpg" alt="The Opener Hero" width="1024" height="576" fetchpriority="high">
                 </picture>
             </div>
             
@@ -1177,11 +1181,11 @@
     <!-- Library Dependencies CDNs (GSAP, Swiper) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     
     <!-- Rebuilt JavaScript controller -->
     <script src="./rebuilt-app.min.js"></script>
-    <script src="./cart.js" defer></script>
+    <script src="./cart.min.js" defer></script>
 
     <!-- Page Specific Swiper Initializations -->
     <script>

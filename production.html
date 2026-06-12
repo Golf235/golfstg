@@ -14,8 +14,13 @@
     <link rel="shortcut icon" href="./favicon.ico">
     
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
     
+    
+    <!-- Preload Hero LCP Background Images -->
+    <link rel="preload" href="./Production - Golfyr_files/3_Gossau_Adultimum_1_Bild_JM5R2670-6-1024x683.png" as="image" media="(max-width: 576px)" fetchpriority="high">
+    <link rel="preload" href="./Production - Golfyr_files/3_Gossau_Adultimum_1_Bild_JM5R2670-4-1024x683.png" as="image" media="(max-width: 992px)" fetchpriority="high">
+    <link rel="preload" href="./Production - Golfyr_files/3_Gossau_Adultimum_1_Bild_JM5R2670-5-1024x683.png" as="image" media="(min-width: 577px) and (min-width: 993px)" fetchpriority="high">
     <!-- Custom Vanilla Stylesheet -->
     <link rel="stylesheet" href="./rebuilt-style.min.css">
     
@@ -36,7 +41,7 @@
             object-fit: cover;
         }
     </style>
-    <link rel="stylesheet" href="./cart.css">
+    <link rel="stylesheet" href="./cart.css" media="print" onload="this.media='all'">
 </head>
 <body>
 
@@ -164,7 +169,7 @@
                 <picture>
                     <source media="(max-width: 576px)" srcset="./Production - Golfyr_files/3_Gossau_Adultimum_1_Bild_JM5R2670-6-1024x683.png">
                     <source media="(max-width: 992px)" srcset="./Production - Golfyr_files/3_Gossau_Adultimum_1_Bild_JM5R2670-4-1024x683.png">
-                    <img src="./Production - Golfyr_files/3_Gossau_Adultimum_1_Bild_JM5R2670-5-1024x683.png" alt="Innovation engineered with Swiss Precision" loading="lazy" width="1024" height="683">
+                    <img src="./Production - Golfyr_files/3_Gossau_Adultimum_1_Bild_JM5R2670-5-1024x683.png" alt="Innovation engineered with Swiss Precision" width="1024" height="683" fetchpriority="high">
                 </picture>
             </div>
             <div class="overlay-shadow"></div>
@@ -490,10 +495,10 @@
 
     <!-- Library Dependencies CDNs (GSAP, Swiper) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     
     <!-- Rebuilt JavaScript controller -->
     <script src="./rebuilt-app.min.js"></script>
-    <script src="./cart.js" defer></script>
+    <script src="./cart.min.js" defer></script>
 </body>
 </html>
