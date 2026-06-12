@@ -30,9 +30,12 @@
             
             // Categories
             "Model": "Modell",
-            "Putter Type": "Putter-Typ",
+            "Length": "Länge",
+            "Grip": "Griff",
+            "Offset": "Offset",
+            "Putter Grip": "Putter-Griff",
+            "Putter Length": "Putter-Länge",
             "Putter Offset": "Offset",
-            "Putter Length": "Länge",
             "Shaft Flex": "Flex",
             "Shaft Size": "Größe",
             "Grip Type": "Griff-Typ",
@@ -598,10 +601,31 @@
                     }
                     
                     // Parse options from DOM & Fiber
-                    const selections = getSelectionsFromFiber(e.target) || {};
+                    let selections = getSelectionsFromFiber(e.target) || {};
                     
                     // Get model name from H1 title
                     const modelName = document.querySelector(".configurator-title")?.textContent.trim() || "Custom Carbon Club Set";
+                    
+                    // If it's a standalone Putter (The Maker Premier or The Maker Tour)
+                    if (modelName.toLowerCase().includes("maker")) {
+                        const filtered = {};
+                        if (selections["Putter Length"]) filtered["Length"] = selections["Putter Length"];
+                        if (selections["Grip Type"]) filtered["Grip"] = selections["Grip Type"];
+                        if (selections["Putter Offset"]) filtered["Offset"] = selections["Putter Offset"];
+                        selections = filtered;
+                    } else {
+                        // For the Premier Set, keep and rename options to be clean
+                        const cleaned = {};
+                        if (selections["Shaft Flex"]) cleaned["Shaft Flex"] = selections["Shaft Flex"];
+                        if (selections["Shaft Size"]) cleaned["Shaft Size"] = selections["Shaft Size"];
+                        if (selections["Grip Size"]) cleaned["Grip Size"] = selections["Grip Size"];
+                        if (selections["Putter Length"]) cleaned["Putter Length"] = selections["Putter Length"];
+                        if (selections["Grip Type"]) cleaned["Putter Grip"] = selections["Grip Type"];
+                        if (selections["Putter Offset"]) cleaned["Putter Offset"] = selections["Putter Offset"];
+                        if (selections["Bag"]) cleaned["Bag"] = selections["Bag"];
+                        if (selections["Bag Tag"]) cleaned["Bag Tag"] = selections["Bag Tag"];
+                        selections = cleaned;
+                    }
                     
                     // Add configurator product to cart
                     CartManager.addItem("configurator", 1, selections, modelName, priceVal);
