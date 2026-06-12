@@ -720,6 +720,21 @@
             CartManager.updateWidget();
         });
 
+        // Inject back button on product detail pages
+        const imageColumn = document.querySelector(".tote-image-column");
+        if (imageColumn) {
+            const backBtn = document.createElement("a");
+            backBtn.className = "product-back-btn";
+            backBtn.href = "javascript:history.back()";
+            backBtn.setAttribute("aria-label", "Go back");
+            backBtn.innerHTML = `
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            `;
+            imageColumn.insertBefore(backBtn, imageColumn.firstChild);
+        }
+
         // Hook up Cart widget buttons in Header to open the drawer
         document.body.addEventListener("click", (e) => {
             const widget = e.target.closest(".cart-widget");
