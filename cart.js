@@ -333,6 +333,9 @@
 
                     // Add to our persistent cart!
                     CartManager.addItem(currentProduct, quantity);
+                    
+                    // Automatically pop out the cart drawer
+                    CartManager.openDrawer();
 
                     // Pulse cart badge animation using GSAP if present
                     const badge = document.querySelector(".cart-badge");
@@ -358,13 +361,14 @@
 
         // 5. Configurator Button Click Interception
         if (pathname.includes("configurator.html")) {
+            // Listen in the capture phase (true) to intercept before React can stop propagation
             document.addEventListener("click", (e) => {
                 const btn = e.target.closest("button");
                 if (!btn) return;
                 const text = btn.textContent.trim().toLowerCase();
-                if (text === "add to cart" || text === "in den warenkorb") {
+                if (text.includes("add to cart") || text.includes("in den warenkorb")) {
                     e.preventDefault();
-                    console.log("Configurator Add to Cart intercepted!");
+                    console.log("Configurator Add to Cart intercepted during capture phase!");
                     
                     // Try to parse the price from the page
                     let priceVal = 890;
@@ -384,7 +388,7 @@
                     CartManager.addItem("configurator", 1);
                     CartManager.openDrawer();
                 }
-            });
+            }, true);
         }
     });
 })();
