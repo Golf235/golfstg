@@ -19,6 +19,10 @@
     <link rel="preload" href="./fonts/AeonikPro-Medium.otf" as="font" type="font/otf" crossorigin>
     <link rel="preload" href="./fonts/AeonikPro-Bold.otf" as="font" type="font/otf" crossorigin>
     
+        <!-- Preload Hero LCP Background Images -->
+    <link rel="preload" href="./Header_Image_Idea_V1-1024x576.webp" as="image" media="(min-width: 769px)" fetchpriority="high">
+    <link rel="preload" href="./GFY_Maker_25_12-24_Golfyr_SanDiego_020_410_sRGB-1-scaled-e1778573567117-1024x983.webp" as="image" media="(max-width: 768px)" fetchpriority="high">
+    
     <link rel="stylesheet" href="./swiper-bundle.min.css" />
     
     <!-- Custom Vanilla Stylesheet -->
@@ -40,7 +44,7 @@
     <header>
         <div class="container nav-container">
             <a href="./index.html" class="logo">
-                <img src="./golfyr-logo-dark.png" alt="Golfyr Logo">
+                <img src="./golfyr-logo-dark.png" alt="Golfyr Logo" width="325" height="111">
             </a>
             
             <nav class="nav-links-wrapper">
@@ -80,7 +84,7 @@
                 <!-- Cart Widget -->
                 <button class="cart-widget">
                     <div class="cart-icon-wrapper">
-                        <img src="./icon-cart-dark.png" alt="Cart Icon" style="height: 18px; width: auto;">
+                        <img src="./icon-cart-dark.png" alt="Cart Icon" style="height: 18px; width: auto;" width="52" height="39">
                         <span class="cart-badge">1</span>
                     </div>
                     <span>CHF 890<span data-translate="nav-cart-suffix"> (incl. tax)</span></span>
@@ -159,7 +163,7 @@
                     <!-- Mobile view background -->
                     <source media="(max-width: 768px)" srcset="./GFY_Maker_25_12-24_Golfyr_SanDiego_020_410_sRGB-1-scaled-e1778573567117-1024x983.webp">
                     <!-- Desktop background -->
-                    <img src="./Header_Image_Idea_V1-1024x576.webp" alt="Rethink Golf Banner">
+                    <img fetchpriority="high" src="./Header_Image_Idea_V1-1024x576.webp" alt="Rethink Golf Banner" width="1024" height="576">
                 </picture>
             </div>
             
@@ -211,7 +215,7 @@
                     <!-- Card 1 -->
                     <div class="rethink-card">
                         <div class="rethink-card-bg">
-                            <img src="./21-11-1024x614.jpg" alt="Carbon Golf Clubs" loading="lazy">
+                            <img src="./21-11-1024x614.jpg" alt="Carbon Golf Clubs" loading="lazy" width="1024" height="614">
                         </div>
                         <div class="rethink-card-overlay">
                             <div class="rethink-card-content">
@@ -225,7 +229,7 @@
                     <!-- Card 2 -->
                     <div class="rethink-card">
                         <div class="rethink-card-bg">
-                            <img src="./15-8.jpg" alt="Sergio Garcia Maker Tour" loading="lazy">
+                            <img src="./15-8.jpg" alt="Sergio Garcia Maker Tour" loading="lazy" width="1000" height="293">
                         </div>
                         <div class="rethink-card-overlay">
                             <div class="rethink-card-content">
@@ -239,7 +243,7 @@
                     <!-- Card 3 -->
                     <div class="rethink-card">
                         <div class="rethink-card-bg">
-                            <img src="./3_Gossau_Adultimum_1_Bild_JM5R2670-7-1024x653.png" alt="Switzerland Engineered" loading="lazy">
+                            <img src="./3_Gossau_Adultimum_1_Bild_JM5R2670-7-1024x653.png" alt="Switzerland Engineered" loading="lazy" width="1024" height="653">
                         </div>
                         <div class="rethink-card-overlay">
                             <div class="rethink-card-content">
@@ -268,19 +272,19 @@
                     <div class="map-slider-container">
                         <div class="swiper swiper-map-desktop-images">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img class="map-slide-img" src="./opener-1.png" alt="Opener Map" loading="lazy"></div>
-                                <div class="swiper-slide"><img class="map-slide-img" src="./mover-1.png" alt="Mover Map" loading="lazy"></div>
-                                <div class="swiper-slide"><img class="map-slide-img" src="./riser-1-768x725-1.png" alt="Riser Map" loading="lazy"></div>
-                                <div class="swiper-slide"><img class="map-slide-img" src="./pitcher-1.png" alt="Pitcher Map" loading="lazy"></div>
-                                <div class="swiper-slide"><img class="map-slide-img" src="./maker-1.png" alt="Maker Map" loading="lazy"></div>
-                                <div class="swiper-slide"><img class="map-slide-img" src="./saver-1.png" alt="Saver Map" loading="lazy"></div>
-                                <div class="swiper-slide"><img class="map-slide-img" src="./Butler_V5.png" alt="Butler Map" loading="lazy"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./opener-1.png" alt="Opener Map" loading="lazy" width="1004" height="948"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./mover-1.png" alt="Mover Map" loading="lazy" width="1004" height="948"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./riser-1-768x725-1.png" alt="Riser Map" loading="lazy" width="768" height="725"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./pitcher-1.png" alt="Pitcher Map" loading="lazy" width="1004" height="948"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./maker-1.png" alt="Maker Map" loading="lazy" width="1004" height="948"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./saver-1.png" alt="Saver Map" loading="lazy" width="1004" height="948"></div>
+                                <div class="swiper-slide"><img class="map-slide-img" src="./Butler_V5.png" alt="Butler Map" loading="lazy" width="1004" height="948"></div>
                             </div>
                         </div>
 
                         <!-- Alert notice banner -->
                         <div class="map-alert-banner">
-                            <img src="./info-icon-neg.png" alt="Info Icon" style="height: 18px; width: auto;">
+                            <img src="./info-icon-neg.png" alt="Info Icon" style="height: 18px; width: auto;" width="78" height="78">
                             <div>
                                 <p style="font-size: 13px; margin: 0;" data-translate="map-info-msg">Each club is engineered for a different situation on the course. <br>Swipe to discover all seven clubs on the map.</p>
                             </div>
@@ -298,7 +302,7 @@
                                     <div class="info-card">
                                         <div class="info-card-header">
                                             <div class="info-card-title" data-translate="club-opener-title">The Opener</div>
-                                            <div class="info-card-icon"><img src="./Opener.png" alt="Opener Silhouette" loading="lazy"></div>
+                                            <div class="info-card-icon"><img src="./Opener.png" alt="Opener Silhouette" loading="lazy" width="245" height="220"></div>
                                         </div>
                                         <p class="info-card-desc" data-translate="club-opener-desc">The Opener is designed for all golfers to open the game and to keep them on the fairway.</p>
                                     </div>
@@ -309,7 +313,7 @@
                                     <div class="info-card">
                                         <div class="info-card-header">
                                             <div class="info-card-title" data-translate="club-mover-title">The Mover</div>
-                                            <div class="info-card-icon"><img src="./Mover.png" alt="Mover Silhouette" loading="lazy"></div>
+                                            <div class="info-card-icon"><img src="./Mover.png" alt="Mover Silhouette" loading="lazy" width="212" height="220"></div>
                                         </div>
                                         <p class="info-card-desc" data-translate="club-mover-desc">As the name suggests, the Mover helps you to move forward in the game. <br class="tablet-desktop-br"> Also perfect for great tee shots.</p>
                                     </div>
@@ -320,7 +324,7 @@
                                     <div class="info-card">
                                         <div class="info-card-header">
                                             <div class="info-card-title" data-translate="club-riser-title">The Riser</div>
-                                            <div class="info-card-icon"><img src="./Riser.png" alt="Riser Silhouette" loading="lazy"></div>
+                                            <div class="info-card-icon"><img src="./Riser.png" alt="Riser Silhouette" loading="lazy" width="181" height="220"></div>
                                         </div>
                                         <p class="info-card-desc" data-translate="club-riser-desc">When you’re in a position to attack the green, the focus shifts to the short game <br class="tablet-desktop-br"> and distance gives way to precision.</p>
                                     </div>
@@ -331,7 +335,7 @@
                                     <div class="info-card">
                                         <div class="info-card-header">
                                             <div class="info-card-title" data-translate="club-pitcher-title">The Pitcher</div>
-                                            <div class="info-card-icon"><img src="./Pitcher.png" alt="Pitcher Silhouette" loading="lazy"></div>
+                                            <div class="info-card-icon"><img src="./Pitcher.png" alt="Pitcher Silhouette" loading="lazy" width="190" height="220"></div>
                                         </div>
                                         <p class="info-card-desc" data-translate="club-pitcher-desc">Spin is crucial in short game. Now you’re targeting the pin, <br class="tablet-desktop-br"> the Pitcher helps you to land the ball close to the flag.</p>
                                     </div>
@@ -342,7 +346,7 @@
                                     <div class="info-card">
                                         <div class="info-card-header">
                                             <div class="info-card-title" data-translate="club-maker-title">The Maker</div>
-                                            <div class="info-card-icon"><img src="./Maker.png" alt="Maker Silhouette" loading="lazy"></div>
+                                            <div class="info-card-icon"><img src="./Maker.png" alt="Maker Silhouette" loading="lazy" width="283" height="220"></div>
                                         </div>
                                         <p class="info-card-desc" data-translate="club-maker-desc">The Maker helps you keep your cool during the difficult final stage <br class="tablet-desktop-br"> so you can head to the next hole full of confidence.</p>
                                     </div>
@@ -353,7 +357,7 @@
                                     <div class="info-card">
                                         <div class="info-card-header">
                                             <div class="info-card-title" data-translate="club-saver-title">The Saver</div>
-                                            <div class="info-card-icon"><img src="./Saver.png" alt="Saver Silhouette" loading="lazy"></div>
+                                            <div class="info-card-icon"><img src="./Saver.png" alt="Saver Silhouette" loading="lazy" width="200" height="220"></div>
                                         </div>
                                         <p class="info-card-desc" data-translate="club-saver-desc">It’s all in the name: the Saver is there to get you <br class="tablet-desktop-br"> out of trouble in the short game.</p>
                                     </div>
@@ -364,7 +368,7 @@
                                     <div class="info-card">
                                         <div class="info-card-header">
                                             <div class="info-card-title" data-translate="club-butler-title">The Butler</div>
-                                            <div class="info-card-icon"><img src="./Butler.png" alt="Butler Silhouette" loading="lazy"></div>
+                                            <div class="info-card-icon"><img src="./Butler.png" alt="Butler Silhouette" loading="lazy" width="190" height="220"></div>
                                         </div>
                                         <p class="info-card-desc" data-translate="club-butler-desc">The Butler is the most versatile companion. <br class="tablet-desktop-br"> The wide sole helps to glide through any ground conditions.</p>
                                     </div>
@@ -397,7 +401,7 @@
                 <!-- Swiper Integrated Slider (Mobile View - custom vertical imagery) -->
                 <div class="mobile-only-slider">
                     <div class="map-alert-banner" style="margin-bottom: 24px; padding: 16px;">
-                        <img src="./info-icon-neg.png" alt="Info Icon" style="height: 16px; width: auto;">
+                        <img src="./info-icon-neg.png" alt="Info Icon" style="height: 16px; width: auto;" width="78" height="78">
                         <div>
                             <p style="font-size: 12px; margin: 0;" data-translate="map-info-msg">Each club is engineered for a different situation on the course. <br>Swipe to discover all seven clubs on the map.</p>
                         </div>
@@ -405,13 +409,13 @@
                     
                     <div class="swiper swiper-map-mobile">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_opener_eng.png" alt="Opener Mobile Map" loading="lazy"></div>
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_mover_eng.png" alt="Mover Mobile Map" loading="lazy"></div>
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_riser_eng.png" alt="Riser Mobile Map" loading="lazy"></div>
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_pitcher_eng.png" alt="Pitcher Mobile Map" loading="lazy"></div>
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_maker_eng.png" alt="Maker Mobile Map" loading="lazy"></div>
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_saver_eng.png" alt="Saver Mobile Map" loading="lazy"></div>
-                            <div class="swiper-slide"><img class="map-slide-img" src="./Map_Mobile_Butler_EN.png" alt="Butler Mobile Map" loading="lazy"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_opener_eng.png" alt="Opener Mobile Map" loading="lazy" width="978" height="1285"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_mover_eng.png" alt="Mover Mobile Map" loading="lazy" width="978" height="1271"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_riser_eng.png" alt="Riser Mobile Map" loading="lazy" width="1004" height="1274"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_pitcher_eng.png" alt="Pitcher Mobile Map" loading="lazy" width="978" height="1271"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_maker_eng.png" alt="Maker Mobile Map" loading="lazy" width="995" height="1282"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map-mobile_saver_eng.png" alt="Saver Mobile Map" loading="lazy" width="978" height="1271"></div>
+                            <div class="swiper-slide"><img class="map-slide-img" src="./Map_Mobile_Butler_EN.png" alt="Butler Mobile Map" loading="lazy" width="768" height="992"></div>
                         </div>
                     </div>
                     
@@ -464,57 +468,57 @@
                         <!-- Slide 1: Opener -->
                         <div class="swiper-slide swiper-slide-active">
                             <div class="volvo-slide-inner">
-                                <img src="./Map-mobile_opener_eng.png" alt="The Opener Map" class="volvo-club-map-bg" loading="lazy">
-                                <img src="./The Opener - Golfyr_files/techspecs-opener-loft.png" alt="The Opener" class="volvo-club-image" loading="lazy">
+                                <img src="./Map-mobile_opener_eng.png" alt="The Opener Map" class="volvo-club-map-bg" loading="lazy" width="978" height="1285">
+                                <img src="./The Opener - Golfyr_files/techspecs-opener-loft.png" alt="The Opener" class="volvo-club-image" loading="lazy" width="478" height="554">
                             </div>
                         </div>
                         <!-- Slide 2: Mover -->
                         <div class="swiper-slide">
                             <div class="volvo-slide-inner">
-                                <img src="./Map-mobile_mover_eng.png" alt="The Mover Map" class="volvo-club-map-bg" loading="lazy">
-                                <img src="./The Mover - Golfyr_files/techspecs-mover-loft.png" alt="The Mover" class="volvo-club-image" loading="lazy">
+                                <img src="./Map-mobile_mover_eng.png" alt="The Mover Map" class="volvo-club-map-bg" loading="lazy" width="978" height="1271">
+                                <img src="./The Mover - Golfyr_files/techspecs-mover-loft.png" alt="The Mover" class="volvo-club-image" loading="lazy" width="478" height="556">
                             </div>
                         </div>
                         <!-- Slide 3: Riser -->
                         <div class="swiper-slide">
                             <div class="volvo-slide-inner">
-                                <img src="./Map-mobile_riser_eng.png" alt="The Riser Map" class="volvo-club-map-bg" loading="lazy">
-                                <img src="./The Riser - Golfyr_files/techspecs-riser-loft.png" alt="The Riser" class="volvo-club-image" loading="lazy">
+                                <img src="./Map-mobile_riser_eng.png" alt="The Riser Map" class="volvo-club-map-bg" loading="lazy" width="1004" height="1274">
+                                <img src="./The Riser - Golfyr_files/techspecs-riser-loft.png" alt="The Riser" class="volvo-club-image" loading="lazy" width="479" height="570">
                             </div>
                         </div>
                         <!-- Slide 4: Pitcher -->
                         <div class="swiper-slide">
                             <div class="volvo-slide-inner">
-                                <img src="./Map-mobile_pitcher_eng.png" alt="The Pitcher Map" class="volvo-club-map-bg" loading="lazy">
-                                <img src="./The Pitcher - Golfyr_files/techspecs-pitcher-loft.png" alt="The Pitcher" class="volvo-club-image" loading="lazy">
+                                <img src="./Map-mobile_pitcher_eng.png" alt="The Pitcher Map" class="volvo-club-map-bg" loading="lazy" width="978" height="1271">
+                                <img src="./The Pitcher - Golfyr_files/techspecs-pitcher-loft.png" alt="The Pitcher" class="volvo-club-image" loading="lazy" width="422" height="491">
                             </div>
                         </div>
                         <!-- Slide 5: Maker -->
                         <div class="swiper-slide">
                             <div class="volvo-slide-inner">
-                                <img src="./Map-mobile_maker_eng.png" alt="The Maker Map" class="volvo-club-map-bg" loading="lazy">
-                                <img src="./The Maker - Golfyr_files/techspecs-maker-loft.png" alt="The Maker" class="volvo-club-image" loading="lazy">
+                                <img src="./Map-mobile_maker_eng.png" alt="The Maker Map" class="volvo-club-map-bg" loading="lazy" width="995" height="1282">
+                                <img src="./The Maker - Golfyr_files/techspecs-maker-loft.png" alt="The Maker" class="volvo-club-image" loading="lazy" width="478" height="553">
                             </div>
                         </div>
                         <!-- Slide 6: Maker Tour -->
                         <div class="swiper-slide">
                             <div class="volvo-slide-inner">
-                                <img src="./Map-mobile_maker_eng.png" alt="The Maker Tour Map" class="volvo-club-map-bg" loading="lazy">
-                                <img src="./Maker Tour - Golfyr_files/39_Golfyr_Maker3_Tour_16457_V1_sRGB_300dpi-3.png" alt="The Maker Tour" class="volvo-club-image" loading="lazy">
+                                <img src="./Map-mobile_maker_eng.png" alt="The Maker Tour Map" class="volvo-club-map-bg" loading="lazy" width="995" height="1282">
+                                <img src="./Maker Tour - Golfyr_files/39_Golfyr_Maker3_Tour_16457_V1_sRGB_300dpi-3.png" alt="The Maker Tour" class="volvo-club-image" loading="lazy" width="478" height="553">
                             </div>
                         </div>
                         <!-- Slide 7: Saver -->
                         <div class="swiper-slide">
                             <div class="volvo-slide-inner">
-                                <img src="./Map-mobile_saver_eng.png" alt="The Saver Map" class="volvo-club-map-bg" loading="lazy">
-                                <img src="./The Saver - Golfyr_files/techspecs-saver-loft.png" alt="The Saver" class="volvo-club-image" loading="lazy">
+                                <img src="./Map-mobile_saver_eng.png" alt="The Saver Map" class="volvo-club-map-bg" loading="lazy" width="978" height="1271">
+                                <img src="./The Saver - Golfyr_files/techspecs-saver-loft.png" alt="The Saver" class="volvo-club-image" loading="lazy" width="422" height="491">
                             </div>
                         </div>
                         <!-- Slide 8: Butler -->
                         <div class="swiper-slide">
                             <div class="volvo-slide-inner">
-                                <img src="./Map_Mobile_Butler_EN.png" alt="The Butler Map" class="volvo-club-map-bg" loading="lazy">
-                                <img src="./The Butler - Golfyr_files/techspecs-butler-loft.png" alt="The Butler" class="volvo-club-image" loading="lazy">
+                                <img src="./Map_Mobile_Butler_EN.png" alt="The Butler Map" class="volvo-club-map-bg" loading="lazy" width="768" height="992">
+                                <img src="./The Butler - Golfyr_files/techspecs-butler-loft.png" alt="The Butler" class="volvo-club-image" loading="lazy" width="479" height="578">
                             </div>
                         </div>
                     </div>
@@ -567,49 +571,49 @@
                         <!-- Slide 1: Opener Map -->
                         <div class="swiper-slide swiper-slide-active">
                             <div class="volvo-map-slide-inner">
-                                <img src="./opener-1.png" alt="The Opener Map" class="volvo-map-image" loading="lazy">
+                                <img src="./opener-1.png" alt="The Opener Map" class="volvo-map-image" loading="lazy" width="1004" height="948">
                             </div>
                         </div>
                         <!-- Slide 2: Mover Map -->
                         <div class="swiper-slide">
                             <div class="volvo-map-slide-inner">
-                                <img src="./mover-1.png" alt="The Mover Map" class="volvo-map-image" loading="lazy">
+                                <img src="./mover-1.png" alt="The Mover Map" class="volvo-map-image" loading="lazy" width="1004" height="948">
                             </div>
                         </div>
                         <!-- Slide 3: Riser Map -->
                         <div class="swiper-slide">
                             <div class="volvo-map-slide-inner">
-                                <img src="./riser-1-768x725-1.png" alt="The Riser Map" class="volvo-map-image" loading="lazy">
+                                <img src="./riser-1-768x725-1.png" alt="The Riser Map" class="volvo-map-image" loading="lazy" width="768" height="725">
                             </div>
                         </div>
                         <!-- Slide 4: Pitcher Map -->
                         <div class="swiper-slide">
                             <div class="volvo-map-slide-inner">
-                                <img src="./pitcher-1.png" alt="The Pitcher Map" class="volvo-map-image" loading="lazy">
+                                <img src="./pitcher-1.png" alt="The Pitcher Map" class="volvo-map-image" loading="lazy" width="1004" height="948">
                             </div>
                         </div>
                         <!-- Slide 5: Maker Map -->
                         <div class="swiper-slide">
                             <div class="volvo-map-slide-inner">
-                                <img src="./maker-1.png" alt="The Maker Map" class="volvo-map-image" loading="lazy">
+                                <img src="./maker-1.png" alt="The Maker Map" class="volvo-map-image" loading="lazy" width="1004" height="948">
                             </div>
                         </div>
                         <!-- Slide 6: Maker Tour Map -->
                         <div class="swiper-slide">
                             <div class="volvo-map-slide-inner">
-                                <img src="./maker-1.png" alt="The Maker Tour Map" class="volvo-map-image" loading="lazy">
+                                <img src="./maker-1.png" alt="The Maker Tour Map" class="volvo-map-image" loading="lazy" width="1004" height="948">
                             </div>
                         </div>
                         <!-- Slide 7: Saver Map -->
                         <div class="swiper-slide">
                             <div class="volvo-map-slide-inner">
-                                <img src="./saver-1.png" alt="The Saver Map" class="volvo-map-image" loading="lazy">
+                                <img src="./saver-1.png" alt="The Saver Map" class="volvo-map-image" loading="lazy" width="1004" height="948">
                             </div>
                         </div>
                         <!-- Slide 8: Butler Map -->
                         <div class="swiper-slide">
                             <div class="volvo-map-slide-inner">
-                                <img src="./Butler_V5.png" alt="The Butler Map" class="volvo-map-image" loading="lazy">
+                                <img src="./Butler_V5.png" alt="The Butler Map" class="volvo-map-image" loading="lazy" width="1004" height="948">
                             </div>
                         </div>
                     </div>
@@ -655,7 +659,7 @@
                         <div class="swiper-slide">
                             <article class="mag-card">
                                 <div class="mag-card-image">
-                                    <img src="./05_25_GFY_300_201-scaled-e1772016798735.jpg" alt="We Proved 7 loading="lazy">14">
+                                    <img src="./05_25_GFY_300_201-scaled-e1772016798735.jpg" alt="We Proved 7 loading="lazy" width="1707" height="1442">14">
                                 </div>
                                 <h3>We Proved 7>14. Here’s the Data.</h3>
                             </article>
@@ -665,7 +669,7 @@
                         <div class="swiper-slide">
                             <article class="mag-card">
                                 <div class="mag-card-image">
-                                    <img src="./GFY_Maker_25_12-24_Golfyr_SanDiego_030_637_sRGB-scaled.jpg" alt="Form Follows Function" loading="lazy">
+                                    <img src="./GFY_Maker_25_12-24_Golfyr_SanDiego_030_637_sRGB-scaled.jpg" alt="Form Follows Function" loading="lazy" width="2560" height="1707">
                                 </div>
                                 <h3>Form Follows Function: The Journey to the #sevenclubgame</h3>
                             </article>
@@ -675,7 +679,7 @@
                         <div class="swiper-slide">
                             <article class="mag-card">
                                 <div class="mag-card-image">
-                                    <img src="./15_3.jpg" alt="R&A Approval" loading="lazy">
+                                    <img src="./15_3.jpg" alt="R&A Approval" loading="lazy" width="1000" height="568">
                                 </div>
                                 <h3>A Certified Step Forward: Golfyr Clubs Receive R&A Approval</h3>
                             </article>
@@ -685,7 +689,7 @@
                         <div class="swiper-slide">
                             <article class="mag-card">
                                 <div class="mag-card-image">
-                                    <img src="./sergio-garcia-header-1920.jpg" alt="Sergio Garcia joins" loading="lazy">
+                                    <img src="./sergio-garcia-header-1920.jpg" alt="Sergio Garcia joins" loading="lazy" width="2500" height="1406">
                                 </div>
                                 <h3>A moment to remember: Sergio Garcia joins our journey</h3>
                             </article>
@@ -705,7 +709,7 @@
             <div class="newsletter-bg">
                 <picture>
                     <source media="(max-width: 768px)" srcset="./newsletter-430.jpg">
-                    <img src="./newsletter-1920-min-1024x466.jpg" alt="Alfredo Häberli" loading="lazy">
+                    <img src="./newsletter-1920-min-1024x466.jpg" alt="Alfredo Häberli" loading="lazy" width="1024" height="466">
                 </picture>
             </div>
             
@@ -826,7 +830,7 @@
                     
                     <!-- CP certified seal -->
                     <div class="footer-certification-row">
-                        <img src="./climatepartner.png" alt="ClimatePartner certified company Logo" class="footer-cp-logo">
+                        <img src="./climatepartner.png" alt="ClimatePartner certified company Logo" class="footer-cp-logo" width="286" height="81">
                         <div class="footer-cp-text">
                             <strong>ClimatePartner</strong><br>
                             <span>certified company</span><br>
