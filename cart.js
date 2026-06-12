@@ -711,6 +711,16 @@
     // Export globally
     window.GolfyrCart = CartManager;
 
+    // Handle back-forward cache pageshow event to sync cart count when returning to pages
+    window.addEventListener("pageshow", () => {
+        CartManager.updateWidget();
+        const loc = LocationState.get();
+        if (loc) {
+            updatePagePricesAndVAT(loc);
+            CartManager.updateWidget();
+        }
+    });
+
     // 8. Document Load Hookups
     document.addEventListener("DOMContentLoaded", () => {
         // Fetch location, set cookie, update page prices & VAT, and render widgets
