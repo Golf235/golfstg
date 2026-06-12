@@ -17,7 +17,176 @@
         "configurator": { id: "configurator", name: "Custom Carbon Club Set", price: 890, image: "./maker_premier.png", priceId: "price_1PabcConfigTest10" }
     };
 
-    // 2. LocalStorage Cart Manager
+    // 2. Bilingual Translations for Cart Items and Selections
+    const CART_TRANSLATIONS = {
+        de: {
+            // Product names
+            "The Premier Set": "Das Premier Set",
+            "The Maker Premier": "Der Maker Premier",
+            "The Maker Tour": "Die Maker Tour",
+            "Das Premier Set": "Das Premier Set",
+            "Der Maker Premier": "Der Maker Premier",
+            "Die Maker Tour": "Die Maker Tour",
+            
+            // Categories
+            "Model": "Modell",
+            "Putter Type": "Putter-Typ",
+            "Putter Offset": "Offset",
+            "Putter Length": "Länge",
+            "Shaft Flex": "Flex",
+            "Shaft Size": "Größe",
+            "Grip Type": "Griff-Typ",
+            "Grip Size": "Griff-Größe",
+            "Bag": "Tasche",
+            "Bag Tag": "Anhänger",
+
+            // Values
+            "Standbag White": "Stand Bag Weiß",
+            "Standbag Grey": "Stand Bag Grau",
+            "Cartbag White": "Cart Bag Weiß",
+            "Cartbag Grey": "Cart Bag Grau",
+            "Stand Bag White": "Stand Bag Weiß",
+            "Stand Bag Grey": "Stand Bag Grau",
+            "Cart Bag White": "Cart Bag Weiß",
+            "Cart Bag Grey": "Cart Bag Grau",
+            "Stiff": "Stiff",
+            "Regular": "Regular",
+            "Light": "Light",
+            "Standard": "Standard",
+            "Standard Light": "Standard Light",
+            "Light short": "Light short",
+            "Midsize": "Midsize",
+            "Undersize": "Undersize",
+            "Jumbo": "Jumbo",
+            "The Maker": "The Maker",
+            "The Maker Tour": "The Maker Tour",
+            "Full-Shaft": "Full-Shaft",
+            "Zero": "Kein",
+            "Celeste": "Celeste",
+            "Copper": "Copper",
+            "Dark Maroon": "Dark Maroon",
+            "Lavender": "Lavender",
+            "Lilac": "Lilac"
+        }
+    };
+
+    // 3. React Fiber tree option state extraction helpers
+    function findConfiguratorFiber() {
+        const rootEl = document.querySelector("#root > div") || document.getElementById("root");
+        if (!rootEl) return null;
+        
+        const key = Object.keys(rootEl).find(k => k.startsWith('__reactFiber$') || k.startsWith('__reactContainer$'));
+        if (!key) return null;
+        
+        let rootFiber = rootEl[key];
+        let foundNode = null;
+        
+        function traverse(node) {
+            if (!node || foundNode) return;
+            
+            if (node.memoizedState && typeof node.memoizedState === 'object' && 'memoizedState' in node.memoizedState) {
+                let hook = node.memoizedState;
+                let count = 0;
+                let bagHook = null;
+                let flexHook = null;
+                while (hook && typeof hook === 'object' && 'memoizedState' in hook) {
+                    if (count === 4) bagHook = hook;
+                    if (count === 5) flexHook = hook;
+                    count++;
+                    hook = hook.next;
+                }
+                
+                if (count >= 13 && 
+                    bagHook && bagHook.memoizedState && typeof bagHook.memoizedState === 'object' && 
+                    (bagHook.memoizedState.category === 'standbag' || bagHook.memoizedState.category === 'cartbag') &&
+                    flexHook && flexHook.memoizedState && typeof flexHook.memoizedState === 'object' &&
+                    ('id' in flexHook.memoizedState)) {
+                    foundNode = node;
+                    return;
+                }
+            }
+            
+            if (node.child) traverse(node.child);
+            if (node.sibling) traverse(node.sibling);
+        }
+        
+        traverse(rootFiber.current || rootFiber);
+        return foundNode;
+    }
+
+    function findConfiguratorFiberFromEvent(target) {
+        if (!target) return null;
+        const key = Object.keys(target).find(k => k.startsWith('__reactFiber$'));
+        if (!key) return null;
+        
+        let node = target[key];
+        while (node) {
+            if (node.memoizedState && typeof node.memoizedState === 'object' && 'memoizedState' in node.memoizedState) {
+                let hook = node.memoizedState;
+                let count = 0;
+                let bagHook = null;
+                let flexHook = null;
+                while (hook && typeof hook === 'object' && 'memoizedState' in hook) {
+                    if (count === 4) bagHook = hook;
+                    if (count === 5) flexHook = hook;
+                    count++;
+                    hook = hook.next;
+                }
+                if (count >= 13 && 
+                    bagHook && bagHook.memoizedState && typeof bagHook.memoizedState === 'object' && 
+                    (bagHook.memoizedState.category === 'standbag' || bagHook.memoizedState.category === 'cartbag')) {
+                    return node;
+                }
+            }
+            node = node.return;
+        }
+        return null;
+    }
+
+    function getSelectionsFromFiber(target) {
+        let node = findConfiguratorFiberFromEvent(target);
+        if (!node) {
+            node = findConfiguratorFiber();
+        }
+        if (!node) return null;
+        
+        let hook = node.memoizedState;
+        const hooks = [];
+        while (hook && typeof hook === 'object' && 'memoizedState' in hook) {
+            hooks.push(hook.memoizedState);
+            hook = hook.next;
+        }
+        
+        const bag = hooks[4];
+        const flex = hooks[5];
+        const shaftSize = hooks[6];
+        const gripSize = hooks[7];
+        const putterLength = hooks[8];
+        const gripType = hooks[9];
+        const putter = hooks[10];
+        const putterOffset = hooks[11];
+        const bagTag = hooks[12];
+
+        const cleanName = (obj) => {
+            if (!obj || !obj.name) return null;
+            return obj.name.split('(')[0].trim();
+        };
+
+        const selections = {};
+        if (putter) selections["Putter Type"] = cleanName(putter);
+        if (putterOffset) selections["Putter Offset"] = cleanName(putterOffset);
+        if (putterLength) selections["Putter Length"] = cleanName(putterLength);
+        if (flex) selections["Shaft Flex"] = cleanName(flex);
+        if (shaftSize) selections["Shaft Size"] = cleanName(shaftSize);
+        if (gripType) selections["Grip Type"] = cleanName(gripType);
+        if (gripSize) selections["Grip Size"] = cleanName(gripSize);
+        if (bag) selections["Bag"] = cleanName(bag);
+        if (bagTag) selections["Bag Tag"] = cleanName(bagTag);
+
+        return selections;
+    }
+
+    // 4. LocalStorage Cart Manager
     const CartManager = {
         getCart: function() {
             try {
@@ -35,20 +204,37 @@
             this.renderDrawer();
         },
 
-        addItem: function(productId, quantity = 1, options = {}) {
+        getOptionsKey: function(options) {
+            if (!options || Object.keys(options).length === 0) return "";
+            const sorted = {};
+            Object.keys(options).sort().forEach(k => {
+                sorted[k] = options[k];
+            });
+            return JSON.stringify(sorted);
+        },
+
+        addItem: function(productId, quantity = 1, options = {}, nameOverride = null, priceOverride = null) {
             const product = PRODUCT_CATALOG[productId];
             if (!product) return;
 
             let cart = this.getCart();
-            const existingItem = cart.find(item => item.id === productId);
+            const optString = this.getOptionsKey(options);
+            
+            // Find if an item with the same product ID and same options already exists
+            const existingItem = cart.find(item => item.id === productId && this.getOptionsKey(item.options) === optString);
 
             if (existingItem) {
                 existingItem.quantity += quantity;
+                if (priceOverride !== null) existingItem.price = priceOverride;
+                if (nameOverride !== null) existingItem.name = nameOverride;
             } else {
+                // Generate a unique ID for the cart row
+                const cartItemId = optString ? `${productId}_${btoa(unescape(encodeURIComponent(optString))).replace(/=/g, "")}` : productId;
                 cart.push({
+                    cartItemId: cartItemId,
                     id: product.id,
-                    name: product.name,
-                    price: product.price,
+                    name: nameOverride || product.name,
+                    price: priceOverride || product.price,
                     image: product.image,
                     priceId: product.priceId,
                     quantity: quantity,
@@ -59,21 +245,21 @@
             this.saveCart(cart);
         },
 
-        updateQuantity: function(productId, quantity) {
+        updateQuantity: function(cartItemId, quantity) {
             let cart = this.getCart();
-            const item = cart.find(item => item.id === productId);
+            const item = cart.find(item => item.cartItemId === cartItemId);
             if (item) {
                 item.quantity = parseInt(quantity);
                 if (item.quantity <= 0) {
-                    cart = cart.filter(item => item.id !== productId);
+                    cart = cart.filter(item => item.cartItemId !== cartItemId);
                 }
                 this.saveCart(cart);
             }
         },
 
-        removeItem: function(productId) {
+        removeItem: function(cartItemId) {
             let cart = this.getCart();
-            cart = cart.filter(item => item.id !== productId);
+            cart = cart.filter(item => item.cartItemId !== cartItemId);
             this.saveCart(cart);
         },
 
@@ -178,20 +364,43 @@
 
             document.getElementById("cart-drawer-checkout").disabled = false;
             let itemsHTML = "";
+            const lang = localStorage.getItem('golfyr_lang') || 'en';
+
             cart.forEach(item => {
+                // Translate name if there is a translation
+                const displayName = lang === 'de' ? (CART_TRANSLATIONS.de[item.name] || item.name) : item.name;
+                
+                // Build options list HTML
+                let optionsHTML = "";
+                if (item.options && Object.keys(item.options).length > 0) {
+                    optionsHTML += `<div class="cart-item-options">`;
+                    for (const [key, value] of Object.entries(item.options)) {
+                        const displayKey = lang === 'de' ? (CART_TRANSLATIONS.de[key] || key) : key;
+                        const displayVal = lang === 'de' ? (CART_TRANSLATIONS.de[value] || value) : value;
+                        optionsHTML += `
+                            <div class="cart-item-option">
+                                <span class="option-label">${displayKey}:</span>
+                                <span class="option-value">${displayVal}</span>
+                            </div>
+                        `;
+                    }
+                    optionsHTML += `</div>`;
+                }
+
                 itemsHTML += `
-                    <div class="cart-item" data-id="${item.id}">
-                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                    <div class="cart-item" data-id="${item.cartItemId}">
+                        <img src="${item.image}" alt="${displayName}" class="cart-item-image">
                         <div class="cart-item-details">
-                            <h3>${item.name}</h3>
+                            <h3>${displayName}</h3>
+                            ${optionsHTML}
                             <div class="cart-item-price">CHF ${item.price}</div>
                             <div class="cart-item-actions">
                                 <div class="cart-item-qty-selector">
-                                    <button class="qty-btn dec-qty-btn" onclick="window.GolfyrCart.changeQuantity('${item.id}', -1)">-</button>
+                                    <button class="qty-btn dec-qty-btn" onclick="window.GolfyrCart.changeQuantity('${item.cartItemId}', -1)">-</button>
                                     <span class="qty-display">${item.quantity}</span>
-                                    <button class="qty-btn inc-qty-btn" onclick="window.GolfyrCart.changeQuantity('${item.id}', 1)">+</button>
+                                    <button class="qty-btn inc-qty-btn" onclick="window.GolfyrCart.changeQuantity('${item.cartItemId}', 1)">+</button>
                                 </div>
-                                <button class="cart-item-remove" onclick="window.GolfyrCart.removeItem('${item.id}')">
+                                <button class="cart-item-remove" onclick="window.GolfyrCart.removeItem('${item.cartItemId}')">
                                     Remove
                                 </button>
                             </div>
@@ -218,12 +427,12 @@
             document.body.style.overflow = ""; // Re-enable background scroll
         },
 
-        changeQuantity: function(productId, delta) {
+        changeQuantity: function(cartItemId, delta) {
             const cart = this.getCart();
-            const item = cart.find(item => item.id === productId);
+            const item = cart.find(item => item.cartItemId === cartItemId);
             if (item) {
                 const newQty = item.quantity + delta;
-                this.updateQuantity(productId, newQty);
+                this.updateQuantity(cartItemId, newQty);
             }
         },
 
@@ -268,8 +477,12 @@
                     spinner.style.display = "none";
                     checkoutBtn.disabled = false;
                     
-                    // Show a styled modal informing the user of the payload that would be sent to Stripe
-                    alert(`[Stripe Sandbox Simulation]\\n\\nRedirection failed because serverless functions require local backend hosting (vercel dev).\\n\\nStripe Line Items Payload:\\n${JSON.stringify(cart.map(i => ({ price_id: i.priceId, quantity: i.quantity })), null, 2)}\\n\\nRedirecting to Success Page...`);
+                    alert(`[Stripe Sandbox Simulation]\n\nRedirection failed because serverless functions require local backend hosting (vercel dev).\n\nStripe Dynamic price_data Payload:\n${JSON.stringify(cart.map(i => ({
+                        name: i.name,
+                        price: i.price,
+                        quantity: i.quantity,
+                        options: i.options
+                    })), null, 2)}\n\nRedirecting to Success Page...`);
                     
                     // Clear cart and redirect to home
                     localStorage.removeItem('golfyr_cart');
@@ -282,7 +495,7 @@
     // Export globally
     window.GolfyrCart = CartManager;
 
-    // 3. Document Load Hookups
+    // 5. Document Load Hookups
     document.addEventListener("DOMContentLoaded", () => {
         // Init widget numbers
         CartManager.updateWidget();
@@ -296,7 +509,7 @@
             }
         });
 
-        // 4. Page Detection & Add-To-Cart Overrides
+        // 6. Page Detection & Add-To-Cart Overrides
         const pathname = window.location.pathname.toLowerCase();
         let currentProduct = null;
 
@@ -359,7 +572,7 @@
             };
         }
 
-        // 5. Configurator Button Click Interception
+        // 7. Configurator Button Click Interception
         if (pathname.includes("configurator.html")) {
             // Listen in the capture phase (true) to intercept before React can stop propagation
             document.addEventListener("click", (e) => {
@@ -384,8 +597,14 @@
                         }
                     }
                     
+                    // Parse options from DOM & Fiber
+                    const selections = getSelectionsFromFiber(e.target) || {};
+                    
+                    // Get model name from H1 title
+                    const modelName = document.querySelector(".configurator-title")?.textContent.trim() || "Custom Carbon Club Set";
+                    
                     // Add configurator product to cart
-                    CartManager.addItem("configurator", 1);
+                    CartManager.addItem("configurator", 1, selections, modelName, priceVal);
                     CartManager.openDrawer();
                 }
             }, true);

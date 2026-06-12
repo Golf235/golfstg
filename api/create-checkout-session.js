@@ -14,12 +14,41 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: 'Missing or invalid cart items.' });
     }
 
-    // Map cart items to Stripe Line Items
+    // Map cart items to Stripe Line Items using dynamic price_data
     const lineItems = items.map(item => {
+      // Create a nice description string of the selected options
+      let description = "";
+      if (item.options && Object.keys(item.options).length > 0) {
+        description = Object.entries(item.options)
+          .map(([key, val]) => `${key}: ${val}`)
+          .join(" | ");
+      }
+
+      // Convert image path to absolute URL for Stripe
+      let absoluteImages = [];
+      if (item.image) {
+        let cleanImage = item.image;
+        if (cleanImage.startsWith('./')) {
+          cleanImage = cleanImage.slice(2);
+        }
+        if (cleanImage.startsWith('/')) {
+          cleanImage = cleanImage.slice(1);
+        }
+        // Prepend request origin
+        absoluteImages.push(`${req.headers.origin}/${cleanImage}`);
+      }
+
       return {
-        price: item.priceId, // The Stripe Price ID mapped in cart.js
+        price_data: {
+          currency: 'chf', // Swiss Francs
+          product_data: {
+            name: item.name,
+            description: description || undefined,
+            images: absoluteImages.length > 0 ? absoluteImages : undefined,
+          },
+          unit_amount: item.price * 100, // CHF in cents
+        },
         quantity: item.quantity,
-        // Natively allows customers to modify item quantities on the Stripe Checkout page
         adjustable_quantity: {
           enabled: true,
           minimum: 1,
