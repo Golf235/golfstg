@@ -863,14 +863,14 @@ const translations = {
         "sevenclubgame-form-title": "Make sure you don't miss a Hit",
         "sevenclubgame-form-desc": "Always stay on the fairway and subscribe to our newsletter.",
         
-        "sevenclubgame-approach-s1-img": "./Sevenclubgame - Golfyr_files/approach_forgiveness_en.png",
-        "sevenclubgame-map-opener-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_opener_en.png",
-        "sevenclubgame-map-mover-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_mover_en.png",
-        "sevenclubgame-map-riser-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_riser_en.png",
-        "sevenclubgame-map-pitcher-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_pitcher_en.png",
-        "sevenclubgame-map-maker-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_maker_en.png",
-        "sevenclubgame-map-saver-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_saver_en.png",
-        "sevenclubgame-map-butler-mobile-img": "./Sevenclubgame - Golfyr_files/Map_Mobile_Butler_en.png"
+        "sevenclubgame-approach-s1-img": "./Sevenclubgame - Golfyr_files/approach_forgiveness_en.webp",
+        "sevenclubgame-map-opener-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_opener_en.webp",
+        "sevenclubgame-map-mover-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_mover_en.webp",
+        "sevenclubgame-map-riser-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_riser_en.webp",
+        "sevenclubgame-map-pitcher-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_pitcher_en.webp",
+        "sevenclubgame-map-maker-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_maker_en.webp",
+        "sevenclubgame-map-saver-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_saver_en.webp",
+        "sevenclubgame-map-butler-mobile-img": "./Sevenclubgame - Golfyr_files/Map_Mobile_Butler_en.webp"
     },
     de: {
         "nav-sevenclub": "#sevenclubgame",
@@ -1735,14 +1735,14 @@ const translations = {
         "sevenclubgame-form-title": "Bleib immer am Ball",
         "sevenclubgame-form-desc": "Behalte das Fairway im Blick und abonniere unseren Newsletter.",
         
-        "sevenclubgame-approach-s1-img": "./Sevenclubgame - Golfyr_files/approach_forgiveness_de.png",
-        "sevenclubgame-map-opener-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_opener_de.png",
-        "sevenclubgame-map-mover-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_mover_de.png",
-        "sevenclubgame-map-riser-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_riser_de.png",
-        "sevenclubgame-map-pitcher-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_pitcher_de.png",
-        "sevenclubgame-map-maker-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_maker_de.png",
-        "sevenclubgame-map-saver-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_saver_de.png",
-        "sevenclubgame-map-butler-mobile-img": "./Sevenclubgame - Golfyr_files/Map_Mobile_Butler_de.png"
+        "sevenclubgame-approach-s1-img": "./Sevenclubgame - Golfyr_files/approach_forgiveness_de.webp",
+        "sevenclubgame-map-opener-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_opener_de.webp",
+        "sevenclubgame-map-mover-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_mover_de.webp",
+        "sevenclubgame-map-riser-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_riser_de.webp",
+        "sevenclubgame-map-pitcher-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_pitcher_de.webp",
+        "sevenclubgame-map-maker-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_maker_de.webp",
+        "sevenclubgame-map-saver-mobile-img": "./Sevenclubgame - Golfyr_files/Map-mobile_saver_de.webp",
+        "sevenclubgame-map-butler-mobile-img": "./Sevenclubgame - Golfyr_files/Map_Mobile_Butler_de.webp"
     }
 };
 
