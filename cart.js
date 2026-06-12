@@ -216,7 +216,7 @@
             return JSON.stringify(sorted);
         },
 
-        addItem: function(productId, quantity = 1, options = {}, nameOverride = null, priceOverride = null) {
+        addItem: function(productId, quantity = 1, options = {}, nameOverride = null, priceOverride = null, imageOverride = null) {
             const product = PRODUCT_CATALOG[productId];
             if (!product) return;
 
@@ -230,6 +230,7 @@
                 existingItem.quantity += quantity;
                 if (priceOverride !== null) existingItem.price = priceOverride;
                 if (nameOverride !== null) existingItem.name = nameOverride;
+                if (imageOverride !== null) existingItem.image = imageOverride;
             } else {
                 // Generate a unique ID for the cart row
                 const cartItemId = optString ? `${productId}_${btoa(unescape(encodeURIComponent(optString))).replace(/=/g, "")}` : productId;
@@ -238,7 +239,7 @@
                     id: product.id,
                     name: nameOverride || product.name,
                     price: priceOverride || product.price,
-                    image: product.image,
+                    image: imageOverride || product.image,
                     priceId: product.priceId,
                     quantity: quantity,
                     options: options
@@ -606,6 +607,10 @@
                     // Get model name from H1 title
                     const modelName = document.querySelector(".configurator-title")?.textContent.trim() || "Custom Carbon Club Set";
                     
+                    // Get active image thumbnail from the configurator page
+                    const mainImg = document.querySelector("#root main > div:first-child img");
+                    const imageSrc = mainImg ? mainImg.getAttribute("src") : "./maker_premier.png";
+                    
                     // If it's a standalone Putter (The Maker Premier or The Maker Tour)
                     if (modelName.toLowerCase().includes("maker")) {
                         const filtered = {};
@@ -628,7 +633,7 @@
                     }
                     
                     // Add configurator product to cart
-                    CartManager.addItem("configurator", 1, selections, modelName, priceVal);
+                    CartManager.addItem("configurator", 1, selections, modelName, priceVal, imageSrc);
                     CartManager.openDrawer();
                 }
             }, true);
