@@ -1,22 +1,46 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+import Stripe from 'stripe';
 
-module.exports = async (req, res) => {
+export async function onRequest(context) {
+  const request = context.request;
+
+  // Handle CORS preflight options request
+  if (request.method === 'OPTIONS') {
+    return new Response(null, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      }
+    });
+  }
+
   // Only allow POST requests
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
-    return res.status(405).json({ error: 'Method Not Allowed' });
+  if (request.method !== 'POST') {
+    return new Response(JSON.stringify({ error: 'Method Not Allowed' }), {
+      status: 405,
+      headers: {
+        'Content-Type': 'application/json',
+        'Allow': 'POST'
+      }
+    });
   }
 
   try {
-    const { items, currency, country, vatRate, displayType } = req.body;
+    const body = await request.json();
+    const { items, currency, country, vatRate, displayType } = body;
 
     if (!items || !Array.isArray(items) || items.length === 0) {
-      return res.status(400).json({ error: 'Missing or invalid cart items.' });
+      return new Response(JSON.stringify({ error: 'Missing or invalid cart items.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
     const activeCurrency = (currency || 'CHF').toLowerCase();
     const rate = parseFloat(vatRate) || 0;
     const isGross = displayType === 'gross';
+    
+    const origin = new URL(request.url).origin;
 
     // Map cart items to Stripe Line Items using dynamic price_data
     const lineItems = items.map(item => {
@@ -38,8 +62,7 @@ module.exports = async (req, res) => {
         if (cleanImage.startsWith('/')) {
           cleanImage = cleanImage.slice(1);
         }
-        // Prepend request origin
-        absoluteImages.push(`${req.headers.origin}/${cleanImage}`);
+        absoluteImages.push(`${origin}/${cleanImage}`);
       }
 
       // Calculate Net Price in cents
@@ -78,6 +101,16 @@ module.exports = async (req, res) => {
       'CA'  // Canada
     ];
 
+    const stripeKey = context.env.STRIPE_SECRET_KEY;
+    if (!stripeKey) {
+      throw new Error("STRIPE_SECRET_KEY environment variable is not configured in Cloudflare Pages dashboard.");
+    }
+
+    // Initialize Stripe using Worker fetch client
+    const stripe = new Stripe(stripeKey, {
+      httpClient: Stripe.createFetchHttpClient(),
+    });
+
     // Create Stripe Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -88,15 +121,25 @@ module.exports = async (req, res) => {
       shipping_address_collection: {
         allowed_countries: allowedShippingCountries,
       },
-      // Dynamic success/cancel redirects using the request origin header
-      success_url: `${req.headers.origin}/index.html?checkout_success=true&session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.origin}/shop.html?checkout_canceled=true`,
+      success_url: `${origin}/index.html?checkout_success=true&session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/shop.html?checkout_canceled=true`,
     });
 
-    // Return the Stripe Checkout URL to redirect the client
-    return res.status(200).json({ url: session.url });
+    return new Response(JSON.stringify({ url: session.url }), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
   } catch (err) {
     console.error("Stripe Session Creation Failed:", err);
-    return res.status(500).json({ error: err.message || 'Internal Server Error' });
+    return new Response(JSON.stringify({ error: err.message || 'Internal Server Error' }), {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
   }
-};
+}

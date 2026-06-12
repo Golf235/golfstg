@@ -6,18 +6,125 @@
     // 1. Product Catalog with Stripe Price IDs (Placeholders for sandbox testing)
     const PRODUCT_CATALOG = {
         "cap": { id: "cap", name: "Golfyr Cap", price: 39, image: "./25.png", priceId: "price_1PabcCapTest01" },
-        "bucket-hat": { id: "bucket-hat", name: "Golfyr Bucket Hat", price: 39, image: "./1.png", priceId: "price_1PabcHatTest02" },
-        "tote-bag": { id: "tote-bag", name: "Golfyr Tote Bag", price: 49, image: "./tote_bag.png", priceId: "price_1PabcToteTest03" },
-        "tri-fold-towel": { id: "tri-fold-towel", name: "Golfyr Tri-Fold Towel", price: 29, image: "./towel_folded.jpg", priceId: "price_1PabcTowelTest04" },
-        "t-shirt": { id: "t-shirt", name: "Golfyr T-Shirt", price: 59, image: "./2.png", priceId: "price_1PabcTshirtTest05" },
-        "shirt": { id: "shirt", name: "Golfyr Shirt", price: 79, image: "./7.png", priceId: "price_1PabcShirtTest06" },
+        "bucket-hat": { id: "bucket-hat", name: "Golfyr Bucket Hat", price: 49, image: "./3.png", priceId: "price_1PabcHatTest02" },
+        "tote-bag": { id: "tote-bag", name: "Golfyr Tote Bag", price: 21, image: "./7.png", priceId: "price_1PabcToteTest03" },
+        "tri-fold-towel": { id: "tri-fold-towel", name: "Golfyr Tri-Fold Towel", price: 21, image: "./5.png", priceId: "price_1PabcTowelTest04" },
+        "t-shirt": { id: "t-shirt", name: "Golfyr T-Shirt", price: 49, image: "./15.png", priceId: "price_1PabcTshirtTest05" },
+        "shirt": { id: "shirt", name: "Golfyr Shirt", price: 79, image: "./11.png", priceId: "price_1PabcShirtTest06" },
         "short-sleeve-polo": { id: "short-sleeve-polo", name: "Golfyr Short-Sleeve Polo", price: 69, image: "./22.png", priceId: "price_1PabcPoloTest07" },
         "maker": { id: "maker", name: "The Maker Putter", price: 890, image: "./maker-1.png", priceId: "price_1PabcMakerTest08" },
         "maker-tour": { id: "maker-tour", name: "The Maker Tour Putter", price: 890, image: "./Maker Tour - Golfyr_files/39_Golfyr_Maker3_Tour_16457_V1_sRGB_300dpi-3.png", priceId: "price_1PabcMakerTour09" },
         "configurator": { id: "configurator", name: "Custom Carbon Club Set", price: 890, image: "./maker_premier.png", priceId: "price_1PabcConfigTest10" }
     };
 
-    // 2. Bilingual Translations for Cart Items and Selections
+    // 2. Hardcoded Fixed Price Matrices (Rule of Three: CHF, EUR, USD)
+    const PRICE_MATRIX = {
+        "cap": { CHF: 39, EUR: 39, USD: 39 },
+        "bucket-hat": { CHF: 49, EUR: 49, USD: 49 },
+        "tote-bag": { CHF: 21, EUR: 21, USD: 21 },
+        "tri-fold-towel": { CHF: 21, EUR: 21, USD: 21 },
+        "t-shirt": { CHF: 49, EUR: 49, USD: 49 },
+        "shirt": { CHF: 79, EUR: 79, USD: 79 },
+        "short-sleeve-polo": { CHF: 69, EUR: 69, USD: 69 },
+        "maker": { CHF: 890, EUR: 890, USD: 890 },
+        "maker-tour": { CHF: 1179, EUR: 1179, USD: 1179 },
+        "configurator": { CHF: 5400, EUR: 5400, USD: 5400 } // base price for Premier Set
+    };
+
+    // 3. Location State Manager
+    const LocationState = {
+        get: function() {
+            try {
+                const data = sessionStorage.getItem('golfyr_location');
+                return data ? JSON.parse(data) : null;
+            } catch (e) {
+                return null;
+            }
+        },
+        save: function(data) {
+            try {
+                sessionStorage.setItem('golfyr_location', JSON.stringify(data));
+            } catch (e) {}
+        },
+        detect: function(callback) {
+            // Check if there is a test_country parameter in the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const testCountry = urlParams.get('test_country');
+            const cacheKey = testCountry ? `golfyr_location_test_${testCountry}` : 'golfyr_location';
+            
+            try {
+                const cached = sessionStorage.getItem(cacheKey);
+                if (cached) {
+                    const parsed = JSON.parse(cached);
+                    this.save(parsed);
+                    callback(parsed);
+                    return;
+                }
+            } catch (e) {}
+
+            const url = testCountry ? `/api/detect-location?test_country=${testCountry}` : '/api/detect-location';
+            fetch(url)
+                .then(res => {
+                    if (!res.ok) throw new Error("API not available");
+                    return res.json();
+                })
+                .then(data => {
+                    try {
+                        sessionStorage.setItem(cacheKey, JSON.stringify(data));
+                    } catch (e) {}
+                    this.save(data);
+                    callback(data);
+                })
+                .catch(err => {
+                    console.warn("Location detection API failed or not running. Using client-side detection/fallback:", err);
+                    
+                    let fallbackLoc = { country: 'CH', currency: 'CHF', vatRate: 0.081, displayType: 'gross' };
+                    if (testCountry) {
+                        const uc = testCountry.toUpperCase();
+                        const EU_COUNTRIES = [
+                            'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 
+                            'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 
+                            'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE'
+                        ];
+                        const VAT_RATES = {
+                            'CH': 0.081, 'AT': 0.20, 'BE': 0.21, 'BG': 0.20, 'HR': 0.25, 'CY': 0.19,
+                            'CZ': 0.21, 'DK': 0.25, 'EE': 0.22, 'FI': 0.24, 'FR': 0.20, 'DE': 0.19,
+                            'GR': 0.24, 'HU': 0.27, 'IE': 0.23, 'IT': 0.22, 'LV': 0.21, 'LT': 0.21,
+                            'LU': 0.17, 'MT': 0.18, 'NL': 0.21, 'PL': 0.23, 'PT': 0.23, 'RO': 0.19,
+                            'SK': 0.20, 'SI': 0.22, 'ES': 0.21, 'SE': 0.25
+                        };
+                        
+                        if (uc === 'CH') {
+                            fallbackLoc = { country: 'CH', currency: 'CHF', vatRate: 0.081, displayType: 'gross' };
+                        } else if (EU_COUNTRIES.includes(uc)) {
+                            fallbackLoc = { country: uc, currency: 'EUR', vatRate: VAT_RATES[uc] || 0.19, displayType: 'gross' };
+                        } else {
+                            fallbackLoc = { country: uc, currency: 'USD', vatRate: 0, displayType: 'net' };
+                        }
+                    } else {
+                        // Attempt to detect from browser locale timezone as a smart fallback if no API
+                        try {
+                            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                            if (tz.includes("Europe/Zurich")) {
+                                fallbackLoc = { country: 'CH', currency: 'CHF', vatRate: 0.081, displayType: 'gross' };
+                            } else if (tz.includes("Europe/")) {
+                                fallbackLoc = { country: 'DE', currency: 'EUR', vatRate: 0.19, displayType: 'gross' };
+                            } else {
+                                fallbackLoc = { country: 'US', currency: 'USD', vatRate: 0, displayType: 'net' };
+                            }
+                        } catch (e) {}
+                    }
+                    
+                    try {
+                        sessionStorage.setItem(cacheKey, JSON.stringify(fallbackLoc));
+                    } catch (e) {}
+                    this.save(fallbackLoc);
+                    callback(fallbackLoc);
+                });
+        }
+    };
+
+    // 4. Bilingual Translations for Cart Items and Selections
     const CART_TRANSLATIONS = {
         de: {
             // Product names
@@ -73,7 +180,7 @@
         }
     };
 
-    // 3. React Fiber tree option state extraction helpers
+    // 5. React Fiber tree option state extraction helpers
     function findConfiguratorFiber() {
         const rootEl = document.querySelector("#root > div") || document.getElementById("root");
         if (!rootEl) return null;
@@ -189,7 +296,71 @@
         return selections;
     }
 
-    // 4. LocalStorage Cart Manager
+    // 6. Edge/Client Cookie & Price formatting
+    function setCurrencyCookie(currency) {
+        document.cookie = `wmc_current_currency=${currency}; path=/; max-age=31536000`;
+    }
+
+    function updatePagePricesAndVAT(loc) {
+        const currency = loc.currency;
+        const displayType = loc.displayType;
+        const country = loc.country;
+        const vatRate = loc.vatRate;
+
+        // 1. Update text nodes containing "CHF" dynamically
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        let node;
+        while (node = walker.nextNode()) {
+            if (node.nodeValue.includes("CHF")) {
+                node.nodeValue = node.nodeValue.replace(/CHF/g, currency);
+            }
+        }
+
+        // 2. Update accessory product page pricing dynamically
+        const pathname = window.location.pathname.toLowerCase();
+        let currentProduct = null;
+        if (pathname.includes("cap.html")) currentProduct = "cap";
+        else if (pathname.includes("bucket-hat.html")) currentProduct = "bucket-hat";
+        else if (pathname.includes("tote-bag.html")) currentProduct = "tote-bag";
+        else if (pathname.includes("tri-fold-towel.html")) currentProduct = "tri-fold-towel";
+        else if (pathname.includes("t-shirt.html")) currentProduct = "t-shirt";
+        else if (pathname.includes("shirt.html")) currentProduct = "shirt";
+        else if (pathname.includes("short-sleeve-polo.html")) currentProduct = "short-sleeve-polo";
+        
+        if (currentProduct && PRICE_MATRIX[currentProduct]) {
+            const priceVal = PRICE_MATRIX[currentProduct][currency];
+            
+            const priceEl = document.getElementById("tote-price-value");
+            if (priceEl) priceEl.textContent = priceVal;
+            
+            const summaryPriceEl = document.getElementById("summary-price-value");
+            if (summaryPriceEl) summaryPriceEl.textContent = priceVal;
+        }
+
+        // 3. Update VAT labels (incl. / excl. tax)
+        const vatLabels = document.querySelectorAll("[data-translate='nav-cart-suffix']");
+        vatLabels.forEach(el => {
+            if (displayType === 'gross') {
+                const pct = (vatRate * 100).toFixed(1).replace('.0', '');
+                el.textContent = ` (incl. ${pct}% VAT)`;
+            } else {
+                el.textContent = ` (excl. VAT)`;
+            }
+        });
+
+        const inclVatLabels = Array.from(document.querySelectorAll("body *")).filter(el => {
+            return el.children.length === 0 && el.textContent.includes("PRICE INCL. VAT");
+        });
+        inclVatLabels.forEach(el => {
+            if (displayType === 'gross') {
+                el.textContent = "PRICE INCL. VAT";
+            } else {
+                el.textContent = "PRICE EXCL. VAT";
+            }
+        });
+    }
+
+    // 7. LocalStorage Cart Manager
     const CartManager = {
         getCart: function() {
             try {
@@ -216,6 +387,15 @@
             return JSON.stringify(sorted);
         },
 
+        getProductPrice: function(productId, name, currency) {
+            if (productId === "configurator" || productId === "maker" || productId === "maker-tour") {
+                if (name && name.includes("Tour")) return PRICE_MATRIX["maker-tour"][currency];
+                if (name && (name.includes("Premier Set") || name.includes("Das Premier Set"))) return PRICE_MATRIX["configurator"][currency];
+                return PRICE_MATRIX["maker"][currency];
+            }
+            return PRICE_MATRIX[productId] ? PRICE_MATRIX[productId][currency] : (PRODUCT_CATALOG[productId] ? PRODUCT_CATALOG[productId].price : 0);
+        },
+
         addItem: function(productId, quantity = 1, options = {}, nameOverride = null, priceOverride = null, imageOverride = null) {
             const product = PRODUCT_CATALOG[productId];
             if (!product) return;
@@ -228,17 +408,14 @@
 
             if (existingItem) {
                 existingItem.quantity += quantity;
-                if (priceOverride !== null) existingItem.price = priceOverride;
                 if (nameOverride !== null) existingItem.name = nameOverride;
                 if (imageOverride !== null) existingItem.image = imageOverride;
             } else {
-                // Generate a unique ID for the cart row
                 const cartItemId = optString ? `${productId}_${btoa(unescape(encodeURIComponent(optString))).replace(/=/g, "")}` : productId;
                 cart.push({
                     cartItemId: cartItemId,
                     id: product.id,
                     name: nameOverride || product.name,
-                    price: priceOverride || product.price,
                     image: imageOverride || product.image,
                     priceId: product.priceId,
                     quantity: quantity,
@@ -273,17 +450,21 @@
 
         getTotals: function() {
             const cart = this.getCart();
+            const loc = LocationState.get() || { currency: 'CHF' };
+            const cur = loc.currency;
             let count = 0;
             let total = 0;
             cart.forEach(item => {
                 count += item.quantity;
-                total += item.price * item.quantity;
+                total += this.getProductPrice(item.id, item.name, cur) * item.quantity;
             });
             return { count, total };
         },
 
         updateWidget: function() {
             const { count, total } = this.getTotals();
+            const loc = LocationState.get() || { currency: 'CHF' };
+            const cur = loc.currency;
             
             // Update widget badge counts on page
             const badges = document.querySelectorAll(".cart-badge");
@@ -297,8 +478,14 @@
             priceWidgets.forEach(widget => {
                 // Keep the suffix tag if present
                 const suffix = widget.querySelector("[data-translate='nav-cart-suffix']") || widget.querySelector("span");
-                const suffixText = suffix ? suffix.outerHTML : " (incl. tax)";
-                widget.innerHTML = `CHF ${total.toLocaleString()}${suffixText}`;
+                let suffixText = "";
+                if (suffix) {
+                    suffix.style.display = count > 0 ? "inline" : "none";
+                    suffixText = suffix.outerHTML;
+                } else if (count > 0) {
+                    suffixText = " (incl. tax)";
+                }
+                widget.innerHTML = `${cur} ${total.toLocaleString()}${suffixText}`;
             });
         },
 
@@ -349,6 +536,8 @@
             this.initDrawerUI();
             const itemsContainer = document.getElementById("cart-drawer-items");
             const cart = this.getCart();
+            const loc = LocationState.get() || { currency: 'CHF' };
+            const cur = loc.currency;
 
             if (cart.length === 0) {
                 itemsContainer.innerHTML = `
@@ -362,7 +551,7 @@
                     </div>
                 `;
                 document.getElementById("cart-drawer-checkout").disabled = true;
-                document.getElementById("cart-drawer-total-price").textContent = "CHF 0";
+                document.getElementById("cart-drawer-total-price").textContent = `${cur} 0`;
                 return;
             }
 
@@ -373,6 +562,7 @@
             cart.forEach(item => {
                 // Translate name if there is a translation
                 const displayName = lang === 'de' ? (CART_TRANSLATIONS.de[item.name] || item.name) : item.name;
+                const price = this.getProductPrice(item.id, item.name, cur);
                 
                 // Build options list HTML
                 let optionsHTML = "";
@@ -397,7 +587,7 @@
                         <div class="cart-item-details">
                             <h3>${displayName}</h3>
                             ${optionsHTML}
-                            <div class="cart-item-price">CHF ${item.price}</div>
+                            <div class="cart-item-price">${cur} ${price}</div>
                             <div class="cart-item-actions">
                                 <div class="cart-item-qty-selector">
                                     <button class="qty-btn dec-qty-btn" onclick="window.GolfyrCart.changeQuantity('${item.cartItemId}', -1)">-</button>
@@ -415,7 +605,7 @@
             itemsContainer.innerHTML = itemsHTML;
 
             const { total } = this.getTotals();
-            document.getElementById("cart-drawer-total-price").textContent = `CHF ${total.toLocaleString()}`;
+            document.getElementById("cart-drawer-total-price").textContent = `${cur} ${total.toLocaleString()}`;
         },
 
         openDrawer: function() {
@@ -448,8 +638,17 @@
             spinner.style.display = "inline-block";
             
             const cart = this.getCart();
+            const loc = LocationState.get() || { country: 'CH', currency: 'CHF', vatRate: 0.081, displayType: 'gross' };
 
-            console.log("Initiating Stripe Checkout for:", cart);
+            // Retrieve the active currency price for each item to pass to the backend
+            const itemsWithPrices = cart.map(item => {
+                return {
+                    ...item,
+                    price: this.getProductPrice(item.id, item.name, loc.currency)
+                };
+            });
+
+            console.log("Initiating Stripe Checkout for:", itemsWithPrices, loc);
 
             // POST to our Serverless Function
             fetch("/api/create-checkout-session", {
@@ -457,7 +656,13 @@
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ items: cart })
+                body: JSON.stringify({
+                    items: itemsWithPrices,
+                    currency: loc.currency,
+                    country: loc.country,
+                    vatRate: loc.vatRate,
+                    displayType: loc.displayType
+                })
             })
             .then(res => {
                 if (res.ok) {
@@ -481,12 +686,19 @@
                     spinner.style.display = "none";
                     checkoutBtn.disabled = false;
                     
-                    alert(`[Stripe Sandbox Simulation]\n\nRedirection failed because serverless functions require local backend hosting (vercel dev).\n\nStripe Dynamic price_data Payload:\n${JSON.stringify(cart.map(i => ({
-                        name: i.name,
-                        price: i.price,
-                        quantity: i.quantity,
-                        options: i.options
-                    })), null, 2)}\n\nRedirecting to Success Page...`);
+                    alert(`[Stripe Sandbox Simulation]\n\nRedirection failed because serverless functions require local backend hosting (vercel dev).\n\nStripe Dynamic price_data Payload:\n${JSON.stringify(itemsWithPrices.map(i => {
+                        const netPrice = loc.displayType === 'gross' && loc.vatRate > 0 
+                            ? i.price / (1 + parseFloat(loc.vatRate)) 
+                            : i.price;
+                        return {
+                            name: i.name,
+                            netPrice: parseFloat(netPrice.toFixed(2)),
+                            quantity: i.quantity,
+                            tax_behavior: 'exclusive',
+                            tax_code: 'txcd_10000000',
+                            options: i.options
+                        };
+                    }), null, 2)}\n\nRedirecting to Success Page...`);
                     
                     // Clear cart and redirect to home
                     localStorage.removeItem('golfyr_cart');
@@ -499,10 +711,14 @@
     // Export globally
     window.GolfyrCart = CartManager;
 
-    // 5. Document Load Hookups
+    // 8. Document Load Hookups
     document.addEventListener("DOMContentLoaded", () => {
-        // Init widget numbers
-        CartManager.updateWidget();
+        // Fetch location, set cookie, update page prices & VAT, and render widgets
+        LocationState.detect((loc) => {
+            setCurrencyCookie(loc.currency);
+            updatePagePricesAndVAT(loc);
+            CartManager.updateWidget();
+        });
 
         // Hook up Cart widget buttons in Header to open the drawer
         document.body.addEventListener("click", (e) => {
@@ -513,7 +729,7 @@
             }
         });
 
-        // 6. Page Detection & Add-To-Cart Overrides
+        // 9. Page Detection & Add-To-Cart Overrides
         const pathname = window.location.pathname.toLowerCase();
         let currentProduct = null;
 
@@ -566,7 +782,6 @@
                     setTimeout(() => {
                         if (button) button.disabled = false;
                         if (text) {
-                            // Reset text translation dynamically
                             const translateKey = text.getAttribute("data-translate");
                             text.textContent = translateKey ? (window.translations?.[window.currentLang]?.[translateKey] || "Add to Cart") : "Add to Cart";
                         }
@@ -576,9 +791,8 @@
             };
         }
 
-        // 7. Configurator Button Click Interception
+        // 10. Configurator Button Click Interception
         if (pathname.includes("configurator.html")) {
-            // Listen in the capture phase (true) to intercept before React can stop propagation
             document.addEventListener("click", (e) => {
                 const btn = e.target.closest("button");
                 if (!btn) return;
@@ -589,7 +803,6 @@
                     
                     // Try to parse the price from the page
                     let priceVal = 890;
-                    // Find elements containing 'CHF'
                     const elements = Array.from(document.querySelectorAll("body *")).filter(el => {
                         return el.children.length === 0 && el.textContent.includes("CHF");
                     });
@@ -619,7 +832,6 @@
                         if (selections["Putter Offset"]) filtered["Offset"] = selections["Putter Offset"];
                         selections = filtered;
                     } else {
-                        // For the Premier Set, keep and rename options to be clean
                         const cleaned = {};
                         if (selections["Shaft Flex"]) cleaned["Shaft Flex"] = selections["Shaft Flex"];
                         if (selections["Shaft Size"]) cleaned["Shaft Size"] = selections["Shaft Size"];

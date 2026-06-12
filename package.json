@@ -1,0 +1,8 @@
+{
+  "name": "golfyr-cf-pages",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "stripe": "^14.22.0"
+  }
+}
