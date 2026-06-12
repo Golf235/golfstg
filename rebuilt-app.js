@@ -1,3 +1,19 @@
+// Site password protection
+(function() {
+    const pwdKey = 'golfyr_unlocked_site';
+    if (sessionStorage.getItem(pwdKey) !== 'true') {
+        let password = "";
+        while (password !== "Golfyr25") {
+            password = prompt("Please enter the password to access this site:");
+            if (password === null) {
+                document.documentElement.innerHTML = "<body style='background-color:#13221e; color:#ffffff; font-family:sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; margin:0;'><div><h1 style='font-size:24px; margin-bottom:16px;'>Access Restricted</h1><p style='margin-bottom:24px;'>This site is password protected.</p><button onclick='window.location.reload()' style='padding:12px 24px; background:#ffffff; color:#13221e; border:none; cursor:pointer; font-weight:bold;'>Enter Password</button></div></body>";
+                return;
+            }
+        }
+        sessionStorage.setItem(pwdKey, 'true');
+    }
+})();
+
 /* --------------------------------------------------
    Bilingual Translation Resources Dictionary
 -------------------------------------------------- */
