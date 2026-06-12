@@ -1817,19 +1817,7 @@ document.addEventListener("DOMContentLoaded", () => {
    Scroll CTA chevron bounce animation
 -------------------------------------------------- */
 function initScrollCtaAnimation() {
-    const scrollCtas = document.querySelectorAll(".scroll-cta");
-    scrollCtas.forEach((scrollCta) => {
-        const chevron = scrollCta.querySelector(".chevron");
-        if (chevron && typeof gsap !== "undefined") {
-            gsap.from(chevron, {
-                duration: 0.5,
-                y: -15,
-                ease: "circ.in",
-                repeat: -1,
-                yoyo: true
-            });
-        }
-    });
+    // Handled via CSS keyframe animation for compositor-thread execution and zero forced reflows.
 }
 
 /* --------------------------------------------------

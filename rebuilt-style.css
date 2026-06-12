@@ -3180,10 +3180,19 @@ footer {
 }
 .hero-video-home-p1 .scroll-cta .chevron {
   margin-top: 10px;
+  animation: ctaChevronBounce 0.5s infinite alternate cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 @media (min-width: 992px) {
   .hero-video-home-p1 .scroll-cta .chevron {
     margin-top: 20px;
+  }
+}
+@keyframes ctaChevronBounce {
+  0% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 .hero-video-home-p1 .scroll-cta .chevron svg path {
