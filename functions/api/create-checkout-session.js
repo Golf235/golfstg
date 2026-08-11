@@ -27,7 +27,7 @@ export async function onRequest(context) {
 
   try {
     const body = await request.json();
-    const { items, currency, country, vatRate, displayType } = body;
+    const { items, currency, country, vatRate, displayType, cancelUrl } = body;
 
     if (!items || !Array.isArray(items) || items.length === 0) {
       return new Response(JSON.stringify({ error: 'Missing or invalid cart items.' }), {
@@ -127,7 +127,7 @@ export async function onRequest(context) {
         allowed_countries: allowedShippingCountries,
       },
       success_url: `${origin}/index.html?checkout_success=true&session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/shop.html?checkout_canceled=true`,
+      cancel_url: cancelUrl || `${origin}/shop.html?checkout_canceled=true`,
     });
 
     return new Response(JSON.stringify({ url: session.url }), {
