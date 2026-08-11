@@ -661,7 +661,8 @@
                     currency: loc.currency,
                     country: loc.country,
                     vatRate: loc.vatRate,
-                    displayType: loc.displayType
+                    displayType: loc.displayType,
+                    cancelUrl: window.location.href
                 })
             })
             .then(res => {
