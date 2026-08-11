@@ -117,7 +117,6 @@ export async function onRequest(context) {
       line_items: lineItems,
       mode: 'payment',
       automatic_tax: { enabled: true },
-      customer_update: { address: 'auto' },
       shipping_address_collection: {
         allowed_countries: allowedShippingCountries,
       },
