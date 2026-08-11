@@ -668,10 +668,15 @@
                 if (res.ok) {
                     return res.json();
                 }
-                return res.json().then(errData => {
-                    throw new Error(errData.error || "Checkout session creation failed.");
-                }).catch(() => {
-                    throw new Error("Checkout session creation failed.");
+                return res.text().then(text => {
+                    let errMsg = "Checkout session creation failed.";
+                    try {
+                        const errData = JSON.parse(text);
+                        errMsg = errData.error || errMsg;
+                    } catch (e) {
+                        errMsg = `Server returned HTTP ${res.status}: ${text.substring(0, 150)}...`;
+                    }
+                    throw new Error(errMsg);
                 });
             })
             .then(data => {
