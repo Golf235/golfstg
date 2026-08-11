@@ -77,10 +77,10 @@ export async function onRequest(context) {
             name: item.name,
             description: description || undefined,
             images: absoluteImages.length > 0 ? absoluteImages : undefined,
+            tax_code: 'txcd_10000000', // physical goods
           },
           unit_amount: unitAmountCents,
           tax_behavior: 'exclusive',
-          tax_code: 'txcd_10000000', // physical goods
         },
         quantity: item.quantity,
         adjustable_quantity: {
