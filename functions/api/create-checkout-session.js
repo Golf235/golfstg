@@ -62,7 +62,13 @@ export async function onRequest(context) {
         if (cleanImage.startsWith('/')) {
           cleanImage = cleanImage.slice(1);
         }
-        absoluteImages.push(`${origin}/${cleanImage}`);
+        
+        // Handle absolute protocols and safely URL-encode spaces/special characters
+        const imageUrl = cleanImage.startsWith('http://') || cleanImage.startsWith('https://')
+          ? cleanImage
+          : `${origin}/${cleanImage}`;
+          
+        absoluteImages.push(encodeURI(imageUrl));
       }
 
       // Calculate Net Price in cents
