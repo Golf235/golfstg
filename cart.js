@@ -1,13 +1,17 @@
+ /**
+ * Golfyr Persistent Cart & Stripe Checkout Integration
+ */
+
 (function() {
-    // 1. Hardcoded Product Catalog
+    // 1. Product Catalog with Stripe Price IDs (Placeholders for sandbox testing)
     const PRODUCT_CATALOG = {
-        "cap": { id: "cap", name: "Golfyr Club Cap", price: 39, image: "./25.webp", priceId: "price_1PabcCapTest01" },
-        "bucket-hat": { id: "bucket-hat", name: "Golfyr Bucket Hat", price: 49, image: "./3.webp", priceId: "price_1PabcBucketTest02" },
-        "tote-bag": { id: "tote-bag", name: "The 7>14 Tote Bag", price: 21, image: "./tote_bag.webp", priceId: "price_1PabcToteTest03" },
+        "cap": { id: "cap", name: "Golfyr Cap", price: 39, image: "./25.webp", priceId: "price_1PabcCapTest01" },
+        "bucket-hat": { id: "bucket-hat", name: "Golfyr Bucket Hat", price: 49, image: "./3.webp", priceId: "price_1PabcHatTest02" },
+        "tote-bag": { id: "tote-bag", name: "Golfyr Tote Bag", price: 21, image: "./7.webp", priceId: "price_1PabcToteTest03" },
         "tri-fold-towel": { id: "tri-fold-towel", name: "Golfyr Tri-Fold Towel", price: 21, image: "./5.webp", priceId: "price_1PabcTowelTest04" },
         "t-shirt": { id: "t-shirt", name: "Golfyr T-Shirt", price: 49, image: "./15.webp", priceId: "price_1PabcTshirtTest05" },
         "shirt": { id: "shirt", name: "Golfyr Shirt", price: 79, image: "./11.webp", priceId: "price_1PabcShirtTest06" },
-        "short-sleeve-polo": { id: "short-sleeve-polo", name: "Golfyr Short Sleeve Polo", price: 69, image: "./22.webp", priceId: "price_1PabcPoloTest07" },
+        "short-sleeve-polo": { id: "short-sleeve-polo", name: "Golfyr Short-Sleeve Polo", price: 69, image: "./22.webp", priceId: "price_1PabcPoloTest07" },
         "maker": { id: "maker", name: "The Maker Putter", price: 890, image: "./maker-1.webp", priceId: "price_1PabcMakerTest08" },
         "maker-tour": { id: "maker-tour", name: "The Maker Tour Putter", price: 890, image: "./Maker Tour - Golfyr_files/39_Golfyr_Maker3_Tour_16457_V1_sRGB_300dpi-3.webp", priceId: "price_1PabcMakerTour09" },
         "configurator": { id: "configurator", name: "Custom Carbon Club Set", price: 890, image: "./maker_premier.webp", priceId: "price_1PabcConfigTest10" }
@@ -37,95 +41,348 @@
                 return null;
             }
         },
-        set: function(state) {
+        save: function(data) {
             try {
-                sessionStorage.setItem('golfyr_location', JSON.stringify(state));
+                sessionStorage.setItem('golfyr_location', JSON.stringify(data));
             } catch (e) {}
         },
         detect: function(callback) {
-            const cached = this.get();
-            if (cached) {
-                if (callback) callback(cached);
-                return;
-            }
+            // Check if there is a test_country parameter in the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const testCountry = urlParams.get('test_country');
+            const cacheKey = testCountry ? `golfyr_location_test_${testCountry}` : 'golfyr_location';
+            
+            try {
+                const cached = sessionStorage.getItem(cacheKey);
+                if (cached) {
+                    const parsed = JSON.parse(cached);
+                    this.save(parsed);
+                    callback(parsed);
+                    return;
+                }
+            } catch (e) {}
 
-            // Fallback default state
-            const fallback = { country: 'CH', currency: 'CHF', vatRate: 0.081, displayType: 'gross' };
-
-            // Request location info from Cloudflare trace or geolocation API
-            fetch("https://1.1.1.1/cdn-cgi/trace")
-                .then(res => res.text())
-                .then(text => {
-                    const lines = text.split("\n");
-                    let countryCode = "CH"; // default fallback
-                    for (const line of lines) {
-                        if (line.startsWith("loc=")) {
-                            countryCode = line.split("=")[1].toUpperCase();
-                            break;
+            const url = testCountry ? `/api/detect-location?test_country=${testCountry}` : '/api/detect-location';
+            fetch(url)
+                .then(res => {
+                    if (!res.ok) throw new Error("API not available");
+                    return res.json();
+                })
+                .then(data => {
+                    try {
+                        sessionStorage.setItem(cacheKey, JSON.stringify(data));
+                    } catch (e) {}
+                    this.save(data);
+                    callback(data);
+                })
+                .catch(err => {
+                    console.warn("Location detection API failed or not running. Using client-side detection/fallback:", err);
+                    
+                    let fallbackLoc = { country: 'CH', currency: 'CHF', vatRate: 0.081, displayType: 'gross' };
+                    if (testCountry) {
+                        const uc = testCountry.toUpperCase();
+                        const EU_COUNTRIES = [
+                            'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 
+                            'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 
+                            'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE'
+                        ];
+                        const VAT_RATES = {
+                            'CH': 0.081, 'AT': 0.20, 'BE': 0.21, 'BG': 0.20, 'HR': 0.25, 'CY': 0.19,
+                            'CZ': 0.21, 'DK': 0.25, 'EE': 0.22, 'FI': 0.24, 'FR': 0.20, 'DE': 0.19,
+                            'GR': 0.24, 'HU': 0.27, 'IE': 0.23, 'IT': 0.22, 'LV': 0.21, 'LT': 0.21,
+                            'LU': 0.17, 'MT': 0.18, 'NL': 0.21, 'PL': 0.23, 'PT': 0.23, 'RO': 0.19,
+                            'SK': 0.20, 'SI': 0.22, 'ES': 0.21, 'SE': 0.25
+                        };
+                        
+                        if (uc === 'CH') {
+                            fallbackLoc = { country: 'CH', currency: 'CHF', vatRate: 0.081, displayType: 'gross' };
+                        } else if (EU_COUNTRIES.includes(uc)) {
+                            fallbackLoc = { country: uc, currency: 'EUR', vatRate: VAT_RATES[uc] || 0.19, displayType: 'gross' };
+                        } else {
+                            fallbackLoc = { country: uc, currency: 'USD', vatRate: 0, displayType: 'net' };
                         }
+                    } else {
+                        // Attempt to detect from browser locale timezone as a smart fallback if no API
+                        try {
+                            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                            if (tz.includes("Europe/Zurich")) {
+                                fallbackLoc = { country: 'CH', currency: 'CHF', vatRate: 0.081, displayType: 'gross' };
+                            } else if (tz.includes("Europe/")) {
+                                fallbackLoc = { country: 'DE', currency: 'EUR', vatRate: 0.19, displayType: 'gross' };
+                            } else {
+                                fallbackLoc = { country: 'US', currency: 'USD', vatRate: 0, displayType: 'net' };
+                            }
+                        } catch (e) {}
                     }
                     
-                    // Determine currency, VAT rate, and display mode based on country
-                    let currency = "CHF";
-                    let vatRate = 0.081; // Swiss standard VAT rate (8.1%)
-                    let displayType = "gross"; // gross pricing (VAT incl.) for B2C
-
-                    const euCountries = [
-                        'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 
-                        'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 
-                        'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE'
-                    ];
-
-                    if (euCountries.includes(countryCode)) {
-                        currency = "EUR";
-                        // Set standard EU VAT rate mappings
-                        const vatRates = {
-                            DE: 0.19, FR: 0.20, IT: 0.22, ES: 0.21, NL: 0.21, AT: 0.20, BE: 0.21
-                        };
-                        vatRate = vatRates[countryCode] || 0.20; // fallback to 20% standard VAT
-                    } else if (countryCode === "US") {
-                        currency = "USD";
-                        vatRate = 0.0; // Sales tax calculated at checkout
-                        displayType = "net"; // Net pricing (excluding taxes)
-                    } else if (countryCode === "GB") {
-                        currency = "GBP";
-                        vatRate = 0.20; // UK VAT rate (20%)
-                    }
-
-                    const state = { country: countryCode, currency, vatRate, displayType };
-                    this.set(state);
-                    if (callback) callback(state);
-                })
-                .catch(() => {
-                    this.set(fallback);
-                    if (callback) callback(fallback);
+                    try {
+                        sessionStorage.setItem(cacheKey, JSON.stringify(fallbackLoc));
+                    } catch (e) {}
+                    this.save(fallbackLoc);
+                    callback(fallbackLoc);
                 });
         }
     };
 
-    // 4. Cart Logic Manager
+    // 4. Bilingual Translations for Cart Items and Selections
+    const CART_TRANSLATIONS = {
+        de: {
+            // Product names
+            "The Premier Set": "Das Premier Set",
+            "The Maker Premier": "Der Maker Premier",
+            "The Maker Tour": "Die Maker Tour",
+            "Das Premier Set": "Das Premier Set",
+            "Der Maker Premier": "Der Maker Premier",
+            "Die Maker Tour": "Die Maker Tour",
+            
+            // Categories
+            "Model": "Modell",
+            "Length": "Länge",
+            "Grip": "Griff",
+            "Offset": "Offset",
+            "Putter Grip": "Putter-Griff",
+            "Putter Length": "Putter-Länge",
+            "Putter Offset": "Offset",
+            "Shaft Flex": "Flex",
+            "Shaft Size": "Größe",
+            "Grip Type": "Griff-Typ",
+            "Grip Size": "Griff-Größe",
+            "Bag": "Tasche",
+            "Bag Tag": "Anhänger",
+
+            // Values
+            "Standbag White": "Stand Bag Weiß",
+            "Standbag Grey": "Stand Bag Grau",
+            "Cartbag White": "Cart Bag Weiß",
+            "Cartbag Grey": "Cart Bag Grau",
+            "Stand Bag White": "Stand Bag Weiß",
+            "Stand Bag Grey": "Stand Bag Grau",
+            "Cart Bag White": "Cart Bag Weiß",
+            "Cart Bag Grey": "Cart Bag Grau",
+            "Stiff": "Stiff",
+            "Regular": "Regular",
+            "Light": "Light",
+            "Standard": "Standard",
+            "Standard Light": "Standard Light",
+            "Light short": "Light short",
+            "Midsize": "Midsize",
+            "Undersize": "Undersize",
+            "Jumbo": "Jumbo",
+            "The Maker": "The Maker",
+            "The Maker Tour": "The Maker Tour",
+            "Full-Shaft": "Full-Shaft",
+            "Zero": "Kein",
+            "Celeste": "Celeste",
+            "Copper": "Copper",
+            "Dark Maroon": "Dark Maroon",
+            "Lavender": "Lavender",
+            "Lilac": "Lilac"
+        }
+    };
+
+    // 5. React Fiber tree option state extraction helpers
+    function findConfiguratorFiber() {
+        const rootEl = document.querySelector("#root > div") || document.getElementById("root");
+        if (!rootEl) return null;
+        
+        const key = Object.keys(rootEl).find(k => k.startsWith('__reactFiber$') || k.startsWith('__reactContainer$'));
+        if (!key) return null;
+        
+        let rootFiber = rootEl[key];
+        let foundNode = null;
+        
+        function traverse(node) {
+            if (!node || foundNode) return;
+            
+            if (node.memoizedState && typeof node.memoizedState === 'object' && 'memoizedState' in node.memoizedState) {
+                let hook = node.memoizedState;
+                let count = 0;
+                let bagHook = null;
+                let flexHook = null;
+                while (hook && typeof hook === 'object' && 'memoizedState' in hook) {
+                    if (count === 4) bagHook = hook;
+                    if (count === 5) flexHook = hook;
+                    count++;
+                    hook = hook.next;
+                }
+                
+                if (count >= 13 && 
+                    bagHook && bagHook.memoizedState && typeof bagHook.memoizedState === 'object' && 
+                    (bagHook.memoizedState.category === 'standbag' || bagHook.memoizedState.category === 'cartbag') &&
+                    flexHook && flexHook.memoizedState && typeof flexHook.memoizedState === 'object' &&
+                    ('id' in flexHook.memoizedState)) {
+                    foundNode = node;
+                    return;
+                }
+            }
+            
+            if (node.child) traverse(node.child);
+            if (node.sibling) traverse(node.sibling);
+        }
+        
+        traverse(rootFiber.current || rootFiber);
+        return foundNode;
+    }
+
+    function findConfiguratorFiberFromEvent(target) {
+        if (!target) return null;
+        const key = Object.keys(target).find(k => k.startsWith('__reactFiber$'));
+        if (!key) return null;
+        
+        let node = target[key];
+        while (node) {
+            if (node.memoizedState && typeof node.memoizedState === 'object' && 'memoizedState' in node.memoizedState) {
+                let hook = node.memoizedState;
+                let count = 0;
+                let bagHook = null;
+                let flexHook = null;
+                while (hook && typeof hook === 'object' && 'memoizedState' in hook) {
+                    if (count === 4) bagHook = hook;
+                    if (count === 5) flexHook = hook;
+                    count++;
+                    hook = hook.next;
+                }
+                if (count >= 13 && 
+                    bagHook && bagHook.memoizedState && typeof bagHook.memoizedState === 'object' && 
+                    (bagHook.memoizedState.category === 'standbag' || bagHook.memoizedState.category === 'cartbag')) {
+                    return node;
+                }
+            }
+            node = node.return;
+        }
+        return null;
+    }
+
+    function getSelectionsFromFiber(target) {
+        let node = findConfiguratorFiberFromEvent(target);
+        if (!node) {
+            node = findConfiguratorFiber();
+        }
+        if (!node) return null;
+        
+        let hook = node.memoizedState;
+        const hooks = [];
+        while (hook && typeof hook === 'object' && 'memoizedState' in hook) {
+            hooks.push(hook.memoizedState);
+            hook = hook.next;
+        }
+        
+        const bag = hooks[4];
+        const flex = hooks[5];
+        const shaftSize = hooks[6];
+        const gripSize = hooks[7];
+        const putterLength = hooks[8];
+        const gripType = hooks[9];
+        const putter = hooks[10];
+        const putterOffset = hooks[11];
+        const bagTag = hooks[12];
+
+        const cleanName = (obj) => {
+            if (!obj || !obj.name) return null;
+            return obj.name.split('(')[0].trim();
+        };
+
+        const selections = {};
+        if (putter) selections["Putter Type"] = cleanName(putter);
+        if (putterOffset) selections["Putter Offset"] = cleanName(putterOffset);
+        if (putterLength) selections["Putter Length"] = cleanName(putterLength);
+        if (flex) selections["Shaft Flex"] = cleanName(flex);
+        if (shaftSize) selections["Shaft Size"] = cleanName(shaftSize);
+        if (gripType) selections["Grip Type"] = cleanName(gripType);
+        if (gripSize) selections["Grip Size"] = cleanName(gripSize);
+        if (bag) selections["Bag"] = cleanName(bag);
+        if (bagTag) selections["Bag Tag"] = cleanName(bagTag);
+
+        return selections;
+    }
+
+    // 6. Edge/Client Cookie & Price formatting
+    function setCurrencyCookie(currency) {
+        document.cookie = `wmc_current_currency=${currency}; path=/; max-age=31536000`;
+    }
+
+    // Dynamic price updates across catalog pages based on LocationState
+    function updatePagePricesAndVAT(loc) {
+        const currency = loc.currency;
+        const displayType = loc.displayType;
+        const country = loc.country;
+        const vatRate = loc.vatRate;
+
+        // 1. Update text nodes containing "CHF" dynamically
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        let node;
+        while (node = walker.nextNode()) {
+            if (node.nodeValue.includes("CHF")) {
+                node.nodeValue = node.nodeValue.replace(/CHF/g, currency);
+            }
+        }
+
+        // 2. Update accessory product page pricing dynamically
+        const pathname = window.location.pathname.toLowerCase();
+        let currentProduct = null;
+        if (pathname.includes("cap.html")) currentProduct = "cap";
+        else if (pathname.includes("bucket-hat.html")) currentProduct = "bucket-hat";
+        else if (pathname.includes("tote-bag.html")) currentProduct = "tote-bag";
+        else if (pathname.includes("tri-fold-towel.html")) currentProduct = "tri-fold-towel";
+        else if (pathname.includes("t-shirt.html")) currentProduct = "t-shirt";
+        else if (pathname.includes("shirt.html")) currentProduct = "shirt";
+        else if (pathname.includes("short-sleeve-polo.html")) currentProduct = "short-sleeve-polo";
+        
+        if (currentProduct && PRICE_MATRIX[currentProduct]) {
+            const priceVal = PRICE_MATRIX[currentProduct][currency];
+            
+            const priceEl = document.getElementById("tote-price-value");
+            if (priceEl) priceEl.textContent = priceVal;
+            
+            const summaryPriceEl = document.getElementById("summary-price-value");
+            if (summaryPriceEl) summaryPriceEl.textContent = priceVal;
+        }
+
+        // 3. Update VAT labels (incl. / excl. tax)
+        const vatLabels = document.querySelectorAll("[data-translate='nav-cart-suffix']");
+        vatLabels.forEach(el => {
+            if (displayType === 'gross') {
+                const pct = (vatRate * 100).toFixed(1).replace('.0', '');
+                el.textContent = ` (incl. ${pct}% VAT)`;
+            } else {
+                el.textContent = ` (excl. VAT)`;
+            }
+        });
+
+        const inclVatLabels = Array.from(document.querySelectorAll("body *")).filter(el => {
+            return el.children.length === 0 && el.textContent.includes("PRICE INCL. VAT");
+        });
+        inclVatLabels.forEach(el => {
+            if (displayType === 'gross') {
+                el.textContent = "PRICE INCL. VAT";
+            } else {
+                el.textContent = "PRICE EXCL. VAT";
+            }
+        });
+    }
+
+    // 7. LocalStorage Cart Manager
     const CartManager = {
         getCart: function() {
             try {
-                const data = localStorage.getItem('golfyr_cart');
-                return data ? JSON.parse(data) : [];
+                const cartData = localStorage.getItem('golfyr_cart');
+                return cartData ? JSON.parse(cartData) : [];
             } catch (e) {
+                console.error("Failed to parse cart data:", e);
                 return [];
             }
         },
 
         saveCart: function(cart) {
-            try {
-                localStorage.setItem('golfyr_cart', JSON.stringify(cart));
-            } catch (e) {}
+            localStorage.setItem('golfyr_cart', JSON.stringify(cart));
             this.updateWidget();
+            this.renderDrawer();
         },
 
         getOptionsKey: function(options) {
-            if (!options) return "";
-            const keys = Object.keys(options).sort();
+            if (!options || Object.keys(options).length === 0) return "";
             const sorted = {};
-            keys.forEach(k => {
+            Object.keys(options).sort().forEach(k => {
                 sorted[k] = options[k];
             });
             return JSON.stringify(sorted);
@@ -172,190 +429,212 @@
 
         updateQuantity: function(cartItemId, quantity) {
             let cart = this.getCart();
-            const item = cart.find(i => i.cartItemId === cartItemId);
+            const item = cart.find(item => item.cartItemId === cartItemId);
             if (item) {
-                item.quantity = Math.max(1, quantity);
+                item.quantity = Math.max(1, parseInt(quantity));
                 this.saveCart(cart);
             }
         },
 
         removeItem: function(cartItemId) {
             let cart = this.getCart();
-            cart = cart.filter(i => i.cartItemId !== cartItemId);
+            cart = cart.filter(item => item.cartItemId !== cartItemId);
             this.saveCart(cart);
         },
 
-        getCartTotal: function(currency) {
+        clearCart: function() {
+            this.saveCart([]);
+        },
+
+        getTotals: function() {
             const cart = this.getCart();
-            const cur = currency || (LocationState.get() ? LocationState.get().currency : 'CHF');
+            const loc = LocationState.get() || { currency: 'CHF' };
+            const cur = loc.currency;
+            let count = 0;
             let total = 0;
             cart.forEach(item => {
+                count += item.quantity;
                 total += this.getProductPrice(item.id, item.name, cur) * item.quantity;
             });
-            return total;
+            return { count, total };
         },
 
-        getCartCount: function() {
-            const cart = this.getCart();
-            let count = 0;
-            cart.forEach(item => {
-                count += item.quantity;
-            });
-            return count;
-        },
-
-        // Redraw cart badge counter in Header, and the cart list items in the drawer
         updateWidget: function() {
-            const count = this.getCartCount();
+            const { count, total } = this.getTotals();
+            const loc = LocationState.get() || { currency: 'CHF' };
+            const cur = loc.currency;
+            
+            // Update widget badge counts on page
             const badges = document.querySelectorAll(".cart-badge");
-            badges.forEach(b => {
-                b.textContent = count;
-                b.style.display = count > 0 ? "flex" : "none";
+            badges.forEach(badge => {
+                badge.textContent = count;
+                badge.style.display = count > 0 ? "flex" : "none";
             });
 
-            // Build dynamic list inside the Drawer body
-            const cartList = document.querySelector(".cart-list");
-            if (!cartList) return;
+            // Update price display text (e.g. "CHF 890")
+            const priceWidgets = document.querySelectorAll(".cart-widget > span");
+            priceWidgets.forEach(widget => {
+                // Keep the suffix tag if present
+                const suffix = widget.querySelector("[data-translate='nav-cart-suffix']") || widget.querySelector("span");
+                let suffixText = "";
+                if (suffix) {
+                    suffix.style.display = count > 0 ? "inline" : "none";
+                    suffixText = suffix.outerHTML;
+                } else if (count > 0) {
+                    suffixText = " (incl. tax)";
+                }
+                widget.innerHTML = `${cur} ${total.toLocaleString()}${suffixText}`;
+            });
+        },
 
+        // Inject the drawer HTML if it doesn't exist
+        initDrawerUI: function() {
+            if (document.getElementById("cart-drawer-overlay")) return;
+
+            const drawerHTML = `
+                <div id="cart-drawer-overlay" class="cart-drawer-overlay"></div>
+                <div id="cart-drawer" class="cart-drawer">
+                    <div class="cart-drawer-header">
+                        <h2>Shopping Cart</h2>
+                        <button id="cart-drawer-close" class="cart-drawer-close" aria-label="Close Cart">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="cart-drawer-items" class="cart-drawer-items">
+                        <!-- Dynamic Cart Items -->
+                    </div>
+                    <div class="cart-drawer-footer">
+                        <div class="cart-drawer-total">
+                            <span>Total:</span>
+                            <span id="cart-drawer-total-price">CHF 0</span>
+                        </div>
+                        <button id="cart-drawer-checkout" class="cart-drawer-checkout-btn">
+                            <span class="checkout-spinner" id="checkout-spinner"></span>
+                            <span>Proceed to Checkout</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            const container = document.createElement("div");
+            container.innerHTML = drawerHTML;
+            document.body.appendChild(container);
+
+            // Hook up close actions
+            document.getElementById("cart-drawer-close").addEventListener("click", () => this.closeDrawer());
+            document.getElementById("cart-drawer-overlay").addEventListener("click", () => this.closeDrawer());
+
+            // Hook up checkout button
+            document.getElementById("cart-drawer-checkout").addEventListener("click", () => this.checkout());
+        },
+
+        renderDrawer: function() {
+            this.initDrawerUI();
+            const itemsContainer = document.getElementById("cart-drawer-items");
             const cart = this.getCart();
-            const loc = LocationState.get() || { country: 'CH', currency: 'CHF', vatRate: 0.081, displayType: 'gross' };
+            const loc = LocationState.get() || { currency: 'CHF' };
             const cur = loc.currency;
 
             if (cart.length === 0) {
-                cartList.innerHTML = `
-                    <div class="cart-empty-state">
-                        <p data-translate="cart-empty">Ihr Warenkorb ist leer.</p>
-                        <a href="shop.html" class="btn btn-dark" data-translate="cart-back-shop" style="margin-top: 20px;">Zurück zum Shop</a>
+                itemsContainer.innerHTML = `
+                    <div class="cart-empty-message">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.3; margin-bottom: 16px; color: var(--text-primary);">
+                            <circle cx="9" cy="21" r="1" fill="currentColor"/>
+                            <circle cx="20" cy="21" r="1" fill="currentColor"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p>Your cart is empty</p>
                     </div>
                 `;
-                
-                // Hide footer total & checkout elements when cart is empty
-                const footer = document.querySelector(".cart-drawer-footer");
-                if (footer) footer.style.display = "none";
-                
-                // Translate the empty state nodes
-                if (window.translateDOM) {
-                    window.translateDOM(window.currentLanguage || 'en');
-                }
+                document.getElementById("cart-drawer-checkout").disabled = true;
+                document.getElementById("cart-drawer-total-price").textContent = `${cur} 0`;
                 return;
             }
 
-            // Show footer total section when items exist
-            const footer = document.querySelector(".cart-drawer-footer");
-            if (footer) footer.style.display = "block";
+            document.getElementById("cart-drawer-checkout").disabled = false;
+            let itemsHTML = "";
+            const lang = localStorage.getItem('golfyr_lang') || 'en';
 
-            let html = "";
             cart.forEach(item => {
+                // Translate name if there is a translation
+                const displayName = lang === 'de' ? (CART_TRANSLATIONS.de[item.name] || item.name) : item.name;
                 const price = this.getProductPrice(item.id, item.name, cur);
-                const itemTotal = price * item.quantity;
-
-                // Render option detail badges if they exist
-                let optionsHtml = "";
+                
+                // Build options list HTML
+                let optionsHTML = "";
                 if (item.options && Object.keys(item.options).length > 0) {
-                    optionsHtml = `<div class="cart-item-options">`;
-                    for (const [key, val] of Object.entries(item.options)) {
-                        optionsHtml += `<span class="cart-option-badge">${key}: ${val}</span>`;
+                    optionsHTML += `<div class="cart-item-options">`;
+                    for (const [key, value] of Object.entries(item.options)) {
+                        const displayKey = lang === 'de' ? (CART_TRANSLATIONS.de[key] || key) : key;
+                        const displayVal = lang === 'de' ? (CART_TRANSLATIONS.de[value] || value) : value;
+                        optionsHTML += `
+                            <div class="cart-item-option">
+                                <span class="option-label">${displayKey}:</span>
+                                <span class="option-value">${displayVal}</span>
+                            </div>
+                        `;
                     }
-                    optionsHtml += `</div>`;
+                    optionsHTML += `</div>`;
                 }
 
-                html += `
+                itemsHTML += `
                     <div class="cart-item" data-id="${item.cartItemId}">
-                        <div class="cart-item-image">
-                            <img src="${item.image}" alt="${item.name}">
-                        </div>
+                        <img src="${item.image}" alt="${displayName}" class="cart-item-image">
                         <div class="cart-item-details">
-                            <div class="cart-item-header">
-                                <h4 class="cart-item-name">${item.name}</h4>
-                                <button class="cart-item-remove" data-id="${item.cartItemId}">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </button>
-                            </div>
-                            ${optionsHtml}
-                            <div class="cart-item-price-row">
-                                <div class="quantity-selector">
-                                    <button class="qty-btn minus" data-id="${item.cartItemId}">-</button>
-                                    <span class="qty-val">${item.quantity}</span>
-                                    <button class="qty-btn plus" data-id="${item.cartItemId}">+</button>
+                            <h3>${displayName}</h3>
+                            ${optionsHTML}
+                            <div class="cart-item-price">${cur} ${price}</div>
+                            <div class="cart-item-actions">
+                                <div class="cart-item-qty-selector">
+                                    <button class="qty-btn dec-qty-btn" onclick="window.GolfyrCart.changeQuantity('${item.cartItemId}', -1)">-</button>
+                                    <span class="qty-display">${item.quantity}</span>
+                                    <button class="qty-btn inc-qty-btn" onclick="window.GolfyrCart.changeQuantity('${item.cartItemId}', 1)">+</button>
                                 </div>
-                                <span class="cart-item-price">${formatPrice(itemTotal, cur)}</span>
+                                <button class="cart-item-remove" onclick="window.GolfyrCart.removeItem('${item.cartItemId}')">
+                                    Remove
+                                </button>
                             </div>
                         </div>
                     </div>
                 `;
             });
+            itemsContainer.innerHTML = itemsHTML;
 
-            cartList.innerHTML = html;
+            const { total } = this.getTotals();
+            document.getElementById("cart-drawer-total-price").textContent = `${cur} ${total.toLocaleString()}`;
+        },
 
-            // Draw VAT Tax breakdown information
-            const subtotalVal = document.querySelector(".subtotal-val");
-            const taxVal = document.querySelector(".tax-val");
-            const totalVal = document.querySelector(".total-val");
-            const vatInfo = document.querySelector(".vat-info");
+        openDrawer: function() {
+            this.renderDrawer();
+            document.getElementById("cart-drawer-overlay").classList.add("active");
+            document.getElementById("cart-drawer").classList.add("open");
+            document.body.style.overflow = "hidden"; // Prevent background scroll
+        },
 
-            const total = this.getCartTotal(cur);
-            const rate = parseFloat(loc.vatRate);
-            
-            let subtotal = total;
-            let tax = 0;
+        closeDrawer: function() {
+            document.getElementById("cart-drawer-overlay").classList.remove("active");
+            document.getElementById("cart-drawer").classList.remove("open");
+            document.body.style.overflow = ""; // Re-enable background scroll
+        },
 
-            if (loc.displayType === "gross" && rate > 0) {
-                // VAT is already included in prices (gross)
-                subtotal = total / (1 + rate);
-                tax = total - subtotal;
-            } else if (rate > 0) {
-                // VAT is excluded from catalog pricing (net)
-                subtotal = total;
-                tax = total * rate;
-            }
-
-            if (subtotalVal) subtotalVal.textContent = formatPrice(subtotal, cur);
-            if (taxVal) taxVal.textContent = formatPrice(tax, cur);
-            if (totalVal) totalVal.textContent = formatPrice(subtotal + tax, cur);
-            
-            if (vatInfo) {
-                const label = loc.displayType === "gross" ? "incl." : "excl.";
-                vatInfo.textContent = `(${label} ${loc.country} VAT/MwSt. ${(rate * 100).toFixed(1)}%)`;
-            }
-
-            // Hook up events on newly created quantity/remove buttons
-            cartList.querySelectorAll(".qty-btn.minus").forEach(b => {
-                b.addEventListener("click", () => {
-                    const id = b.getAttribute("data-id");
-                    const item = cart.find(i => i.cartItemId === id);
-                    if (item) this.updateQuantity(id, item.quantity - 1);
-                });
-            });
-
-            cartList.querySelectorAll(".qty-btn.plus").forEach(b => {
-                b.addEventListener("click", () => {
-                    const id = b.getAttribute("data-id");
-                    const item = cart.find(i => i.cartItemId === id);
-                    if (item) this.updateQuantity(id, item.quantity + 1);
-                });
-            });
-
-            cartList.querySelectorAll(".cart-item-remove").forEach(b => {
-                b.addEventListener("click", () => {
-                    const id = b.getAttribute("data-id");
-                    this.removeItem(id);
-                });
-            });
-
-            // Translate newly loaded items inside the drawer
-            if (window.translateDOM) {
-                window.translateDOM(window.currentLanguage || 'en');
+        changeQuantity: function(cartItemId, delta) {
+            const cart = this.getCart();
+            const item = cart.find(item => item.cartItemId === cartItemId);
+            if (item) {
+                const newQty = item.quantity + delta;
+                this.updateQuantity(cartItemId, newQty);
             }
         },
 
         checkout: function() {
-            const checkoutBtn = document.querySelector(".btn-checkout");
-            const spinner = document.querySelector(".checkout-spinner");
-            if (checkoutBtn) checkoutBtn.disabled = true;
-            if (spinner) spinner.style.display = "inline-block";
-
+            const checkoutBtn = document.getElementById("cart-drawer-checkout");
+            const spinner = document.getElementById("checkout-spinner");
+            
+            checkoutBtn.disabled = true;
+            spinner.style.display = "inline-block";
+            
             const cart = this.getCart();
             const loc = LocationState.get() || { country: 'CH', currency: 'CHF', vatRate: 0.081, displayType: 'gross' };
 
@@ -436,53 +715,20 @@
         }
     };
 
-    // Helper Utility: format prices nicely based on active currency
-    function formatPrice(amount, currency) {
-        const cur = currency || "CHF";
-        if (cur === "CHF") {
-            return amount.toLocaleString("de-CH", { style: "currency", currency: "CHF" });
-        } else if (cur === "EUR") {
-            return amount.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
-        } else {
-            return amount.toLocaleString("en-US", { style: "currency", currency: "USD" });
+    // Export globally
+    window.GolfyrCart = CartManager;
+
+    // Handle back-forward cache pageshow event to sync cart count when returning to pages
+    window.addEventListener("pageshow", () => {
+        CartManager.updateWidget();
+        const loc = LocationState.get();
+        if (loc) {
+            updatePagePricesAndVAT(loc);
+            CartManager.updateWidget();
         }
-    }
+    });
 
-    // Helper Utility: set cookie for language & currency
-    function setCurrencyCookie(val) {
-        document.cookie = `wmc_current_currency=${val}; Path=/; Max-Age=31536000; SameSite=Lax`;
-    }
-
-    // Dynamic price updates across catalog pages based on LocationState
-    function updatePagePricesAndVAT(loc) {
-        const cur = loc.currency;
-        const rate = parseFloat(loc.vatRate);
-        const isGross = loc.displayType === "gross";
-
-        // Update single-item prices dynamically
-        document.querySelectorAll("[data-product-price]").forEach(el => {
-            const productId = el.getAttribute("data-product-price");
-            // If the element has a name attribute or option, resolve pricing accordingly
-            const name = el.getAttribute("data-product-name") || "";
-            const basePrice = CartManager.getProductPrice(productId, name, cur);
-            if (basePrice > 0) {
-                el.textContent = formatPrice(basePrice, cur);
-            }
-        });
-
-        // Update VAT breakdown labels across catalog pages
-        document.querySelectorAll("[data-vat-rate]").forEach(el => {
-            el.textContent = `${(rate * 100).toFixed(1)}%`;
-        });
-        document.querySelectorAll("[data-vat-behavior]").forEach(el => {
-            el.textContent = isGross ? "inkl." : "exkl.";
-        });
-        document.querySelectorAll("[data-vat-currency]").forEach(el => {
-            el.textContent = cur;
-        });
-    }
-
-    // 5. Drawer UI Initialization & Page Event Handlers
+    // 8. Document Load Hookups
     document.addEventListener("DOMContentLoaded", () => {
         // Fetch location, set cookie, update page prices & VAT, and render widgets
         LocationState.detect((loc) => {
@@ -511,91 +757,135 @@
             const widget = e.target.closest(".cart-widget");
             if (widget) {
                 e.preventDefault();
-                e.stopPropagation();
-                const drawer = document.querySelector(".cart-drawer");
-                const overlay = document.querySelector(".cart-drawer-overlay");
-                if (drawer && overlay) {
-                    drawer.classList.add("active");
-                    overlay.classList.add("active");
-                    document.body.style.overflow = "hidden"; // lock page scroll
-                }
+                CartManager.openDrawer();
             }
         });
 
-        // Hook up Cart Drawer Close button
-        const closeBtn = document.querySelector(".cart-drawer-close");
-        if (closeBtn) {
-            closeBtn.addEventListener("click", () => {
-                const drawer = document.querySelector(".cart-drawer");
-                const overlay = document.querySelector(".cart-drawer-overlay");
-                if (drawer && overlay) {
-                    drawer.classList.remove("active");
-                    overlay.classList.remove("active");
-                    document.body.style.overflow = ""; // restore page scroll
-                }
-            });
+        // 9. Page Detection & Add-To-Cart Overrides
+        const pathname = window.location.pathname.toLowerCase();
+        const cleanPath = pathname.replace(/\/$/, "");
+        function isPage(name) {
+            return cleanPath.endsWith("/" + name) || cleanPath.endsWith("/" + name + ".html");
         }
 
-        // Hook up Cart Drawer Overlay (click outside to close)
-        const overlay = document.querySelector(".cart-drawer-overlay");
-        if (overlay) {
-            overlay.addEventListener("click", () => {
-                const drawer = document.querySelector(".cart-drawer");
-                if (drawer) {
-                    drawer.classList.remove("active");
-                    overlay.classList.remove("active");
-                    document.body.style.overflow = "";
-                }
-            });
+        let currentProduct = null;
+
+        if (isPage("cap")) currentProduct = "cap";
+        else if (isPage("bucket-hat")) currentProduct = "bucket-hat";
+        else if (isPage("tote-bag")) currentProduct = "tote-bag";
+        else if (isPage("tri-fold-towel")) currentProduct = "tri-fold-towel";
+        else if (isPage("t-shirt")) currentProduct = "t-shirt";
+        else if (isPage("shirt")) currentProduct = "shirt";
+        else if (isPage("short-sleeve-polo")) currentProduct = "short-sleeve-polo";
+        else if (isPage("maker")) currentProduct = "maker";
+        else if (isPage("maker-tour")) currentProduct = "maker-tour";
+        else if (isPage("configurator")) currentProduct = "configurator";
+
+        if (currentProduct) {
+            console.log(`Detected product page for: ${currentProduct}`);
+            
+            // Override the triggerAddToCart function globally on product pages
+            window.triggerAddToCart = function() {
+                const qtyElement = document.getElementById("tote-qty-display") || { textContent: "1" };
+                const quantity = parseInt(qtyElement.textContent) || 1;
+
+                const button = document.getElementById("add-to-cart-btn");
+                const spinner = document.getElementById("cart-btn-spinner");
+                const text = document.getElementById("cart-btn-text");
+
+                if (button) button.disabled = true;
+                if (spinner) spinner.style.display = "inline-block";
+                if (text) text.textContent = "Adding...";
+
+                setTimeout(() => {
+                    if (spinner) spinner.style.display = "none";
+                    if (text) text.textContent = "Added!";
+
+                    // Add to our persistent cart!
+                    CartManager.addItem(currentProduct, quantity);
+                    
+                    // Automatically pop out the cart drawer
+                    CartManager.openDrawer();
+
+                    // Pulse cart badge animation using GSAP if present
+                    const badge = document.querySelector(".cart-badge");
+                    if (badge && typeof gsap !== "undefined") {
+                        gsap.fromTo(badge, 
+                            { scale: 1 }, 
+                            { scale: 1.3, duration: 0.15, yoyo: true, repeat: 1, ease: "power1.inOut" }
+                        );
+                    }
+
+                    setTimeout(() => {
+                        if (button) button.disabled = false;
+                        if (text) {
+                            const translateKey = text.getAttribute("data-translate");
+                            text.textContent = translateKey ? (window.translations?.[window.currentLang]?.[translateKey] || "Add to Cart") : "Add to Cart";
+                        }
+                    }, 1500);
+
+                }, 800);
+            };
         }
 
-        // Hook up Add to Cart Button in product detail pages
-        document.body.addEventListener("click", (e) => {
-            const addBtn = e.target.closest("[data-add-to-cart]");
-            if (addBtn) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const productId = addBtn.getAttribute("data-add-to-cart");
-                const qtyVal = document.querySelector(".quantity-selector .qty-val");
-                const qty = qtyVal ? parseInt(qtyVal.textContent) || 1 : 1;
-
-                // Capture options if they are selected on the page
-                const options = {};
-                
-                // 1. Color options
-                const colorEl = document.querySelector(".color-option.active");
-                if (colorEl) options["Color"] = colorEl.getAttribute("data-color-name") || colorEl.textContent.trim();
-                
-                // 2. Size options (e.g. Shirts/Apparel sizes)
-                const sizeEl = document.querySelector(".size-selector button.active");
-                if (sizeEl) options["Size"] = sizeEl.textContent.trim();
-
-                // Add to Cart
-                CartManager.addItem(productId, qty, options);
-
-                // Auto-open the cart drawer to show insertion
-                const drawer = document.querySelector(".cart-drawer");
-                const overlay = document.querySelector(".cart-drawer-overlay");
-                if (drawer && overlay) {
-                    drawer.classList.add("active");
-                    overlay.classList.add("active");
-                    document.body.style.overflow = "hidden";
+        // 10. Configurator Button Click Interception
+        if (isPage("configurator")) {
+            document.addEventListener("click", (e) => {
+                const btn = e.target.closest("button");
+                if (!btn) return;
+                const text = btn.textContent.trim().toLowerCase();
+                if (text.includes("add to cart") || text.includes("in den warenkorb")) {
+                    e.preventDefault();
+                    console.log("Configurator Add to Cart intercepted during capture phase!");
+                    
+                    // Try to parse the price from the page
+                    let priceVal = 890;
+                    const elements = Array.from(document.querySelectorAll("body *")).filter(el => {
+                        return el.children.length === 0 && el.textContent.includes("CHF");
+                    });
+                    if (elements.length > 0) {
+                        const txt = elements[0].textContent;
+                        const match = txt.replace(/[^\d]/g, "");
+                        if (match) {
+                            priceVal = parseInt(match);
+                        }
+                    }
+                    
+                    // Parse options from DOM & Fiber
+                    let selections = getSelectionsFromFiber(e.target) || {};
+                    
+                    // Get model name from H1 title
+                    const modelName = document.querySelector(".configurator-title")?.textContent.trim() || "Custom Carbon Club Set";
+                    
+                    // Get active image thumbnail from the configurator page
+                    const mainImg = document.querySelector("#root main > div:first-child img");
+                    const imageSrc = mainImg ? mainImg.getAttribute("src") : "./maker_premier.webp";
+                    
+                    // If it's a standalone Putter (The Maker Premier or The Maker Tour)
+                    if (modelName.toLowerCase().includes("maker")) {
+                        const filtered = {};
+                        if (selections["Putter Length"]) filtered["Length"] = selections["Putter Length"];
+                        if (selections["Grip Type"]) filtered["Grip"] = selections["Grip Type"];
+                        if (selections["Putter Offset"]) filtered["Offset"] = selections["Putter Offset"];
+                        selections = filtered;
+                    } else {
+                        const cleaned = {};
+                        if (selections["Shaft Flex"]) cleaned["Shaft Flex"] = selections["Shaft Flex"];
+                        if (selections["Shaft Size"]) cleaned["Shaft Size"] = selections["Shaft Size"];
+                        if (selections["Grip Size"]) cleaned["Grip Size"] = selections["Grip Size"];
+                        if (selections["Putter Length"]) cleaned["Putter Length"] = selections["Putter Length"];
+                        if (selections["Grip Type"]) cleaned["Putter Grip"] = selections["Grip Type"];
+                        if (selections["Putter Offset"]) cleaned["Putter Offset"] = selections["Putter Offset"];
+                        if (selections["Bag"]) cleaned["Bag"] = selections["Bag"];
+                        if (selections["Bag Tag"]) cleaned["Bag Tag"] = selections["Bag Tag"];
+                        selections = cleaned;
+                    }
+                    
+                    // Add configurator product to cart
+                    CartManager.addItem("configurator", 1, selections, modelName, priceVal, imageSrc);
+                    CartManager.openDrawer();
                 }
-            }
-        });
-
-        // Hook up Checkout Button
-        const checkoutBtn = document.querySelector(".btn-checkout");
-        if (checkoutBtn) {
-            checkoutBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                CartManager.checkout();
-            });
+            }, true);
         }
     });
-
-    // Make Cart API publicly available globally
-    window.CartAPI = CartManager;
 })();
