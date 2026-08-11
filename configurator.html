@@ -489,6 +489,16 @@
                     characterData: true
                 });
             }
+
+            // Intercept header back button clicks to navigate directly to shop.html
+            document.addEventListener("click", (e) => {
+                const backBtn = e.target.closest("header button");
+                if (backBtn && backBtn.querySelector("svg path[d='M15 19l-7-7 7-7']")) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.location.href = "shop.html";
+                }
+            }, true);
         });
     </script>
 
