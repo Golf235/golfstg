@@ -1,4 +1,4 @@
-/**
+ /**
  * Golfyr Persistent Cart & Stripe Checkout Integration
  */
 
