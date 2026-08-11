@@ -668,7 +668,11 @@
                 if (res.ok) {
                     return res.json();
                 }
-                throw new Error("Checkout session creation failed.");
+                return res.json().then(errData => {
+                    throw new Error(errData.error || "Checkout session creation failed.");
+                }).catch(() => {
+                    throw new Error("Checkout session creation failed.");
+                });
             })
             .then(data => {
                 if (data.url) {
@@ -681,12 +685,11 @@
             .catch(err => {
                 console.error("Stripe Redirect Error:", err);
                 
-                // Fallback Mode: For testing without a serverless backend
                 setTimeout(() => {
                     spinner.style.display = "none";
                     checkoutBtn.disabled = false;
                     
-                    alert(`[Stripe Sandbox Simulation]\n\nRedirection failed because serverless functions require local backend hosting (vercel dev).\n\nStripe Dynamic price_data Payload:\n${JSON.stringify(itemsWithPrices.map(i => {
+                    alert(`[Stripe Redirect Error]\nError details: ${err.message || err}\n\n[Stripe Sandbox Simulation]\n\nRedirection failed. Stripe Dynamic price_data Payload:\n${JSON.stringify(itemsWithPrices.map(i => {
                         const netPrice = loc.displayType === 'gross' && loc.vatRate > 0 
                             ? i.price / (1 + parseFloat(loc.vatRate)) 
                             : i.price;
